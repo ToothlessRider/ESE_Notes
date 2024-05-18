@@ -5,25 +5,24 @@
 > 
 [Github Repo Link for all ESE Notes](https://github.com/ToothlessRider/ESE_Notes.git).
 
-[TOC]
 
 ## Previous Year Questions 
 Q1. a. **An algorithm has two phases. The first phase, initialization, takes time O(n^3^). The second phase, which is the main computation, takes time O(n^2^). What is the most accurate description of the complexity of the overall algorithm**
 Ans. 
-1.  The initialization phase takes 𝑂(𝑛^3^)time.
-2.  The main computation phase takes 𝑂(𝑛^2^)time.
+1.  The initialization phase takes $O(n^3)$time.
+2.  The main computation phase takes $O(n^2)$time.
 
 The total time complexity 𝑇(𝑛) of the algorithm is the sum of the time complexities of both phases:
 
-𝑇(𝑛)=𝑂(𝑛^3^)+𝑂(𝑛^2^)
+$T(n) = O(n^3)+O(n^2)$
 
-When adding time complexities, the term with the highest order of growth dominates, because it grows faster than the others as 𝑛 increases. Here, 𝑂(𝑛^3^)grows faster than 𝑂(𝑛^2^).
+When adding time complexities, the term with the highest order of growth dominates, because it grows faster than the others as 𝑛 increases. Here, $O(n^3)$grows faster than $O(n^2)$.
 
 Thus, the most accurate description of the overall complexity of the algorithm is:
 
-𝑇(𝑛)=𝑂(𝑛^3^)
+$T(n)=O(n^3)$
 
-This is because the 𝑂(𝑛^3^)term will dominate the 𝑂(𝑛^2^) term for sufficiently large 𝑛.
+This is because the $O(n^3)$term will dominate the $O(n^2)$ term for sufficiently large 𝑛.
 
 Q1. b. **Suppose we have an O(n) time algorithm that finds the median of an unsorted array. Now consider a QuickSort implementation where we first find the median using the above algorithm, then use the median as a pivot. What will be the worst-case time complexity of this modified QuickSort?**
 Ans.
@@ -107,17 +106,19 @@ Given that an insertion sort of 10,000 items takes about 7 hours, we can directl
 
 If sorting 10,000 elements takes 7 hours, then sorting 1 element would take:
 
-$\frac{7hours}{10,000elements} = \frac{x hours}{1 element}$
+$\frac{7 hours}{10,000 elements} = \frac{x hours}{1 element}$
 
 Solving for 𝑥:
-	 $x = \frac{7 \times 1 }{10,000}\text{ hours per element}$
+
+$x = \frac{7 \times 1 }{10,000}\text{ hours per element}$
 
 
 Now, we can use this to find out how long it takes to sort 250 elements:
 
-
 $\text{Time to sort 250 elements} = \frac{250 \times 7}{10,000} \text{ hours}$
+
 $\text{Time to sort 250 elements} = \frac{1750}{10,000} \text{ hours}$
+
 $\text{Time to sort 250 elements} = 0.175 \text{ hours}$
 
 So, sorting 250 elements using insertion sort would take approximately 0.175 hours, or 10.5 minutes.
@@ -137,7 +138,7 @@ for(int i = 0; i < n; i++) {
 ```
 Ans. 
 (i)The total number of operations is 𝑛×𝑛=𝑛^2^
-> Time complexity = O(n^2^)
+> Time complexity = $O(n^2)$
 
 <hr>
 
