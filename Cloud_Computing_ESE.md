@@ -177,7 +177,7 @@ $\int_{\frac{\pi}{2}}^{\pi} R(t) \, dt =
 
 $= 45 \int_{\frac{\pi}{2}}^{\pi} \sin(t) \, dt + 45 \cdot \frac{\pi}{9} \int_{\frac{\pi}{2}}^{\pi} \cos(t) \, dt$
 
-$= 45 \left[ -\cos(t) \right]_{\frac{\pi}{2}}^{\pi} + 45 \cdot \frac{\pi}{9} \left[ \sin(t) \right]_{\frac{\pi}{2}}^{\pi}$
+$= 45 \left[ \text{-}\cos(t) \right]_{\frac{\pi}{2}}^{\pi} + 45 \cdot \frac{\pi}{9} \left[ \sin(t) \right]_{\frac{\pi}{2}}^{\pi}$
 
 $= 45 \left( -\cos(\pi) + \cos\left(\frac{\pi}{2}\right) \right) + 45 \cdot \frac{\pi}{9} \left( \sin(\pi) - \sin\left(\frac{\pi}{2}\right) \right)$
 
