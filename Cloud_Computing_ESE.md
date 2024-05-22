@@ -175,7 +175,7 @@ For $\frac{\pi}{2} \leq t < \pi$:
 $\int_{\frac{\pi}{2}}^{\pi} R(t) \, dt = 
 \int_{\frac{\pi}{2}}^{\pi} 45(\sin(t) + \frac{\pi}{9}\cos(t)) \ dt$
 
-$= 45 \int_{\frac{\pi}{2}}^{\pi} \sin(t) \, dt + 45 \cdot \frac{\pi}{9} \int_{\frac{\pi}{2}}^{\pi} \cos(t) \, dt$
+$= 45 \int_{\frac{\pi}{2}}^{\pi} \sin(t) \, dt + 45 \cdot \frac{\pi}{9} \int_{\frac{\pi}{2}}^{\pi} \cos(t) \ dt$
 
 **![](https://lh7-us.googleusercontent.com/jMPRFxENrRxd7iyTxO6K9-yxFAIDLfmFc1rnEH9ZWpz_Ntszcqo-ipg6__Du2VU1nJXq4MSuRX2-R0nLS30sBhknL04S3RbjCG67Gdnl_NipjRHV_ERbjpDGo-4SkubxyvaeJVjZSqjbB4zpoqQJhVA)**
 
@@ -286,11 +286,11 @@ Now, let's calculate this value:
 
 $= 32000 \times (501 - e^{-500})$
 
-=$32000×(501−e^{−500})$
+=$32000\times (501−e^{−500})$
 
-≈$32000×(501−0)≈80×(501−0)$ (since $e^{−500}$ is extremely close to 0)
+≈$32000\times(501−0)≈80×(501−0)$ (since $e^{−500}$ is extremely close to 0)
 
-=$32000×501$
+=$32000\times501$
 
 =$₹1,60,32,000$
 
@@ -318,26 +318,26 @@ In the map phase, input data is divided into smaller chunks and processed indepe
 In the reduce phase, the intermediate key-value pairs produced by the map phase are shuffled and sorted based on their keys. Then, the reducer function is applied to each unique key, consolidating and aggregating the values associated with that key.
 
 **Mapper Output:**
- The, 1 
- store, 1 
- opens, 1 
- in, 1 
- the, 1 
- morning, 1 
- The, 1 
- store, 1 
- opens, 1 
- at, 1 
- 9am, 1 
+-  The - 1 
+- store - 1 
+- opens - 1 
+- in - 1 
+- the - 1 
+- morning - 1 
+- The - 1 
+- store - 1
+-  opens - 1
+-  at - 1 
+- 9am - 1 
  **Reducer Output**: 
- The, 2 
- store, 2 
- opens, 2 
- in, 1 
- the, 1 
- morning, 1 
- at, 1 
- 9am, 1
+ - The - 2 
+ - store - 2
+ -  opens - 2
+ -  in - 1
+ -  the - 1
+ -  morning - 1
+ -  at - 1
+ -  9am - 1
 
 <hr>
 
@@ -658,8 +658,7 @@ Project - Horizon*
 - Provides a web-based self-service portal to interact with underlying
 OpenStack services. 
 
-![OpenStack architecture. | Download Scientific Diagram](https://www.researchgate.net/publication/273100494/figure/fig2/AS:267505004445743@1440789571737/OpenStack-architecture.png)
-
+**![](https://lh7-us.googleusercontent.com/Xo5p6qgjOzx6xMAYoHMbLrY5iOiKaboB69vpqAOuC8X-_EK55G3u867cHhP2J8pfT24oqWlbDuOxnYqq74ldy1c0qUk13vQXgJJwdV7LOq-ggFNOAsS9zw_hxVOj57S7hr5rkY8ZHPyeeJn-vV_om0w)**
 <hr>
 
 Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows:
@@ -675,8 +674,6 @@ Q4. d. **In a cloud service uptime is 300 minutes and downtime is 30
 minutes. What is the availability of service ?**
 
 Ans.
-Sure, here is the text with "inst 21" applied:
-
 To calculate the availability of a cloud service, we use the formula:
 
 $\text{Availability} = \frac{\text{Uptime}}{\text{Total Time}} \times 100\%$
