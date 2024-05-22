@@ -21,20 +21,21 @@ Q1. b. **What is the need of Universal Description Discover and Integration
 (UDDI)? Demonstrate UDDI in detail.**
 
 Ans. 
-- This is a registry service. So that the metadata information
+- This is a registry service. So that the metadata information can be saved and provided to the customers
 - A framework to define XML-based registries.
-- Registries are repositories that contain documents that describe business data and also provide search capabilities and programmatic access to remote applications. Businesses can publish information about themselves and the services they offer.
+- Registries are repositories that contain documents that describe business data and also provide search capabilities and programmatic access to remote applications.
+- Businesses can publish information about themselves and the services they offer.
 - Can be interrogated by SOAP messages and provides access to WSDL documents describing web services in its directory.
 
-- Service Registry:
+- *Service Registry*:
 	- Provides support for publishing and locating services.
 	- Like telephone yellow pages.
-- Service Provider:
+- *Service Provider*:
 	- Provides e-business services.
 	- Publishes these services through a registry.
-- Service Requestor:
+- *Service Requestor*:
 	- Finds required services via the service broker.
-	- Binds to services via Servcie Provider.
+	- Binds to services via Service Provider.
 
 
 **![](https://lh7-us.googleusercontent.com/SdG8y2T5jwKpIqXYTLJAl22kqVOGvQR_gSrJ5HsP0AKz_07IdtOmN4Oeyu57dMSb16sP1Efz0CVgxDdrAOUKpAIAuDCim7XLQJ8h6bPTKs_Sbf7V5Baj0dvfWSJKW9Y1fyV1BiW1ZkmknOdz1JN1ydQ)**
