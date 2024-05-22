@@ -279,7 +279,7 @@ $= 32000 \times (501 - e^{-500})$
 Utility ( U ) = $\frac{C_t}{B_t}$
 
 = $\frac{₹1,60,32,000}{₹8,00,00,000}$
-= $0.20$
+= $0.2004$
 
 Since the Cost of cloud is almost $\frac{1}{5}$ times lesser than the in-house, it is cheaper
 
@@ -696,7 +696,7 @@ visitors turn away. The company has two options to satisfy the requitements whic
 
 1. **Calculate the price of a core-hour on in-house server and cloud server.**
 2. **Find the  effective  cost /hour for both the options.**
-3. **Calculate the ratio of the total cost / effective hour for in house to cloud deployment **
+3. **Calculate the ratio of the total cost/effective hour for in house to cloud deployment**
 4. **If the efficiency of in house server is increased to 72% which deployment will have now better total cost / effective hour?**
 
 Ans. 
@@ -746,8 +746,49 @@ Ans.
 
 <br> 
 
+## PPT 14
+Q1. **What is SLA ?**
 
-## PPT - 14.2
+Ans. 
+#### Service Level Agreement ( SLA )
+- Whenever a person wants to use cloud services there should be some kind of agreement
+- This agreement should deal with the following things  :
+	- Price of the service
+	- Availability of the service
+	- Qualitiy of the service
+		- Performance
+		- Security
+		- Reliability
+- It is a contract formed b/w the *Service Provider* and the *Service Consumer*.
+- SLA contains certain *Service Level Objectives*
+	- They might require more uptime.
+	- They might require longer hours of availability.
+	- They might require more security, performance, etc.
+
+#### Short points for SLA : 
+1. It is a set of services the provider guarantees to give the consumer
+2. It defines a set of metrics that measure if the provider is offering the services as guaranteed.
+3. An auditing mechanism to monitor the services.
+4. The remedies available to the consumer and the provider if the terms are not satisfied.
+
+For Example : 
+- If a service provider says that they will keep an uptime of 95%, then there must be some agreement on that.
+
+<hr>
+
+Q2.**Differentiate between Cloud Service SLA and Web Service SLA. What are the types of SLA and give examples of SLA ?**
+
+Ans.
+| Cloud Service SLA | Web Service SLA |
+|--|--|
+|
+
+<hr>
+
+
+<hr>
+
+## PPT - 16
 
 Q1. **What is a Relational Database Management System ?**
 Ans. 
@@ -786,17 +827,21 @@ Uses parallel I/0 systems, viz. RAID disk arrays or multiprocessor clusters.
 
 <hr>
 
-Q3. **What are Cloud File Systems ? Define GFS and HDFS**
+Q3. **What are the different Cloud File Systems ? Define GFS and HDFS**
 
 Ans. 
 *Google File System (GFS)*
--Designed to manage relatively large files using a very large distributed cluster of
+- Designed to manage relatively large files using a very large distributed cluster of
 commodity servers connected by a high-speed network
-— Handles:
-• Failures even during reading or writing of individual files
-• Fault tolerant: a necessity
-• Support parallel reads, writes and appends by multiple simultaneous client programs
+- Handles:
+	- Failures even during reading or writing of individual files
+	- Fault tolerant: a necessity
+	- Support parallel reads, writes and appends by multiple simultaneous client programs
 
 *Hadoop Distributed File System (HDFS)*
 - Open source implementation of GFS architecture
 -  Available on Amazon EC2 cloud platform
+
+<hr>
+
+
