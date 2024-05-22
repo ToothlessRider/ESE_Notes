@@ -577,15 +577,71 @@ Q4. a. **Discuss various Parallell DB architectures with detailed diagrams**
 
 Ans. 
 
+#### Parallel DB Architectures : 
+- Shared memory
+	- Suitable for servers with multiple CPUs.
+	- Memory address space is shared and managed by a symmetric multi-processing (SMP) operating system.
+	- SMP schedules processes in parallel exploiting all the
+processors.
+- Shared Nothing
+	- Cluster of independent servers each with its own disk space.
+	- Connected by a network.
+- Shared Disk
+	- Hybrid Architecture
+	- Independent server clusters share storage through high speed network storage viz. Network attached storage (NAS) or SAN (Storage Area Network).
+	- Clusters are connected to the storage via: standard ethernet or
+faster fiber channel or Infiniband connections.
+
+**![](https://lh7-us.googleusercontent.com/9aUAjBrPrEeCT9lK74R8n1AVmPS4jmlE3Mp07b_dgWsQt_tf3dr9d8aTZLVD9TkFlz2Y0it7p4wxJJyk49XFHY0GvX33Wjb7G7kudL5MMRnQYv_NeP58nnBZcjjVSHuWhrzvrk68VoW3hBRJmvkX_5M)**
 <hr>
 
 Q4. b **Describe Openstack Cloud Architecture and its key components.**
 
 Ans.
+OpenStack is a cloud operating system that controls large pools of compute,
+storage, and networking resources throughout a datacenter, all managed
+through a dashboard that gives administrators control while empowering their
+users to provision resources through a web interface.
+
+#### Major Openstack Components : 
+*Service - Compute
+Project- Nova*
+- Manages the lifecycle of compute instances in an OpenStack environment. 
+- Responsibilities include spawning, scheduling and decommissioning of virtual machines on demand.
+
+*Service - Networking
+Project- Neutron*
+- Enables Network-Connectivity-as-a-Semce for other OpenStack services, such as OpenStack Compute.
+
+*Service - Object storage
+Project - Swift*
+- Stores and retrieves arbitrary unstructured data objects via a RESTfuI, HTTP based API.
+
+*Service- Block storage
+Project- Cinder*
+- Provides persistent block storage to running instances.
+
+*Service - Identity
+Project - Keystone*
+- Provides an authentication and authorization service for other OpenStack services.
+- Provides a catalog of endpoints for all OpenStack services.
+
+*Service - Image service
+Project - Glance*
+- Stores and retrieves virtual machine disk images.
+
+*Service - Telemetry
+Project - Ceilometer*
+- Monitors and meters the OpenStack cloud for billing, benchmarking, scalability, and statistical purposes.
+
+*Service - Dashboard
+Project - Horizon*
+- Provides a web-based self-service portal to interact with underlying
+OpenStack services. 
+
+![OpenStack architecture. | Download Scientific Diagram](https://www.researchgate.net/publication/273100494/figure/fig2/AS:267505004445743@1440789571737/OpenStack-architecture.png)
 
 <hr>
-
-
 
 Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows:
 Name, Gender. Salary
@@ -660,22 +716,21 @@ Service credits are awarded to customers if availability guarantees are not sati
 **However, in reality it was found that over the service period, the cloud service suffered 7 outages of the duration: 5 hrs, 20min, 2 hr 20 min, 20min, 3hrs 25 min. 35min, 2 hr, each on different days, due to which normal service guarantees were violated. If SLA negotiation are honoured, compute the effective cost payable towards buying the cloud service.**
 
 Ans.
-
+$\text{Service per day} = 8 hours$
 $\text{Total hours } = 31\times8$
 $= 248 hours$
-$\text{Service per day} = 8 hours$
 
-But based on outages to the total number of service hours are : 
-$\text{Total hours} = 280hours$
 
-$\text{Total Downtime} = 13hours$
+But based on outages to the total amount of actual uptime is  : 
+$\text{Actual Uptime} = 234 hours$
+$\text{Total Downtime} = 14hours$
 
 $\text{Availability} = \frac{\text{Uptime}}{\text{Total Time}} \times 100\%$
-$\therefore\text{Availability} = \frac{267}{280} \times 100\%$
+$\therefore\text{Availability} = \frac{234}{248} \times 100\%$
  
-$\text{Availability} =95.357\%$
+$\text{Availability} =94.3548\%$
 
-& $95.357\% < 99%$
+& $94.3548\% < 99%$
 
 $\therefore \text{Service Credit} = 25% \times \text{Ideal Payable}$
 $=\frac{25}{100} \times 2170\% = ₹542.5$
