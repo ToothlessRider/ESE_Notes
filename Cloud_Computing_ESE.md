@@ -158,34 +158,52 @@ Now, we need to calculate the cost of provisioning the extra resource. The penal
 **Integrate $R(t)$ over the intervals:**
 
 For $0 \leq t < \frac{\pi}{2}$:
+
 $\int_0^{\frac{\pi}{2}} R(t) \, dt = \int_0^{\frac{\pi}{2}} 25(\sin(t) + \frac{\pi}{9}\cos(t)) \, dt$
+
 $= 25 \int_0^{\frac{\pi}{2}} \sin(t) \, dt + 25 \cdot \frac{\pi}{9} \int_0^{\frac{\pi}{2}} \cos(t) \, dt$
+
 $= 25 \left[ -\cos(t) \right]_0^{\frac{\pi}{2}} + 25 \cdot \frac{\pi}{9} \left[ \sin(t) \right]_0^{\frac{\pi}{2}}$
+
 $= 25 \left( -\cos\left(\frac{\pi}{2}\right) + \cos(0) \right) + 25 \cdot \frac{\pi}{9} \left( \sin\left(\frac{\pi}{2}\right) - \sin(0) \right)$
 $= 25 \left( -0 + 1 \right) + 25 \cdot \frac{\pi}{9} \left( 1 - 0 \right)$
 $= 25 + 25 \cdot \frac{\pi}{9}$
 $= 25 + \frac{25\pi}{9}$
 
 For $\frac{\pi}{2} \leq t < \pi$:
-$\int_{\frac{\pi}{2}}^{\pi} R(t) \, dt = \int_{\frac{\pi}{2}}^{\pi} 45(\sin(t) + \frac{\pi}{9}\cos(t)) \, dt$
+
+$\int_{\frac{\pi}{2}}^{\pi} R(t) \, dt = 
+\int_{\frac{\pi}{2}}^{\pi} 45(\sin(t) + \frac{\pi}{9}\cos(t)) \ dt$
+
 $= 45 \int_{\frac{\pi}{2}}^{\pi} \sin(t) \, dt + 45 \cdot \frac{\pi}{9} \int_{\frac{\pi}{2}}^{\pi} \cos(t) \, dt$
+
 $= 45 \left[ -\cos(t) \right]_{\frac{\pi}{2}}^{\pi} + 45 \cdot \frac{\pi}{9} \left[ \sin(t) \right]_{\frac{\pi}{2}}^{\pi}$
+
 $= 45 \left( -\cos(\pi) + \cos\left(\frac{\pi}{2}\right) \right) + 45 \cdot \frac{\pi}{9} \left( \sin(\pi) - \sin\left(\frac{\pi}{2}\right) \right)$
+
 $= 45 \left( -(-1) + 0 \right) + 45 \cdot \frac{\pi}{9} \left( 0 - 1 \right)$
 $= 45 \left( 1 \right) + 45 \cdot \frac{\pi}{9} \left( -1 \right)$
+
 $= 45 - \frac{45\pi}{9}$
+
 $= 45 - 5\pi$
 
 **Total Provisioned Resources:**
 $\text{Total Provisioned} = \left( 25 + \frac{25\pi}{9} \right) + \left( 45 - 5\pi \right)$
+
 $= 25 + \frac{25\pi}{9} + 45 - 5\pi$
+
 $= 70 + \frac{25\pi}{9} - \frac{45\pi}{9}$
+
 $= 70 - \frac{20\pi}{9}$
 
 **Calculate the Penalty**
 $\text{Penalty Cost} ∝ \int_0^{t}R(t) - D(t)$
+
 $∝ |70 - (70 - \frac{20\pi}{9})|$
+
 $∝ | \frac{20\pi}{9}|$
+
 $Penalty ∝ 6.9813$
 
 <hr>
@@ -776,13 +794,30 @@ For Example :
 
 <hr>
 
-Q2.**Differentiate between Cloud Service SLA and Web Service SLA. What are the types of SLA and give examples of SLA ?**
+Q2.**What are the types of SLA and what are the requirements of SLA?**
 
 Ans.
-| Cloud Service SLA | Web Service SLA |
-|--|--|
-|
+#### Types of SLA
+Present market place features two types of SLAs :
+- *Off-the-shelf SLA* or *non-negotiable SLA* or *Direct SLA*
+	- Non-conducive for mission-critical data or applications
+	- Provider creates the SLA template and define all criteria viz. contract period, billing, response time, availability, etc.
+	- Followed by the present day state-of-the-art clouds.
+- *Negotiable SLA*
+	- Negotiation via external agent
+	- Negotiation via multiple external agents
 
+#### Requirements of SLA ( SDPDHRTCMA )
+1. *Security*
+2. *Data Encryption*
+3. *Privacy*
+4. *Data Retention and Deletion*
+5. *Hardware Erasure and Destruction*
+6. *Regulatory Compliance*
+7. *Transparency*
+8. *Certification*
+9. *Monitoring*
+10. *Auditibility*
 <hr>
 
 
