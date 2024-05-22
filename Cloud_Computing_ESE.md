@@ -21,97 +21,23 @@ Q1. b. **What is the need of Universal Description Discover and Integration
 (UDDI)? Demonstrate UDDI in detail.**
 
 Ans. 
+- This is a registry service. So that the metadata information
+- A framework to define XML-based registries.
+- Registries are repositories that contain documents that describe business data and also provide search capabilities and programmatic access to remote applications. Businesses can publish information about themselves and the services they offer.
+- Can be interrogated by SOAP messages and provides access to WSDL documents describing web services in its directory.
 
-### Need for Universal Description, Discovery, and Integration (UDDI)
+- Service Registry:
+	- Provides support for publishing and locating services.
+	- Like telephone yellow pages.
+- Service Provider:
+	- Provides e-business services.
+	- Publishes these services through a registry.
+- Service Requestor:
+	- Finds required services via the service broker.
+	- Binds to services via Servcie Provider.
 
-UDDI is essential for:
 
-1. **Discovery**: Allows businesses to find web services offered by other companies.
-2. **Integration**: Simplifies service integration by standardizing service descriptions.
-3. **Interoperability**: Ensures compatibility across different platforms and languages.
-4. **Publication**: Enables businesses to publish their services for discovery and use by others.
-
-### Key Components and Operations of UDDI
-
-#### Components
-
-1. **BusinessEntity**: Describes the business offering web services.
-2. **BusinessService**: Details the services provided by the business.
-3. **BindingTemplate**: Specifies technical details, including access points.
-4. **tModel**: Represents a technical specification the service adheres to.
-
-#### Operations
-
-1. **Publishing Services**: Businesses publish their services using the `publish` API.
-2. **Finding Services**: Users search for services using the `inquiry` API.
-3. **Retrieving Details**: Detailed service information is retrieved for integration.
-
-### Example Workflow
-
-1. **Publishing a Service**:
-   - A company, "HealthCorp," publishes a web service.
-   - HealthCorp creates a `BusinessEntity` entry with its details.
-   - Within this entity, HealthCorp creates a `BusinessService` entry for their "PatientRecordsService."
-   - A `BindingTemplate` specifies the URL and technical details.
-   - A `tModel` is created or referenced if the service adheres to a specific standard.
-
-2. **Finding a Service**:
-   - A user, "ClinicAppDev," searches for a patient records service.
-   - ClinicAppDev queries the UDDI registry for services named "PatientRecordsService" or a specific tModel.
-   - UDDI returns matching services.
-   - ClinicAppDev retrieves details about "HealthCorp's PatientRecordsService," including access URLs and technical specifics.
-
-3. **Integrating with the Service**:
-   - ClinicAppDev uses the retrieved information to integrate HealthCorp's service into their application.
-   - They utilize the provided technical details to interact with the service.
-
-### UDDI Example in XML
-
-**1. BusinessEntity XML:**
-```xml
-<businessEntity businessKey="uuid:abcd1234-abcd-1234-abcd-1234567890ab">
-    <name>HealthCorp</name>
-    <description>Provider of healthcare solutions</description>
-    <contacts>
-        <contact>
-            <personName>Jane Smith</personName>
-            <email>jane.smith@healthcorp.com</email>
-        </contact>
-    </contacts>
-</businessEntity>
-```
-
-**2. BusinessService XML:**
-```xml
-<businessService serviceKey="uuid:bcde2345-bcde-2345-bcde-234567890bcd" businessKey="uuid:abcd1234-abcd-1234-abcd-1234567890ab">
-    <name>PatientRecordsService</name>
-    <description>Provides patient records data</description>
-    <bindingTemplates>
-        <bindingTemplate bindingKey="uuid:cdef3456-cdef-3456-cdef-34567890cdef">
-            <accessPoint>http://api.healthcorp.com/patientrecords</accessPoint>
-        </bindingTemplate>
-    </bindingTemplates>
-    <categoryBag>
-        <keyedReference tModelKey="uuid:defg4567-defg-4567-defg-4567890defgh" keyName="Standard" keyValue="REST"/>
-    </categoryBag>
-</businessService>
-```
-
-**3. tModel XML:**
-```xml
-<tModel tModelKey="uuid:defg4567-defg-4567-defg-4567890defgh">
-    <name>PatientRecordsService REST API</name>
-    <description>Technical model for HealthCorp's PatientRecordsService</description>
-    <overviewDoc>
-        <overviewURL>http://api.healthcorp.com/patientrecords/spec</overviewURL>
-    </overviewDoc>
-</tModel>
-```
-
-### Conclusion
-
-UDDI provides a standardized way for businesses to publish, discover, and integrate web services, ensuring interoperability and simplifying the integration process across diverse systems.
-
+**![](https://lh7-us.googleusercontent.com/SdG8y2T5jwKpIqXYTLJAl22kqVOGvQR_gSrJ5HsP0AKz_07IdtOmN4Oeyu57dMSb16sP1Efz0CVgxDdrAOUKpAIAuDCim7XLQJ8h6bPTKs_Sbf7V5Baj0dvfWSJKW9Y1fyV1BiW1ZkmknOdz1JN1ydQ)**
 <hr>
 
 Q1. c. **Consider the peak computing demand for an organization is 200 units. The demand as a function of time can be expressed as:
@@ -199,13 +125,13 @@ $= 70 + \frac{25\pi}{9} - \frac{45\pi}{9}$
 $= 70 - \frac{20\pi}{9}$
 
 **Calculate the Penalty**
-$\text{Penalty Cost} ∝ \int_0^{t}R(t) - D(t)$
+$\text{Penalty Cost} = \int_0^{t}[D(t) - R(t)]\times \text{Cost of provisioning 1 unit}$
 
-$∝ |70 - (70 - \frac{20\pi}{9})|$
+$= |70 - (70 - \frac{20\pi}{9})\times 0.9|$
 
-$∝ | \frac{20\pi}{9}|$
+$=\frac{20\pi}{9} \times 0.9$
 
-$Penalty ∝ 6.9813$
+$Penalty = 2\pi = 6.28$
 
 <hr>
 
@@ -618,10 +544,9 @@ faster fiber channel or Infiniband connections.
 Q4. b **Describe Openstack Cloud Architecture and its key components.**
 
 Ans.
-OpenStack is a cloud operating system that controls large pools of compute,
-storage, and networking resources throughout a datacenter, all managed
-through a dashboard that gives administrators control while empowering their
-users to provision resources through a web interface.
+OpenStack is a cloud operating system that controls large pools of compute, storage, and networking resources throughout a datacenter, all managed through a dashboard that gives administrators control while empowering their users to provision resources through a web interface.
+
+It has SaaS, IaaS and PaaS capabilities
 
 #### Major Openstack Components : 
 *Service - Compute
@@ -660,6 +585,7 @@ Project - Horizon*
 OpenStack services. 
 
 **![](https://lh7-us.googleusercontent.com/Xo5p6qgjOzx6xMAYoHMbLrY5iOiKaboB69vpqAOuC8X-_EK55G3u867cHhP2J8pfT24oqWlbDuOxnYqq74ldy1c0qUk13vQXgJJwdV7LOq-ggFNOAsS9zw_hxVOj57S7hr5rkY8ZHPyeeJn-vV_om0w)**
+**![](https://lh7-us.googleusercontent.com/FLfd8sWgHhqfTsGNkINsSi-LOXHEt2JyhEWJysJwEhgzzelQqsw77pVBpPD8RnshwrP0YDtSDRZ7CoVjOKDYZU3_BW0NDsC7Db9xZU4nxeatsEH0hWGdDvpLSlau-VvyCk8NtU_Bcp8KgBD_Lx5sKzY)**
 <hr>
 
 Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows:
@@ -763,6 +689,96 @@ Ans.
 
 <br> 
 
+## PPT 12
+Q1.**What is WSDL ?  Describe the Document structure of a WSDL document**
+
+Ans.
+#### WSDL ( Web Services Description Language )
+- It is an XML vocabulary standard for describing web services and their capabilities. 
+- It is a contract between the XML web service and the client.
+- Specifies what a request message must contain and what the response message will look like in unambiguous notation.
+- Defines where the service is available and what communications protocol is used to talk to the service.
+- A WSDL document is just a simple XML document.
+- It defines a web service using these major elements
+	- **Port type**: The operations performed by the web service.
+	- **Message**: The messages used by the web service
+	- **Types**: The data types used by the web service
+	- **Binding**: The communication protocols used by the web service.
+
+Example : 
+
+```
+<message name="creditRequest"> 
+	<part name="customerID" type="xsd:string"/> 
+</message> 
+<message name="creditResponse"> 
+	<part name="creditResult" type="xsd:string"/> 
+</message> 
+.
+.
+.
+<portType name="CheckCredibility"> 
+	<operation name="checkCredit"> 
+		<input message="tns: creditRequest"/> 
+		<output message="tns: creditResponse"/> 
+	</operation> 
+</portType
+```
+
+<hr>
+
+Q2. **What is SOAP ? What are it's building blocks and message structure ? What are it's characteristics ?**
+
+Ans. 
+#### SOAP ( Simple Object Access Protocol )
+- Format for sending messages over Internet between programs.
+- XML-based
+- Platform and language independent.
+- Simple and extensible.
+- Uses mainly HTTP as a Transport protocol: HTTP message contains a SOAP message as its payload section.
+- Stateless, one-way: but applications can create more complex interaction patterns.
+
+#### SOAP building blocks
+- Envelope (required) identifies XML document as SOAP message.
+- Header (optional) : contains header information.
+- Body (required): call and response information.
+- Fault (optional): errors that occured while processing message.
+
+**![](https://lh7-us.googleusercontent.com/gZwqneLbb7kg0K9eG-ENWEwCCMcRVS6556ZzBj2KNvSvEYarh5OT8-HYe84UJ8NOa8TVKqig44RfvlE8P7JChWVCrIHV1qc3zk1Xtw-Oi7kHcz9W0YO5ldxScQbT8LKaCco5D7DWX7YAktJwi56yC18)**
+- Request and response messages: Request invokes a method on a remote object. Response returns result of running the method.
+- SOAP specification defines an "envelope" 
+	- Envelope wraps the message itself. 
+	- Message is a different vocabulary.
+	- Namespace prefix is used to distinguish the two parts.
+
+<hr>
+
+Q3. **What are Web Services ?**
+
+Ans.
+- Web service is XML based phenomena. XML is data transformation language. It helps in interoperability and helps in applications talking to each other.
+- Web services are those services which are available on with can be defined and accessible through a standardized URI (Uniform Resource Idendifier) and it works on message exchange type of protocol which is based on XML.
+
+<hr>
+
+Q4. **What is EDI ? What are it's advantages ?**
+
+Ans. 
+#### EDI ( Electronic Data Interchange )
+- It is the computer to computer exchange of business data and documents between companies using standard formats recognized both nationally and internationally.
+- Business data is all the information that is related to a company, such as sales data, customer contact information, and even website traffic statistics.
+- For example of business data, when you visit a company's website, data is captured about what you looked at: what colors you preferred, how long you remained on a page and yes, even your physical location
+
+#### EDI Advantages : 
+- Reduced lead-time
+- Reduction in number of errors
+- Reduction in processing costs overall
+- Availability of information at all times
+- Planning becomes easier
+- Long-term relationships between trading partners
+
+<hr>
+
 ## PPT 14
 Q1. **What is SLA ?**
 
@@ -819,6 +835,8 @@ Present market place features two types of SLAs :
 10. *Auditibility*
 <hr>
 
+## PPT - 15
+Q1. 
 
 <hr>
 
@@ -878,4 +896,18 @@ commodity servers connected by a high-speed network
 
 <hr>
 
+## PPT - 17
+Q1. **What is MapReduce ? What are it's objectives**
 
+Ans. 
+- MapReduce: programming model developed at Google and associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster
+- Objective:
+	- Implement large scale search
+	- Text processing on massively scalable web data Stored using Bigtable and GFS distributed file system
+- Designed for processing and generating large volumes of data via massively parallel
+- Computations, utilizing tens of thousands of processors at a time
+- Fault tolerant: ensure progress of computation even if processors and networks fail
+
+Example:
+- Hadoop: open source implementation ot MapReduce (developed at Yahoo!)
+- Available on pre-packaged AMis on Amazon EC2 cloud platform
