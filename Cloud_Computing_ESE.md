@@ -177,9 +177,9 @@ $\int_{\frac{\pi}{2}}^{\pi} R(t) \, dt =
 
 $= 45 \int_{\frac{\pi}{2}}^{\pi} \sin(t) \, dt + 45 \cdot \frac{\pi}{9} \int_{\frac{\pi}{2}}^{\pi} \cos(t) \, dt$
 
-$= 45 \left[ \text{-}\cos(t) \right]_{\frac{\pi}{2}}^{\pi} + 45 \cdot \frac{\pi}{9} \left[ \sin(t) \right]_{\frac{\pi}{2}}^{\pi}$
+$= 45 \left[ -\cos(t) \right]_{\frac{\pi}{2}}^{\pi} + 45 \cdot \frac{\pi}{9} \left[ \sin(t) \right]_{\frac{\pi}{2}}^{\pi}$
 
-$= 45 \left( -\cos(\pi) + \cos\left(\frac{\pi}{2}\right) \right) + 45 \cdot \frac{\pi}{9} \left( \sin(\pi) - \sin\left(\frac{\pi}{2}\right) \right)$
+**![](https://lh7-us.googleusercontent.com/jMPRFxENrRxd7iyTxO6K9-yxFAIDLfmFc1rnEH9ZWpz_Ntszcqo-ipg6__Du2VU1nJXq4MSuRX2-R0nLS30sBhknL04S3RbjCG67Gdnl_NipjRHV_ERbjpDGo-4SkubxyvaeJVjZSqjbB4zpoqQJhVA)**
 
 $= 45 \left( -(-1) + 0 \right) + 45 \cdot \frac{\pi}{9} \left( 0 - 1 \right)$
 $= 45 \left( 1 \right) + 45 \cdot \frac{\pi}{9} \left( -1 \right)$
