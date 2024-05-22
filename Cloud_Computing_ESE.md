@@ -597,4 +597,96 @@ Ans.
 <hr>
 
 Q4. d. **In a cloud service uptime is 300 minutes and downtime is 30
-minutes. What is the availability ot service ?**
+minutes. What is the availability of service ?**
+
+Ans.
+Sure, here is the text with "inst 21" applied:
+
+To calculate the availability of a cloud service, we use the formula:
+
+$\text{Availability} = \frac{\text{Uptime}}{\text{Total Time}} \times 100\%$
+
+Given:
+- Uptime = 300 minutes
+- Downtime = 30 minutes
+
+First, we calculate the total time:
+$\text{Total Time} = \text{Uptime} + \text{Downtime} = 300 + 30 = 330$ minutes
+
+Now, we can calculate the availability:
+$\text{Availability} = \frac{300}{330} \times 100\%$
+
+Let's compute this:
+
+$\text{Availability} = \frac{300}{330} \times 100$
+$\text{Availability} = \left( \frac{300}{330} \right) \times 100$
+$\text{Availability} \approx 90.91\%$
+
+Therefore, the availability of the service is approximately $90.91\%$.
+
+<hr> 
+
+Q5. a. **A company Y needs to support a spike in demand when it becomes
+popular followed potentially by a reduction once some of the
+visitors turn away. The company has two options to satisfy the requitements which are given in the following table :**
+| Expenditures | In-House server | Cloud server|
+|--|--|--|
+|Purchase Cost| 1100000| No cost|
+|Number of CPU Cores| 17|13|
+| Cost / hour( Over 3 year span ) | No cost | 47 |
+|Efficiency | 50% ( underutilized ) | 90% |
+|Power and Cooling ( Cost / hour ) | 27 | - | 
+|Management Cost | 11 | 6 | 
+
+1. **Calculate the price of a core-hour on in-house server and cloud server.**
+2. **Find the  effective  cost /hour for both the options.**
+3. **Calculate the ratio of the total cost / effective hour for in house to cloud deployment **
+4. **If the efficiency of in house server is increased to 72% which deployment will have now better total cost / effective hour?**
+
+Ans. 
+
+<hr>
+
+Q5. b. **Consider a scenario where a company Y wants to use a cloud service from a provider P. The service level agreement (SLA) guarantees negotiated between the two parties prior to initiating the business are as follows:
+Avaialbility guarantee 99.95% time over the service period.
+Service period: 31 days
+Max service hours per day: 8 hours
+Cost: Rs. 70/- per day
+Service credits are awarded to customers if availability guarantees are not satisfied. Monthly connectivity uptime service level are given as:**
+|Monthly uptime connectivity (%)| Service credit|
+|--|--|
+|<99.95%|20%|
+|<99%|25%|
+**However, in reality it was found that over the service period, the cloud service suffered 7 outages of the duration: 5 hrs, 20min, 2 hr 20 min, 20min, 3hrs 25 min. 35min, 2 hr, each on different days, due to which normal service guarantees were violated. If SLA negotiation are honoured, compute the effective cost payable towards buying the cloud service.**
+
+Ans.
+
+$\text{Total hours } = 31\times8$
+$= 248 hours$
+$\text{Service per day} = 8 hours$
+
+But based on outages to the total number of service hours are : 
+$\text{Total hours} = 280hours$
+
+$\text{Total Downtime} = 13hours$
+
+$\text{Availability} = \frac{\text{Uptime}}{\text{Total Time}} \times 100\%$
+$\therefore\text{Availability} = \frac{267}{280} \times 100\%$
+ 
+$\text{Availability} =95.357\%$
+
+& $95.357\% < 99%$
+
+$\therefore \text{Service Credit} = 25% \times \text{Ideal Payable}$
+$=\frac{25}{100} \times 2170\% = ₹542.5$
+
+So, $\text{ Total Payable} =  2170 - 542.5 = ₹1627.5$
+
+
+<hr> 
+
+Q5. c. **What is the motivation behind Green cloud computing? Explain green cloud computing in detail.**
+
+Ans. 
+
+<br> 
