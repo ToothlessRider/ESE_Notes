@@ -532,7 +532,7 @@ Ans.
 - Cloud computng has emerged as an attractive solution for dealing with the 'Big Data' revolution.
 By combinng data obtaned from sensors with that from the
 intenet, we can potentially create a demand for resources that can be appropriately met by the cloud.
-![Showing Sensor Cloud Architecture XIV. FUTURE of WIRELESS SENSOR NETWORK and CLOUD Combining WSNs with cloud makes it easy to share and analyze real time sensor data on-the-fly. It also gives an advantage of providing sensor data or sensor event as a service over the internet with the help of cloud technology. Many application as listed in the paper cannot be easily imaginable or managed like Medical and Health care, environmental or military operation without the sensor based wireless network and cloud technology. It is imminent mix of two different technology and the full potential of these technologies is yet to be explored. ](https://www.researchgate.net/profile/Vijay-Kalyani/publication/281605205/figure/fig8/AS:648621456359425@1531654814155/Showing-Sensor-Cloud-Architecture-XIV-FUTURE-of-WIRELESS-SENSOR-NETWORK-and-CLOUD.png)
+**![](https://lh7-us.googleusercontent.com/O0QyPTOipFOoQXMLc7FhgW7dpwQWdKfA_hA54EhNovc62kdfp_wOkxwUIDw20LHpdw4ZLi7LyC11zsf0tckNsuWVlETC-EzwCsF0tEQNFAXc3IraXT9_hOdFu4nwIRnTRpjYI_SDsMoRMwQxkWUkwe8)**
 
 <hr>
 
