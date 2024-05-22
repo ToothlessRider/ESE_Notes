@@ -555,7 +555,7 @@ def map(arr)
 	for i in range (0, len(arr)) :
 		sum = sum + arr[i]
 avg_mapper = (sum*1.0)/len(arr)
-print(average, len(arr))
+print(avg_mapper, len(arr))
 
 ``` 
 
@@ -569,7 +569,6 @@ def reduce (avg, arr)
 		count = count + len(arr[i])
 	average = (sum*1.0)/count
 print (average)
-
 ```
 
 <hr>
