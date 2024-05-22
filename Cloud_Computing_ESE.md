@@ -194,5 +194,101 @@ $63 - 2\pi \approx 63 - 6.28 = 56.72 \text{ units}$
 
 Thus, the penalty cost is approximately **56.72 units**.
 
+<hr>
+
+Q1. d. **Suppose a cloud guarantees a service availability for 99% of time.
+Let a third party application runs in the cloud for I0 hours/day. At
+the end of one month, it was found that total outage is 9.25 hours.
+Find out whether the provider has violated the initial availability
+guarantee.**
+
+Ans. 
+
+
+Let's calculate the values to determine the outcome.
+
+Given:
+- Guaranteed availability: $99\% = 0.99$
+- Total time/day: $10$ hours
+- Total days in a month: $30$
+- Total outage over one month: $9.25$ hours
+
+### Step 1: Calculate total amount of uptime in the month
+
+$\text{Uptime} =\text{Total hours served in the month} - \text{Total outage}$
+$= 300 - 9.25$
+$= 290.75$
+
+Therefore the percentage of service availability is  :
+= $\frac{290.75}{300}\times{100}$
+= $96.9166\%$
+
+and 
+$96.9166 \% < 99\%$
+
+So they violated the initial availability guarantee
+
+<hr>
+
+Q2. a. **Consider the peak computing demand for an organization is 500 units. The demand as a function of time can be expressed as $D(t)=80(1+e^{-t})$ Baseline (owned) unit cost is 320 and cloud unit cost is 400. In this situation is cloud cheaper than owning for a period of 500 time units?**
+
+Ans. 
+
+To determine whether the cloud is cheaper than owning for a period of 500 time units, we need to calculate the total cost of owning and the total cost of using the cloud over this period.
+
+### Cost of Owning (Baseline):
+The cost of owning is calculated based on the baseline (owned) unit cost multiplied by the peak computing demand.
+
+Baseline Cost = Baseline Unit Cost × Peak Computing Demand × Time units
+
+$\text {Baseline Cost} = 320 × 500 × 500 = ₹80,00,000$
+
+
+### Cost of Cloud Usage:
+The cost of cloud usage depends on the demand function $D(t)$, the cloud unit cost, and the time period.
+
+Given:
+- Cloud unit cost: ₹400
+- Demand function: $D(t) = 80(1 + e^{-t})$
+
+To find the total cost of cloud usage over a period of 500 time units, we need to integrate the demand function over this period and multiply it by the cloud unit cost.
+
+Total Cloud Cost = $\int_{0}^{500} D(t) \, dt \times \text{Cloud Unit Cost}$
+
+We'll calculate this integral:
+
+$D(t) = 80(1 + e^{-t}) ×400$
+
+$\int_{0}^{500} D(t) \, dt = 80 \int_{0}^{500} (1 + e^{-t}) \, dt ×400$
+
+$= 80 \left[ t - e^{-t} \right]_{0}^{500}×400$
+
+$= 80 \left[ (500 - e^{-500}) - (0 - e^0) \right]×400$
+
+$= 80 \left[ 500 - e^{-500} + 1 \right]×400$
+
+$= 80 \left[ 501 - e^{-500} \right]×400$
+
+Now, let's calculate this value:
+
+$= 32000 \times (501 - e^{-500})$
+
+=$32000×(501−e^{−500})$
+
+≈$32000×(501−0)≈80×(501−0)$ (since $𝑒^{−500}& is extremely close to 0)
+
+=$32000×501$
+
+=$₹1,60,32,000$
+
+### Compare Costs:
+Utility ( U ) = $\frac{C_t}{B_t}$
+
+= $\frac{₹1,60,32,000}{₹80,00,000}$
+= $2.04$
+
+Since the Cost of cloud is almost twice, it won't be cheaper in this case.
+
+<hr>
 
 
