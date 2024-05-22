@@ -235,7 +235,7 @@ The cost of owning is calculated based on the baseline (owned) unit cost multipl
 
 Baseline Cost = Baseline Unit Cost × Peak Computing Demand × Time units
 
-$\text {Baseline Cost} = 320 × 500 × 500 = ₹80,00,000$
+$\text {Baseline Cost} = 320 × 500 × 500 = ₹8,00,00,000$
 
 
 ### Cost of Cloud Usage:
@@ -269,7 +269,7 @@ $= 32000 \times (501 - e^{-500})$
 
 =$32000×(501−e^{−500})$
 
-≈$32000×(501−0)≈80×(501−0)$ (since $𝑒^{−500}& is extremely close to 0)
+≈$32000×(501−0)≈80×(501−0)$ (since $e^{−500}$ is extremely close to 0)
 
 =$32000×501$
 
@@ -278,10 +278,10 @@ $= 32000 \times (501 - e^{-500})$
 ### Compare Costs:
 Utility ( U ) = $\frac{C_t}{B_t}$
 
-= $\frac{₹1,60,32,000}{₹80,00,000}$
-= $2.04$
+= $\frac{₹1,60,32,000}{₹8,00,00,000}$
+= $0.20$
 
-Since the Cost of cloud is almost twice, it won't be cheaper in this case.
+Since the Cost of cloud is almost $\frac{1}{5}$ times lesser than the in-house, it is cheaper
 
 <hr>
 
@@ -745,3 +745,58 @@ Q5. c. **What is the motivation behind Green cloud computing? Explain green clou
 Ans. 
 
 <br> 
+
+
+## PPT - 14.2
+
+Q1. **What is a Relational Database Management System ?**
+Ans. 
+- Users/application programs interact with an RDBMS through SQL 
+- RDBM parser:
+	- Transforms queries into memory and disk-level operations
+	- Optimizes execution time
+- Disk-space management layer:
+	-	Stores data records on pages of contiguous memory blocks
+	- Pages are fetched from disk into memory as requested using pre fetching and page replacement policies.
+
+<hr>
+
+Q2. **What is the Database File System Layer ? Also mention different database storage techniques**
+
+Ans.
+Independent of OS file system.
+Reason:
+- To have a full control on retaining or releasing a page in memory.
+- Files used by the DB may span multiple disks to handle large storage. 
+
+Uses parallel I/0 systems, viz. RAID disk arrays or multiprocessor clusters.
+
+#### Data Storage Methods
+*Row-oriented storage*
+- Optimal for write-oriented operations 
+- Relational records: stored on contiguous disk pages
+- Accessed through indexes (primary index) on specified columns. 
+- $B^+$ - tree like storage.
+
+*Column-oriented storage*
+- Efficient for data-warehouse workloads that contain high-dimensional data. 
+- Aggregation of measure columns need to be performed based on values from dimension columns.
+- Projection of a table is stored as sorted by dimension values.
+- Require multiple join-indexes: if different projections are to be indexed in sorted order.
+
+<hr>
+
+Q3. **What are Cloud File Systems ? Define GFS and HDFS**
+
+Ans. 
+*Google File System (GFS)*
+-Designed to manage relatively large files using a very large distributed cluster of
+commodity servers connected by a high-speed network
+— Handles:
+• Failures even during reading or writing of individual files
+• Fault tolerant: a necessity
+• Support parallel reads, writes and appends by multiple simultaneous client programs
+
+*Hadoop Distributed File System (HDFS)*
+- Open source implementation of GFS architecture
+-  Available on Amazon EC2 cloud platform
