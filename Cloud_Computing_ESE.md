@@ -41,12 +41,7 @@ Ans.
 **![](https://lh7-us.googleusercontent.com/SdG8y2T5jwKpIqXYTLJAl22kqVOGvQR_gSrJ5HsP0AKz_07IdtOmN4Oeyu57dMSb16sP1Efz0CVgxDdrAOUKpAIAuDCim7XLQJ8h6bPTKs_Sbf7V5Baj0dvfWSJKW9Y1fyV1BiW1ZkmknOdz1JN1ydQ)**
 <hr>
 
-Q1. c. **Consider the peak computing demand for an organization is 200 units. The demand as a function of time can be expressed as:
-$D(t) = 25\sin(t)$ 0 <= t <π/2 
-$D(t) = 45\sin(t)$ π/2 <= 1 <π 
-The resource provisioned by the cloud to satisfy the current demand at time t is given as:
-$R(t) = D(t) + \delta \frac{d(D(t))}{dt}$
-Where, δ is the delay in provisioning the extra computing resource on demand. The cost to provision unit cloud resource for unit time is 0.9 units. Calculate the penalty. (Assume the delay in provisioning is π/9 time units and the minimum demand is 0.)**
+Q1. c. **Consider the peak computing demand for an organization is 200 units. The demand as a function of time can be expressed as: <br>$D(t) = 25\sin(t)$ 0 <= t <π/2 <br>$D(t) = 45\sin(t)$ π/2 <= 1 <π <br>The resource provisioned by the cloud to satisfy the current demand at time t is given as:<br>$R(t) = D(t) + \delta \frac{d(D(t))}{dt}$<br>Where, δ is the delay in provisioning the extra computing resource on demand. The cost to provision unit cloud resource for unit time is 0.9 units. <br> Calculate the penalty. (Assume the delay in provisioning is π/9 time units and the minimum demand is 0.)**
 
 Ans. 
 
@@ -80,7 +75,8 @@ For $\frac{\pi}{2} \leq t < \pi$:
 $R(t) = 45\sin(t) + \frac{\pi}{9} \cdot 45\cos(t)$
 $R(t) = 45(\sin(t) + \frac{\pi}{9}\cos(t))$
 
-Now, we need to calculate the cost of provisioning the extra resource. The penalty is the cost of provisioning the resources due to the delay. We need to integrate $R(t)$ over the given time periods and then calculate the cost.
+Now, we need to calculate the cost of provisioning the extra resource. <br>
+The penalty is the cost of provisioning the resources due to the delay. <br> We need to integrate $R(t)$ over the given time periods and then calculate the cost.
 
 **Integrate $R(t)$ over the intervals:**
 
@@ -136,10 +132,7 @@ $Penalty = 2\pi = 6.28$
 
 <hr>
 
-Q1. d. **Suppose a cloud guarantees a service availability for 99% of time.
-Let a third party application runs in the cloud for I0 hours/day. At
-the end of one month, it was found that total outage is 9.25 hours.
-Find out whether the provider has violated the initial availability
+Q1. d. **Suppose a cloud guarantees a service availability for 99% of time <br> Let a third party application runs in the cloud for I0 hours/day. <br>At the end of one month, it was found that total outage is 9.25 hours. <br> Find out whether the provider has violated the initial availability
 guarantee.**
 
 Ans. 
@@ -170,7 +163,7 @@ So they violated the initial availability guarantee
 
 <hr>
 
-Q2. a. **Consider the peak computing demand for an organization is 500 units. The demand as a function of time can be expressed as $D(t)=80(1+e^{-t})$ Baseline (owned) unit cost is 320 and cloud unit cost is 400. In this situation is cloud cheaper than owning for a period of 500 time units?**
+Q2. a. **Consider the peak computing demand for an organization is 500 units. The demand as a function of time can be expressed as <br>$D(t)=80(1+e^{-t})$ <br>Baseline (owned) unit cost is 320 and cloud unit cost is 400. <br>In this situation is cloud cheaper than owning for a period of 500 time units?**
 
 Ans. 
 
@@ -231,9 +224,7 @@ Since the Cost of cloud is almost $\frac{1}{5}$ times lesser than the in-house, 
 
 <hr>
 
-Q2. b. **What is map-reduce? Appy to the following word-count problem with the input: 
-Fl: The store opens in the morning. 
-F2: The store opens at 9am.**
+Q2. b. **What is map-reduce? Appy to the following word-count problem with the input: <br>Fl: The store opens in the morning. <br>F2: The store opens at 9am.**
 
 Ans.
  
@@ -269,7 +260,7 @@ In the reduce phase, the intermediate key-value pairs produced by the map phase 
 
 <hr>
 
-Q2. c. **Discuss Google File System (GFS). In a map reduce framework consider the HDFS block size is 256MB. We have 3 files of size 128KB, 258MB, and 260MB. How many blocks will be created by Hadoop framework?**
+Q2. c. **Discuss Google File System (GFS). <br>In a map reduce framework consider the HDFS block size is 256MB. We have 3 files of size 128KB, 258MB, and 260MB. <br>How many blocks will be created by Hadoop framework?**
 
 Ans. 
 ### GFS Architecture ( Google File System )
@@ -334,10 +325,7 @@ $Replicas = 5\times 3 = 15 \text {blocks}$
 <hr>
 
 Q2. d. **Apply map reduce to the following word-count problem, with the
-input:
-Fl: Cheer, Fear, Rear
-F2: Cycle, Cycle, Rear
-F3: Cheer, cycle, Fear**
+input: <br> Fl: Cheer, Fear, Rear <br> F2: Cycle, Cycle, Rear <br> F3: Cheer, cycle, Fear**
 
 Ans. 
 To solve the word-count problem using MapReduce with the given input files, we can follow these steps:
@@ -466,7 +454,7 @@ intenet, we can potentially create a demand for resources that can be appropriat
 <hr>
 
 Q3. d. **Write the pseudo-codes (for map and reduce functions) for
-calculating the average of a set of integers in MapReduce. Suppose A= (15, 25, 35, 45, 55, 65, 75) is a set of integers. Take 4 mapper nodes and 1 reducer node. Show the map and reduce outputs.**
+calculating the average of a set of integers in MapReduce. <br> Suppose A= (15, 25, 35, 45, 55, 65, 75) is a set of integers. Take 4 mapper nodes and 1 reducer node. <br> Show the map and reduce outputs.**
 
 Ans.
 $A = (15, 25, 35, 45, 55, 65, 75 )$
@@ -589,10 +577,7 @@ OpenStack services.
 **![](https://lh7-us.googleusercontent.com/FLfd8sWgHhqfTsGNkINsSi-LOXHEt2JyhEWJysJwEhgzzelQqsw77pVBpPD8RnshwrP0YDtSDRZ7CoVjOKDYZU3_BW0NDsC7Db9xZU4nxeatsEH0hWGdDvpLSlau-VvyCk8NtU_Bcp8KgBD_Lx5sKzY)**
 <hr>
 
-Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows:
-Name, Gender. Salary
-Sam, M, 10000
-Shalini, F. 15000**
+Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows: <br> Name, Gender. Salary <br>Sam, M, 10000 <br>Shalini, F. 15000**
 
 Ans. 
 
@@ -626,9 +611,7 @@ Therefore, the availability of the service is approximately $90.91\%$.
 
 <hr> 
 
-Q5. a. **A company Y needs to support a spike in demand when it becomes
-popular followed potentially by a reduction once some of the
-visitors turn away. The company has two options to satisfy the requitements which are given in the following table :**
+Q5. a. **A company Y needs to support a spike in demand when it becomes popular followed potentially by a reduction once some of the visitors turn away. The company has two options to satisfy the requitements which are given in the following table :**
 | Expenditures | In-House server | Cloud server|
 |--|--|--|
 |Purchase Cost| 1100000| No cost|
@@ -647,17 +630,12 @@ Ans.
 
 <hr>
 
-Q5. b. **Consider a scenario where a company Y wants to use a cloud service from a provider P. The service level agreement (SLA) guarantees negotiated between the two parties prior to initiating the business are as follows:
-Avaialbility guarantee 99.95% time over the service period.
-Service period: 31 days
-Max service hours per day: 8 hours
-Cost: Rs. 70/- per day
-Service credits are awarded to customers if availability guarantees are not satisfied. Monthly connectivity uptime service level are given as:**
+Q5. b. **Consider a scenario where a company Y wants to use a cloud service from a provider P. The service level agreement (SLA) guarantees negotiated between the two parties prior to initiating the business are as follows: <br> Avaialbility guarantee 99.95% time over the service period.<br> Service period: 31 days <br> Max service hours per day: 8 hours <br> Cost: Rs. 70/- per day <br> Service credits are awarded to customers if availability guarantees are not satisfied. Monthly connectivity uptime service level are given as:**
 |Monthly uptime connectivity (%)| Service credit|
 |--|--|
 |<99.95%|20%|
 |<99%|25%|
-**However, in reality it was found that over the service period, the cloud service suffered 7 outages of the duration: 5 hrs, 20min, 2 hr 20 min, 20min, 3hrs 25 min. 35min, 2 hr, each on different days, due to which normal service guarantees were violated. If SLA negotiation are honoured, compute the effective cost payable towards buying the cloud service.**
+**However, in reality it was found that over the service period, the cloud service suffered 7 outages of the duration: <br> 5 hrs, 20min, 2 hr 20 min, 20min, 3hrs 25 min. 35min, 2 hr, each on different days, due to which normal service guarantees were violated.  <br> If SLA negotiation are honoured, compute the effective cost payable towards buying the cloud service.**
 
 Ans.
 $\text{Service per day} = 8 hours$
