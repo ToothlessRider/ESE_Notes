@@ -329,6 +329,7 @@ In the reduce phase, the intermediate key-value pairs produced by the map phase 
 -  opens - 1
 -  at - 1 
 - 9am - 1 
+
  **Reducer Output**: 
  - The - 2 
  - store - 2
