@@ -286,11 +286,11 @@ Now, let's calculate this value:
 
 $= 32000 \times (501 - e^{-500})$
 
-=$32000\times (501−e^{−500})$
+=$32000 \times (501−e^{−500})$
 
-≈$32000\times(501−0)≈80×(501−0)$ (since $e^{−500}$ is extremely close to 0)
+≈$32000 \times(501−0)≈80×(501−0)$ (since $e^{−500}$ is extremely close to 0)
 
-=$32000\times501$
+=$32000 \times501$
 
 =$₹1,60,32,000$
 
