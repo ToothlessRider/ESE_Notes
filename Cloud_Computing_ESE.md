@@ -182,17 +182,11 @@ $= 25 + \frac{25\pi}{9} + 45 - 5\pi$
 $= 70 + \frac{25\pi}{9} - \frac{45\pi}{9}$
 $= 70 - \frac{20\pi}{9}$
 
-**Calculate the Cost:**
-
-The cost to provision one unit of cloud resource for one unit time is 0.9 units.
-$\text{Penalty Cost} = 0.9 \times \left( 70 - \frac{20\pi}{9} \right)$
-$= 0.9 \times 70 - 0.9 \times \frac{20\pi}{9}$
-$= 63 - 2\pi$
-
-So, the penalty cost for the delayed provisioning is:
-$63 - 2\pi \approx 63 - 6.28 = 56.72 \text{ units}$
-
-Thus, the penalty cost is approximately **56.72 units**.
+**Calculate the Penalty**
+$\text{Penalty Cost} ∝ \int_0^{t}R(t) - D(t)$
+$∝ |70 - (70 - \frac{20\pi}{9})|$
+$∝ | \frac{20\pi}{9}|$
+$Penalty ∝ 6.9813$
 
 <hr>
 
@@ -291,4 +285,317 @@ Since the Cost of cloud is almost twice, it won't be cheaper in this case.
 
 <hr>
 
+Q2. b. **What is map-reduce? Appy to the following word-count problem with the input: 
+Fl: The store opens in the morning. 
+F2: The store opens at 9am.**
 
+Ans.
+ 
+**MapReduce :**
+MapReduce is a programming model and framework for processing and generating large datasets in parallel across a distributed cluster of computers. It consists of two main phases: the map phase and the reduce phase.
+
+In the map phase, input data is divided into smaller chunks and processed independently by multiple worker nodes. Each worker node applies a function (the "map" function) to the input data, producing intermediate key-value pairs.
+
+In the reduce phase, the intermediate key-value pairs produced by the map phase are shuffled and sorted based on their keys. Then, the reducer function is applied to each unique key, consolidating and aggregating the values associated with that key.
+
+**Mapper Output:**
+ The, 1 
+ store, 1 
+ opens, 1 
+ in, 1 
+ the, 1 
+ morning, 1 
+ The, 1 
+ store, 1 
+ opens, 1 
+ at, 1 
+ 9am, 1 
+ **Reducer Output**: 
+ The, 2 
+ store, 2 
+ opens, 2 
+ in, 1 
+ the, 1 
+ morning, 1 
+ at, 1 
+ 9am, 1
+
+<hr>
+
+Q2. c. **Discuss Google File System (GFS). In a map reduce framework consider the HDFS block size is 256MB. We have 3 files of size 128KB, 258MB, and 260MB. How many blocks will be created by Hadoop framework?**
+
+Ans. 
+### GFS Architecture ( Google File System )
+* A single master controls the file namespace
+* Large files are broken up into chunks (GFS) or blocks (HDFS)
+* Typical size of each chunk: 64 MB
+* Stored on commodity (tinux) servers called Chunk servers (GFS) or Data nodes (HDFS)
+
+Replicated three times on different:
+- Physical rack
+- Network segment
+
+There are various functions in GFS, namely :
+
+1. Read Operation
+-Client program sends the full path to the **Master** ( GFS ) or **Name Node** ( HDFS )
+- Master replies with the meta data of a chunk where this data is found
+- Client reads the data from the designated chunk server
+
+
+2. Write and Append Operation
+- Client program sends the full path to the **Master** ( GFS ) or **Name Node** ( HDFS )
+- Client sends data in the form of chunks to the chunk servers ( whose meta data is provided ) for the data to be appended.
+- The chunks of data are replicated to multiple chunk servers for fault tolerance
+- The master server updates the metadata of the chunk servers
+
+3. Fault Tolerance
+- Master maintains regular communication with the chunk servers
+- In case of failure : 
+	- The chunk server meta data reflects the failure
+	- The master assigns a new primary server from the replicates if a primary server has failed
+4. Big Table
+- It is a distributed storage system on which GFS is built
+- Data is accessed by use of 
+	- Row-key
+	- Column-key
+	- Timestamps
+5. Big Table Storage
+- Each table is split into different row ranges, called tablets 
+- Each tablet is managed by a tablet server
+- Supports large parallell reads
+
+
+>Example : Dynamo
+>- Developed by amazon
+>- Supports large volume of concurrent updates, each of which should be small in size.
+
+Given : 
+- HDFS block size is 256MB. 
+- We have 3 files of size 128KB, 258MB, and 260MB. 
+
+Therefore number of blocks made by hadoop = 
+$128KB = 1$
+$258MB = 2$
+$260MB = 2$
+$Total = 5$
+
+And 
+$Replicas = 5\times 3 = 15 \text {blocks}$ 
+
+
+<hr>
+
+Q2. d. **Apply map reduce to the following word-count problem, with the
+input:
+Fl: Cheer, Fear, Rear
+F2: Cycle, Cycle, Rear
+F3: Cheer, cycle, Fear**
+
+Ans. 
+To solve the word-count problem using MapReduce with the given input files, we can follow these steps:
+
+1. **Map Phase**:
+   - Read each input file.
+   - Tokenize each line into words.
+   - For each word, emit a key-value pair where the word is the key and the value is 1.
+
+2. **Shuffle and Sort Phase**:
+   - Shuffle the key-value pairs so that all pairs with the same key are grouped together.
+   - Sort the grouped pairs by key.
+
+3. **Reduce Phase**:
+   - For each unique word, sum up the values (counts) associated with that word.
+   - Emit a key-value pair where the word is the key and the sum of counts is the value.
+
+Let's apply these steps to the given input:
+
+### Map Phase:
+For each input file, we tokenize the lines into words and emit key-value pairs:
+
+For Fl:
+- (Cheer, 1), (Fear, 1), (Rear, 1)
+
+For F2:
+- (Cycle, 1), (Cycle, 1), (Rear, 1)
+
+For F3:
+- (Cheer, 1), (cycle, 1), (Fear, 1)
+
+### Shuffle and Sort Phase:
+After shuffling and sorting by key:
+
+(Cheer, [1, 1])
+(Cycle, [1, 1])
+(Fear, [1, 1])
+(Rear, [1])
+
+### Reduce Phase:
+For each unique word, sum up the counts:
+
+- Cheer: 1 + 1 = 2
+- Cycle: 1 + 1 = 2
+- Fear: 1 + 1 = 2
+- Rear: 1
+
+### Output:
+The final output will be the word counts:
+
+- Cheer: 2
+- Cycle: 2
+- Fear: 2
+- Rear: 1
+
+This demonstrates how MapReduce can efficiently solve the word-count problem by distributing the workload across multiple nodes in a parallel and fault-tolerant manner.
+
+{'Cheer,': 2, 'Fear,': 1, 'Rear': 2, 'Cycle,': 3, 'Fear': 1}
+
+<hr>
+
+Q3. a. **What is service level agreement (SLA)? What are the different key performance indicators? Describe in brief.**
+
+Ans.
+- Whenever the service provider and the service consumer want to exchange the services there must exist some agreement.
+- Agreement involves pricing, service availability factor and other quality factors such as reliability, performance, security.
+- SLA is a formal contract between a service provider (SP) and a service consumer (SC). and it is a foundation of the consumer's trust in the provider.
+
+Example :If the uptime is 95%, then there must be guarantee that the Cloud Provider will maintain that guarantee
+
+**Key Performance Indicators**
+- Low-level resource metrics and directly measured from the system.
+- Multiple KPIs are composed, aggregated or converted to higher SLOS
+- Example: downtime, uptime, inbytes, outbytes, packet size etc.
+- Possible mappimg: Availability(A)=1-(downtime/uptime)
+- Monitoring
+	- Natural questions
+	- Solution: neutral third party organization to perform monitoring
+	- Eliminates conflict of interests
+- Auditibility: consumer requirement
+
+Metrics for monitoring and auditing : 
+- Throughput
+- Availability
+- Reliability
+- Load balancing
+- Durability
+- Elasticity
+- Linearity
+- Agility
+- Automation
+- Customer service response time
+- Service level violation rate
+- Transaction time and resolution time
+
+<hr>
+
+Q3. b.**Illustrate web service model With diagram.**
+
+Ans.
+**Roles in web service architecture**: 
+1.  **Service provider**: 
+- Owner of the  service and provides a platform that hosts use to access the service.
+2. **Service requestor**: 
+- It is usually a business or individual that requires certain functions to be satisfied. 
+- It initiates a request to the service registry to discover and obtain information about the services
+3. **Service Registry**: 
+- Searchable registry of service descriptions here service providers publish their service descriptions.
+
+**![](https://lh7-us.googleusercontent.com/mooPdlMIMWbPu2hBtzWSPm-lsnpUNCLeKk4ddqI4CmVrNMl9DcsgxAPEB1Zq0tVXx0qX5GQGQhp8XczZ261lg8Lih3IUxVHdJxMfwxlUHwEe5xVLm3R-jjrneJkyELFaV1Zx3Y6HQ42dPj-48IsHycU)**
+
+<hr>
+
+Q3. c. **What is the motivation for sensor cloud computing? Illustrate
+sensor cloud in detail.**
+
+Ans.
+#### Motivation for Sensor Cloud Computing
+- Increasing adoption of sensing technologies (e g.RFID . cameras, mobile phones)
+- Internet has become a source ot real time informatim (eg., through blogs, social networks, forums) for events happening around us
+- Cloud computng has emerged as an attractive solution for dealing with the 'Big Data' revolution.
+By combinng data obtaned from sensors with that from the
+intenet, we can potentially create a demand for resources that can be appropriately met by the cloud.
+![Showing Sensor Cloud Architecture XIV. FUTURE of WIRELESS SENSOR NETWORK and CLOUD Combining WSNs with cloud makes it easy to share and analyze real time sensor data on-the-fly. It also gives an advantage of providing sensor data or sensor event as a service over the internet with the help of cloud technology. Many application as listed in the paper cannot be easily imaginable or managed like Medical and Health care, environmental or military operation without the sensor based wireless network and cloud technology. It is imminent mix of two different technology and the full potential of these technologies is yet to be explored. ](https://www.researchgate.net/profile/Vijay-Kalyani/publication/281605205/figure/fig8/AS:648621456359425@1531654814155/Showing-Sensor-Cloud-Architecture-XIV-FUTURE-of-WIRELESS-SENSOR-NETWORK-and-CLOUD.png)
+
+<hr>
+
+Q3. d. **Write the pseudo-codes (for map and reduce functions) for
+calculating the average of a set of integers in MapReduce. Suppose A= (15, 25, 35, 45, 55, 65, 75) is a set of integers. Take 4 mapper nodes and 1 reducer node. Show the map and reduce outputs.**
+
+Ans.
+$A = (15, 25, 35, 45, 55, 65, 75 )$
+
+Mapper Nodes = 4 
+| Mapper | Numbers | Avg | Count |
+|--|--|--|--|
+|$M_1$| 15, 25 | 20 | 2 |
+|$M_2$| 35, 45 | 40 | 2 |
+|$M_3$| 55, 65 | 60 | 2 |
+|$M_4$| 75 | 75 | 1 |
+
+Reducer Node : 1
+$Avg\times Count$ 
+1. $20\times 2 = 40$
+2. $40 \times 2 = 80$
+3. $60\times 2 = 120$
+4. $75\times 1 = 75$
+
+$\frac{Sum}{Total count} = \frac{40 + 80 + 120 + 75}{2+2+2+1}$
+
+$\Sigma{Sum} = 315$
+
+$\Sigma{Count} = 7$
+
+$Average = 45$
+
+#### Pseudocode :
+##### Mapper.py :
+```python
+def map(arr)
+	sum = 0;
+	for i in range (0, len(arr)) :
+		sum = sum + arr[i]
+avg_mapper = (sum*1.0)/len(arr)
+print(average, len(arr))
+
+``` 
+
+
+##### Reducer.py
+```python
+def reduce (avg, arr)
+	sum = count = 0
+	for i in range (0, len(arr)) :
+		sum = sum + avg[i]*len(arr[i])
+		count = count + len(arr[i])
+	average = (sum*1.0)/count
+print (average)
+
+```
+
+<hr>
+
+Q4. a. **Discuss various Parallell DB architectures with detailed diagrams**
+
+Ans. 
+
+<hr>
+
+Q4. b **Describe Openstack Cloud Architecture and its key components.**
+
+Ans.
+
+<hr>
+
+
+
+Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows:
+Name, Gender. Salary
+Sam, M, 10000
+Shalini, F. 15000**
+
+Ans. 
+
+<hr>
+
+Q4. d. **In a cloud service uptime is 300 minutes and downtime is 30
+minutes. What is the availability ot service ?**
