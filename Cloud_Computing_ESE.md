@@ -286,13 +286,13 @@ Now, let's calculate this value:
 
 $= 32000 \times (501 - e^{-500})$
 
-=$32000 \times (501−e^{−500})$
+$=32000 \times (501−e^{−500})$
 
-≈$32000 \times(501−0)≈80×(501−0)$ (since $e^{−500}$ is extremely close to 0)
+$≈32000 \times(501−0)≈80×(501−0)$ (since $e^{−500}$ is extremely close to 0)
 
-=$32000 \times {501}$
+$=32000 \times {501}$
 
-=$₹1,60,32,000$
+$=₹1,60,32,000$
 
 ### Compare Costs:
 Utility ( U ) = $\frac{C_t}{B_t}$
