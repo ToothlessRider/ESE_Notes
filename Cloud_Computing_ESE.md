@@ -513,15 +513,15 @@ Q4. a. **Discuss various Parallell DB architectures with detailed diagrams**
 Ans. 
 
 #### Parallel DB Architectures : 
-- Shared memory
+- **Shared memory**
 	- Suitable for servers with multiple CPUs.
 	- Memory address space is shared and managed by a symmetric multi-processing (SMP) operating system.
 	- SMP schedules processes in parallel exploiting all the
 processors.
-- Shared Nothing
+- **Shared Nothing**
 	- Cluster of independent servers each with its own disk space.
 	- Connected by a network.
-- Shared Disk
+- **Shared Disk**
 	- Hybrid Architecture
 	- Independent server clusters share storage through high speed network storage viz. Network attached storage (NAS) or SAN (Storage Area Network).
 	- Clusters are connected to the storage via: standard ethernet or
@@ -581,8 +581,52 @@ Q4. c. **Write pseudo codes for computing total and calculate average salary of 
 
 Ans. 
 
+#### Pseudocode 
+##### Mapper.py
+```python
+import sys
+import as
+
+for line in sys.stdin
+	line = line.strip()
+	line = line.split(" ")
+
+	name = line [0]
+	gender = line[1]
+	sal = line[2]
+	print "%s, %d, % (gender, int(sal))"
+# instead of a print statement 
+#we can assume this to be a 
+#return statment to the reducer function
+	
+
+```
+
+##### Reducer.py
+```python
+import sys
+dictOrg = {}
+
+for line in sys.stdin :
+	line = line.strip()
+	gender = line[0]
+	sal = line[1]
+	
+	if gender in dictOrg :
+		dictOrg[gender].append(int(sal))
+	else :
+		dictOrg[gender] = []
+		dictOrg[gender].append(int(sal))
+
+for gender in dictOrg.keys() : 
+	sal_avg = Sum(dictOrg[gender])/Len(dictOrg[gender])
+	Total_sal = Sum(dictOrg[gender[)
+print "%s, %d, %d, % ( gender, Total_sal, sal_avg )"
+
+```
 <hr>
 
+## Availability question 
 Q4. d. **In a cloud service uptime is 300 minutes and downtime is 30
 minutes. What is the availability of service ?**
 
@@ -879,14 +923,74 @@ commodity servers connected by a high-speed network
 Q1. **What is MapReduce ? What are it's objectives**
 
 Ans. 
-- MapReduce: programming model developed at Google and associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster
+ **MapReduce**
+- It is a programming model developed at Google and associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster
 - Objective:
-	- Implement large scale search
-	- Text processing on massively scalable web data Stored using Bigtable and GFS distributed file system
-- Designed for processing and generating large volumes of data via massively parallel
-- Computations, utilizing tens of thousands of processors at a time
-- Fault tolerant: ensure progress of computation even if processors and networks fail
+	- Implement *large scale search*
+	- *Text processing* on massively scalable web data that is stored using Bigtable and GFS distributed file system
+- Designed for processing and generating large volumes of data via massively *parallel computations*, utilizing tens of thousands of processors at a time
+- *Fault tolerant*: ensure progress of computation even if processors and networks fail
 
 Example:
 - Hadoop: open source implementation ot MapReduce (developed at Yahoo!)
 - Available on pre-packaged AMis on Amazon EC2 cloud platform
+
+<hr>
+
+Q2. **What is Parallel Computing ? What are the types of parallel Database architectures ? Give a detailed Diagram**
+
+Ans.
+#### Models of Parallel Computing
+It encompasses the nature and evolution of multiprocessor computer architecture 
+1. **Shared Memory Model** : 
+- Assumes that any process can access any memory location
+2. **Distributed Memory Model** :
+- Each processor can access only it's own memory and can communicate with other processors, using message passing.
+
+#### Parallel Computing
+> It was developed for computing intensive tasks
+
+It was then applied to databases as well to create the following types of database architectures : 
+1. **Shared Nothing** 
+- It is a cluster of indpendent servers, each with their own disk space.
+- Connected via a network
+2. **Shared Disk**
+- Hybrid Architecture
+- Independent server clusters *share storage* through NAS ( Network attached Storage )
+3. **Shared Memory**
+- Suitable for servers with multiple CPU's
+- Memory address space is shared
+
+<hr>
+
+Q3. **What is the MapReduce Model ? Explain the Mapping and Reducing phase of the process**
+
+Ans.  
+
+#### MapReduce Model
+
+It is based on Parallel programming and is used by many applications that require large scale computing that involves thousands of processors.
+- It uses a fault tolerant implementation and involves two phases : 
+	- Map Operation
+	- Reduce Operation
+- A configurable number of 'mapper' processors and R 'Reducer' processors are assigned to work on a given problem
+
+#### Map Phase : 
+- Each mapper reads approximately $1/M$ of the input from the global file location
+- $\text{Map} (k_1, v_1) -> [(k_2, v_2)]$
+- It then writes the computation results in one file per reducer
+
+#### Reduce Phase : 
+- It finds the partial computations done by the mapper and then fetches those files.
+- It groups up the result given by the mappers and writes the result back to the GFS system.
+
+**![](https://lh7-us.googleusercontent.com/EV8Nhwao_w2h1eirhx9xYzZoXQYVNwkais1B6SgqVK9ddLCIU8OAHBAZR_cAPtl6ScsY_GuB2jJOwyFvZK94FADV-V851k1S-UKdl830IvUxqVIcwwwwwRY2GBohLQVtGRWHCKCVMw66xx6zHD1tLXs)**
+<hr>
+
+## PPT - 18 
+
+> This ppt contains 2 SLA based problems to be solved to check for violation of initial availability guarantee.
+> Refer to the questions solved in the ESE last year paper, above.
+> [Link to question](#availability-question)
+
+
