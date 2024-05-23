@@ -8,15 +8,14 @@
 # Table of Contents
 1. [Previous Years Questions](#previous-year-questions)
 2. [WSDL, SOAP and EDI](#ppt-12)
-3. [PPT 13](#ppt-13)
-4. [SLA & Types of SLA](#ppt-14)
-5. [RDBMS, File System Layer, GFS, HDFS](#ppt-16)
-6. [MapReduce, Parallel Computing](#ppt-17)
-7. [SLA based questions](#ppt-18)
-8. [Resource Management](#ppt-19)
-9. [CC Economic Viewpoint](#ppt-20)
-10. [Resouce management challenges](#ppt-21) 
-11. [Green Cloud & Data Centers](#ppt-22)
+3. [SLA & Types of SLA](#ppt-14)
+4. [RDBMS, File System Layer, GFS, HDFS](#ppt-16)
+5. [MapReduce, Parallel Computing](#ppt-17)
+6. [SLA based questions](#ppt-18)
+7. [Resource Management](#ppt-19)
+8. [CC Economic Viewpoint](#ppt-20)
+9. [Resouce management challenges](#ppt-21) 
+10. [Green Cloud & Data Centers](#ppt-22)
 
 
 
@@ -344,66 +343,94 @@ $Replicas = 5\times 3 = 15 \text {blocks}$
 
 ### MapReduce based questions
 Q2. d. **Apply map reduce to the following word-count problem, with the
-input: <br> Fl: Cheer, Fear, Rear <br> F2: Cycle, Cycle, Rear <br> F3: Cheer, cycle, Fear**
+input: <br> Fl: Cheer, Fear, Rear <br> F2: Cycle, Cycle, Rear <br> F3: Cheer, Cycle, Fear**
 
 Ans. 
-To solve the word-count problem using MapReduce with the given input files, we can follow these steps:
 
-1. **Map Phase**:
-   - Read each input file.
-   - Tokenize each line into words.
-   - For each word, emit a key-value pair where the word is the key and the value is 1.
+### Input:
+- F1: Cheer, Fear, Rear
+- F2: Cycle, Cycle, Rear
+- F3: Cheer, Cycle, Fear
 
-2. **Shuffle and Sort Phase**:
-   - Shuffle the key-value pairs so that all pairs with the same key are grouped together.
-   - Sort the grouped pairs by key.
+#### mapper.py
+```python
+def mapper(file_content):
+    # Split the file content into lines
+    for line in file_content:
+        # Split each line into words
+        words = line.strip().split(", ")
+        # Emit key-value pairs
+        for word in words:
+            emit(word, 1)
 
-3. **Reduce Phase**:
-   - For each unique word, sum up the values (counts) associated with that word.
-   - Emit a key-value pair where the word is the key and the sum of counts is the value.
+```
 
-Let's apply these steps to the given input:
+#### reducer.py 
+```python
+def reducer(mapped_data):
+    word_count = {}
+    # Iterate over the mapped data
+    for word, count in mapped_data:
+        if word in word_count:
+            word_count[word] += count
+        else:
+            word_count[word] = count
+    # Emit the final counts
+    for word, count in word_count.items():
+        emit(word, count)
+
+```
 
 ### Map Phase:
-For each input file, we tokenize the lines into words and emit key-value pairs:
+For each input file, we tokenize the lines into words, count the occurrences of each word in the file, and emit key-value pairs:
 
-For Fl:
-- (Cheer, 1), (Fear, 1), (Rear, 1)
+For F1:
+- (Cheer, 1)
+- (Fear, 1)
+- (Rear, 1)
 
 For F2:
-- (Cycle, 2), (Rear, 1)
+- (Cycle, 1)   # Cycle appears twice
+- (Rear, 1)
 
 For F3:
-- (Cheer, 1), (cycle, 1), (Fear, 1)
+- (Cheer, 1)
+- (Cycle, 1)
+- (Fear, 1)
 
 ### Shuffle and Sort Phase:
-After shuffling and sorting by key:
+After shuffling and sorting by key, we gather all values for each unique word:
 
-(Cheer, [1, 1])
-(Cycle, [2, 1])
-(Fear, [1, 1])
-(Rear, [1])
+- (Cheer, [1, 1])
+- (Cycle, [2, 1])
+- (Fear, [1, 1])
+- (Rear, [1, 1])
 
 ### Reduce Phase:
 For each unique word, sum up the counts:
 
 - Cheer: 1 + 1 = 2
-- Cycle: 1 + 1 = 2
+- Cycle: 2 + 1 = 3
 - Fear: 1 + 1 = 2
-- Rear: 1
+- Rear: 1 + 1 = 2
 
 ### Output:
 The final output will be the word counts:
 
 - Cheer: 2
-- Cycle: 2
+- Cycle: 3
 - Fear: 2
-- Rear: 1
+- Rear: 2
 
-This demonstrates how MapReduce can efficiently solve the word-count problem by distributing the workload across multiple nodes in a parallel and fault-tolerant manner.
-
-{'Cheer,': 2, 'Fear,': 1, 'Rear': 2, 'Cycle,': 3, 'Fear': 1}
-
+### Corrected Final Output:
+```python
+{
+  'Cheer': 2,
+  'Cycle': 3,
+  'Fear': 2,
+  'Rear': 2
+}
+```
 <hr>
 
 Q3. a. **What is service level agreement (SLA)? What are the different key performance indicators? Describe in brief.**
@@ -477,15 +504,21 @@ calculating the average of a set of integers in MapReduce. <br> Suppose A= (15, 
 
 Ans.
 $A = (15, 25, 35, 45, 55, 65, 75 )$
+> A contains 7 elements
 
-Mapper Nodes = 4 
+Mapper Nodes = 4
 | Mapper | Numbers | Avg | Count |
 |--|--|--|--|
 |$M_1$| 15, 25 | 20 | 2 |
 |$M_2$| 35, 45 | 40 | 2 |
 |$M_3$| 55, 65 | 60 | 2 |
 |$M_4$| 75 | 75 | 1 |
+|Sum | 315 | 195 | 7 |
 
+```
+avg = [20, 40, 60, 75 ]
+arr = [(15, 25), (35, 45), (55, 65), 75 ] 
+```
 Reducer Node : 1
 $Avg\times Count$ 
 1. $20\times 2 = 40$
@@ -510,7 +543,7 @@ def map(arr)
 		sum = sum + arr[i]
 avg_mapper = (sum*1.0)/len(arr)
 print(avg_mapper, len(arr))
-
+# Pass it to the reducer
 ``` 
 
 
@@ -596,10 +629,9 @@ OpenStack services.
 **![](https://lh7-us.googleusercontent.com/FLfd8sWgHhqfTsGNkINsSi-LOXHEt2JyhEWJysJwEhgzzelQqsw77pVBpPD8RnshwrP0YDtSDRZ7CoVjOKDYZU3_BW0NDsC7Db9xZU4nxeatsEH0hWGdDvpLSlau-VvyCk8NtU_Bcp8KgBD_Lx5sKzY)**
 <hr>
 
-Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows: <br> Name, Gender. Salary <br>Sam, M, 10000 <br>Shalini, F. 15000**
+Q4. c. **Write pseudo codes for computing total and calculate average salary of on organization ABC while grouping them by Gender (male or female) using MapReduce. The input is as follows: <br> Name, Gender. Salary <br>Sam, M, 10000 <br>Shalini, F, 15000**
 
 Ans. 
-
 #### Pseudocode 
 ##### Mapper.py
 ```python
@@ -608,18 +640,24 @@ import as
 
 for line in sys.stdin
 	line = line.strip()
-	line = line.split(" ")
+	line = line.split(",")
 
 	name = line [0]
 	gender = line[1]
 	sal = line[2]
-	print "%s, %d, % (gender, int(sal))"
+	print "%s, %d" % (gender, int(sal))
 # instead of a print statement 
-#we can assume this to be a 
-#return statment to the reducer function
+# we can assume this to be a 
+# return statment to the reducer function
 	
 
 ```
+```
+M 10000
+M 15000
+F 15000
+```
+
 
 ##### Reducer.py
 ```python
@@ -638,9 +676,10 @@ for line in sys.stdin :
 		dictOrg[gender].append(int(sal))
 
 for gender in dictOrg.keys() : 
-	sal_avg = Sum(dictOrg[gender])/Len(dictOrg[gender])
-	Total_sal = Sum(dictOrg[gender[)
-print "%s, %d, %d, % ( gender, Total_sal, sal_avg )"
+	Total_sal = sum(dictOrg[gender[]])
+	sal_avg = Total_sal/len(dictOrg[gender])
+	
+print ("%s, %d, %d" % ( gender, Total_sal, sal_avg ))
 
 ```
 <hr>
@@ -869,8 +908,6 @@ Ans.
 
 <hr>
 
-## PPT 13
-
 ## PPT 14
 Q1. **What is SLA ?**
 
@@ -931,6 +968,7 @@ Present market place features two types of SLAs :
 ## PPT 16
 
 Q1. **What is a Relational Database Management System ?**
+
 Ans. 
 - Users/application programs interact with an RDBMS through SQL 
 - RDBM parser:
@@ -1115,6 +1153,7 @@ Ans.
 
 ## PPT 21
 Q1. **What are the various challenges and aspects  of resource management ?**
+
 Ans. 
 #### Resource Management — Challenges (Hardware)
 - CPU (central processing unit)
@@ -1144,7 +1183,7 @@ Ans.
 
 <hr>
 
-## PPT - 22
+## PPT 22
 
 > Questions on green cloud computing have been completed before.
 > [Link to Green Cloud Computing](#green-computing)
@@ -1163,13 +1202,16 @@ Ans.
 <hr>
 
 Q2. **What is the impact of Cloud Data Centers on the environment ?**
+
 Ans.
 
 #### Impact of Cloud DC on Environment
-• Data centers are not only expensive to maintain, but also unfriendly to
-the environment.
-• Carbon emission due to Data Centers worldwide is now more than both
-Argentina and the Netherlands emission.
-• High energy costs and huge carbon footprints are incurred due to the
-massive amount of electricity needed to power and cool the numerous
-servers hosted in these data centers.
+- Data centers are not only expensive to maintain, but also unfriendly to the environment.
+- Carbon emission due to Data Centers worldwide is now more than both
+- Argentina and the Netherlands emission.
+- High energy costs and huge carbon footprints are incurred due to the massive amount of electricity needed to power and cool the numerous servers hosted in these data centers.
+
+<hr>
+
+## PPT 23
+Q1. **What is a sensor Cloud ? What are the different kinds of sensors and **
