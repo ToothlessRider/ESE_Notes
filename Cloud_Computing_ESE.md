@@ -15,6 +15,7 @@ Ans.
 | **Responsibility and Control** | Full control by service provider                      | Shared responsibility between provider and customer        |
 | **Outage and Compensation**| Credits/refunds for specific service downtime           | Complex service credits for various cloud services         |
 
+**![](https://lh7-us.googleusercontent.com/MNdViozfNs4b0lpC-aWLWHAJ90cuy12ZW_-m045oK4MhPxUWirqDCJOIlhy2Li8MKGrkKpXOhLcBwhisE6QzzJZi0b1T6owkD4zYU6uzDUVrXe9Y4TdyGUvX9HD3FRSRKk7qcBxNGqokZt5QYDv_3HM)**nb 
 <hr>
 
 Q1. b. **What is the need of Universal Description Discover and Integration
@@ -324,6 +325,7 @@ $Replicas = 5\times 3 = 15 \text {blocks}$
 
 <hr>
 
+### MapReduce based questions
 Q2. d. **Apply map reduce to the following word-count problem, with the
 input: <br> Fl: Cheer, Fear, Rear <br> F2: Cycle, Cycle, Rear <br> F3: Cheer, cycle, Fear**
 
@@ -352,7 +354,7 @@ For Fl:
 - (Cheer, 1), (Fear, 1), (Rear, 1)
 
 For F2:
-- (Cycle, 1), (Cycle, 1), (Rear, 1)
+- (Cycle, 2), (Rear, 1)
 
 For F3:
 - (Cheer, 1), (cycle, 1), (Fear, 1)
@@ -361,7 +363,7 @@ For F3:
 After shuffling and sorting by key:
 
 (Cheer, [1, 1])
-(Cycle, [1, 1])
+(Cycle, [2, 1])
 (Fear, [1, 1])
 (Rear, [1])
 
@@ -653,7 +655,9 @@ $\text{Availability} \approx 90.91\%$
 
 Therefore, the availability of the service is approximately $90.91\%$.
 
-<hr> 
+<hr>
+ 
+### Cloud and In house server comparision
 
 Q5. a. **A company Y needs to support a spike in demand when it becomes popular followed potentially by a reduction once some of the visitors turn away. The company has two options to satisfy the requitements which are given in the following table :**
 | Expenditures | In-House server | Cloud server|
@@ -671,6 +675,39 @@ Q5. a. **A company Y needs to support a spike in demand when it becomes popular 
 4. **If the efficiency of in house server is increased to 72% which deployment will have now better total cost / effective hour?**
 
 Ans. 
+#### Core/Hour cost
+
+$\text{Cost / hour} = \frac{\text {Purchase cost }}{\text {Total time}}$
+
+$\text{Core / hour cost} = \frac{\text {cost / hour}}{\text {no. of cores}}$
+
+
+$\therefore \text{in-house cost / hour} = \frac{11,00,000}{365 \times 3 \times 24} = ₹41.86$
+
+$\text{In house core / hour cost} = \frac{41.86} {17} = ₹2.46$
+
+$\text{Cloud core / hour cost} = \frac{47}{13} = ₹3.61$
+
+#### Effective cost
+
+$\text{Cost / effective hour} = \frac{\text {cost /hour }}{\text {efficiency}}$
+
+$\text{In house cost / effective hour} = \frac{41.86}{0.5} = ₹83.72$
+
+$\text{Cloud cost / effective hour} = \frac{47}{0.9} = ₹52.22$
+
+#### Total cost/ effective hour
+
+$\text{Total Cost / effective hour} = \text{cost / effective hour} + \text{power and cooling cost} + \text{management cost}$
+
+$\text{Total In-house Cost / effective hour} = 83.72 + 27 + 11 = ₹121.72$
+
+$\text{Total Cloud Cost / effective hour} = 52.22 + 6 = ₹58.22$
+
+#### New effective cost / hour
+$\text{In house cost / effective hour} = \frac{41.86}{0.72} = ₹58.13$
+
+$\therefore \text{ The in house will now have a better deployment as compared to the cloud server, based on cost/ effective hour }$
 
 <hr>
 
@@ -709,6 +746,15 @@ So, $\text{ Total Payable} =  2170 - 542.5 = ₹1627.5$
 Q5. c. **What is the motivation behind Green cloud computing? Explain green cloud computing in detail.**
 
 Ans. 
+#### Green Computing
+- Green computing consist of advanced scheduling schemas to reduce energy consumption.
+- This could mean being aware about two things :
+	- Power 
+	- Thermal output
+- Performance/Wattage is or isnot following Moore' s law.
+- In such applications we have data centers, which are designed to reduce power usage effectiveness.
+	- Cooling systems
+	- Rack design
 
 <br> 
 
@@ -992,5 +1038,93 @@ It is based on Parallel programming and is used by many applications that requir
 > This ppt contains 2 SLA based problems to be solved to check for violation of initial availability guarantee.
 > Refer to the questions solved in the ESE last year paper, above.
 > [Link to question](#availability-question)
+
+
+## PPT - 19
+Q1. **What is resource management in Cloud Computing and what are it's objectives ? What are the types of resources available?**
+
+Ans.
+
+1. Cloud is an infinite resource pool that leverages resources for multiple users.
+2. ( *from the users POV* ) It is a scalable service that works on a pay-as-you-go model 
+3. ( *from providers POV* ) They have to maximize profit without compromising the quality of service or causing SLA violations.
+4. ( *environment POV* )Reducing the carbon footprint and the amount of energy resources being used.
+
+#### Resource Management : 
+> It refers to the operations used to control how capabilities provided by cloud resources and services can be made available to others ( individuals or organizations alike ) in an efficient manner.
+
+There are 2 types of resources in Hardware systems : 
+- **Physical Resource** : 
+	- Computer, disk, database, network, etc.
+- **Logical Resource** : 
+	- Execution, processors, monitoring, etc
+
+The objectives of resource management are as follows : 
+- Scalability
+- Quality of service
+- Optimal utilit
+- Reduced overheads
+- Improved throughput
+- Reduced latency
+- Specialized environment
+- Cost effectiveness
+- Simplified interface
+
+<hr>
+
+## PPT - 20
+Q1. **Explain the properties of Cloud Computing from an economic viewpoint**
+
+Ans. 
+•
+•
+#### Cloud Properties: Economic Viewpoint
+- *Common Infrastructure*
+	- pooled, standardized resources. with benefits generated bv statistical multiplexing.
+- *Location-independence*
+	- ubiquitous availability meeting performance requirements. with benefits deriving from latency reduction and user experience enhancement.
+- *Online connectivity*
+	- An enabler of other attributes ensuring service access. Costs and performance impacts Of network architectures can be quantified using traditional methods.
+- *Utility pricing*
+	- Usage-sensitive or pay-per-use pricing, with benefits applying in environments with variable demand levels. on-Demand Resources
+	- Scalable, elastic resources provisioned and de-provisioned without delay or costs associated with change.
+
+<hr>
+
+> The questions are available here : [Link to questions on cost/hour](#cloud-and-in-house-server-comparision)
+> [Link to MapReduce Questions](#mapreduce-based-questions)
+
+<hr>
+
+## PPT 21
+Q1. **What are the various challenges and aspects  of resource management ?**
+Ans. 
+#### Resource Management — Challenges (Hardware)
+- CPU (central processing unit)
+- Storage
+- Workstatbons
+- Network elements
+
+#### Resource Management — Challenges (Logical resources)
+- Operating system
+- Energy
+- Network Throughput/ bandwidth
+- Load balancing mechanisms
+- Information security
+- Delays
+- APIs/(Applications Programming Interfaces)
+- Protocols
+
+#### Resource Management Aspects
+- Resource provisioning
+- Resource allocation
+- Resource requirement mapping
+- Resource adaptation
+- Resource discovery
+- Resource brokering
+- Resource estimation
+- Resource modeling
+
+<hr>
 
 
