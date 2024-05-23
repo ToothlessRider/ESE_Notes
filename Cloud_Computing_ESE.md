@@ -16,6 +16,7 @@
 8. [CC Economic Viewpoint](#ppt-20)
 9. [Resouce management challenges](#ppt-21) 
 10. [Green Cloud & Data Centers](#ppt-22)
+11. [MapReduce Question](#map-reduce-additional-question)
 
 
 
@@ -1214,4 +1215,72 @@ Ans.
 <hr>
 
 ## PPT 23
-Q1. **What is a sensor Cloud ? What are the different kinds of sensors and **
+Q1. **What is a sensor Cloud ? What are the different kinds of sensors? **
+
+Ans.
+#### Sensor Cloud : 
+- Enables users to easily collect, access, process, visualize, archive, share and search large amounts of sensor data from different applications.
+- Supports complete sensor data life cycle from data collection to the backend decision support system.
+- Vast amount of sensor data can be processed, analyzed, and stored using computational and storage resources of the cloud.
+
+#### Sensor Cloud Computing 
+An infrastructure that allows truly pervasive computation using sensors as interface between physical and cyber worlds, the data-compute clusters as the cyber backbone and the internet as the communication medium
+- It integrates large-scale sensor networks with sensing apprtcations and cloud computing infrastructures
+- It collects and processes data from various sensor networks
+- Enables large-scale data sharing and collaborations among users and applications on the cloud.
+- Delivers cloud services via sensor-rich devices
+- Allows cross-disciplinary applications that span organizational boundaries.
+
+
+
+<hr>
+
+### Map Reduce additional Question
+Q4. **Given below is the data regarding the electrical consumption of an organization. It contains the monthly electrical consumption and the annual average for various years.**
+
+**![](https://lh7-us.googleusercontent.com/du-qNf8VCvU2_immbQfmZB38pqZ31ndZtlerBwlKiq-r1ekFWDUuIA3XiZdCp1-KRZ_ZU7XjbehvaNrIItuErrA9anFamXzTIiHCUIVMsb4_aK1c8HZJ3yf9-LlesZxoCRRZ7eqlTo8ur3rav-Cs2_M)**
+**If the above data is given as input, we have to write applications to process it and produce results such as finding the year of maximum usage, year of minimum usage, and so on. Show the map and reduce outputs.**
+
+Ans. 
+
+
+Sure, let's remove the last number in each row and add them again:
+
+1. 1979:$23 + 23 + 2 + 43 + 24 + 25 + 26 + 26 + 26 + 26 + 25 + 26 = 291$
+2. 1980: $26 + 27 + 28 + 28 + 28 + 30 + 31 + 31 + 31 + 30 + 30 + 30 = 338$
+3. 1981: $31 + 32 + 32 + 32 + 33 + 34 + 35 + 36 + 36 + 34 + 34 + 34 = 403$
+4. 1984: $39 + 38 + 39 + 39 + 39 + 41 + 42 + 43 + 40 + 39 + 38 + 38 = 475$
+5. 1985: $38 + 39 + 39 + 39 + 39 + 41 + 41 + 41 + 00 + 40 + 39 + 39 = 475$
+
+Now, let's output the new totals for each year:
+
+1. 1979: 291
+2. 1980: 338
+3. 1981: 403
+4. 1984: 475
+5. 1985: 475
+
+| Mapper | Numbers | Avg | Count |
+|--|--|--|--|
+|$M_1$| 23 + 23 + 2 + 43 + 24 + 25 + 26 + 26 + 26 + 26 + 25 + 26 | 25 | 12 |
+|$M_2$| 26 + 27 + 28 + 28 + 28 + 30 + 31 + 31 + 31 + 30 + 30 + 30 | 29 | 12 |
+|$M_3$| 39 + 38 + 39 + 39 + 39 + 41 + 42 + 43 + 40 + 39 + 38 + 38 | 34 | 12 |
+|$M_4$| 39 + 38 + 39 + 39 + 39 + 41 + 42 + 43 + 40 + 39 + 38 + 38 | 40 | 12 |
+|$M_5$ | 38 + 39 + 39 + 39 + 39 + 41 + 41 + 41 + 00 + 40 + 39 + 39 | 45 | 12 |
+
+
+## Tutorial 8 questions 
+Q1. **Difference between scalability and elasticity**
+
+Ans. 
+**Scalability** : 
+- It refers to the ability ofa  system to handle growing amounts of work by adding resources such as CPU, memory or storage
+
+**Elasticity** : 
+- It refers to the ability to automatically or dynamically allocate and deallocate resources, based on a response to demands in the system, ensuring *resource optimization*
+
+<hr>
+
+Q2. **What is the difference between cloud and traditional Datacenters**
+
+Ans. 
