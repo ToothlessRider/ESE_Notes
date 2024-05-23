@@ -5,6 +5,23 @@
 > 
 [Github Repo Link for all ESE Notes](https://github.com/ToothlessRider/ESE_Notes.git)
 
+# Table of Contents
+1. [Previous Years Questions](#previous-year-questions)
+2. [WSDL, SOAP and EDI](#ppt-12)
+3. [PPT 13](#ppt-13)
+4. [SLA & Types of SLA](#ppt-14)
+5. [RDBMS, File System Layer, GFS, HDFS](#ppt-16)
+6. [MapReduce, Parallel Computing](#ppt-17)
+7. [SLA based questions](#ppt-18)
+8. [Resource Management](#ppt-19)
+9. [CC Economic Viewpoint](#ppt-20)
+10. [Resouce management challenges](#ppt-21) 
+11. [Green Cloud & Data Centers](#ppt-22)
+
+
+
+## Previous Year Questions
+
 Q1. a. **Differentiate between web service SLA and Cloud SLA. (At least 4 points).**
 
 Ans. 
@@ -747,6 +764,10 @@ Q5. c. **What is the motivation behind Green cloud computing? Explain green clou
 
 Ans. 
 #### Green Computing
+- Green computing is the environmentally responsible and eco-friendly use of computers and their resources.
+- In broader terms, itis also defined as the study of designing, manufacturing or engineering, using and disposing of computing devices in a way that reduces their environmental impact
+- Green Cloud computing is envisioned to achieve not only efficient processing and utilization of computing infrastructure, but also minimize energy consumption.
+
 - Green computing consist of advanced scheduling schemas to reduce energy consumption.
 - This could mean being aware about two things :
 	- Power 
@@ -848,6 +869,8 @@ Ans.
 
 <hr>
 
+## PPT 13
+
 ## PPT 14
 Q1. **What is SLA ?**
 
@@ -902,14 +925,10 @@ Present market place features two types of SLAs :
 8. *Certification*
 9. *Monitoring*
 10. *Auditibility*
-<hr>
-
-## PPT - 15
-Q1. 
 
 <hr>
 
-## PPT - 16
+## PPT 16
 
 Q1. **What is a Relational Database Management System ?**
 Ans. 
@@ -965,7 +984,7 @@ commodity servers connected by a high-speed network
 
 <hr>
 
-## PPT - 17
+## PPT 17
 Q1. **What is MapReduce ? What are it's objectives**
 
 Ans. 
@@ -1033,14 +1052,14 @@ It is based on Parallel programming and is used by many applications that requir
 **![](https://lh7-us.googleusercontent.com/EV8Nhwao_w2h1eirhx9xYzZoXQYVNwkais1B6SgqVK9ddLCIU8OAHBAZR_cAPtl6ScsY_GuB2jJOwyFvZK94FADV-V851k1S-UKdl830IvUxqVIcwwwwwRY2GBohLQVtGRWHCKCVMw66xx6zHD1tLXs)**
 <hr>
 
-## PPT - 18 
+## PPT 18 
 
 > This ppt contains 2 SLA based problems to be solved to check for violation of initial availability guarantee.
 > Refer to the questions solved in the ESE last year paper, above.
 > [Link to question](#availability-question)
 
 
-## PPT - 19
+## PPT 19
 Q1. **What is resource management in Cloud Computing and what are it's objectives ? What are the types of resources available?**
 
 Ans.
@@ -1072,12 +1091,10 @@ The objectives of resource management are as follows :
 
 <hr>
 
-## PPT - 20
+## PPT  20
 Q1. **Explain the properties of Cloud Computing from an economic viewpoint**
 
 Ans. 
-•
-•
 #### Cloud Properties: Economic Viewpoint
 - *Common Infrastructure*
 	- pooled, standardized resources. with benefits generated bv statistical multiplexing.
@@ -1127,4 +1144,32 @@ Ans.
 
 <hr>
 
+## PPT - 22
 
+> Questions on green cloud computing have been completed before.
+> [Link to Green Cloud Computing](#green-computing)
+
+Q1. **What is the Green Cloud ?**
+
+Ans.
+#### Green Cloud
+- Green cloud is an aspect of cloud computing that makes it more efficient
+- Normally having multiple in house servers, networks, lan cables, etc,  entail huge power consumption.
+- The cost of computing equipment, space, power etc is very high to purchase and to maintain.
+- Green Cloud looks to reduce the carbon footprint by making more efficient use of such cloud resources.
+- Running VM's ( Virtual Machines ) is one of the ways to compete this growing problem.
+- Reducing CPU usage time, network usage time, etc, reduces the energy consumption in cloud infrastructure.
+
+<hr>
+
+Q2. **What is the impact of Cloud Data Centers on the environment ?**
+Ans.
+
+#### Impact of Cloud DC on Environment
+• Data centers are not only expensive to maintain, but also unfriendly to
+the environment.
+• Carbon emission due to Data Centers worldwide is now more than both
+Argentina and the Netherlands emission.
+• High energy costs and huge carbon footprints are incurred due to the
+massive amount of electricity needed to power and cool the numerous
+servers hosted in these data centers.
