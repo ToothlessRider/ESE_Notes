@@ -76,10 +76,7 @@ Thus, the worst-case time complexity of the modified QuickSort, where the median
 
 <hr>
 
-Q2. a.**Suppose you are playing game of shooting balloon. You expect to shoot n
-balloons in the board, assuming you are sharpshooter, 100% hit. There are two
-scenarios, you need find the appropriate Big Oh notation for each scenario. In
-these problems, one unit of work is shooting one balloon.
+Q2. a.**Suppose you are playing game of shooting balloon. You expect to shoot n balloons in the board, assuming you are sharpshooter, 100% hit. There are two scenarios, you need find the appropriate Big O notation for each scenario. <br>In these problems, one unit of work is shooting one balloon.
 (i). Scenario 1: For every 2 balloons you are able to shoot, one new balloon is inserted in the board. So, if there were 20 balloons, after you shoot the first 2, there are 19 on the board. After you shoot the next 2, there are 18 on the board. How many balloons do you shoot before the board is empty?**
 
 Ans. 
@@ -153,6 +150,9 @@ $\Sigma Sum = \frac{n \times (n+1)}{2}$
 Iterations = n
 Number of balloons shot = $\frac{n \times (n+1)}{2}$
 
+Therefore the time complexity : 
+$O(\frac{n^2+n}{2}) = O(n^2) + O(n) = O(n^2)$
+
 
 
 
@@ -186,8 +186,11 @@ So, sorting 250 elements using insertion sort would take approximately 0.175 hou
 Given that an insertion sort of 10,000 items takes about 7 hours, we can directly calculate the time since the complexity for best case insertion sort is $O(n^2)$
 
 $\frac{10000^2}{250^2} = \frac{7}{x}$
+
 $\frac{1000000000}{62500} = \frac{7}{x}$
+
 $1600= \frac{7}{x}$
+
 $x = \frac{7}{1600} = 0.004375 hours = 0.0043\times60\times60 = 15.75 seconds$
 
 
@@ -321,27 +324,8 @@ Ans.
 0.4 a. **Consider a situation where swap operation is very costly. Which sorting algorithms should be preferred so that the number of swap operations are minimized in general?**
 
 Ans. 
-If swap operations are very costly, the following sorting algorithms should be preferred to minimize the number of swaps:
-
-1. **Merge Sort**:
-   - Definition: A comparison-based algorithm that divides the array into halves and merges them after sorting.
-   - Time Complexity: $O(n \log n)$
-   - Space Complexity: $O(n)$
-
-2. **Insertion Sort**:
-   - Definition: Builds the final sorted array one item at a time, primarily involving shifting elements.
-   - Time Complexity: $O(n^2)$(worst case), $O(n)$ (best case)
-   - Space Complexity: $O(1)$
-
-3. **Selection Sort**:
-   - Definition: Selects the minimum element from the unsorted part and moves it to the correct position.
-   - Time Complexity: $O(n^2$
-   - Space Complexity: $O(1)$
-
-4. **Heap Sort**:
-   - Definition: Builds a heap from the input data and extracts elements to build the sorted array.
-   - Time Complexity: $O(n \log n)$ 
-   - Space Complexity: $O(1)$
+Here The answer depends on the which algorithm has minimum number of swaps among these And Among these ,selection sort has the minimum number of swaping complexity =$O(n)$ always so Selection sort is preferable here  
+  
 
 <hr> 
 
@@ -386,100 +370,136 @@ QuickSort(Arr,l,r)
 <hr> 
 
 Q4. c. **Show how depth-first search works on the following graph starting from node q.<br> Assume that the for loop in the DFS procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. <br>Show the discovery and finishing times for each vertex, and show the classification of each edge.**
-
+**![](https://lh7-us.googleusercontent.com/gncexz_tJwNliS3RzuA7zl3ViCUCq2Fvdfwa9tBXCLZJyx7skdUUl4BSX4TcdVn05iGT-qRsGwb6OTKVpUHoG8bxuYmuGsgZb8hS4n2zeHVRwc74DuAD1JncO8cGU_26JbJ6q7Z6qj_R7NVGajU5cAI)**
 Ans. 
-To perform a depth-first search (DFS) on the given directed graph starting from node `q`, we'll follow these steps, considering vertices and adjacency lists in alphabetical order.
+Let's re-evaluate the DFS traversal with the correction that $t$ will continue to discover $y$ after exploring $x$.
 
-### Step-by-Step DFS Process:
+### Corrected DFS Traversal:
 
-1. **Initialization**:
-   - Time (a counter) starts at 0.
-   - Each vertex has two times: discovery time (d) and finishing time (f).
+1. Start at $q$:
+   - Discovery time: 1
+   - Adjacent vertices: [s, t, y] (alphabetical order)
 
-2. **DFS Procedure**:
-   - Visit nodes in alphabetical order.
-   - Update the discovery and finishing times.
-   - Classify edges as Tree, Back, Forward, or Cross edges.
+2. Move to $s$:
+   - Discovery time: 2
+   - Adjacent vertices: [v, w] (alphabetical order)
 
-### DFS Algorithm:
-```pseudo
-DFS(G)
-  for each vertex u in V
-    if u is not visited
-      DFS-Visit(u)
+3. Move to $v$:
+   - Discovery time: 3
+   - Adjacent vertices: [w]
 
-DFS-Visit(u)
-  time = time + 1
-  u.d = time
-  for each v in Adj[u]
-    if v is not visited
-      v.parent = u
-      DFS-Visit(v)
-    classify edge (u, v)
-  time = time + 1
-  u.f = time
+4. Move to $w$:
+   - Discovery time: 4
+   - No more adjacent vertices
+   - Finishing time: 5
+
+5. Back to $v$:
+   - Finishing time: 6
+
+6. Back to $s$:
+   - Finishing time: 7
+
+7. Back to $q$, move to $t$:
+   - Discovery time: 8
+   - Adjacent vertices: [x, y] (alphabetical order)
+
+8. Move to $x$:
+   - Discovery time: 9
+   - Adjacent vertices: [z]
+
+9. Move to $z$:
+   - Discovery time: 10
+   - No more adjacent vertices
+   - Finishing time: 11
+
+10. Back to $x$:
+    - Finishing time: 12
+
+11. Back to $t$, move to $y$:
+    - Discovery time: 13
+    - No more adjacent vertices
+    - Finishing time: 14
+
+12. Back to $t$:
+    - Finishing time: 15
+
+13. Back to $q$:
+    - Move to $y$ (already visited)
+    - Finishing time: 16
+
+14. Next unvisited vertex: $r$:
+    - Discovery time: 17
+    - Adjacent vertices: [u]
+
+15. Move to $u$:
+    - Discovery time: 18
+    - No more adjacent vertices
+    - Finishing time: 19
+
+16. Back to $r$:
+    - Finishing time: 20
+
+### Updated Discovery and Finishing Times:
+- $q$: Discovery: 1, Finishing: 16
+- $s$: Discovery: 2, Finishing: 7
+- $v$: Discovery: 3, Finishing: 6
+- $w$: Discovery: 4, Finishing: 5
+- $t$: Discovery: 8, Finishing: 15
+- $x$: Discovery: 9, Finishing: 12
+- $z$: Discovery: 10, Finishing: 11
+- $y$: Discovery: 13, Finishing: 14
+- $r$: Discovery: 17, Finishing: 20
+- $u$: Discovery: 18, Finishing: 19
+
+### Corrected Edge Classification:
+- Tree edges: (q, s), (s, v), (v, w), (q, t), (t, x), (x, z), (t, y), (r, u)
+- Back edges: None
+- Forward edges: None
+- Cross edges: (q, y)
+
+### DFS Result:
+
+| Vertex | Discovery Time | Finishing Time |
+|--------|----------------|----------------|
+| q      | 1              | 16             |
+| s      | 2              | 7              |
+| v      | 3              | 6              |
+| w      | 4              | 5              |
+| t      | 8              | 15             |
+| x      | 9              | 12             |
+| z      | 10             | 11             |
+| y      | 13             | 14             |
+| r      | 17             | 20             |
+| u      | 18             | 19             |
+
+This corrected process shows the DFS traversal with proper discovery and finishing times for each vertex, as well as the correct classification of each edge.
+
+
+```mermaid
+graph TD
+    A("1 | q | 16")
+    B("2 | s | 7")
+    C("3 | v | 6")
+    D("4 | w | 5")
+    E("8 | t | 15")
+    F("9 | x | 12")
+    G("10 | z | 11")
+    H("13 | y | 14")
+    I("17 | r | 20")
+    J("18 | u | 19")
+
+    A --> B
+    A --> E
+    A --> H
+    B --> C
+    B --> D
+    C --> D
+    E --> F
+    E --> H
+    F --> G
+    I --> H
+    J --> H
 ```
-
-### DFS Execution:
-
-#### 1. Start at `q`:
-- `q`: discover at 1.
-
-#### 2. Visit `q`'s neighbors in alphabetical order:
-- `s`: discover at 2.
-- `s`'s neighbors in alphabetical order:
-  - `v`: discover at 3.
-    - `v` has no neighbors.
-    - `v`: finish at 4.
-  - `w`: discover at 5.
-    - `w` has no neighbors.
-    - `w`: finish at 6.
-  - `s`: finish at 7.
-- `t`: discover at 8.
-- `t`'s neighbors in alphabetical order:
-  - `x`: discover at 9.
-  - `x`'s neighbors in alphabetical order:
-    - `z`: discover at 10.
-      - `z` has no neighbors.
-      - `z`: finish at 11.
-    - `x`: finish at 12.
-  - `t`: finish at 13.
-- `q`: finish at 14.
-
-#### 3. Visit remaining unvisited nodes (alphabetically):
-- `r`: discover at 15.
-- `r`'s neighbors in alphabetical order:
-  - `u`: discover at 16.
-  - `u`'s neighbors in alphabetical order:
-    - `t`: already discovered, `u` has finished.
-    - `y`: discover at 17.
-      - `y`'s neighbors in alphabetical order:
-        - `t`: already discovered.
-        - `u`: already discovered.
-      - `y`: finish at 18.
-  - `u`: finish at 19.
-- `r`: finish at 20.
-
-### Discovery and Finishing Times:
-- `q`: \(d = 1\), \(f = 14\)
-- `s`: \(d = 2\), \(f = 7\)
-- `v`: \(d = 3\), \(f = 4\)
-- `w`: \(d = 5\), \(f = 6\)
-- `t`: \(d = 8\), \(f = 13\)
-- `x`: \(d = 9\), \(f = 12\)
-- `z`: \(d = 10\), \(f = 11\)
-- `r`: \(d = 15\), \(f = 20\)
-- `u`: \(d = 16\), \(f = 19\)
-- `y`: \(d = 17\), \(f = 18\)
-
-### Edge Classification:
-- Tree Edges: (`q, s`), (`s, v`), (`s, w`), (`q, t`), (`t, x`), (`x, z`), (`r, u`), (`u, y`)
-- Back Edges: (`y, t`), (`t, q`), (`y, u`)
-- Forward Edges: (none in this case)
-- Cross Edges: (`q, y`)
-
-This output shows the discovery and finishing times for each vertex and the classification of each edge as required by the depth-first search algorithm starting from node `q`.
-
 
 <hr> 
 
@@ -582,7 +602,7 @@ The final shortest paths from `A` using Dijkstra's algorithm are:
 
 <hr>
 
-Q5. b. 
+Q5. b. Find the shortest path from following graph using Bellman ford algorithm.
 
 **![](https://lh7-us.googleusercontent.com/8R5XB2w7z4J4GgDFJHaHtfUkQoCs_TenwCbM1T19ovh3crTzKUMoAHEYx3mPI7EXyxFEw0mJ4uAytDCOB3I5fk6kwTzap4UN7bw2xYULRMuCUrC50wpPAwGVtCbovGCXp7Sfh3c-atTTmmGsx8q-xUo)**
 
@@ -604,14 +624,14 @@ To find the shortest path from node `A` to all other nodes using the Bellman-For
 
 |Vertex|0|1|2|3|4|5|6|7|
 |--|--|--|--|--|--|--|--|--|
-| A |0|0|0|0|0|0|0|0|0|
-| B | ∞|8|8|8|8|8|8|8|8|
-| C | ∞|∞|14|14|14|7|7|7|4|
-| D | ∞|∞|∞|∞|∞|9|9|9|9|
-| E | ∞|6|6|6|6|6|6|6|6|
-| F | ∞|∞|∞|9|9|9|9|9|9|
-| G | ∞|∞|∞|8|8|8|8|4|4|
-| H | ∞|∞|∞|∞|∞|∞|11|11|11|
+| A |0|0|0|0|0|0|0|0|
+| B | ∞|8|8|8|8|8|8|8|
+| C | ∞|∞|14|14|7|7|7|4|
+| D | ∞|∞|∞|∞|9|9|9|9|
+| E | ∞|6|6|6|6|6|6|6|
+| F | ∞|∞|∞|9|9|9|9|9|
+| G | ∞|∞|∞|8|8|8|4|4|
+| H | ∞|∞|∞|∞|∞|11|11|11|
 
 From after iteration 7 a negative cycle exists
 
@@ -648,6 +668,8 @@ BFS(G, s)                            // Function to perform BFS on graph G start
 ```
 
 ## Time complexity BFS
+
+
 
 Q1. **What is a graph ?**
 
@@ -786,11 +808,6 @@ Binary Heap : $O((n+m)logn)$
 ## Bell Ford
 > It computes single source shortest paths
 > Negative weights are allowed but not negative cycles
-
-### Pseudocode BellF
-```python
-
-```
 
 
 <hr>
