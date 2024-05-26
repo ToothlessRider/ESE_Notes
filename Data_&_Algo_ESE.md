@@ -8,8 +8,12 @@
 # Table of Contents :
 1. [PYQs](#previous-year-questions)
 2. [Breadth first search](#bfs)
+	- [Pseudocode](#pseudocode-bfs)
+	- [Time Complexity](#time-complexity-bfs)
 3. [Depth First Seach](#dfs)
 4. [Djikstra's Algorithm](#djik-algo)
+	- [Pseudocode](#pseudocode-djk)
+	- [Time Complexity](#time-complexity-djk)
 5. [Bellman Ford Algorithm](#bell-ford)
 6. [Assignment Questions](#assignment-questions)
 
@@ -37,31 +41,38 @@ This is because the $O(n^3)$term will dominate the $O(n^2)$ term for sufficientl
 Q1. b. **Suppose we have an O(n) time algorithm that finds the median of an unsorted array. Now consider a QuickSort implementation where we first find the median using the above algorithm, then use the median as a pivot. What will be the worst-case time complexity of this modified QuickSort?**
 
 Ans.
-To determine the worst-case time complexity of the modified QuickSort algorithm that uses the median as the pivot, let's analyze the steps involved:
+In a standard QuickSort algorithm, the worst-case time complexity is $O(n^2)$ when the pivot chosen leads to the most unbalanced partitions (e.g., when the smallest or largest element is always chosen as the pivot).
 
-1.  **Finding the Median**: The given algorithm finds the median of an unsorted array in 𝑂(𝑛) time.
-2.  **Partitioning around the Median**: Once the median is found, it is used as the pivot to partition the array. This partition step is 𝑂(𝑛)
+However, if we modify QuickSort to use the median of the array as the pivot, and we assume that finding the median can be done in $O(n)$ time, the worst-case time complexity changes significantly. Here's how:
 
-In QuickSort, after partitioning, the array is divided into two subarrays, each approximately half the size of the original array because we are using the median as the pivot. This ensures that the array is always evenly split, which is ideal for QuickSort.
-
-Let's denote the time complexity of the modified QuickSort algorithm as 𝑇(𝑛)
-
-The recurrence relation for this modified QuickSort algorithm can be written as: 𝑇(𝑛)=𝑂(𝑛)+𝑇(𝑛/2)+𝑇(𝑛/2)
-Here, 𝑂(𝑛) represents the time taken to find the median and partition the array, and the two 𝑇(𝑛/2) terms represent the recursive calls on the two subarrays.
-
-Simplifying the recurrence relation, we get: 𝑇(𝑛)=𝑂(𝑛)+2𝑇(𝑛/2)
-
-This is a standard recurrence relation that can be solved using the Master Theorem. For the recurrence: 𝑇(𝑛)=𝑎𝑇(𝑛𝑏)+𝑓(𝑛)
-
-where 𝑎=2, 𝑏=2, and 𝑓(𝑛)=𝑂(𝑛)
+1. **Finding the Median**: According to the problem, we have an $O(n)$ time algorithm to find the median of an unsorted array.
+2. **Partitioning Around the Median**: Using the median as the pivot ensures that the partitioning is always balanced. Each partition will be approximately half the size of the array.
 
 
-**![](https://lh7-us.googleusercontent.com/bMc3F40pftboBYm4ec5mbZeKgbzTRUz8yX7RRCQwJBwYicSiau5PKB6c2StYtSWECT0K-C0qR0PUaFQqWNwbOoqkVXLaVc-HNj_S5jKjDPM84-NJidh53tl3hs58xAdgYOJxWqQ_MVuyP_6SkZdmlRg)**
-**![](https://lh7-us.googleusercontent.com/HwF_cjaXQlFtthILrwBKNPHOoEWbLDGnAHP5-rEHI4ZX48PCA99S3Zrs15Xr5xd6QKcY5Sn22UfZUPP5TUbABmG9Wzzni6CXd2_eXlwSzk4PAIn7nCAXGwBcTxkYhRV20C0jBNAQVYinBAF0rE1UbPA)**
+The steps for the modified QuickSort are:
+1. Find the median of the array, which takes $O(n)$ time.
+2. Partition the array around the median, which takes $O(n)$ time.
+3. Recursively apply the same process to the two halves.
 
-According to the Master Theorem for this case, the time complexity is: 𝑇(𝑛)=𝑂(𝑛log⁡𝑛)
+Let's analyze the time complexity more formally:
 
-Therefore, the worst-case time complexity of the modified QuickSort algorithm that uses the median as the pivot is 𝑂(𝑛log⁡𝑛)
+- Let $T(n)$ be the time complexity of this modified QuickSort algorithm.
+- The median-finding step takes $O(n)$ time.
+- Partitioning the array around the median also takes $O(n)$ time.
+
+After partitioning, we recursively sort the two halves, each of which has at most $\lceil \frac{n}{2} \rceil$ elements. Therefore, the recurrence relation for the time complexity is:
+
+$T(n) = O(n) + T\left(\left\lceil \frac{n}{2} \right\rceil\right) + T\left(\left\lfloor \frac{n}{2} \right\rfloor\right)$
+
+Since $\left\lceil \frac{n}{2} \right\rceil + \left\lfloor \frac{n}{2} \right\rfloor = n$, we can approximate this as:
+
+$T(n) = O(n) + 2T\left(\frac{n}{2}\right)$
+
+This recurrence relation is characteristic of the divide-and-conquer algorithm where the problem is divided into two equal parts, and additional linear work is done outside the recursive calls. According to the Master Theorem for divide-and-conquer recurrences, this specific form of recurrence has the solution:
+
+$T(n) = O(n \log n)$
+
+Thus, the worst-case time complexity of the modified QuickSort, where the median is found in $O(n)$ time and used as the pivot, is $O(n \log n)$. This is a significant improvement over the worst-case time complexity of the standard QuickSort, which is $O(n^2)$.
 
 <hr>
 
@@ -78,8 +89,8 @@ Ans.
 
 2.  **Step-by-Step Process**:
 - Initially, there are n balloons.
-- After shooting 2 balloons, 1 new balloon is added, so the number of balloons decreases by 1. The board now has 𝑛−1 balloons.
-- After shooting another 2 balloons, another balloon is added, reducing the count by 1 again. The board now has 𝑛−2 balloons.
+- After shooting 2 balloons, 1 new balloon is added, so the number of balloons decreases by 1. The board now has n−1 balloons.
+- After shooting another 2 balloons, another balloon is added, reducing the count by 1 again. The board now has n−2 balloons.
 - This process continues until all the balloons are gone.
 
 3.  **Iterations**:
@@ -87,22 +98,60 @@ Ans.
 -  After each iteration, the total number of balloons decreases by 1.
 
 4.  **Total Iterations**:
-- To reduce the number of balloons from 𝑛 to 0, you will need 𝑛 iterations because each iteration reduces the count by 1.
+- To reduce the number of balloons from n to 0, you will need n iterations because each iteration reduces the count by 1.
 
 6.  **Total Number of Balloons Shot**:
 - In each iteration, you shoot 2 balloons.
-- Therefore, the total number of balloons shot is 2×𝑛.
+- Therefore, the total number of balloons shot is 2k - 1
+- Where k is number of initial balloons
 
 ### Conclusion:
 
 The total number of balloons shot before the board is empty is proportional to the initial number of balloons times 2. Therefore, the Big-O notation for the number of balloons you need to shoot before the board is empty is:
 >O(n)
 
+8 balloons : 
+Shooting rate is 2 balloons every time. n = 2
+Number added each time = 1
+
+k = 8
+
+8 - 2 = 6 > 6 + 1 = 7 
+7 - 2 = 5 > 5 + 1 = 6
+6 - 2 = 4 > 4 + 1 = 5
+5 - 2 = 3 > 3 + 1 = 4
+4 - 2 = 2 > 2 + 1 = 3
+3 - 2 = 1 > 1 + 1 = 2
+2 - 2 = 0 > 0 + 1 = 1
+1 - 1 = 0
+
+Number of instances = k = 8
+Number of baloons shot = 2k - 1 = 15
+
+
 <hr>
 
-Q2. a. (ii). **Scenario 2 for the above problem of shooting the balloon: By the time you have shoot the first n balloons, n-I new balloons have been inserted on the board. After shootng those n-1 balloons, there are n-2 new balloons are inserted on the board. After checking out those n-2 balloons . there are n-3 new balloons on the board. This same pattern continues until on new balloon are inserted on the board. How many total balloons do you shoot before the board is empty?** 
+Q2. a. (ii). **Scenario 2 for the above problem of shooting the balloon: By the time you have shoot the first n balloons, n-1 new balloons have been inserted on the board. <br>After shooting those n-1 balloons, there are n-2 new balloons are inserted on the board. After checking out those n-2 balloons . there are n-3 new balloons on the board. This same pattern continues until no new balloon are inserted on the board. How many total balloons do you shoot before the board is empty?** 
 
 Ans. 
+
+Number of balloons : 6
+number of balloons shot(n) = 6
+
+6 - 6 = 0 > 0 + 5 = 5
+5 - 5 = 0 > 0 + 4 = 4 
+4 - 4 = 0 > 0 + 3 = 3
+3 - 3 = 0 > 0 + 2 = 2 
+2 - 2 = 0 > 0 + 1 = 1
+1 - 1 = 0 > 0 + 0 = 0
+
+so 21 balloons should have been burst in this case
+
+$\Sigma Sum = [ n + (n-1) + ....... + 1 + 0 ] = \frac{n\times(n+1)}{2}$
+$\Sigma Sum = \frac{n \times (n+1)}{2}$
+
+Iterations = n
+Number of balloons shot = $\frac{n \times (n+1)}{2}$
 
 
 
@@ -112,7 +161,7 @@ Ans.
 Q2. b. **Assuming you had an antique computer that could perform one comparison every 1/1 ,OOO of a second, an insertion sort of 10,000 items should take about 7 hours.<br> Calculate the minimum amount of time taken to sort 250 elements**
 
 Ans. 
-Given that an insertion sort of 10,000 items takes about 7 hours, we can directly calculate the time it takes to sort 250 elements using linear interpolation.
+Given that an insertion sort of 10,000 items takes about 7 hours, we can directly calculate the time since the complexity for best case insertion sort is $O(n)$
 
 If sorting 10,000 elements takes 7 hours, then sorting 1 element would take:
 
@@ -132,6 +181,15 @@ $\text{Time to sort 250 elements} = \frac{1750}{10,000} \text{ hours}$
 $\text{Time to sort 250 elements} = 0.175 \text{ hours}$
 
 So, sorting 250 elements using insertion sort would take approximately 0.175 hours, or 10.5 minutes.
+
+#### Worst Case : 
+Given that an insertion sort of 10,000 items takes about 7 hours, we can directly calculate the time since the complexity for best case insertion sort is $O(n^2)$
+
+$\frac{10000^2}{250^2} = \frac{7}{x}$
+$\frac{1000000000}{62500} = \frac{7}{x}$
+$1600= \frac{7}{x}$
+$x = \frac{7}{1600} = 0.004375 hours = 0.0043\times60\times60 = 15.75 seconds$
+
 
 <hr>
 
@@ -195,23 +253,22 @@ Q3. **What is the order of each of the following tasks? <br> Choose from O(1), O
 (i) What is the time complexity of quicksort on already sorted data elements with the last element chosen as a pivot.
 (ii) What is the runtime of Dijkstra's algorithm when the implementation is based on a binary heap (V — number of vertices, E — number of edges)?
 (iii) What is the best case time complexity of selection sort?
-(iv) What is the time complexity of the Breadth First Search using adjacency list
-is
+(iv) What is the time complexity of the Breadth First Search using adjacency list ?
 (v) What is the space complexity of the Depth First Search?**
 
 Ans. 
-(i) The time complexity of Quicksort on already sorted data elements with the last element chosen as the pivot is 𝑂(𝑛^2^)
-(ii) The runtime of Dijkstra's algorithm when implemented using a binary heap is 𝑂((𝑉+𝐸)log⁡𝑉)
-(iii) The best case time complexity of selection sort is 𝑂(𝑛^2^)
-(iv) The time complexity of Breadth-First Search using an adjacency list is 𝑂(𝑉+𝐸)
-(v) The space complexity of Depth-First Search is 𝑂(𝑉+𝐸)
+(i) The time complexity of Quicksort on already sorted data elements with the last element chosen as the pivot is $O(n^2)$
+(ii) The runtime of Dijkstra's algorithm when implemented using a binary heap is $O((V+E)log⁡V)$
+(iii) The best case time complexity of selection sort is $O(n^2)$
+(iv) The time complexity of Breadth-First Search using an adjacency list is $O(V+E)$
+(v) The space complexity of Depth-First Search is $O(V+E)$
 
 <hr>
 
-Q3. b. **Explain Big O (Big - Oh ) and Big- O (Big-Theta) asymptotic notation.**
+Q3. b. **Explain Big $O$ and Big- $\theta$  asymptotic notation.**
 
 Ans. 
-#### Big O (Big-Oh) Notation
+#### Big $O$ Notation
 Big O notation is used to describe an upper bound on the time complexity or space complexity of an algorithm. It provides an asymptotic measure of the performance of an algorithm as the input size grows. Specifically, Big O notation characterizes functions according to their growth rates: how quickly they grow as the size of the input increases.
 
 Formally, if 𝑓(𝑛) and 𝑔(𝑛) are two functions, we say that 𝑓(𝑛)=𝑂(𝑔(𝑛)) if there exist positive constants 𝑐 and 𝑛0​ such that for all 𝑛≥𝑛0​:
@@ -220,7 +277,7 @@ Formally, if 𝑓(𝑛) and 𝑔(𝑛) are two functions, we say that 𝑓(𝑛)
 
 In other words, beyond a certain point, 𝑓(𝑛) grows no faster than 𝑔(𝑛) up to a constant factor. Big O notation is typically used to describe the worst-case scenario of an algorithm.
 
-#### Big Θ (Big-Theta) Notation
+#### Big- $\theta$ Notation
 
 Big-Theta notation provides a tight bound on the time complexity or space complexity of an algorithm. It represents both the upper and lower bounds, meaning it gives an exact asymptotic behavior of a function.
 
@@ -228,7 +285,7 @@ Formally, if 𝑓(𝑛) and 𝑔(𝑛) are two functions, we say that 𝑓(𝑛)
 
 𝑐1⋅𝑔(𝑛)≤𝑓(𝑛)≤𝑐2⋅𝑔(𝑛)
 
-In other words, 𝑓(𝑛) grows at the same rate as 𝑔(𝑛)up to constant factors. Big-Theta notation is used to describe the average-case complexity or the tight bounds of an algorithm.
+In other words, 𝑓(𝑛) grows at the same rate as 𝑔(𝑛) up to constant factors. Big-Theta notation is used to describe the average-case complexity or the tight bounds of an algorithm.
 
 <hr>
 
@@ -443,6 +500,18 @@ To find the shortest path from node `A` to all other nodes using Dijkstra's algo
    - Repeat until all nodes are visited.
 
 ### Step-by-Step Execution:
+| Pass | Initially | 1 | 2 | 3 | 4 |  Shortest Dist | Predecessor | 
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| Active Vertex | - | A | C |D |E | - | - |
+| A | 0 | 0 | | | | 0 | - |
+| B | ∞ | 6 | | | | 6 | A |
+| C | ∞ | [5] | | | | 5 | A |
+| D | ∞ | ∞ | [8] | | | 8 | C |
+| E | ∞ | ∞ | 16 |[15] |  |15 | D |
+
+Shortest Path : E - > D - > C - > A
+
+
 
 #### Initialization:
 - Distance from `A` to `A` = 0.
@@ -533,88 +602,18 @@ To find the shortest path from node `A` to all other nodes using the Bellman-For
 3. **Check for Negative-Weight Cycles**:
    - Check all edges again to detect any negative-weight cycles. If a shorter path is found, then a negative-weight cycle exists.
 
-### Step-by-Step Execution:
+|Vertex|0|1|2|3|4|5|6|7|
+|--|--|--|--|--|--|--|--|--|
+| A |0|0|0|0|0|0|0|0|0|
+| B | ∞|8|8|8|8|8|8|8|8|
+| C | ∞|∞|14|14|14|7|7|7|4|
+| D | ∞|∞|∞|∞|∞|9|9|9|9|
+| E | ∞|6|6|6|6|6|6|6|6|
+| F | ∞|∞|∞|9|9|9|9|9|9|
+| G | ∞|∞|∞|8|8|8|8|4|4|
+| H | ∞|∞|∞|∞|∞|∞|11|11|11|
 
-#### Initialization:
-- Distance from `A` to `A`: 0
-- Distance from `A` to all other nodes: ∞
-- Predecessor of each node: `null`
-
-#### Graph Edges:
-- (A, B, 8)
-- (A, D, 2)
-- (A, E, 6)
-- (B, C, 6)
-- (D, B, 2)
-- (D, G, 1)
-- (E, F, 3)
-- (F, G, 2)
-- (G, C, -1)
-- (G, H, -7)
-- (H, C, 4)
-
-### Iteration 1:
-- Update distances and predecessors:
-  - (A, B, 8): \(dist[B] = 8\), \(pred[B] = A\)
-  - (A, D, 2): \(dist[D] = 2\), \(pred[D] = A\)
-  - (A, E, 6): \(dist[E] = 6\), \(pred[E] = A\)
-  - (B, C, 6): \(dist[C] = 14\), \(pred[C] = B\)
-  - (D, B, 2): \(dist[B] = 4\), \(pred[B] = D\)
-  - (D, G, 1): \(dist[G] = 3\), \(pred[G] = D\)
-  - (E, F, 3): \(dist[F] = 9\), \(pred[F] = E\)
-  - (F, G, 2): No change, \(dist[G] = 3\)
-  - (G, C, -1): \(dist[C] = 2\), \(pred[C] = G\)
-  - (G, H, -7): \(dist[H] = -4\), \(pred[H] = G\)
-  - (H, C, 4): No change, \(dist[C] = 2\)
-
-### Iteration 2:
-- Update distances and predecessors:
-  - (A, B, 8): No change
-  - (A, D, 2): No change
-  - (A, E, 6): No change
-  - (B, C, 6): No change
-  - (D, B, 2): No change
-  - (D, G, 1): No change
-  - (E, F, 3): No change
-  - (F, G, 2): No change
-  - (G, C, -1): No change
-  - (G, H, -7): No change
-  - (H, C, 4): No change
-
-### Iteration 3, 4, and 5:
-- No further changes, as distances are already minimized.
-
-### Final Distances:
-- Distance from `A` to `A`: 0
-- Distance from `A` to `B`: 4
-- Distance from `A` to `C`: 2
-- Distance from `A` to `D`: 2
-- Distance from `A` to `E`: 6
-- Distance from `A` to `F`: 9
-- Distance from `A` to `G`: 3
-- Distance from `A` to `H`: -4
-
-### Predecessors:
-- Predecessor of `A`: null
-- Predecessor of `B`: `D`
-- Predecessor of `C`: `G`
-- Predecessor of `D`: `A`
-- Predecessor of `E`: `A`
-- Predecessor of `F`: `E`
-- Predecessor of `G`: `D`
-- Predecessor of `H`: `G`
-
-### Path Reconstruction:
-1. **Path to B**: A -> D -> B
-2. **Path to C**: A -> D -> G -> C
-3. **Path to D**: A -> D
-4. **Path to E**: A -> E
-5. **Path to F**: A -> E -> F
-6. **Path to G**: A -> D -> G
-7. **Path to H**: A -> D -> G -> H
-
-The Bellman-Ford algorithm ensures that the shortest paths from node `A` to all other nodes are accurately calculated, even with negative weight edges, as long as there are no negative-weight cycles.
-
+From after iteration 7 a negative cycle exists
 
 <hr>
 
@@ -628,7 +627,29 @@ The Bellman-Ford algorithm ensures that the shortest paths from node `A` to all 
 
 ## BFS
 
-Q1. What is a graph ?
+### Pseudocode BFS
+```python
+BFS(G, s)                            // Function to perform BFS on graph G starting from vertex s
+    for each v in V                  // Initialize distances for each vertex v in the graph
+        dist[v] = ∞                  // Set initial distance to infinity (unreachable)
+    
+    dist[s] = 0                      // Distance from start vertex s to itself is 0
+    ENQUEUE(Q, s)                    // Enqueue the start vertex s into the queue Q
+
+    while Q is not empty             // Process vertices until the queue is empty
+        u = DEQUEUE(Q)               // Dequeue a vertex u from the front of the queue
+        VISIT(u)                     // Visit or process the vertex u (custom operation, can be anything)
+
+        for each edge (u, v) in E    // For each edge from vertex u to vertex v in the graph
+            if dist[v] == ∞          // If vertex v has not been visited (distance is still infinity)
+                ENQUEUE(Q, v)        // Enqueue vertex v into the queue
+                dist[v] = dist[u] + 1// Update the distance to vertex v (distance to u + 1)
+
+```
+
+## Time complexity BFS
+
+Q1. **What is a graph ?**
 
 Ans. 
 * It is a **non-linear** data structure consisting of vertices and edges.
@@ -637,7 +658,7 @@ Ans.
 
 <hr>
 
-Q2. What are the differences between an Adjacency List and Adjacenct Matrix ? 
+Q2. **What are the differences between an Adjacency List and Adjacenct Matrix ?**
 
 Ans. 
 **![](https://lh7-us.googleusercontent.com/3vkLzRT3PLbzpNnX13g2egiFuvb8Vl-2dD0AUvMbEpTHojGJRzucGjwqeegWfixUdK2-RH3N0dD3EWt7V1rXEqSy2r42q_oqojmx8SjYLAP90pyKtXpUTIeb5SIMNCLHUSUCJAO5gN8mhyF4iwRIxAY)**
@@ -700,9 +721,76 @@ Q1. **What are greedy algorithms ?**
 
 Ans. 
 
+
+<hr>
+
+### Pseudocode DJK 
+
+```python
+function Dijkstra(G, s):
+    for each vertex v in G:
+        dist[v] = ∞                // Initialize distances
+        prev[v] = undefined        // Initialize predecessors
+    
+    dist[s] = 0                    // Distance from start to start is 0
+    Q = set of all vertices in G   // All nodes in the graph
+
+    while Q is not empty:
+        u = vertex in Q with min dist[u]  // Vertex with the smallest distance
+        Q.remove(u)                       // Remove u from the set
+
+        for each neighbor v of u:
+            alt = dist[u] + weight(u, v)  // Calculate alternative path distance
+            if alt < dist[v]:             // Found a shorter path to v
+                dist[v] = alt             // Update distance to v
+                prev[v] = u               // Update predecessor of v
+
+    return dist, prev                    // Return distances and predecessors
+
+```
+> This is as per the pseudocode mentioned in PPTs
+
+```python
+Dijkstra(G, s)
+    for all v ∈ V
+        dist[v] <- infinity
+        prev[v] <- null
+    dist[s] <- 0
+    Q <- MAKEHEAP(V)
+    
+    while not EMPTY(Q)
+        u <- EXTRACTMIN(Q)
+        
+        for all edges (u, v) ∈ E
+            if dist[v] > dist[u] + w(u, v)
+                dist[v] <- dist[u] + w(u, v)
+                DECREASEKEY(Q, v, dist[v])
+                prev[v] <- u
+
+```
+
+### Time Complexity DJK
+* Outer loop runs n times
+	* In each iteration, we select one vertex
+	* $O(n)$ scan to find minimum distance vertex
+* Each time we select a vertex v, we have to scan all
+its neighbours to update minimum distances
+	* $O(n)$ scan of adjacency matrix to find all neighbours
+
+Overall : $O(n^2)$
+Adjacency List : $O(n^2)$
+Binary Heap : $O((n+m)logn)$
+
 <hr>
 
 ## Bell Ford
+> It computes single source shortest paths
+> Negative weights are allowed but not negative cycles
+
+### Pseudocode BellF
+```python
+
+```
 
 
 <hr>
