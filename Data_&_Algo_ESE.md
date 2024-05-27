@@ -104,7 +104,7 @@ Ans.
 
 ### Conclusion:
 
-The total number of balloons shot before the board is empty = n( k - n + 1 ) . Therefore, the Big-O notation for the number of balloons you need to shoot before the board is empty is:
+The total number of balloons shot before the board is empty = n( k - n + 1 ) . Therefore, the Big-O notation for the number of balloons you need to shoot before the board is empty is:
 >O(n)
 
 In this case the number of balloons shot 
@@ -771,17 +771,21 @@ By following these steps and understanding the properties and use cases, BFS bec
 
 <hr>
 
-## DFS
-
-
-<hr>
-
 ## Djik Algo
-Q1. **What are greedy algorithms ?**
+Dijkstra's algorithm finds the shortest path from a source vertex to all other vertices in a graph with non-negative edge weights.
 
-Ans. 
+#### Steps:
 
-
+1.  **Initialize**:
+    
+    -   Set the distance to the source vertex as 0 and to all other vertices as infinity.
+    -   Use a priority queue to store vertices by their current shortest distance.
+2.  **Process**:
+    
+    -   Extract the vertex with the minimum distance from the priority queue.
+    -   For each neighbor of this vertex, calculate the new distance.
+    -   If the new distance is shorter, update the neighbor's distance and add it to the priority queue.
+3.  **Repeat** until all vertices are processed or the priority queue is empty.
 <hr>
 
 ### Pseudocode DJK 
@@ -837,9 +841,9 @@ Dijkstra(G, s)
 its neighbours to update minimum distances
 	* $O(n)$ scan of adjacency matrix to find all neighbours
 
-Overall : $O(n^2)$
-Adjacency List : $O(n^2)$
-Binary Heap : $O((n+m)logn)$
+Overall : $O(V^2)$
+Adjacency List : $O(V^2)$
+Binary Heap : $O((V+E)logV)$
 
 <hr>
 
@@ -1131,7 +1135,7 @@ Applications of DFS :
 
 <hr>
 
-Q3. **Explain in detail about Goreedy Algorithms.**
+Q3. **Explain in detail about Greedy Algorithms.**
 
 Ans. A greedy algorithm is a type of optimization algorithm that makes locally optimal choices at each step to find a globally optimal solution. It operates on the principle of taking the best option now' without considering the long-term consequences. 
 
