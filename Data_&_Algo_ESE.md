@@ -108,8 +108,7 @@ The total number of balloons shot before the board is empty = 2*k - 1 . Therefor
 >O(n)
 
 In this case the number of balloons shot 
-$= 2\times(20 - 1)$
-$= 38$
+$= 2\times(20 - 1) = 38$
 
 <hr>
 
