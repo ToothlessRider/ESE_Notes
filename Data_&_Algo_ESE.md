@@ -99,31 +99,30 @@ Ans.
 
 6.  **Total Number of Balloons Shot**:
 - In each iteration, you shoot 2 balloons.
-- Therefore, the total number of balloons shot is 2k - 1
+- Therefore, the total number of balloons shot is 2(k - 1)
 - Where k is number of initial balloons
 
 ### Conclusion:
 
-The total number of balloons shot before the board is empty is proportional to the initial number of balloons times 2. Therefore, the Big-O notation for the number of balloons you need to shoot before the board is empty is:
+The total number of balloons shot before the board is empty = 2*k - 1 . Therefore, the Big-O notation for the number of balloons you need to shoot before the board is empty is:
 >O(n)
 
-8 balloons : 
+In this case the number of balloons shot 
+$= 2\times(20 - 1)$
+$= 38$
+
+<hr>
+
+Example :
+If we assume number of balloons are [ k ] = 8  
 Shooting rate is 2 balloons every time. n = 2
 Number added each time = 1
 
 k = 8
 
-8 - 2 = 6 > 6 + 1 = 7 
-7 - 2 = 5 > 5 + 1 = 6
-6 - 2 = 4 > 4 + 1 = 5
-5 - 2 = 3 > 3 + 1 = 4
-4 - 2 = 2 > 2 + 1 = 3
-3 - 2 = 1 > 1 + 1 = 2
-2 - 2 = 0 > 0 + 1 = 1
-1 - 1 = 0
+8 - 2 = 6 > 6 + 1 = 7 <br>7 - 2 = 5 > 5 + 1 = 6 <br>6 - 2 = 4 > 4 + 1 = 5 <br>5 - 2 = 3 > 3 + 1 = 4 <br>4 - 2 = 2 > 2 + 1 = 3 <br>3 - 2 = 1 > 1 + 1 = 2 <br>2 - 2 = 0 > 0 
 
-Number of instances = k = 8
-Number of baloons shot = 2k - 1 = 15
+Number of instances = k = 8 <br>Number of baloons shot = 2(k - 1) = 14
 
 
 <hr>
@@ -135,12 +134,7 @@ Ans.
 Number of balloons : 6
 number of balloons shot(n) = 6
 
-6 - 6 = 0 > 0 + 5 = 5
-5 - 5 = 0 > 0 + 4 = 4 
-4 - 4 = 0 > 0 + 3 = 3
-3 - 3 = 0 > 0 + 2 = 2 
-2 - 2 = 0 > 0 + 1 = 1
-1 - 1 = 0 > 0 + 0 = 0
+6 - 6 = 0 > 0 + 5 = 5 <br>5 - 5 = 0 > 0 + 4 = 4  <br>4 - 4 = 0 > 0 + 3 = 3 <br>3 - 3 = 0 > 0 + 2 = 2  <br>2 - 2 = 0 > 0 + 1 = 1 <br>1 - 1 = 0 > 0 + 0 = 0
 
 so 21 balloons should have been burst in this case
 
@@ -642,6 +636,12 @@ From after iteration 7 a negative cycle exists
 |--|--|--|--|--|
 |BFS |$O(V^2)$|$O(V+E)$|$O(V^2)$|$O(V+E)$|
 |DFS |$O(V^2)$|$O(V+E)$|$O(V^2)$|$O(V+E)$|
+
+<hr>
+
+|Algorithm | Time Complexity ( Binary Heap ) | Time Complexity ( Priority queue ) |
+|--|--|--|
+|Djikstras | $O((V+E)logV)$ | $O(V^2)$|
 
 > [Youtube reference](https://www.youtube.com/watch?v=N2P7w22tN9c&t=387s&ab_channel=GateSmashers) 
 
