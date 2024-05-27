@@ -640,30 +640,40 @@ From after iteration 7 a negative cycle exists
 ## Complexity Table : 
 | Algorithm | Time Complexity ( Adj Mat ) | Time Complexity ( Adj List )| Space Complexity ( Adj Mat )| Space Complexity  ( Adj List )|
 |--|--|--|--|--|
-|BFS |  O(V^2^) | O(V+E) |O(V^2^) | O(V+E) |
-|DFS | 
+|BFS |$O(V^2)$|$O(V+E)$|$O(V^2)$|$O(V+E)$|
+|DFS |$O(V^2)$|$O(V+E)$|$O(V^2)$|$O(V+E)$|
 
 > [Youtube reference](https://www.youtube.com/watch?v=N2P7w22tN9c&t=387s&ab_channel=GateSmashers) 
 
 ## BFS
+- Explore the graph level by level. 
+	- First visit those vertices that are 1 step away and then those 2 and so on...
+	- Keeping track of those visited and those that are yet to be explored is important
 
 ### Pseudocode BFS
-```python
-BFS(G, s)                            // Function to perform BFS on graph G starting from vertex s
-    for each v in V                  // Initialize distances for each vertex v in the graph
-        dist[v] = ∞                  // Set initial distance to infinity (unreachable)
+```java
+function BFS(i) // BFS starting from vertex i
+    // Initialization
+    for j = 1 to n
+        visited(j) = 0
+
+    Q = [] // Initialize an empty queue
     
-    dist[s] = 0                      // Distance from start vertex s to itself is 0
-    ENQUEUE(Q, s)                    // Enqueue the start vertex s into the queue Q
-
-    while Q is not empty             // Process vertices until the queue is empty
-        u = DEQUEUE(Q)               // Dequeue a vertex u from the front of the queue
-        VISIT(u)                     // Visit or process the vertex u (custom operation, can be anything)
-
-        for each edge (u, v) in E    // For each edge from vertex u to vertex v in the graph
-            if dist[v] == ∞          // If vertex v has not been visited (distance is still infinity)
-                ENQUEUE(Q, v)        // Enqueue vertex v into the queue
-                dist[v] = dist[u] + 1// Update the distance to vertex v (distance to u + 1)
+    // Start the exploration at vertex i
+    visited[i] = 1
+    append(Q, i)
+    
+    // Explore each vertex in Q
+    while Q is not empty
+        j = extract_head(Q)
+        for each (j, k) in E
+            if visited[k] == 0
+                visited[k] = 1
+                append(Q, k)
+            end if
+        end for
+    end while
+end function
 
 ```
 
@@ -698,26 +708,42 @@ Ans.
 Q3. What is Breadth First search and what are the steps followed in BFS ?
 
 Ans. 
-**Steps** : 
-1. Explore the graph level by level
-2. First the vertices that are one step away then those that are two steps away
-3. At each step we add the expored vertex to the head of the queue
+### Breadth-First Search (BFS) Overview
 
-**Pseudocode** :
+Breadth-First Search (BFS) is a fundamental graph traversal algorithm used to explore the vertices of a graph systematically. It starts at a given vertex and explores all its neighbors at the present depth before moving on to vertices at the next depth level. BFS is particularly useful for finding the shortest path on unweighted graphs.
 
-```
-// Function BFS(i) - BFS starting from vertex i
-function BFS(i) 
+### Steps Followed in BFS
+
+1. **Initialization:**
+   - **Visited Array:** Initialize an array or a set to keep track of visited vertices to avoid processing the same vertex multiple times.
+   - **Queue:** Initialize a queue to manage the vertices to be explored.
+
+2. **Start Exploration:**
+   - **Starting Vertex:** Mark the starting vertex as visited and enqueue it.
+
+3. **Exploration Loop:**
+   - **Dequeue Vertex:** Remove the front vertex from the queue (let's call it `current_vertex`).
+   - **Visit Neighbors:** For each neighbor of `current_vertex`, if the neighbor has not been visited:
+     - Mark the neighbor as visited.
+     - Enqueue the neighbor.
+
+4. **Repeat:**
+   - Repeat the exploration loop until the queue is empty.
+
+### Pseudocode
+
+```java
+function BFS(i) // BFS starting from vertex i
     // Initialization
-    for j = 1..n {
-        visited[j] = 0
-    }
-    Q = []
+    for j = 1 to n
+        visited(j) = 0
 
-    // Start the exploration at i
+    Q = [] // Initialize an empty queue
+    
+    // Start the exploration at vertex i
     visited[i] = 1
     append(Q, i)
-
+    
     // Explore each vertex in Q
     while Q is not empty
         j = extract_head(Q)
@@ -725,11 +751,24 @@ function BFS(i)
             if visited[k] == 0
                 visited[k] = 1
                 append(Q, k)
+            end if
+        end for
+    end while
+end function
 ```
-Time Complexity : O(V+E)
 
-* BFS can record how long the path is to each vertex
+### BFS Properties
 
+- **Time Complexity:** O(V + E), where V is the number of vertices and E is the number of edges. Each vertex and each edge is processed at most once.
+- **Space Complexity:** O(V), due to the space required for the queue and the visited array/set.
+
+### Use Cases of BFS
+
+- **Shortest Path:** BFS is commonly used to find the shortest path from the start vertex to any other vertex in an unweighted graph.
+- **Level Order Traversal:** In tree structures, BFS can be used to perform level-order traversal.
+- **Connectivity:** BFS can be used to determine if a graph is connected or to find connected components.
+
+By following these steps and understanding the properties and use cases, BFS becomes a powerful tool for graph traversal and various graph-related problems.
 
 <hr>
 
