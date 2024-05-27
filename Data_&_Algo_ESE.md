@@ -28,13 +28,13 @@ The total time complexity 𝑇(𝑛) of the algorithm is the sum of the time com
 
 $T(n) = O(n^3)+O(n^2)$
 
-When adding time complexities, the term with the highest order of growth dominates, because it grows faster than the others as 𝑛 increases. Here, $O(n^3)$grows faster than $O(n^2)$.
+When adding time complexities, the term with the highest order of growth dominates, because it grows faster than the others as 𝑛 increases. Here, $O(n^3)$ grows faster than $O(n^2)$.
 
 Thus, the most accurate description of the overall complexity of the algorithm is:
 
 $T(n)=O(n^3)$
 
-This is because the $O(n^3)$term will dominate the $O(n^2)$ term for sufficiently large 𝑛.
+This is because the $O(n^3)$ term will dominate the $O(n^2)$ term for sufficiently large 𝑛.
 
 <hr>
 
@@ -95,7 +95,7 @@ Ans.
 -  After each iteration, the total number of balloons decreases by 1.
 
 4.  **Total Iterations**:
-- To reduce the number of balloons from n to 0, you will need n iterations because each iteration reduces the count by 1.
+- To reduce the number of balloons from n to 0, you will need n-1 iterations because each iteration reduces the count by 1 and the final iteration reduces it by 2 ( Since once it reaches 0 no other balloons will be added ).
 
 6.  **Total Number of Balloons Shot**:
 - In each iteration, you shoot 2 balloons.
@@ -104,11 +104,11 @@ Ans.
 
 ### Conclusion:
 
-The total number of balloons shot before the board is empty = 2*k - 1 . Therefore, the Big-O notation for the number of balloons you need to shoot before the board is empty is:
+The total number of balloons shot before the board is empty = n( k - n + 1 ) . Therefore, the Big-O notation for the number of balloons you need to shoot before the board is empty is:
 >O(n)
 
 In this case the number of balloons shot 
-$= 2\times(20 - 1) = 38$
+$= 2\times(20 - 2 + 1) = 38$
 
 <hr>
 
@@ -121,7 +121,7 @@ k = 8
 
 8 - 2 = 6 > 6 + 1 = 7 <br>7 - 2 = 5 > 5 + 1 = 6 <br>6 - 2 = 4 > 4 + 1 = 5 <br>5 - 2 = 3 > 3 + 1 = 4 <br>4 - 2 = 2 > 2 + 1 = 3 <br>3 - 2 = 1 > 1 + 1 = 2 <br>2 - 2 = 0 > 0 
 
-Number of instances = k = 8 <br>Number of baloons shot = 2(k - 1) = 14
+Number of instances = k = 8 <br>Number of baloons shot = n( k - n + 1 ) = 14
 
 
 <hr>
