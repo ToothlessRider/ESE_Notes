@@ -216,6 +216,17 @@ The Key aspects of usability are :
 Q3. a. **How do various stakeholders in the software industry evaluate user interfaces?**
 
 Ans.
+#### Heuristic evaluation
+- Choose a use case .
+- Study each **window, page or dialog** that appears when this is executed
+- Look for usability defecets
+
+#### Evaluation by observation of users
+- Select a user for the corresponding use case
+- Arrange an evaluation session with the users
+- Note when the user finished their tasks and make observations
+
+
 
 <hr>
 
@@ -328,6 +339,29 @@ Ans.
 Q4. c. **List and explain Pattern Description Parameters with reference to software design patterns**
 
 Ans.
+#### Pattern Description Parameters
+There are certain paramaters that are used to describe patterns. [**PRSCARF**]
+
+#### Context 
+- The general situation in which the pattern is applicable
+#### Problem :
+- A short sentence describing the 
+#### Forces
+- The issues or concerns while solving the problem
+#### Solution
+- Recommended way to solve the problem in the given context
+#### Antipatterns
+- solutions that are inferior or do not work in this context
+#### Related Patterns 
+- Patterns similar to this one
+#### References
+- People who developed or inspired the pattern
+
+Ex : The *Facade Pattern* is used to provide interface from one layer to the next.
+
+The *Singleton Pattern* is used to ensure global access to a single instance of a class.
+
+
 
 <hr>
 
@@ -449,4 +483,15 @@ Architecture is also the core of design, at it helps in creating overall **effic
 ## PPT 36
 #### Architectural Patterns
 - They are used for things on a **large-scale** and to create a **coarse-grained** design
-- 
+- It is applied during the early iterations when the major structures are established
+
+<hr>
+
+#### Design Patterns
+- This is related to **small and medium scale design** of objects
+- This is used to design a solution for **connecting large scale elements made by architectural patterns**
+- The recurring aspects of design are called design patterns
+
+<hr>
+
+
