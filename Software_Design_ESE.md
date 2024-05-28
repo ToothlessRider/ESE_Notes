@@ -154,7 +154,7 @@ Ans.
 - **Goals for using the system**
 	- What is the work the users need to get done?
 - **Potential patterns of use**
-	- 24-7? EOM/EOD/EOY? On-line; batch? Peak load
+	- 24/7? EOM/EOD/EOY? On-line; batch? Peak load
 times? Down times? MTTR?
 - **Demographics**
 	- Cultures; religions; sensitivities
@@ -447,5 +447,6 @@ Architecture is also the core of design, at it helps in creating overall **effic
 <hr>
 
 ## PPT 36
-
-
+#### Architectural Patterns
+- They are used for things on a **large-scale** and to create a **coarse-grained** design
+- 
