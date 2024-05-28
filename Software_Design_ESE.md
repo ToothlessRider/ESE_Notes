@@ -7,8 +7,8 @@
 
 # Table of Contents
 1. [Previous year questions](#previous-year-questions)
-2. 
-3. [Basis Path Testing](#basis-path-testing)
+2. [Basis Path Testing](#basis-path-testing)
+3. [Types of Cohesion and Coupling](#ppt-25)
 
 
 ## Classtest Question
@@ -30,6 +30,14 @@ Ans.
 Q1. b. **Why it is said to "Keep level of Abstraction as high as possible"? <br>How does it help in software design**
 
 Ans.
+#### High level of Abstraction
+- A high level of abstraction ensures that your designs allow you to hide or defer consideration of details, thus reducing complexity
+- A good abstraction is said to provide **information hiding**
+- Abstractions allow you to **understand the essence** of a subsystem without having to know unnecessary details
+- It also alllows us to **grasp the essential content**
+- Defer the less important **grunt-level items until later**
+- It also allows us to **deal with complexity**
+
 
 <hr>
 
@@ -171,7 +179,7 @@ There are certain Overall Goals of good design. These are to :
 	- Maintainability
 	- Resuability, in the design
 
-The principles to achieve a good design are as follows : **[DHLHI ]**
+The principles to achieve a good design are as follows : **[DHLHRRAFPTD ]**
 1. **Divide and Conquer** :
 Instead of dealing with something big all at once, we break it down into small subproblems, i.e., : 
 	- Smaller components are easier to understand
@@ -213,12 +221,29 @@ Design for reusability of components of GUI
 6. **Reuse existing material**
 Reuse existing designs and code wherever possible ( taking advantage of the reusability concept )
 
+7. **Design for Flexibility**
+Anticipate changes that might need to be added in the future
+
+8. **Anticipate Obsolecence**
+Plan for changes in technology and environment that might make your software obsolete
+9. **Design for Portability**
+Make sure the software can run on as many platforms as possible 
+10. **Design for Testability** 
+Make testing easier for the software
+11. **Design Defensively**
+Design it in a way that your code can't be misused
+
 <hr>
 
 Q3. d. **Explain communication cohesion with reference to architectural design.**
 
 Ans.
+All the modules that access or **"manipulate certain data”** are kept together (e.g. in the same class) - and everything else is kept out.<br>
+**Main advantage:** 
+- When you need to make changes to the data, you find all the code in one place
+- Keep methods where the data is, if possible.
 
+**![](https://lh7-us.googleusercontent.com/FKQ5vbd3sxpmvtc3KFmI2sp7ua8uZskd8k67Wod8ciS5pyfk9lpLr6A4EmdXh95w6vIuvzCOuIskBOyR1oNUw5x1-jhlTLoZZBvHf1I20M824SmdK0bPRafF6c-ecWAY3qU125h6sD9oqTIGGEi6K74)**
 <hr>
 
 Q4. a. **What are the different architectural styles? Which one would you choose for the software project "Digitization of Dr. B. R. Ambedkar Central Library of VJTI"?**
@@ -328,4 +353,7 @@ Q2. **What are the different types of Coupling?**
 
 Ans. 
 > [Link to ans](#content-coupling)
+
 <hr>
+
+Q3. 
