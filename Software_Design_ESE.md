@@ -42,6 +42,16 @@ Ans.
 Q1. d. **What are different types of Coupling? List and explain each of the type**
 
 Ans.
+#### Content Coupling
+- It occurs when one component **secretly modifies data / instructions** that are **internal to another component**
+#### Common Coupling
+- Occurs whenever you use a global variable, i.e., All components using global variables get coupled to each other
+#### Control Coupling
+- Occurs when one **procedure calls another one and controls what the second procedure does**.
+#### External Coupling
+- When one module **depends on other modules**
+#### Data coupling , etc
+- When two or more modules **share data with each other**
 
 <hr>
 
@@ -148,9 +158,60 @@ Start with the software architecture and the type of database to be used
 
 <hr>
 
-Q3. c. **List and explain principles leading to good design.**
+Q3. c. **List and explain principles leading to good design.** *[ DHLHI ]*
 
 Ans.
+There are certain Overall Goals of good design. These are to : 
+- Increase the profit by reducing cost
+- Ensure that the design accomodates the user requirements
+- Increase qualities such as
+	- Usability
+	- Efficiency
+	- Reliability
+	- Maintainability
+	- Resuability, in the design
+
+The principles to achieve a good design are as follows : **[DHLHI ]**
+1. **Divide and Conquer** :
+Instead of dealing with something big all at once, we break it down into small subproblems, i.e., : 
+	- Smaller components are easier to understand
+	- Parts can be replaced or exchanged
+
+Ways to implement divide and conquer are : 
+- Distributed system -> *Clients and Servers*
+- System -> *Subsystems*
+- Subsystem -> *Packages*
+- Packages -> *Classes*
+- Classes -> *Methods*
+- 
+2. **High Cohesion** :
+A subsystem module has high cohesion if it keeps together things that are related and removes those that aren't.<br>
+Types of cohesion are : 
+- Functional Cohesion
+- Layer Cohesion
+- Communicational Cohesion
+- Sequential Cohesion
+- Procedural Cohesion
+- Temporal Cohesion
+- Utility Cohesion
+
+3. **Low Coupling** : 
+Coupling occurs when there are **interdependencies between multiple modules**<br>
+The types of coupling are as follows : 
+- Content Coupling
+- Commong Coupling
+- Control Coupling
+- External Coupling
+- Data coupling , etc
+
+4. **High level of Abstraction** : 
+Ensure that your designs allow you hide consideration of details, making them **less complex**
+
+5. **Increase Reusability**
+Design for reusability of components of GUI
+
+6. **Reuse existing material**
+Reuse existing designs and code wherever possible ( taking advantage of the reusability concept )
 
 <hr>
 
@@ -209,14 +270,6 @@ Ans.
 <hr>
 
 
-## 
-
-Q1. ****
-
-Ans.
-
-
-
 <hr>
 
 ## Basis Path Testing
@@ -235,4 +288,44 @@ Ans.
 
 <hr>
 
-Q3. 
+## PPT 25
+Q1. **What are the different types of Cohesion and mention the layers used in**
+1. An Application Program
+2. An Operating System
+3. Communication
+
+Ans.
+A subsystem module has high cohesion if it keeps together things that are related and removes those that aren't.<br>
+Types of cohesion are : 
+#### Functional Cohesion
+- When all the code that **computes a particular result** is kept together
+
+#### Layer Cohesion
+- Keeping all facilities for **providing or accessing related services** together
+- Layers in an Application Program :
+**![](https://lh7-us.googleusercontent.com/GtTLkn8BJplYsfjsPlvsDS6Dl1uxZyUvCCNxpeJEiOHJO5YBm6izCdVI8XE3LCl7hrCkMiq0gr6Pl9XbfQHqFTMxZFOv7vwRCnH2VJDQEr7oXTYVMh6sWM0f_f4nf09w18whFztMXPc_dj41svCplpw)**
+- Layers in an OS 
+**![](https://lh7-us.googleusercontent.com/vy-UvEsj3kWO5zDmNsklvyAmJb82LcVSZjTCtIZLdlP9bfFRNBj06YueAZJMoz-Sq9hcipRiEyfsWmYzrUbh3m16fDhpgLtS0LOfbZxd7QYMFvStz-BuWQRg-CZdWu0uR86cMbOTyLvHc-efR_0dvCM)**
+- Layers in communication 
+**![](https://lh7-us.googleusercontent.com/FKQ5vbd3sxpmvtc3KFmI2sp7ua8uZskd8k67Wod8ciS5pyfk9lpLr6A4EmdXh95w6vIuvzCOuIskBOyR1oNUw5x1-jhlTLoZZBvHf1I20M824SmdK0bPRafF6c-ecWAY3qU125h6sD9oqTIGGEi6K74)**
+
+#### Communicational Cohesion
+- All the modules that **manipulate certain data** are kept together
+
+#### Sequential Cohesion
+- Procedures which provide **input to the next module** are kept together
+#### Procedural Cohesion
+- **Procedures used one after another** are kept together
+#### Temporal Cohesion
+- Operations performed **during the same phase of execution** are kept together
+#### Utility Cohesion
+- Related utilities are kept together
+
+
+<hr>
+
+Q2. **What are the different types of Coupling?**
+
+Ans. 
+> [Link to ans](#content-coupling)
+<hr>
