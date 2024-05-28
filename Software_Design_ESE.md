@@ -25,6 +25,66 @@ Q1. a. **Write a code to check if matrix has inverse or not. Draw control flow g
 
 Ans.
 
+## Code to find matrix inverse 
+```python
+import numpy as np
+
+def has_inverse(matrix):
+    try:
+        # Compute the determinant of the matrix
+        det = np.linalg.det(matrix)
+        # If the determinant is not zero, the matrix has an inverse
+        if det != 0:
+            return True
+        else:
+            return False
+    except np.linalg.LinAlgError:
+        # Handle cases where the matrix is not square
+        return False
+
+# Example usage:
+matrix = np.array([[1, 2], [3, 4]])
+print("Has inverse:", has_inverse(matrix))
+
+```
+
+### CFG 
+```mermaid
+graph TD
+    A[Start] --> B[Compute Determinant]
+    B --> C{Det != 0 ?}
+    C --> D[Return True]:::true
+    C --> E[Return False]:::false
+    B --> F[Exception]
+    F --> E[Return False]:::catch
+    
+    classDef true fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef false fill:#fbb,stroke:#333,stroke-width:2px;
+    classDef catch fill:#fbf,stroke:#333,stroke-width:2px;
+
+```
+### Calculating Cyclomatic Complexity (McCabe's Metric)
+
+The Cyclomatic Complexity 𝑉(𝐺)V(G) of a program is given by: 𝑉(𝐺)=𝐸−𝑁+2V(G)=E−N+2 where 𝐸E is the number of edges and 𝑁N is the number of nodes in the CFG.
+
+From the CFG:
+
+-   **Nodes (N)**: 7
+-   **Edges (E)**: 8
+
+Using the formula: <br> $V(G)=E−N+2$ <br> $=8−7+2=3$
+
+### Number of Test Cases
+
+The Cyclomatic Complexity indicates the number of linearly independent paths through the program. Therefore, the number of test cases required is equal to the Cyclomatic Complexity.
+
+**Number of Test Cases**: 3
+
+### Linearly Independent Paths
+
+1.  **Path 1**: Start -> Compute Det -> Det != 0 (True) -> Return True
+2.  **Path 2**: Start -> Compute Det -> Det != 0 (False) -> Return False
+3.  **Path 3**: Start -> Compute Det -> Exception -> Return False
 <hr>
 
 Q1. b. **Why it is said to "Keep level of Abstraction as high as possible"? <br>How does it help in software design**
@@ -356,4 +416,22 @@ Ans.
 
 <hr>
 
-Q3. 
+## PPT 26
+Q1. **What is Software Architecture ? What is it's importance, and describe a good architectural model.**
+
+Ans.
+#### Software Architecture 
+It is the process of designing the global organization (**structure**) of a software system which includes : 
+- Dividing the software into **subsystems**
+- Deciding on **component interaction**
+- Determining their **interfaces**
+
+Architecture is also the core of design, at it helps in creating overall **efficiency, reusability and maintainability** of the system.
+
+#### Importance of Software Architecture
+- To help everyone better understand the system
+- Work individually on parts of the system
+- To facilitate reuse and reusability
+- Prepare for extension of the system
+
+<hr>
