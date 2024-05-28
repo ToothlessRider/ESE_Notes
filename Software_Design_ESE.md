@@ -44,10 +44,10 @@ Ans.
 9.    except np.linalg.LinAlgError:
         # Handle cases where the matrix is not square
 10.        return False
-
+11.
 # Example usage:
-11. matrix = np.array([[1, 2], [3, 4]])
-12. print("Has inverse:", has_inverse(matrix))
+12. matrix = np.array([[1, 2], [3, 4]])
+13. print("Has inverse:", has_inverse(matrix))
 
 ```
 
@@ -58,15 +58,18 @@ graph TD
     B --> C[3]
     C --> D[4]
     D --> E[5]
-	E -- True --> F[6]
-	E -- False --> H[7]
-	H --> I[8]
-	I -->J[9]
-	J -- exception --> K[10]
-	F --> J
-	J -- No exception --> L[11]
-	K --> L
-	L --> M[12]
+    E -- det != 0 --> F[6]
+    E -- det == 0 -->G[8]
+    F --> H[11]
+    G --> H
+    D --> I[9]
+    I --> J[10]
+    J --> H
+    H --> K[12]
+    K --> L[13]
+
+    
+  
 
 ```
 
@@ -79,7 +82,7 @@ From the CFG:
 -   **Nodes (N)**: 12
 -   **Edges (E)**: 13
 
-Using the formula: <br> $V(G)=E−N+2$ <br> $=12−13+2=1$
+Using the formula: <br> $V(G)=E−N+2$ <br> $=13-12+2=3$
 
 ### Number of Test Cases
 
@@ -89,9 +92,16 @@ The Cyclomatic Complexity indicates the number of linearly independent paths thr
 
 ### Linearly Independent Paths
 
-1.  **Path 1**: 1 - > 5 - >
-2.  **Path 2**: Start -> Compute Det -> Det != 0 (False) -> Return False
-3.  **Path 3**: Start -> Compute Det -> Exception -> Return False
+
+#### Path 1: Normal Execution (Determinant Non-Zero)
+- 1 → 2 → 3 → 4 → 5 (det != 0) → 6 → 11 → 12 → 13
+
+#### Path 2: Normal Execution (Determinant Zero)
+- 1 → 2 → 3 → 4 → 5 (det == 0) → 8 → 11 → 12 → 13
+
+#### Path 3: Exception Handling (Non-Square Matrix)
+- 1 → 2 → 3 → 4 → 9 (exception) → 10 → 11 → 12 → 13
+
 <hr>
 
 Q1. b. **Why it is said to "Keep level of Abstraction as high as possible"? <br>How does it help in software design**
@@ -368,6 +378,8 @@ The *Singleton Pattern* is used to ensure global access to a single instance of 
 Q4. d. **List the various design patterns in Gangs of Four design pattern explain any one**
 
 Ans. 
+#### Gang of Four Patterns
+
 
 <hr>
 
