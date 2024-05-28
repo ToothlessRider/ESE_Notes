@@ -9,6 +9,9 @@
 1. [Previous year questions](#previous-year-questions)
 2. [Basis Path Testing](#basis-path-testing)
 3. [Types of Cohesion and Coupling](#ppt-25)
+4. [Software Architecture](#ppt-26)
+5. 
+
 
 
 ## Classtest Question
@@ -27,52 +30,56 @@ Ans.
 
 ## Code to find matrix inverse 
 ```python
-import numpy as np
+1. import numpy as np
 
-def has_inverse(matrix):
-    try:
+2. def has_inverse(matrix):
+3.    try:
         # Compute the determinant of the matrix
-        det = np.linalg.det(matrix)
+4.        det = np.linalg.det(matrix)
         # If the determinant is not zero, the matrix has an inverse
-        if det != 0:
-            return True
-        else:
-            return False
-    except np.linalg.LinAlgError:
+5.        if det != 0:
+6.            return True
+7.        else:
+8.            return False
+9.    except np.linalg.LinAlgError:
         # Handle cases where the matrix is not square
-        return False
+10.        return False
 
 # Example usage:
-matrix = np.array([[1, 2], [3, 4]])
-print("Has inverse:", has_inverse(matrix))
+11. matrix = np.array([[1, 2], [3, 4]])
+12. print("Has inverse:", has_inverse(matrix))
 
 ```
 
 ### CFG 
 ```mermaid
 graph TD
-    A[Start] --> B[Compute Determinant]
-    B --> C{Det != 0 ?}
-    C --> D[Return True]:::true
-    C --> E[Return False]:::false
-    B --> F[Exception]
-    F --> E[Return False]:::catch
-    
-    classDef true fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef false fill:#fbb,stroke:#333,stroke-width:2px;
-    classDef catch fill:#fbf,stroke:#333,stroke-width:2px;
+    A[1] --> B[2]
+    B --> C[3]
+    C --> D[4]
+    D --> E[5]
+	E -- True --> F[6]
+	E -- False --> H[7]
+	H --> I[8]
+	I -->J[9]
+	J -- exception --> K[10]
+	F --> J
+	J -- No exception --> L[11]
+	K --> L
+	L --> M[12]
 
 ```
+
 ### Calculating Cyclomatic Complexity (McCabe's Metric)
 
-The Cyclomatic Complexity 𝑉(𝐺)V(G) of a program is given by: 𝑉(𝐺)=𝐸−𝑁+2V(G)=E−N+2 where 𝐸E is the number of edges and 𝑁N is the number of nodes in the CFG.
+The Cyclomatic Complexity $V(G)$ of a program is given by: $V(G)=E−N+2$ where $E$ is the number of edges and $N$ is the number of nodes in the CFG.
 
 From the CFG:
 
--   **Nodes (N)**: 7
--   **Edges (E)**: 8
+-   **Nodes (N)**: 12
+-   **Edges (E)**: 13
 
-Using the formula: <br> $V(G)=E−N+2$ <br> $=8−7+2=3$
+Using the formula: <br> $V(G)=E−N+2$ <br> $=12−13+2=1$
 
 ### Number of Test Cases
 
@@ -82,7 +89,7 @@ The Cyclomatic Complexity indicates the number of linearly independent paths thr
 
 ### Linearly Independent Paths
 
-1.  **Path 1**: Start -> Compute Det -> Det != 0 (True) -> Return True
+1.  **Path 1**: 1 - > 5 - >
 2.  **Path 2**: Start -> Compute Det -> Det != 0 (False) -> Return False
 3.  **Path 3**: Start -> Compute Det -> Exception -> Return False
 <hr>
@@ -433,5 +440,12 @@ Architecture is also the core of design, at it helps in creating overall **effic
 - Work individually on parts of the system
 - To facilitate reuse and reusability
 - Prepare for extension of the system
+- To ensure maintainability and reliability of the system and architectural model must be **stable**
+
+> Component Diagrams, Package Diagrams, Deployement Diagrams are in this PPT 
 
 <hr>
+
+## PPT 36
+
+
