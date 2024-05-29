@@ -16,6 +16,7 @@
 	- [Observer Pattern](#observer-pattern)
 	- [Delegation Pattern](#delegation-pattern)
 	- [Façade Pattern](#façade-pattern)
+	- [Adaptor Pattern](#adaptor-pattern)
 	- [Proxy Pattern](#proxy-pattern)
 6. [GRASP Patterns](#grasp-patterns)
 	- [Expert Pattern](#expert-pattern)
@@ -122,12 +123,6 @@ Ans.
 - Defer the less important **grunt-level items until later**
 - It also allows us to **deal with complexity**
 
-
-<hr>
-
-Q1. c. **Which according to you is better architecture? Data flow architecture or data centered architecture?**
-
-Ans. 
 
 <hr>
 
@@ -351,6 +346,9 @@ Q4. b. **Consider that software is to be built for the automatic recording of on
 
 Ans.
 
+>ER model to be made on your own assumptions
+>[Link to ER diagrams](#er-diagram)
+
 <hr>
 
 Q4. c. **List and explain Pattern Description Parameters with reference to software design patterns**
@@ -386,34 +384,89 @@ Q4. d. **List the various design patterns in Gangs of Four design pattern explai
 
 Ans. 
 #### Gang of Four Patterns
+1. Abstraction-Occurence Pattern
+2. Delegation Pattern
+3. Singleton Patter
+4. Proxy Pattern
 
+#### Proxy Pattern
+- **Context** 
+	- Often it is time consuming and complicated to create an instance of a heavyweight class
+	- **Large classes must be loaded from the database to support usage**
+- **Problem**
+	- How to reduce the need to create instances of a heavyweight class ?
+- **Forces**
+	- We want the objects in a doman model to be made available for programs
+	- It is impractical for all objects to be loaded into memory when a program starts
+- **Solution**
+	- A proxy in it's most general form **is a class functioning as an interface for something else**
+**![](https://lh7-us.googleusercontent.com/6SCkD4mxONYVKoRbFIqae26hSVPZVurdyLTpYCkJEIQ16_w9LZhwQxLamVI2OEE5y34zRC-Imaq91PTQwAbtvb89tBiRpSy_6u35uZGsHEaM4JPAECyXjTfzaKKWNqUyhKTLBz5mBLMTlQUUKIhSsH4)**
 
 <hr>
 
 Q5. **Write code and draw class diagram to explain observer pattern (consider suitable example)**
 
 Ans.
+> Unanswered due to lack of time
 
 <hr>
 
 Q5. b. **Perform general class based modelling of delegator pattern also give specific example.**
 
 Ans.
+> Unanswered due to lack of time
 
 <hr>
 
 Q5. c. **Give context, forces, problem, solution and anti-pattern for adaptor pattern.**
 
 Ans.
+#### Adaptor Pattern
+The Adapter Pattern is a structural design pattern that allows objects with incompatible interfaces to work together
+- **Context**
+	- You want to incorporate a class into the inheritance hierarchy
+- **Problem**
+	- How to obtain the power of **polymorphism** while reusing a class ?
+- **Forces**
+	- You don't want to use multiple inheritance
+- **Solution**
+**![](https://lh7-us.googleusercontent.com/p8p6_ZRwYGzZV_RT56no091f-OnL288s1rje4sZ8CBYfuZF4zjc91Ncew9gsCqeNAx-taXsA9TRKpMFnFYA6Bgw27KEc16s3_iAWhJyqZnVZOw3wjlj6UIj_7ZSBrnJjduqPmE_XDFOyZBkztv6vli0)**
 
 <hr>
 
 Q5. d. **Give real time example of façade pattern, give class diagram and code for same**
 
 Ans. 
+#### Façade Pattern
+- **Context**
+	- An application often contains **several complex packages**
+- **Problem**
+	- How do you simplify the view that programmers have of a complex package ?
+- **Forces**
+	- It is difficult for a programmer to fully understand and utilize a subsystem
+	- If an class calls methods of the packages and the package is modified, then all these classes come under review.
+- **Solution**
+**![](https://lh7-us.googleusercontent.com/3Ew3lvIantX6SuN19whCzU8d8YgoWHy4z--b9IlsvdQenGk7RikwsDjCdGQWbf282LzF3MLZjlIAbxLh6gf9cBchhS-u2HUSkcHd2fSpd92EnTNec9xIKu9PUe6JnW7_fjKy6Zjd4DU5GyUdoLAQWF4)**
 
-<hr>
+```
++------------------------+
+|  ImageProcessingFacade |
++------------------------+
+| + read_image(file)     |
+| + apply_filter(filter) |
+| + resize(width, height)|
+| + save_image(file)     |
++------------------------+
+           |
+           |
++------------------+      +------------------+      +------------------+
+|  OpenCVService   |      |  PILService      |      |  NumPyService    |
++------------------+      +------------------+      +------------------+
+| + read_image()   |      | + apply_filter() |      | + resize()       |
+| + save_image()   |      |                  |      |                  |
++------------------+      +------------------+      +------------------+
 
+```
 
 <hr>
 
@@ -423,6 +476,26 @@ Ans.
 Q1. **What is Software Testing Funadmentals, it's Objectives, Principles and Testability ?**
 
 Ans.
+#### Fundamentals 
+- S/w engineer tries to build s/w from an abstract concept
+- He creates a set of test cases intended to "**demolish**" the software
+- Testing is more destructive than constructive
+
+#### Objectives
+- Intent is to find an error in the software that might lead to failure
+- Good test cases are those that can find , not-yet found errors
+- Tests should require minimum time and effort
+- Should be an indication of good software reliability
+
+#### Principles
+- Should be traceable to customer requirements
+- Should be planned in advance
+- Paretto principle ( 20:80 )
+- Should begin in a **small-scale** and then progress to **large-scale**
+- Exhaustive testing isn't possible
+
+#### Testability
+
 
 <hr>
 
@@ -432,6 +505,23 @@ Ans.
 
 
 <hr>
+
+Q3. **What are the different Usability Principles ?**
+
+Ans.
+
+1. Do not rely on usalbility guidelines
+2. Base UI designs on user tasks
+3. Ensure that sequence of actions to achieve tasks, are as simple as possible
+4. Provide good feedback with effective error messages
+5. Ensure that the user can always get out, go back or undo and action
+6. Response time should be adequate
+7. Use understandable coding techniques
+8. Ensure UI is uncluttered
+9. Consider needs of **Different groups of users**
+10. Provide all necessary help
+11. Be consistent
+12.  
 
 ## PPT 25
 Q1. **What are the different types of Cohesion and mention the layers used in**
@@ -647,3 +737,12 @@ In the Front Controller pattern, a separate controller examines each request and
 
 ## ER Diagram
 **![](https://lh7-us.googleusercontent.com/eaqlgJfsc0_UinViuT26oQOoo0_gPD5wTQbXhztpJo0TXIImUzgCQZAED2NNCW04Wm7PKQW6KnVFV1RYDb7FJHLBnpYK2OC2qXjztNVhH-fY31xpmdU5VCFVspeo6dXp3nBr1F0tkd1OtyQf4RwL7Fg)**
+**![](https://lh7-us.googleusercontent.com/RwTz66L8H4CALbRbvebSPiBo3kVKTSJf_3rq6Y0xWVuEopFJDu4i3k6jw1dkrdzWQvYsj9CrtZNPzpNbKt8Bvs73vmBOqGFmqOYsobE7BpnU2QlvK6DdWdAiD8DvV9d0PlHq_c4BFNzVn59ZyoNPDTI)**
+
+## Sequence Diagram
+**![](https://lh7-us.googleusercontent.com/yAsk87_qLpQ1ODPwHQCBHUXt757ukkY4V_vhK-Ft9KglQvvYVxnYowofR7PedtOZa6JNHMeVIBZZ7zEk2oI4lu1P-6Xhs03XVmUxzPdzeKq9O8wE3hiFka3UvGKr4xWlHFeU9o9f_onWATsTyvEl-mA)**
+**![](https://lh7-us.googleusercontent.com/blWqDqs86bJ6LKw3c3GxUBz61zm088VzzvVJyRcjoroJ2l4tcbxn2l4pkm92MRIINOg13Bik1u83GVttrERoPBgLTvookYqVc2gTB5W4Fx1w8saJ1vP9s7uZXZc7GFWsYlWTynchr8tfkJAsDk5f41w)**
+
+## Use Case Diagram
+**![](https://lh7-us.googleusercontent.com/zJEpE_evzDlMBOjyeqYlCmHdfpv9WrfjpKBiebetQQBLJAKea6w-kMrSeocEzJSdCTLXaoDuOHP0J20MOTrgJ67v7jgc_IjyWoXRNbzpriiV0e9YXYz6AiisLQzJFTTPsaHT7ORCph3tNQiJX4DS1Zs)**
+**![](https://lh7-us.googleusercontent.com/Dp98PoDz47MQM0sCSKxBroNod7h5M_5c9DvRMrMYVZ1PeM4OXLftVtzZqU_PKp7UyF17B8utrgyA40ribfnsEC2SlTeHbF9Pucl0A62c7kUH7jaljdIY6WwOTh1A_0Pvv3Y84Qx9qipk2MoBoxt8Iu4)**
