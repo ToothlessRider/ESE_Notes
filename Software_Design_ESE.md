@@ -11,11 +11,20 @@
 3. [Types of Cohesion and Coupling](#ppt-25)
 4. [Software Architecture](#ppt-26)
 5. [Architectural Patterns](#ppt-36)
-- [Abstraction Occurence](#abstraction-occurence-pattern)
-- [Singleton Pattern](#singleton-pattern)
-- [Observer Pattern](#observer-pattern)
-- [Delegation Pattern](#delegation-pattern)
-- [Façade Pattern](#façade-pattern)
+	- [Abstraction Occurence](#abstraction-occurence-pattern)
+	- [Singleton Pattern](#singleton-pattern)
+	- [Observer Pattern](#observer-pattern)
+	- [Delegation Pattern](#delegation-pattern)
+	- [Façade Pattern](#façade-pattern)
+	- [Proxy Pattern](#proxy-pattern)
+6. [GRASP Patterns](#grasp-patterns)
+	- [Expert Pattern](#expert-pattern)
+	- [Creator Pattern](#creator-pattern)
+	- [Observer Pattern](#observer-pattern)
+	- [Controller Pattern](#controller-pattern)
+		- [Page Controller](#page-controller)
+		- [Front Controller](#front-controller)
+7. [Entity Relation Diagram](#er-diagram)
 
 
 
@@ -584,3 +593,57 @@ Architecture is also the core of design, at it helps in creating overall **effic
 - **Solution**
 	- A proxy in it's most general form **is a class functioning as an interface for something else**
 **![](https://lh7-us.googleusercontent.com/6SCkD4mxONYVKoRbFIqae26hSVPZVurdyLTpYCkJEIQ16_w9LZhwQxLamVI2OEE5y34zRC-Imaq91PTQwAbtvb89tBiRpSy_6u35uZGsHEaM4JPAECyXjTfzaKKWNqUyhKTLBz5mBLMTlQUUKIhSsH4)**
+
+### GRASP Patterns 
+#### [ General Responsibility Assignment Software Patterns ]
+GRASP (General Responsibility Assignment Software Patterns) is a set of design patterns that guide the assignment of responsibilities in object-oriented design
+
+#### Expert Pattern
+- Assign the responsibility to the class that has the necessary information to fulfil it.
+- This promotes encapsulation
+- Low coupling is ensured
+- High cohesion is supported
+- 
+
+Example : Who should be responsible for knowing the grand total of a sale ?
+**Domain Model** : Contains conceptual classes of the world
+**Design Model** : Contains software classes
+
+Assign the class which will be the **information expert** in this case. 
+
+
+#### Creator Pattern
+- **Problem** 
+	- Who is responsible for creating **new instances of some class**?
+- **Solution**
+	- Assign class B the responsibility to create an instance of class A if it has the information needed to create it and works closely with Class A
+- Clearly a **Sale** contains **SalesLineItem** objects.  
+- So according to Creator Pattern, **Sales** is a good candidate for the responsibility of **creating** SalesLineItem instances
+- **This approach results in low coupling, encapsulation and reusability**
+
+#### Controller Pattern
+It is useful for developing web based applications among other things<br>
+- **Problem** 
+	- It handles who should be responsible for an **input system event** ?
+- **Solution**
+	- It assigns the responsibility of handling system events to a controller class that represents a use case or handles the overall system events
+
+**![](https://lh7-us.googleusercontent.com/DYbmvgh4cuyG7rlFB8qh3-2gv5LA4wIoQfGQf6_tXqrZ43ja1Czg89AXntW0gv8nPhN1wXwv1Eb2zLFtwfv6y7osHwn4QmgahG5ThN4bDovPAGpygHjWf5u-JZdZeQhX870-EVmo9_qLVTMmYce7FDs)**
+
+Q. **What are the two types of controllers in Controller Patterns ?**
+
+Ans. 
+Two other design patterns related to Use Case controllers:
+- Page Controller
+- Front Controller
+
+#### Page Controller
+The controller uses a single Presenter which interacts with the Model (the data for the page). <br>When it receives
+a request, the Page Controller can determine which partial View to display within the page, and then interact with that View following the MVP pattern.
+
+#### Front Controller
+In the Front Controller pattern, a separate controller examines each request and determines which page to display. <br>Each page is a complete MVP implementation, with its own View, and each Presenter interacts with the View and the Model (the data)
+
+
+## ER Diagram
+**![](https://lh7-us.googleusercontent.com/eaqlgJfsc0_UinViuT26oQOoo0_gPD5wTQbXhztpJo0TXIImUzgCQZAED2NNCW04Wm7PKQW6KnVFV1RYDb7FJHLBnpYK2OC2qXjztNVhH-fY31xpmdU5VCFVspeo6dXp3nBr1F0tkd1OtyQf4RwL7Fg)**
