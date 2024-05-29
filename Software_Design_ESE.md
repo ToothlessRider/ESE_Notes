@@ -495,14 +495,24 @@ Ans.
 - Exhaustive testing isn't possible
 
 #### Testability
+- How easily can a system be tested
+> Characteristics of Testability
 
+- Opearbility
+- Observability
+- Controllability
+- Decomposability
+- Simplicity
+- Stability
+- Understandability
+ 
 
 <hr>
 
 Q2. **What are the different CFG Notations?**
 
 Ans. 
-
+**![](https://lh7-us.googleusercontent.com/0eFy-F7f9c6OVWRQP3qASp0d9DfRvgdepCcwZvBxzcLP0sESrrarjnecuY-uRT19ThESVj7xYnrtqwXcEz77iZfuVWCEK4qjVpvKuY2sT1vtfe0JROE6GFmvi0jDh_BDBKUWs3y5rJVzaC8X8xWAXLY)![](https://lh7-us.googleusercontent.com/gXJ8w9txLedIHf3445RGzmfUfEB4dLvRsjpI9i0DqJWXgeFGz5PLci1WqzJqAbp--ZQ1O_zRg3mmspuGH52MPb0zV_tk8H9ngFh4oGoLuULpMKbby8Q2lQfs4NT8KMm31zTHtydYD9DNOQZ4iqxmlK0)![](https://lh7-us.googleusercontent.com/5dvMKz8dUeykWiV0Xo3YL4KlFDf4JFD64weON87tMsBJ8RsQlYCIN86bIDZ1BrQWSZnG8SvxB3U0bFR1YgFAPuxKxfDwKqTJODhiLl34fE3G8RBHDLNXV2rrYKSGz-Gs3_MMJMITB07SAJ8x1aQrFVc)![](https://lh7-us.googleusercontent.com/xemUH8D807nUbIW5mpznR69mp1lenzs1gKzJp8hIaJOamWJPmMKmv8af6qTBHGxfQ5y0Jx7CvxxoM_6NSVhZ-PaComLBgcG9QCcax2F3QK4DHeub8hhuj-FgFq4kZ2RaZ8KpPrcNBYmFn1XJq86wVUQ)![](https://lh7-us.googleusercontent.com/ZR4DEtzR4uVOu7cihhJmQr6FHYo_9zsa4QV-3hCADh0wYXK3_QicvvF-Se7QOHT1-ckwZ46V_3if4ZZfzZCaqe95L8ETXXTvCgKejPT6L9eJf2WM05WBL9OS3BmshEkOhjB5ILNLeMU5hBGf2GTzWSU)![](https://lh7-us.googleusercontent.com/ooXwpRskRTD0oRv8qcce8Erk7KjBx5uU5xilXF3clJ0-xwqpEoJRylLOS78b5u5QqJeYVJ9DJmILzooxc4CTY0QuCLywoLrvKk6lqwhQuqAlUxmWQ-4j8PAfZuRBUsXzyvUHSTtRYpOtYKKvkN0XfcU)![](https://lh7-us.googleusercontent.com/FXY3hWSMzLn5FFbZNCAZR8dv7qzJgE2vd0GFGLYYqJ8GbVz7NppwDPRvvFaiY_a-LGONO8jiTHMOUqY24KJMrzjIv78EG6QCr35_sUDwHUo0VDCvGKGSF1K1T-Tpr9cIW4PyA93OJAZHTiyterDqy2c)![](https://lh7-us.googleusercontent.com/WzJeeg-uUgkxO9GCqYEO5u4pVVQhrgwMIWiYIR3f-HfnOk4fvnfNH4NFZQcey3jOwxcTRxxL183eZYUhUDSZgkzC-ughQLbOWt6qGAptKQaccA7xntLn3FFDVyg1d5slXhVGNLOwU_kvs4g0lPhj0kk)**
 
 <hr>
 
@@ -521,7 +531,23 @@ Ans.
 9. Consider needs of **Different groups of users**
 10. Provide all necessary help
 11. Be consistent
-12.  
+
+<hr>
+
+Q4. **What is Basis Path Testing ?**
+
+Ans.
+Basis path testing is a white-box testing technique
+- To derive a logical complexity measure of a procedural design.
+- Test cases derived to exercise the basis set are guaranteed to execute every statement in the program at east one time.
+
+Methods:
+- Flow graph notation
+- Independent program paths or Cyclomatic complexity
+- Deriving test cases
+- Graph Matrices
+
+<hr>
 
 ## PPT 25
 Q1. **What are the different types of Cohesion and mention the layers used in**
