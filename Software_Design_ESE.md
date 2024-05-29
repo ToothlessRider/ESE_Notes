@@ -10,14 +10,12 @@
 2. [Basis Path Testing](#basis-path-testing)
 3. [Types of Cohesion and Coupling](#ppt-25)
 4. [Software Architecture](#ppt-26)
-5. 
-
-
-
-## Classtest Question
-
-## Cyclometric graph questions
-
+5. [Architectural Patterns](#ppt-36)
+- [Abstraction Occurence](#abstraction-occurence-pattern)
+- [Singleton Pattern](#singleton-pattern)
+- [Observer Pattern](#observer-pattern)
+- [Delegation Pattern](#delegation-pattern)
+- [Façade Pattern](#façade-pattern)
 
 
 
@@ -355,7 +353,7 @@ There are certain paramaters that are used to describe patterns. [**PRSCARF**]
 #### Context 
 - The general situation in which the pattern is applicable
 #### Problem :
-- A short sentence describing the 
+- A short sentence describing the problem it is solving
 #### Forces
 - The issues or concerns while solving the problem
 #### Solution
@@ -506,4 +504,83 @@ Architecture is also the core of design, at it helps in creating overall **effic
 
 <hr>
 
+## PPT 37
+#### Abstraction Occurence Pattern
+- **Context** 
+	- In a domain model you find a set of related objects
+	- They also have common points, but are different in important ways
+- **Problem**
+	- What is the best way to represent these in a class diagram ?
+- **Forces**
+	- You want to represent members of each **set of occurences without duplicating common information**
+- **Solution**
+**![](https://lh7-us.googleusercontent.com/i1jS97luebTIXxNZwmqohfSFul9bg95P_vrLCnPiF2dp7Wph89CQVcdEzZrgqcIKLompyCzBTZEKA4oLw9kE8nQeWHljEoElOj-Xal5rfsFpznCSo1Y2D0nh7aNGECXDJmM-Nm4fY8prOto1lf37UaY)**
 
+<hr>
+
+
+### Singleton Pattern
+- **Context**
+	- It is common to find classes for which only one instance should exist.
+- **Problem**
+	- How do you ensure that it is never possible to create more than one instance of a singleton class ?
+- **Forces**
+	- A public constructor can't guarantee that more than one instance will be created
+- **Solution**
+**![](https://lh7-us.googleusercontent.com/KnMyr8yQzEHfMVcsl4uHXwakMnJupYfDkZMJgunmjYH6L2Oy_vCl6FJlcBjG9_pZo7THKF9gWpPtc-eaqsM5VP6PVW9abSmAwQeTOPjUUfR71KoONOQWfTlIbw_M9R0TkNqIwDBL8d4pxlPlX9EkM-I)**
+
+<hr>
+
+
+#### Observer Pattern
+- **Context**
+	- When you have a two way association for two classes **Code becomes inseparable**
+	- If you want to reuse one, you have to reuse the other
+- **Problem**
+	- How do you **reduce the interconnection** between classes that belong to different modules ?
+- **Forces**
+	- You want to maximize the flexibility of the system.
+- **Solution**
+**![](https://lh7-us.googleusercontent.com/5gtinWik3yFSg8a53iHaimc3hLRHbqHKB82JFzTrFqrFPuw7yHcNqGKCWzZ0b97zDA6iqKAnbY4abffaZZUtMEd1cjK4eSgjUST9zO5TDvaH8SC_URLtYTTrfKt_wwDeu0LVBb_q0DEO4VmffzFYRkY)**
+
+<hr>
+
+#### Delegation Pattern
+- **Context**
+	- You are designing a method in a class
+	- You realize another class has the same method that provides the required service
+	- **Inheritance isn't possible**
+- **Problem**
+	- How can you effectively make use of a **method that exists in another class**?
+- **Forces**
+	- You want to minimize development costs by reusing methods, and reduce coupling between classes.
+- **Solution**
+**![](https://lh7-us.googleusercontent.com/3KaZBrhAUeucwrV0TOruvO73DeIH4-OyKWC5oqaEHhvn65D2WbT_AKhILjX5J7rrNkizVjy3NqbfFpYByMi7WWDYdQuMq6omYddLIsiuuOAWuZBW4vkXyNOO_OXAIdKcumT3IvdtFui8lKVn2CSTuFQ)**
+
+<hr>
+
+#### Façade Pattern
+- **Context**
+	- An application often contains **several complex packages**
+- **Problem**
+	- How do you simplify the view that programmers have of a complex package ?
+- **Forces**
+	- It is difficult for a programmer to fully understand and utilize a subsystem
+	- If an class calls methods of the packages and the package is modified, then all these classes come under review.
+- **Solution**
+**![](https://lh7-us.googleusercontent.com/3Ew3lvIantX6SuN19whCzU8d8YgoWHy4z--b9IlsvdQenGk7RikwsDjCdGQWbf282LzF3MLZjlIAbxLh6gf9cBchhS-u2HUSkcHd2fSpd92EnTNec9xIKu9PUe6JnW7_fjKy6Zjd4DU5GyUdoLAQWF4)**
+
+<hr>
+
+#### Proxy Pattern
+- **Context** 
+	- Often it is time consuming and complicated to create an instance of a heavyweight class
+	- **Large classes must be loaded from the database to support usage**
+- **Problem**
+	- How to reduce the need to create instances of a heavyweight class ?
+- **Forces**
+	- We want the objects in a doman model to be made available for programs
+	- It is impractical for all objects to be loaded into memory when a program starts
+- **Solution**
+	- A proxy in it's most general form **is a class functioning as an interface for something else**
+**![](https://lh7-us.googleusercontent.com/6SCkD4mxONYVKoRbFIqae26hSVPZVurdyLTpYCkJEIQ16_w9LZhwQxLamVI2OEE5y34zRC-Imaq91PTQwAbtvb89tBiRpSy_6u35uZGsHEaM4JPAECyXjTfzaKKWNqUyhKTLBz5mBLMTlQUUKIhSsH4)**
