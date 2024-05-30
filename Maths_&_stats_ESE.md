@@ -5,30 +5,37 @@
 > 
 [Github Repo Link for all ESE Notes](https://github.com/ToothlessRider/ESE_Notes.git)).
 
+> [ Link to solved ESE paper](https://drive.google.com/file/d/1_pyBQGiDKMyc8F54TKVueLHF3rPgoRqK/view?usp=sharing)
+
 ## Previous Year Questions 
 Q1. a. **What is modular arithmetic and what are the properties of modular arithmetic and identify the valid or invalid congruence(≡)**
-i) $35 v 25mod10$
+i) $35 ≡ 25mod10$
 ii) $35 ≡ 15 mod 10$ 
 iii) $35 ≡ 5 mod 10$
 
 Ans. 
-Modular arithmetic is a system of arithmetic for integers, where numbers "wrap around" upon reaching a certain value called the modulus. The notation 𝑎≡𝑏mod  𝑛 means that 𝑎 and 𝑏 have the same remainder when divided by 𝑛n. This can also be stated as 𝑎 and 𝑏 are congruent modulo 𝑛. Formally, 𝑎≡𝑏mod  𝑛 if and only if 𝑛 divides 𝑎−𝑏, or equivalently, 𝑎 and 𝑏 leave the same remainder when divided by 𝑛.
+- It is a system of arithmetic for integers which consider the remainder. 
+- If it is of the format$a≡bmodn$ then a and b both leave the same remainder when divided by n
+
 
 ### Properties of Modular Arithmetic
 
-1.  **Reflexivity**: 𝑎≡𝑎mod  𝑛 for any integer 𝑎.
-2.  **Symmetry**: If 𝑎≡𝑏mod  𝑛, then 𝑏≡𝑎mod  𝑛.
-3.  **Transitivity**: If 𝑎≡𝑏mod  𝑛 and 𝑏≡𝑐mod  𝑛, then 𝑎≡𝑐mod  𝑛.
-4.  **Compatibility with Addition**: If 𝑎≡𝑏mod   and 𝑐≡𝑑mod  𝑛, then 𝑎+𝑐≡𝑏+𝑑mod  .
-5.  **Compatibility with Subtraction**: If 𝑎≡𝑏mod  𝑛a≡bmodn and 𝑐≡𝑑mod  𝑛c≡dmodn, then 𝑎−𝑐≡𝑏−𝑑mod  𝑛.
-6.  **Compatibility with Multiplication**: If 𝑎≡𝑏mod  𝑛 and 𝑐≡𝑑mod  𝑛, then 𝑎⋅𝑐≡𝑏⋅𝑑mod  𝑛.
-7.  **Exponentiation**: If 𝑎≡𝑏mod  𝑛, then 𝑎𝑘≡𝑏𝑘mod  𝑛 for any non-negative integer 𝑘.All three congruencies are valid since 35 divided by 10 can leave remainders 25, 15 and 5 for quotients 1, 2 and 3 respectively.
+1.  **Reflexivity**: <br>$a≡amodn$  for any integer 𝑎.
+2.  **Symmetry**: <br>If $a≡bmodn$ , then 𝑏≡𝑎mod  𝑛.
+3.  **Transitivity**: <br>If $a≡bmodn$  and $b≡bcmodn$ , then $a≡cmodn$ .
+4.  **Modular Addition**: <br>If $a≡bmodn$   and $c≡dmodn$ , then $(a+c)≡(b+d)modn$  .
+5.  **Modular Subtraction**: <br>If $a≡bmodn$  and $c≡dmodn$, then $(a-c)≡(b-d)modn$ .
+6.  **Modular Multiplication**: <br>If $a≡bmodn$ and $c≡dmodn$, then $a\times c≡b\times dmodn$.
+7. **Modular Inverse** : <br>It only exists if 'a & m' are relatively prime.
+8.  **Exponentiation**: <br>If 𝑎≡𝑏mod  𝑛, then 𝑎𝑘≡𝑏𝑘mod  𝑛 for any non-negative integer 𝑘.
+
+All three congruencies are valid since 35 divided by 10 can leave remainders 25, 15 and 5 for quotients 1, 2 and 3 respectively.
 
 <hr>
 
 Q1. b. **What is Euclidian method for finding GCD of two numbers.?Find the GCD of the following numbers :**
-i) $GCD( 33,12)$	
-ii) $GCD (900,750)$
+i) $GCD( 33,12 )$	
+ii) $GCD ( 900,750)$
 
 Ans. 
   
@@ -880,42 +887,79 @@ v) $\frac{d}{dx}(6x) = 6$
 <hr>
 
 Q4. b. 
-**i)What is backpropagation (draw the digram) of given example f(x,y,z) = (x+y)z ii) Write notation for higher order derivative and find the different higher order derivatives of the following function 
-F(x)= $-2 x^2 + 10 x^3 + 5x^2 + x - 11$ Find the 
+**i)What is backpropagation (draw the diagram) of given example $f(x,y,z) = (x+y)z$<br> ii) Write notation for higher order derivative and find the different higher order derivatives of the following function<br>
+F(x)= $-2 x^4 + 10 x^3 - 5x^2 + x - 11$ Find the 
 i)$f'(x)$ 
 ii) $f''(x)$ 
 iii) $f'(1$
 iv) $f"(2)-6$**
 
 Ans. 
-Here's the diagram for backpropagation of the given example \( f(x,y,z) = (x+y)z \):
+### Backpropagation
+Backpropagation is a method used in neural networks to calculate the gradient of the loss function
 
+Let's consider the given function $f(x, y, z) = (x + y)z$.
+
+#### Diagram in Mermaid
+
+```mermaid
+graph LR
+	A[x] --> B[+]
+	C[y] --> B
+	D[z] --> E[*]
+	B --> E
+	E --> F["f(x, y, z)"]
 ```
-           f
-          / \
-         /   \
-        z    +
-            / \
-           /   \
-          x     y
-```
 
+### Higher Order Derivatives
+Given the function <br>$F(x) = -2x^4 + 10x^3 - 5x^2 + x - 11$, we find the first and second derivatives, and then evaluate the specific values.
 
-Now, let's find the higher-order derivatives of the function 
-$F(x) = -2x^2 + 10x^3 + 5x^2 + x - 11$:
+#### Notation for Higher Order Derivatives
 
-i) First derivative: $F'(x) = -4x + 30x^2 + 10x + 1$
+- The first derivative of $F(x)$ is denoted by $F'(x)$.
+- The second derivative of $F(x)$ is denoted by $F''(x)$.
 
-ii) Second derivative: $F''(x) = 60x + 6$
+#### Steps to Find the Derivatives
 
-iii) $f'(1) = 37$
+1. **First Derivative $F'(x)$**:
 
-iv) $f''(2) - 6 = 126$
+$F'(x) = \frac{d}{dx}(-2x^4 + 10x^3 - 5x^2 + x - 11)$
+
+$F'(x) = -8x^3 + 30x^2 - 10x + 1$
+
+2. **Second Derivative $F''(x)$**:
+
+$F''(x) = \frac{d}{dx}(-8x^3 + 30x^2 - 10x + 1)$
+
+$F''(x) = -24x^2 + 60x - 10$
+
+#### Evaluations
+
+3. **Evaluate $F'(1)$**:
+
+$F'(1) = -8(1)^3 + 30(1)^2 - 10(1) + 1$
+
+$F'(1) = -8 + 30 - 10 + 1$
+
+$F'(1) = 13$
+
+4. **Evaluate $F''(2) - 6$**:
+
+$F''(2) = -24(2)^2 + 60(2) - 10$
+
+$F''(2) = -24(4) + 120 - 10$
+
+$F''(2) = -96 + 120 - 10$
+
+$F''(2) = 14$
+
+$F''(2) - 6 = 14 - 6$
+
+$F''(2) - 6 = 8$
 
 <hr>
 
-Q4. c. **What is convex optimization, convex set and nonconvex set?
-Show the digram of local minima global minima and local maxima global maxima**
+Q4. c. **What is convex optimization, convex set and nonconvex set?<br>Show the digram of local minima global minima and local maxima global maxima**
 
 Ans.
 Convex optimization is a field of optimization where the objective function and the feasible region are both convex. Convex sets are sets where the line segment between any two points in the set lies entirely within the set itself. Nonconvex sets are sets where this property does not hold.
@@ -924,7 +968,7 @@ Here's a brief explanation of the terms you asked for:
 
 - **Convex Optimization**: Optimization problems where the objective function and the feasible region are both convex. Convex optimization problems are particularly well-behaved and have efficient algorithms for finding global optima.
 
-- **Convex Set**: A set where the line segment between any two points in the set lies entirely within the set itself. Formally, a set \(C\) is convex if, for any \(x, y \in C\) and any \(t \in [0, 1]\), the point \(tx + (1-t)y\) is also in \(C\).
+- **Convex Set**: A set where the line segment between any two points in the set lies entirely within the set itself. Formally, a set $C$ is convex if, for any $x, y \in C$ and any $t \in [0, 1]$ , the point $tx + (1-t)y$ is also in $C$ .
 
 - **Nonconvex Set**: A set that is not convex, meaning there exist points in the set such that the line segment between them contains points outside the set.
 
@@ -1155,4 +1199,54 @@ Ans.
 Machine Learning has diverse applications across various industries and domains, revolutionizing business operations and decision-making processes.
 
 <hr>
+
+## Number Theory and Abstract Algebra
+
+Q1. **What is a prime number ? Draw a table of the prime numbers between 1 - 100**
+
+Ans. 
+A prime number is a natural number greater than 1 that is divisible by 1 and the number itself. <br>Example: 2, 3, 5, 7, 11, etc.
+
+#### Table of Primes
+
+| **1** | **2** | **3** | ~~4~~ | **5** | ~~6~~ | **7** | ~~8~~ | ~~9~~ | ~~10~~ |
+|------|------|------|------|------|------|------|------|------|------|
+| **11** | ~~12~~ | **13** | ~~14~~ | ~~15~~ | ~~16~~ | **17** | ~~18~~ | **19** | ~~20~~ |
+| **21** | **22** | ~~23~~ | ~~24~~ | ~~25~~ | ~~26~~ | ~~27~~ | ~~28~~ | **29** | ~~30~~ |
+| **31** | ~~32~~ | **33** | ~~34~~ | ~~35~~ | ~~36~~ | **37** | ~~38~~ | **39** | ~~40~~ |
+| **41** | ~~42~~ | **43** | ~~44~~ | ~~45~~ | ~~46~~ | **47** | ~~48~~ | ~~49~~ | ~~50~~ |
+| **51** | ~~52~~ | **53** | ~~54~~ | ~~55~~ | ~~56~~ | **57** | ~~58~~ | **59** | ~~60~~ |
+| **61** | ~~62~~ | **63** | ~~64~~ | ~~65~~ | ~~66~~ | **67** | ~~68~~ | **69** | ~~70~~ |
+| **71** | ~~72~~ | **73** | ~~74~~ | ~~75~~ | ~~76~~ | **77** | ~~78~~ | **79** | ~~80~~ |
+| **81** | **82** | **83** | ~~84~~ | ~~85~~ | ~~86~~ | **87** | ~~88~~ | **89** | ~~90~~ |
+| **91** | **92** | **93** | ~~94~~ | ~~95~~ | ~~96~~ | **97** | ~~98~~ | **99** | ~~100~~ |
+
+To see the prime numbers clearly, here is a list of them between 1 and 100:
+**2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97**
+
+<hr>
+
+Q2. **What is a composite number ?Draw a table of the composite numbers between 1 - 100**
+
+Ans.
+A composite number is a natural number greater than 1 that can be divided evenly by at least one other number besides 1 and itself.
+
+
+| **1** | ~~2~~ | ~~3~~ | **4** | ~~5~~ | **6** | ~~7~~ | **8** | **9** | **10** |
+|------|------|------|------|------|------|------|------|------|------|
+| ~~11~~ | **12** | ~~13~~ | **14** | **15** | **16** | ~~17~~ | **18** | ~~19~~ | **20** |
+| **21** | **22** | ~~23~~ | **24** | **25** | **26** | **27** | **28** | ~~29~~ | **30** |
+| ~~31~~ | **32** | **33** | **34** | **35** | **36** | ~~37~~ | **38** | **39** | **40** |
+| ~~41~~ | **42** | ~~43~~ | **44** | **45** | **46** | ~~47~~ | **48** | **49** | **50** |
+| **51** | **52** | ~~53~~ | **54** | **55** | **56** | **57** | **58** | ~~59~~ | **60** |
+| ~~61~~ | **62** | **63** | **64** | **65** | **66** | ~~67~~ | **68** | **69** | **70** |
+| ~~71~~ | **72** | ~~73~~ | **74** | **75** | **76** | ~~77~~ | **78** | ~~79~~ | **80** |
+| **81** | **82** | ~~83~~ | **84** | **85** | **86** | **87** | **88** | ~~89~~ | **90** |
+| **91** | **92** | **93** | **94** | **95** | **96** | ~~97~~ | **98** | **99** | **100** |
+
+To clearly identify the composite numbers, here is a list of them between 1 and 100:
+**4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30, 32, 33, 34, 35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49, 50, 51, 52, 54, 55, 56, 57, 58, 60, 62, 63, 64, 65, 66, 68, 69, 70, 72, 74, 75, 76, 77, 78, 80, 81, 82, 84, 85, 86, 87, 88, 90, 91, 92, 93, 94, 95, 96, 98, 99, 100**
+
+<hr>
+
 
