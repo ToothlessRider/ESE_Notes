@@ -749,20 +749,18 @@ This generates the string "abbcbba".
 
 <hr>
 
-Q3. d. **What is derivation tree or parse tree ?
-Generate the string p*q+r and draw the derivation tree Given production rule is**
+Q3. d. **What is derivation tree or parse tree ?<br>Generate the string p*q+r and draw the derivation tree. <br>Given production rule is**
 1. E=E+E 
 2.  E=p/q/r 
 3. E=E*E 2
 
-**Generate the string abbbb and draw the derivation tree Given production rule is**
+**Generate the string abbbb and draw the derivation tree <br>Given production rule is**
 1. S= aXY 
 2.  Y=X 
 3. . Y e-epsilon 2
 4.  X=bYb 
 
-**Generate the string aabbaa and draw the derivation tree Given production
-rule is**
+**Generate the string aabbaa and draw the derivation tree <br>Given production rule is**
 1. S=aAS
 2. S=a
 3. A=SbA
@@ -804,7 +802,7 @@ graph TD;
 ### 2) Generating the string "abbbb" with production rules:
 1. $S=aXY$
 2. $Y=X$
-3. $Y \epsilon$
+3. $Y = \epsilon$
 4. $X=bYb$
 
 #### Derivation Tree:
@@ -815,7 +813,7 @@ graph TD;
     / \
    X  Y
       |
-     e
+      e
 ```
 
 #### Mermaid Code:
@@ -888,11 +886,12 @@ v) $\frac{d}{dx}(6x) = 6$
 
 Q4. b. 
 **i)What is backpropagation (draw the diagram) of given example $f(x,y,z) = (x+y)z$<br> ii) Write notation for higher order derivative and find the different higher order derivatives of the following function<br>
-F(x)= $-2 x^4 + 10 x^3 - 5x^2 + x - 11$ Find the 
+F(x)= $-2 x^4 + 10 x^3 - 5x^2 + x - 11$ Find the**
+ 
 i)$f'(x)$ 
 ii) $f''(x)$ 
-iii) $f'(1$
-iv) $f"(2)-6$**
+iii) $f'(1)$
+iv) $f"(2)-6$
 
 Ans. 
 ### Backpropagation
@@ -1249,4 +1248,62 @@ To clearly identify the composite numbers, here is a list of them between 1 and 
 
 <hr>
 
+Q3 **What are the applications of Number Theory ?**
 
+Ans. 
+Here are some of the most important number theory applications. Number theory is used to find some of the important divisibility tests, whether a given integer m divides the integer n. <br>Number theory have countless applications in mathematics as well in practical applications such as
+- Security System like in banking securities
+- E-commerce websites
+- Coding theory
+- Barcodes
+- Making of modular designs
+- Memory management system
+- Authentication system
+
+It is also defined in hash functions, linear congruences, Pseudorandom numbers and fast arithmetic operations.
+
+<hr>
+
+Q3. **What is GCD ( Greatest Common Divisor) or what is HCF( Highest Common Factor )**
+
+Ans.
+#### Greatest Common Divisor (GCD) / Highest Common Factor (HCF)
+1. **Definition**: The GCD of two or more integers refers to the largest factor that is common to two or more numbers.
+2. **Application**: It is used in simplifying fractions, finding common denominators, and solving problems in number theory.
+
+<hr>
+
+Q4. **What is realtive prime / Co-prime numbers ?**
+
+Ans.
+#### Relatively Prime Numbers (Co-Prime Numbers)
+1. **Definition**: Two or more integers are considered relatively prime or co-prime if their greatest common divisor (GCD) is 1.
+2. **Example**:(GCD(8, 15) = 1).
+
+<hr>
+
+Q5. **What is congruence ?**
+
+Ans. 
+### Congruence
+1. **Definition**: Congruence in mathematics refers to a relationship between two numbers with respect to a given modulus. Two integers $a$ and $b$ are said to be congruent modulo $n$ ( written as $a \equiv b \pmod{n}$ ) if they both leave the same remainder when divided by $n$.
+2. **Example**: If $n = 5$, the numbers 14 and 9 are congruent modulo 5 because when divided by 5, both leave a remainder of 4 (14 mod 5 = 4 and 9 mod 5 = 4). Therefore, $14 \equiv 9 \pmod{5}$.
+<hr>
+
+Q6. **What are the properties of modular arithmetic  ?**
+
+Ans.
+> [Link to answer](#properties-of-modular-arithmetic)
+<hr>
+
+Q7. **What is modular exponentiation ?**
+
+Ans.
+
+<hr>
+
+Q8. **What is GCD? Use factor method**
+
+Ans.
+
+<hr>
