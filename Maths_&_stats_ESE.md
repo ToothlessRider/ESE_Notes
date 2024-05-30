@@ -7,6 +7,12 @@
 
 > [ Link to solved ESE paper](https://drive.google.com/file/d/1_pyBQGiDKMyc8F54TKVueLHF3rPgoRqK/view?usp=sharing)
 
+# Table of Contents 
+1. [Previous year Questions](#previous-year-questions)
+2. [Number Theory and Abstract algebra](#number-theory-and-abstract-algebra)
+	- [Abstract Algebra](#abstract-algebra)
+3. 
+
 ## Previous Year Questions 
 Q1. a. **What is modular arithmetic and what are the properties of modular arithmetic and identify the valid or invalid congruence(≡)**
 i) $35 ≡ 25mod10$
@@ -27,18 +33,18 @@ Ans.
 5.  **Modular Subtraction**: <br>If $a≡bmodn$  and $c≡dmodn$, then $(a-c)≡(b-d)modn$ .
 6.  **Modular Multiplication**: <br>If $a≡bmodn$ and $c≡dmodn$, then $a\times c≡b\times dmodn$.
 7. **Modular Inverse** : <br>It only exists if 'a & m' are relatively prime.
-8.  **Exponentiation**: <br>If 𝑎≡𝑏mod  𝑛, then 𝑎𝑘≡𝑏𝑘mod  𝑛 for any non-negative integer 𝑘.
+8.  **Exponentiation**: <br>If  $a≡bmodn$, then  $a^k≡b^kmodn$ for any non-negative integer 𝑘.
 
 All three congruencies are valid since 35 divided by 10 can leave remainders 25, 15 and 5 for quotients 1, 2 and 3 respectively.
 
 <hr>
 
-Q1. b. **What is Euclidian method for finding GCD of two numbers.?Find the GCD of the following numbers :**
+Q1. b. **What is Euclidian method for finding GCD of two numbers?<br>Find the GCD of the following numbers :**
 i) $GCD( 33,12 )$	
 ii) $GCD ( 900,750)$
 
 Ans. 
-  
+#### Euclidean Method 
 The Euclidean method, or Euclidean algorithm, is an efficient way to find the greatest common divisor (GCD) of two integers. The algorithm is based on the principle that the GCD of two numbers also divides their difference. The steps of the Euclidean algorithm are as follows:
 
 1.  Given two integers 𝑎 and 𝑏, where 𝑎>𝑏, divide 𝑎 by 𝑏 and obtain the remainder 𝑟.
@@ -46,11 +52,30 @@ The Euclidean method, or Euclidean algorithm, is an efficient way to find the gr
 3.  Repeat the process until 𝑏 becomes 0. The GCD is the last non-zero remainder.
 
 - $GCD(33,12)=3$
+
+| Quotient | A | B |Remainder|
+|--|--|--|--|
+|3|33|12|9|
+|1|12|9|3|
+|3|9|3|0|
+|x|3|0|x| 
+
+Final value left in $A = 3$ . So that is the GCD
+
 - $GCD(900,750)=150$
+
+| Quotient | A | B |Remainder|
+|--|--|--|--|
+|1|900|750|150|
+|5|750|150|0|
+|x|150|0|x| 
+
+Final value left in $A =150$ . So that is the GCD
+
 
 <hr> 
 
-Q1. c. **What is GCD? Find the gcd of following number using simple factor method (i)GCD (30, 52) (ii)GCD (10, 16) (iii)GCD (12, 16) (iv)GCD (12, 8) (v) GCD (24, 36)**
+Q1. c. **What is GCD? Find the gcd of following number using simple factor method <br>(i)GCD (30, 52) <br>(ii)GCD (10, 16) <br>(iii)GCD (12, 16)<br> (iv)GCD (12, 8)<br> (v) GCD (24, 36)**
 
 Ans. 
 The greatest common divisor (GCD) of two integers is the largest positive integer that divides both numbers without leaving a remainder. The GCD can be found using the simple factor method, which involves the following steps:
@@ -1299,11 +1324,416 @@ Ans.
 Q7. **What is modular exponentiation ?**
 
 Ans.
-
+**Modular Exponentiation**: <br>If  $a≡bmodn$, then  $a^k≡b^kmodn$ for any non-negative integer 𝑘.
 <hr>
 
 Q8. **What is GCD? Use factor method**
 
 Ans.
+### GCD (Greatest Common Divisor)
+
+- The Greatest Common Divisor (GCD) of two integers is the largest positive integer that divides both of the numbers without leaving a remainder.
+
 
 <hr>
+
+Q9. **What is the Euclidian method used to find GCD**
+
+Ans.
+>[Link to Ans](#euclidean-method)
+
+<hr>
+
+Q10. **What is M.I. multiplicative inverse?**
+
+Ans.
+Sure, here's the text with the requested replacements:
+
+### Multiplicative Inverse with Respect to Modulus
+
+The multiplicative inverse of an integer $a$ with respect to a modulus $m$ is an integer $b$ such that:
+
+$a \cdot b \equiv 1 \mod m$
+
+In other words, $b$ is the multiplicative inverse of $a$ modulo $m$ if the product of $a$ and $b$ leaves a remainder of 1 when divided by $m$.
+
+### Existence of Multiplicative Inverse
+
+For $a$ to have a multiplicative inverse modulo $m$, $a$ and $m$ must be coprime, meaning their greatest common divisor (GCD) is 1:
+
+$\text{GCD}(a, m) = 1$
+
+### Finding the Multiplicative Inverse
+
+The Extended Euclidean Algorithm is a common method for finding the multiplicative inverse. Here’s how it works:
+
+1. **Apply the Euclidean Algorithm** to find the GCD of $a$ and $m$.
+2. **Use the Extended Euclidean Algorithm** to express this GCD as a linear combination of $a$ and $m$:
+
+$\text{GCD}(a, m) = ax + my$
+
+If the GCD is 1, then $ax + my = 1$. The coefficient $x$ in this equation is the multiplicative inverse of $a$ modulo $m$.
+
+
+<hr>
+
+Q11. **Find M.I. using the Extended Euclidian algorithm**
+Ans. 
+
+Let’s find the multiplicative inverse of $3*? modulo 11$.
+
+1. **Check if 3 and 11 are coprime**:
+   
+   $\text{GCD}(3, 11) = 1$
+
+   Since the GCD is 1, they are coprime, and an inverse exists.
+
+2. **Extended Euclidean Algorithm**:
+
+   Apply the Euclidean Algorithm:
+
+| Quotient | A | B |Remainder|
+|--|--|--|--|
+|3|11|3|2|
+|1|3|2|1|
+|2|2|1|0|
+|x|3|0|x| 
+
+   Then, back-substitute to express 1 as a combination of 3 and 11:
+
+   - $1 = 3 - 2 \cdot 1$
+   - $2 = 11 - 3 \cdot 3$
+   
+   Substitute $2$ into the equation:
+   
+   - $1 = 3 - (11 - 3 \cdot 3) \cdot 1$
+   - $1 = 3 - 11 \cdot 1 + 3 \cdot 3$
+   - $1 = 3 \cdot 4 - 11 \cdot 1$
+
+   Therefore, $4$ is the multiplicative inverse of $3$ modulo $11$.
+
+3. **Verification**:
+
+   $3 \cdot 4 \equiv 12 \equiv 1 \mod 11$
+
+Thus, the multiplicative inverse of 3 modulo 11 is 4.
+
+### Summary
+
+The multiplicative inverse of an integer $a$ modulo $m$ is another integer $b$ such that $a \cdot b \equiv 1 \mod m$. This inverse exists if and only if $a$ and $m$ are coprime. The Extended Euclidean Algorithm is a practical way to find this inverse.
+
+<hr>
+
+Q12. **What is euler totient or phi function?**
+
+Ans. 
+### Euler's Totient Function (φ Function)
+
+Euler's Totient Function, denoted as φ(n), is a function that counts the number of integers up to $n$ that are relatively prime to $n$. Two numbers are relatively prime if their greatest common divisor (GCD) is 1.
+
+### Definition
+
+For a positive integer $n$, the Euler Totient Function $\phi(n)$ is defined as the number of integers 4k$in the range $1 \leq k \leq n$ for which $\text{GCD}(k, n) = 1$.
+
+### Examples
+
+- $\phi(1) = 1$ because 1 is relatively prime to itself.
+- $\phi(2) = 1$ because only 1 is relatively prime to 2.
+- $\phi(3) = 2$ because both 1 and 2 are relatively prime to 3.
+- $\phi(4) = 2$ because 1 and 3 are relatively prime to 4.
+
+### Properties
+
+1. **For a Prime Number $p$**:
+   $\phi(p) = p - 1$
+   All numbers from 1 to $p-1$ are relatively prime to $p$.
+
+2. **For Two Coprime Numbers $m$and $n$**:
+   $\phi(mn) = \phi(m) \cdot \phi(n)$
+
+3. **For a Power of a Prime \( p^k \)**:
+   $\phi(p^k) = p^k - p^{k-1} = p^k (1 - \frac{1}{p})$
+   This formula is derived from the fact that only multiples of $p$ are not relatively prime to $p^k$.
+
+### General Formula
+
+For any integer $n$ with the prime factorization:
+
+$n = p_1^{k_1} p_2^{k_2} \cdots p_m^{k_m}$
+
+The Euler Totient Function is given by:
+
+$\phi(n) = n \left(1 - \frac{1}{p_1}\right) \left(1 - \frac{1}{p_2}\right) \cdots \left(1 - \frac{1}{p_m}\right)$
+
+### Example Calculation
+
+Let's calculate $\phi(36)$:
+
+1. Prime factorization of 36:
+   $36 = 2^2 \cdot 3^2$
+
+2. Applying the formula:
+ 
+ $\phi(36) = 36 \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{3}\right)$
+
+  $\phi(36) = 36 \cdot \frac{1}{2} \cdot \frac{2}{3}$
+ 
+ $\phi(36) = 36 \cdot \frac{1}{3}$
+ 
+ $\phi(36) = 12$
+
+Thus, there are 12 integers up to 36 that are relatively prime to 36.
+
+### Applications
+
+- **Cryptography**: Euler's Totient Function is used in RSA encryption, which relies on properties of prime numbers and their relationships.
+- **Number Theory**: It provides insight into the structure of the multiplicative group of integers modulo $n$.
+
+### Summary
+
+Euler's Totient Function $\phi(n)$ is a fundamental concept in number theory that counts the number of integers up to $n$ that are relatively prime to $n$. Its computation relies on the prime factorization of $n$ and has important applications in cryptography and other areas of mathematics.
+<hr>
+
+Q13. **What is Euler's Theorem** ?
+Ans.
+
+It appears that there are still some formatting issues. Let's refine the process to ensure all replacements are correctly formatted with no whitespace around the `$` signs.
+
+### Euler's Theorem
+
+Euler's Theorem is a fundamental result in number theory that generalizes Fermat's Little Theorem. It establishes a relationship between exponentiation and modular arithmetic for integers that are coprime to the modulus.
+
+### Statement of Euler's Theorem
+
+For any integer $a$ and a positive integer $n$ such that $\text{GCD}(a, n) = 1$:
+
+$a^{\phi(n)} \equiv 1 \mod n$
+
+where $\phi(n)$ is Euler's Totient Function, which counts the number of integers up to $n$ that are relatively prime to $n$.
+
+### Explanation
+
+Euler's Theorem tells us that if $a$ and $n$ are coprime, then raising $a$ to the power of $\phi(n)$ results in a number that is congruent to 1 modulo $n$.
+
+### Example
+
+Consider $a = 3$ and $n = 7$:
+
+1. **Check if 3 and 7 are coprime**:
+   
+   $\text{GCD}(3, 7) = 1$, so they are coprime.
+
+2. **Calculate $\phi(7)$**:
+   
+   Since 7 is a prime number, $\phi(7) = 7 - 1 = 6$.
+
+3. **Apply Euler's Theorem**:
+   
+   $3^{\phi(7)} \equiv 3^6 \mod 7$
+
+   Calculate $3^6$:
+ $3^6 = 729$
+   Find $729 \mod 7$:
+   $729 \div 7 = 104 \text{ remainder } 1$
+   $729 \equiv 1 \mod 7$
+
+   Thus, $3^6 \equiv 1 \mod 7$, which verifies Euler's Theorem.
+
+### Applications
+
+1. **Cryptography**: Euler's Theorem is a key component in RSA encryption, which relies on the properties of large prime numbers and modular arithmetic.
+2. **Modular Exponentiation**: Efficient computation of large powers in modular arithmetic uses Euler's Theorem to simplify calculations.
+
+### Summary
+
+Euler's Theorem states that for any integer $a$ and a positive integer $n$ such that $\text{GCD}(a, n) = 1$:
+
+$a^{\phi(n)} \equiv 1 \mod n$
+
+This theorem generalizes Fermat's Little Theorem and has important applications in number theory and cryptography. It highlights the deep connections between number theory, prime numbers, and modular arithmetic.
+
+<hr>
+
+Q14. **What is Fermat's Little theorem ?**
+
+Ans.
+### Fermat's Little Theorem
+
+Fermat's Little Theorem is a fundamental theorem that proves a powerful property of prime numbers in relation to modular arithmetic. 
+
+### Statement of Fermat's Little Theorem
+
+For any integer $a$ and a prime number $p$:
+
+$a^p \equiv a \mod p$
+
+Alternatively, if$a$is not divisible by $p$ ( i.e., $\text{GCD}(a, p) = 1$ ), then:
+
+$a^{p-1} \equiv 1 \mod p$
+
+### Explanation
+
+- The theorem tells us that if you raise any integer$a$to the power of a prime number$p$, the result is congruent to$a$modulo$p$.
+- If$a$is coprime to$p$(they share no common factors other than 1), then raising$a$to the power of$p-1$will result in a number that is congruent to 1 modulo$p$.
+
+### Example
+
+Consider $a = 2$ and $p = 7$:
+
+1. **Check if 2 and 7 are coprime**:
+   
+$\text{GCD}(2, 7) = 1$, so they are coprime.
+
+2. **Apply Fermat's Little Theorem**:
+   
+   Since 7 is a prime number, according to Fermat's Little Theorem:
+   
+$2^{7-1} \equiv 1 \mod 7$
+$2^6 \equiv 1 \mod 7$
+
+3. **Calculate$ 2^6 $**:
+$2^6 = 64$
+
+4. **Find$ 64 \mod 7 $**:
+$64 \div 7 = 9 \text{ remainder } 1$
+$64 \equiv 1 \mod 7$
+
+Thus, $2^6 \equiv 1 \mod 7$, which verifies Fermat's Little Theorem.
+
+### Applications
+
+1. **Cryptography**: Fermat's Little Theorem is used in various encryption algorithms, including RSA.
+2. **Primality Testing**: It is used in algorithms to check the primality of numbers.
+3. **Modular Arithmetic**: It simplifies calculations involving large powers in modular arithmetic.
+
+### Summary
+
+Fermat's Little Theorem states that for any integer$a$and a prime number$p$:
+
+$a^p \equiv a \mod p$
+
+and if$a$is not divisible by$p$:
+
+$a^{p-1} \equiv 1 \mod p$
+
+This theorem is a cornerstone of number theory with wide-ranging applications in cryptography and computational mathematics.
+
+<hr>
+
+Q15. **What is prime factorization?**
+
+Ans.
+
+<hr>
+
+Q16. **What is primitive root?**
+
+Ans.
+
+<hr>
+
+Q17. **What is a discrete logarithmic problem?**
+
+Ans.
+
+<hr>
+
+Q18. **What is test primality?**
+
+Ans.
+
+<hr>
+
+Q19. **What is the Chinese remainder theorem?**
+
+Ans. 
+### Chinese Remainder Theorem
+
+  
+
+The Chinese Remainder Theorem (CRT) is a fundamental result in number theory that provides a way to solve systems of simultaneous congruences with different moduli. It has important applications in computer science, cryptography, and solving linear congruences.
+
+  
+
+### Statement of the Chinese Remainder Theorem
+
+  
+
+If $n_1, n_2, \ldots, n_k$ are pairwise coprime positive integers (i.e., $\text{GCD}(n_i, n_j) = 1$ for $i \neq j$ ), then for any given sequence of integers $a_1, a_2, \ldots, a_k$ , there exists an integer $x$ such that:
+
+  
+
+$\begin{cases}x \equiv a_1 \mod n_1 \\x \equiv a_2 \mod n_2 \\
+\vdots \\x \equiv a_k \mod n_k\end{cases}$
+
+
+
+Furthermore, this solution is unique modulo $N$ , where $N = n_1 n_2 \cdots n_k$ .
+
+### Explanation
+The theorem guarantees that there is a unique solution $x$ modulo $N$ that satisfies all the given congruences. The solution can be found using the following steps:
+
+  
+
+1. Compute $N = n_1 n_2 \cdots n_k$ .
+
+2. For each $i$ , compute $N_i = \frac{N}{n_i}$ .
+
+3. Find the multiplicative inverse of $N_i \mod n_i$ , denoted as$M_i$ , such that $N_i M_i \equiv 1 \mod n_i$ .
+
+4. The solution is given by:
+
+$x = \sum_{i=1}^k a_i N_i M_i \mod N$
+
+### Example
+
+Consider the system of congruences:
+
+$\begin{cases}x \equiv 2 \mod 3 \\x \equiv 3 \mod 4 \\x \equiv 1 \mod 5\end{cases}$
+
+  
+
+1. Compute $N = 3 \times 4 \times 5 = 60$ .
+
+2. Compute $N_1 = \frac{60}{3} = 20$ , $N_2 = \frac{60}{4} = 15$ , $N_3 = \frac{60}{5} = 12$.
+
+3. Find the multiplicative inverses:
+
+- $20 M_1 \equiv 1 \mod 3$ : $M_1 = 2$ (since $20 \equiv 2 \mod 3$ and $2 \times 2 \equiv 1 \mod 3$ ).
+
+- $15 M_2 \equiv 1 \mod 4$:$M_2 = 3$(since$15 \equiv 3 \mod 4$and$3 \times 3 \equiv 1 \mod 4$).
+
+- $12 M_3 \equiv 1 \mod 5$ : $M_3 = 3$ (since $12 \equiv 2 \mod 5$ and $2 \times 3 \equiv 1 \mod 5$).
+
+4. Compute$x$:
+
+$x = (2 \times 20 \times 2) + (3 \times 15 \times 3) + (1 \times 12 \times 3) \mod 60$
+
+$x = (80) + (135) + (36) \mod 60$
+
+$x = 251 \mod 60$
+
+$x \equiv 11 \mod 60$
+
+  
+
+Thus, the solution to the system of congruences is $x \equiv 11 \mod 60$.
+
+  
+
+### Applications
+
+  
+
+1. **Cryptography**: The CRT is used in RSA encryption and decryption to improve computational efficiency.
+
+2. **Computing**: The CRT is used in algorithms that require operations on large numbers, such as fast multiplication and division.
+
+3. **Modular Arithmetic**: It simplifies the problem of solving systems of simultaneous linear congruences.
+
+  
+<hr>
+
+## Abstract Algebra
+
+
