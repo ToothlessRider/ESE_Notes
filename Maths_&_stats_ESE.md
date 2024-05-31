@@ -3,9 +3,8 @@
 
 > Star the gist so that I can get a consensus on how many people are using this resource
 > 
-[Github Repo Link for all ESE Notes](https://github.com/ToothlessRider/ESE_Notes.git)).
+[Github Repo Link for all ESE Notes](https://github.com/ToothlessRider/ESE_Notes.git)
 
-> [ Link to solved ESE paper](https://drive.google.com/file/d/1_pyBQGiDKMyc8F54TKVueLHF3rPgoRqK/view?usp=sharing)
 
 # Table of Contents 
 1. [Previous year Questions](#previous-year-questions)
@@ -14,6 +13,11 @@
 3. [Finite Automata & Regular Expression](#finite-automata-and-re)
 4. [Vector Calculus & Gradient Vector](#vector-calculus)
 5. [Gaussian Mixture Model](#gmm)
+
+
+
+### Handwritten Previous Years ESE Paper
+> [ Link to solved ESE paper](https://drive.google.com/file/d/1_pyBQGiDKMyc8F54TKVueLHF3rPgoRqK/view?usp=sharing)
 
 ## Previous Year Questions 
 Q1. a. **What is modular arithmetic and what are the properties of modular arithmetic and identify the valid or invalid congruence(≡)**<br>
@@ -302,7 +306,7 @@ $2 \cdot 6 \equiv 1 \mod 11$
 
 <hr>
 
-Q2. c. **What is prime factorization of given number? Formula is n = x,y<br>  n = x2-y2<br> x2= n + y2<br>  x = square root of ( n+ y2) and put y = 1 2 3.....<br>  Find the prime factor of <br> i) n=187<br>  ii) 3233**
+Q2. c. **What is prime factorization of given number? Formula is <br>$n = x,y$<br>  $n = x^2-y^2$<br> $x^2= n +  y^2$<br> $x = \sqrt{( n+ y^2)}$ and put y = 1 2 3.....<br>  Find the prime factor of** <br> i) $n=187$ <br>  ii) $n =3233$
 
 Ans. 
 #### i) $n = 187$
@@ -411,7 +415,7 @@ A transition diagram for an NFA $M$ is a directed graph $G = (Q, \Sigma, \delta,
 - $Q$ is a finite set of states.
 - $\Sigma$ is the input alphabet.
 - $\delta : Q \times \Sigma \rightarrow 2^Q$ is the transition function, which maps a state and an input symbol to a set of states (multiple transitions).
-- $q_0$is the start state.
+- $q_0$ is the start state.
 - $F$ is a set of accepting states.
 
 ### Formal Definition of Transition Table:
@@ -817,22 +821,22 @@ graph TD;
 4. $X=bYb$
 
 #### Derivation Tree:
-```
-   S
-  / \
- a  XY
-    / \
-   X  Y
-      |
-      e
-```
 
-#### Mermaid Code:
 ```mermaid
+
 graph TD;
-    S["S"] --> aXY["aXY"];
-    XY["XY"] --> bYb["bYb"];
-    XY["XY"] --> e["ε"];
+  A[S] --> B[a]
+  A --> C[X]
+  A --> D[Y]
+  C --> E[b]
+  C --> F[Y]
+  C --> G[b]
+  F --> H[ε]
+  D --> I[X]
+  I --> J[b]
+  I --> K[Y]
+  I --> L[b]
+  K --> ε
 
 ```
 
@@ -844,30 +848,22 @@ graph TD;
 5. $A=ba$
 
 #### Derivation Tree:
-```
-   S
-  / \
- a  AS
-     / \
-    a   SbA
-       / \
-      S   bA
-      |    |
-      a    S
-           |
-           bA
-            |
-            a
-```
-
-#### Mermaid Code:
 ```mermaid
 graph TD;
-    S["S"] --> aAS["aAS"];
-    AS["AS"] --> a["a"];
-    AS["AS"] --> SbA["SbA"];
-    SbA["SbA"] --> SS["SS"];
-    SbA["SbA"] --> ba["ba"];
+  A[S] --> A1[a]
+  A --> B[A]
+  B --> D[S]
+  B --> B1[b]
+  B --> E[A]
+  D --> D1[a]
+  E --> E1[b]
+  E --> E2[a]
+  A --> C[S]
+  C --> C1[a]
+
+ 
+ 
+ 
 
 ```
 
@@ -890,8 +886,7 @@ v) $\frac{d}{dx}(6x) = 6$
 
 <hr>
 
-Q4. b. 
-** i) What is backpropagation (draw the diagram) of given example $f(x,y,z) = (x+y)z$<br> ii) Write notation for higher order derivative and find the different higher order derivatives of the following function**<br>
+Q4. b. **i) What is backpropagation (draw the diagram) of given example $f(x,y,z) = (x+y)z$<br>ii) Write notation for higher order derivative and find the different higher order derivatives of the following function**<br>
 F(x)= $-2 x^4 + 10 x^3 - 5x^2 + x - 11$
 Calculate the following values :
 i)$f'(x)$ ( First Derivative )<br> ii) $f''(x)$  ( First Derivative ) <br> iii) $f'(1)$  ( First Derivative ) <br> iv) $f"(2)-6$  ( First Derivative ) <br> 
@@ -2009,4 +2004,23 @@ Q59, Q63, Q64, Q65, Q66, Q 67
 Ans.
 
 >[Link to Answer](https://github.com/ToothlessRider/MST_Notes/blob/master/MSF_2_Notes.md#q4-b-what-is-svm-support-vector-machine-how-does-it-work--what-are-types-of-svm-draw-a-suitable-diagram-to-show-this-what-is-a-hyperlane-and-a-support-vector-what-is-margin-what-is-gmm-gaussian-mixture-model)
+
+Q Extra. **What is the standard normal distribution?**
+
+Ans. The distribution is said to be a standard normal distribution if the mean is equal to zero and the
+standard deviation is equal to 1.
+
+<hr>
+
+Q Extra **What is the normal distribution formula?**
+
+Ans. The formula for the **normal distribution**, also known as the Gaussian distribution, is given by its **probability density function (PDF)**. The PDF of a normal distribution with mean $\mu$ and variance $\sigma^2$ is:
+
+$f(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$
+
+### Parameters:
+- $x$: The variable for which we want to compute the probability density.
+- $\mu$: The mean or expectation of the distribution (also the peak of the bell curve).
+- $\sigma$: The standard deviation, a measure of the spread or dispersion of the distribution.
+- $\sigma^2$: The variance, equal to the square of the standard deviation.
 
