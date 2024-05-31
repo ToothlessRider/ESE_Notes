@@ -25,7 +25,7 @@ i) $35 ≡ 25mod10$ <br> ii) $35 ≡ 15 mod 10$ <br> iii) $35 ≡ 5 mod 10$<br>
 
 Ans. 
 - It is a system of arithmetic for integers which consider the remainder. 
-- If it is of the format$a≡bmodn$ then a and b both leave the same remainder when divided by n
+- If it is of the format $a≡bmodn$ then a and b both leave the same remainder when divided by n
 
 
 ### Properties of Modular Arithmetic
