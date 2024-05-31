@@ -13,6 +13,7 @@
 3. [Finite Automata & Regular Expression](#finite-automata-and-re)
 4. [Vector Calculus & Gradient Vector](#vector-calculus)
 5. [Gaussian Mixture Model](#gmm)
+6. [Support Vector Machine](#support-vector-machine)
 
 
 
@@ -1004,13 +1005,9 @@ ii) What are challenges with gradient descent <br>
 Explain in detail what local minima saddlepoint and vanishing exploding gradient are.**
 
 Ans.
-Gradient Descent (GD) is an optimization algorithm used to minimize a function by iteratively moving in the direction of the steepest descent (negative gradient) of the function. It's widely used in machine learning and optimization problems.
+> [Link to answer](#gradient-descent)
 
-### Process of Gradient Descent:
-1. **Initialization**: Start at an initial point in the parameter space.
-2. **Compute Gradient**: Compute the gradient of the objective function at the current point.
-3. **Update Parameters**: Update the parameters by moving in the direction opposite to the gradient.
-4. **Convergence Check**: Repeat steps 2 and 3 until convergence criteria are met (e.g., reaching a certain number of iterations, small change in parameters, etc.).
+Gradient Descent is known as one of the most commonly used optimization algorithms to train machine learning models by means of minimizing errors between actual and expected results.
 
 ### Types of Gradient Descent:
 1. **Batch Gradient Descent (BGD)**: Computes the gradient of the cost function with respect to the parameters for the entire training dataset.
@@ -1023,12 +1020,7 @@ Gradient Descent (GD) is an optimization algorithm used to minimize a function b
 3. **Saddle Points**: Points where the gradient is zero but are not local minima can slow down convergence.
 4. **Vanishing/Exploding Gradient**: In deep neural networks, gradients can become very small or very large, making training difficult.
 
-### Explanation of Local Minima, Saddle Points, and Vanishing/Exploding Gradient:
-1. **Local Minima**: Points where the objective function has a lower value than in the neighboring points but may not be the global minimum. Gradient descent can get stuck in local minima if the optimization algorithm is unable to explore other regions of the parameter space.
-  
-2. **Saddle Points**: Points where the gradient is zero but are not local minima. These points can slow down the convergence of gradient descent as it gets trapped in flat regions of the objective function. In high-dimensional spaces, saddle points are more common than local minima.
-
-3. **Vanishing/Exploding Gradient**: In deep neural networks, during backpropagation, gradients can become very small (vanishing gradient) or very large (exploding gradient) as they propagate through many layers. Vanishing gradients can cause the learning process to slow down, while exploding gradients can cause numerical instability and make training difficult.
+**![](https://lh7-us.googleusercontent.com/c0A6D6jgS7vouy7-Op3ew0vChAIE3JHSqTqE1NdLbHcKEzwZf5zVpv1mzHZa273AxECDCw0LUiY22RJ3soxg0thrjoLu1Z0RGL9XiEFP1kLfX4LQgy9NTboti0c3NaqwuaIJR1aOxQSNMW6NPXVzxZU)**
 
 ### Mountain Hill Diagram:
 A mountain hill diagram is a graphical representation of an objective function in two dimensions. The x and y axes represent the parameters, and the z axis represents the objective function value. The contour lines on the surface of the mountain hill represent regions of equal function values.
@@ -1073,23 +1065,20 @@ Therefore, the probability density function for $x = 3$ is approximately $0.1758
 
 <hr>
 
-Q5. b. **What is lagrange multiplier (lamda) and write working rule of 6 steps. 
-i)What is gradient of line and draw the graph and find the the slope = m=?
-(use m=y2-y1/x2-x1)a**
-
-for given $x1=2 x2=4 y * 1 = 1 y * 2 = 5$
+Q5. b. **What is lagrange multiplier (lamda) and write working rule of 6 steps. <br>i)What is gradient of line and draw the graph and find the the slope = m=?<br>(use $m=\frac{y_2-y_1}{x_2-x_1}$) for given<br> $x_1=2 x_2=4,  y_1 = 1, y_2 = 5$**
 
 Ans. 
+#### Lagrange Multiplier
 Lagrange Multiplier (λ) is a method used to find the maximum or minimum of a function subject to one or more constraints. Here's a working rule in 6 steps:
 
 1. Formulate the objective function to maximize or minimize, let's call it $f(x, y)$.
 2. Formulate the constraint function(s), let's call it $g(x, y) = c$, where $c$ is the constant constraint value.
 3. Set up the Lagrangian function: $L(x, y, λ) = f(x, y) - λ(g(x, y) - c)$.
-4. Find the partial derivatives of $ L $ with respect to $x$, $y$, and $λ$, and set them equal to zero.
+4. Find the partial derivatives of $L$ with respect to $x$, $y$, and $λ$, and set them equal to zero.
 5. Solve the resulting system of equations to find the critical points.
 6. Evaluate the critical points and the boundary points to find the maximum or minimum value of the objective function subject to the constraints.
 
-For the gradient of a line, we use the formula $m = \frac{y_2 - y_1}{x_2 - x_1}$.
+ii) For the gradient of a line, we use the formula $m = \frac{y_2 - y_1}{x_2 - x_1}$.
 
 Given $x_1 = 2$, $x_2 = 4$, $y_1 = 1$, and $y_2 = 5$, we can calculate the slope $m$:
 
@@ -1930,7 +1919,6 @@ This often computes highly compelx functions
 
 <hr>
 
-Q. **Consider the function **
 
 ## Optimization and Gradient Descent
 
@@ -1980,8 +1968,6 @@ Convex optimization is a subfield of mathematical optimization, that studies the
 <br>
 
 
-
-
 Q. Extra **Draw the diagram of Gradient Descent for**
 1. Local Minima & Global Minima
 2. Local Maxima & Global Maxima
@@ -1996,8 +1982,32 @@ Ans.
 Q58. **What is normal distribution explain with formula**
 
 Ans. 
+> [Link to answer](#normal-distribution)
+
+The formula for the **normal distribution**, also known as the Gaussian distribution ( Bell curve ) , is given by its **probability density function (PDF)**. The PDF of a normal distribution with mean $\mu$ and variance $\sigma^2$ is:
+
+$f(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$
+
+### Parameters:
+- $x$: The variable for which we want to compute the probability density.
+- $\mu$: The mean or expectation of the distribution (also the peak of the bell curve).
+- $\sigma$: The standard deviation, a measure of the spread or dispersion of the distribution.
+- $\sigma^2$: The variance, equal to the square of the standard deviation.
 
 <hr>
+
+Q61 **What is Expectation Maximization algorithm in GMM??**
+
+Ans. 
+#### Expectation Maximization (EM)
+This algorithm is a powerful iterative method used to find maximum likelihood estimates of parameters in statistical models, where the data involves latent variables (variables that are not directly observed). EM and it is commonly used in Gaussian Mixture Models (GMMs) to estimate parameters such as mean, covariance, and mixture weights.
+
+![Using Expectation Maximization Algorithm for the Gaussian Mixture Models to  detect outliers in R | sandipanweb](https://sandipanweb.files.wordpress.com/2016/07/gmmalgo.png?w=676)
+
+
+<hr>
+
+## Support Vector Machine
 
 Q59, Q63, Q64, Q65, Q66, Q 67 
 
@@ -2011,16 +2021,4 @@ Ans. The distribution is said to be a standard normal distribution if the mean i
 standard deviation is equal to 1.
 
 <hr>
-
-Q Extra **What is the normal distribution formula?**
-
-Ans. The formula for the **normal distribution**, also known as the Gaussian distribution, is given by its **probability density function (PDF)**. The PDF of a normal distribution with mean $\mu$ and variance $\sigma^2$ is:
-
-$f(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$
-
-### Parameters:
-- $x$: The variable for which we want to compute the probability density.
-- $\mu$: The mean or expectation of the distribution (also the peak of the bell curve).
-- $\sigma$: The standard deviation, a measure of the spread or dispersion of the distribution.
-- $\sigma^2$: The variance, equal to the square of the standard deviation.
 
