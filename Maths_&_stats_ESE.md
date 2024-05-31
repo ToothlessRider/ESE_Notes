@@ -11,13 +11,12 @@
 1. [Previous year Questions](#previous-year-questions)
 2. [Number Theory and Abstract algebra](#number-theory-and-abstract-algebra)
 	- [Abstract Algebra](#abstract-algebra)
-3. 
+3. [Finite Automata & Regular Expression](#finite-automata-and-re)
+4. [Vector Calculus & Gradient Vector](#vector-calculus)
 
 ## Previous Year Questions 
-Q1. a. **What is modular arithmetic and what are the properties of modular arithmetic and identify the valid or invalid congruence(≡)**
-i) $35 ≡ 25mod10$
-ii) $35 ≡ 15 mod 10$ 
-iii) $35 ≡ 5 mod 10$
+Q1. a. **What is modular arithmetic and what are the properties of modular arithmetic and identify the valid or invalid congruence(≡)**<br>
+i) $35 ≡ 25mod10$ <br> ii) $35 ≡ 15 mod 10$ <br> iii) $35 ≡ 5 mod 10$<br>
 
 Ans. 
 - It is a system of arithmetic for integers which consider the remainder. 
@@ -39,9 +38,7 @@ All three congruencies are valid since 35 divided by 10 can leave remainders 25,
 
 <hr>
 
-Q1. b. **What is Euclidian method for finding GCD of two numbers?<br>Find the GCD of the following numbers :**
-i) $GCD( 33,12 )$	
-ii) $GCD ( 900,750)$
+Q1. b. **What is Euclidian method for finding GCD of two numbers?<br>Find the GCD of the following numbers :**<br>i) $GCD( 33,12 )$	<br>ii) $GCD ( 900,750)$ <br>
 
 Ans. 
 #### Euclidean Method 
@@ -132,7 +129,7 @@ GCD: 12
 
 <hr>
 
-Q1. d. **What is prime number? Draw  the table of the prime numbers from 1 ---- 100.  Write the all (25) prime number upto 100 and find the average of first 10 prime numbers.What is a composite number? Write the all (74) composite number u to 100 (1 is not a prime nor a composite number )**
+Q1. d. **What is prime number?<br> <br>What is a composite number? <br> Draw  the table of prime numbers and composite numbers from 1 ---- 100 and find the average of first 10 prime numbers.**
 
 Ans. 
 
@@ -176,7 +173,7 @@ $4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30, 32, 33,
 
 <hr>
 
-Q2. a. **Prove Euler theorem a Q(n) = 1 mod n hold true for (i)a = 3 and n=10 (ii) a = 2 and n= 5**
+Q2. a. **Prove Euler theorem a Q(n) = 1 mod n hold true for<br> (i)a = 3 and n=10 <br> (ii) a = 2 and n= 5**
 
 Ans. 
 Euler's theorem states that if $a$ and $n$ are coprime (i.e., their greatest common divisor is 1), then:
@@ -243,9 +240,7 @@ Both cases verify that Euler's theorem holds true.
 
 <hr>
 
-Q2. b. **What is M.I.? Find the multiplicative inverse of the given questions**
-i)3 * ? ≡ 1 mod 5
-ii)2 * ? ≡ 1 mod 11 
+Q2. b. **What is M.I.? Find the multiplicative inverse of the given questions**<br> i)3 * ? ≡ 1 mod 5<br> ii)2 * ? ≡ 1 mod 11 
 
 Ans.
 
@@ -306,13 +301,7 @@ $2 \cdot 6 \equiv 1 \mod 11$
 
 <hr>
 
-Q2. c. **What is prime factorization of given number? Formula is n = x,y 
-n = x2-y2
-x2= n + y2 
-x = square root of ( n+ y2) and put y = 1 2 3..... 
-Find the prime factor of 
-i) n=187 
-ii) 3233**
+Q2. c. **What is prime factorization of given number? Formula is n = x,y<br>  n = x2-y2<br> x2= n + y2<br>  x = square root of ( n+ y2) and put y = 1 2 3.....<br>  Find the prime factor of <br> i) n=187<br>  ii) 3233**
 
 Ans. 
 #### i) $n = 187$
@@ -354,11 +343,8 @@ Therefore, the prime factorization of 3233 is $53 \times 61$.
 <hr> 
 
 
-Q2. d. **What is CRT Chinese remainder theorem?
-Solve the following equation using CRT and find the value of X
-x ≡ 22 mod 3
-x ≡ 3 mod 5
-x ≡ 2 mod 7**
+Q2. d. **What is CRT Chinese remainder theorem?<br> 
+Solve the following equation using CRT and find the value of X<br> x ≡ 22 mod 3<br> x ≡ 3 mod 5<br> x ≡ 2 mod 7**
 
 Ans. 
 The Chinese Remainder Theorem (CRT) is a theorem in number theory that provides a solution to a system of simultaneous linear congruences with pairwise coprime moduli. It states that if $m_1, m_2, \ldots, m_k$ are pairwise coprime integers greater than 1, and $a_1, a_2, \ldots, a_k$ are any integers, then the system of simultaneous congruences:
@@ -412,7 +398,7 @@ Therefore, the solution to the system of congruences is $x \equiv 23 \pmod{105}$
 
 <hr>
 
-Q3. a .
+Q3. a .**What is NFA nondeterministic finite automata(multiple transition) ?<br>Write the formal definition and draw the transition digram transition table along with and example**
 
 Ans.
 
@@ -420,18 +406,18 @@ A Nondeterministic Finite Automaton (NFA) is a mathematical model used to recogn
 
 ### Formal Definition of Transition Diagram:
 
-A transition diagram for an NFA \(M\) is a directed graph \(G = (Q, \Sigma, \delta, q_0, F)\), where:
-- \(Q\) is a finite set of states.
-- \(\Sigma\) is the input alphabet.
-- \(\delta : Q \times \Sigma \rightarrow 2^Q\) is the transition function, which maps a state and an input symbol to a set of states (multiple transitions).
-- \(q_0\) is the start state.
-- \(F\) is a set of accepting states.
+A transition diagram for an NFA $M$ is a directed graph $G = (Q, \Sigma, \delta, q_0, F)$ , where:
+- $Q$ is a finite set of states.
+- $\Sigma$ is the input alphabet.
+- $\delta : Q \times \Sigma \rightarrow 2^Q$ is the transition function, which maps a state and an input symbol to a set of states (multiple transitions).
+- $q_0$is the start state.
+- $F$ is a set of accepting states.
 
 ### Formal Definition of Transition Table:
 
-A transition table for an NFA \(M\) is a table that represents the transition function \(\delta\), showing the possible transitions for each combination of state and input symbol. Each cell in the table contains a set of states representing the possible next states for the given input symbol and current state.
+A transition table for an NFA $M$ is a table that represents the transition function $\delta$ , showing the possible transitions for each combination of state and input symbol. Each cell in the table contains a set of states representing the possible next states for the given input symbol and current state.
 
-| State | \(a\)   | \(b\)   | ... |
+| State | $a$  | $b$   | ... |
 |-------|-------|-------|-----|
 | $q_0$ | $S_{01}$ | $S_{02}, S_{03}$ | ... |
 | $q_1$ | $S_{11}$ | $S_{12}$| ... |
@@ -473,24 +459,23 @@ In this example, from state $q_0$ on input $0$, the NFA can transition to states
 
 <hr>
 
-Q3. b. What is RE (regular expresson) give and example
-Write the 4 rule of regular expression Kleen closure (*), positive closure (+), concatenation(.), union(U)
-Draw the finite automata of the given regular expression Regular Expressio
-is
-1) Phi Q 
-2) e-epsilon
-3)a
-4)b
-5)ab
-6) a+b
-7)a*
-8) a+
-9) 01
-10) 0+1
-(ii) draw transition digram and transition table
-Draw the transition digram(graph) and write Transition table represent the
-DFA M=(Q,E,d,q0,F) i.e M=((q0,q1,q2,q3},{0,1},d,q0,{q2}) where d is transition function given by 
-1. d(q0,0)=q0 d(q3,0)= q2 d(q0,1)=q1 d(q1,0)=q1,q2 d(q1,1)=q2 d(q2,0)=q1 d(q2,1)=q3 d(q3,1)= q2
+Q3. b. What is RE (regular expresson)  ?<br>
+Write the 4 rules of regular expression<br> Kleen closure (*)<br>Positive closure (+)<br>Concatenation(.)<br> Union(U)<br>
+Draw the finite automata of the given regular expressions :<br>
+1. Phi Q
+2.  $\epsilon$
+3. a
+4. b
+5. ab
+6. a+b
+7. a*
+8.  a+
+9. 01
+10.  0+1
+
+(ii) Draw the transition digram and transition table for :<br>
+DFA M=(Q,E,d,q0,F) i.e <br>M=((q0,q1,q2,q3},{0,1},d,q0,{q2}) where d is transition function given by 
+d(q0,0)=q0 <br> d(q3,0)= q2<br> d(q0,1)=q1 <br>d(q1,0)=q1,q2<br> d(q1,1)=q2 <br>d(q2,0)=q1<br> d(q2,1)=q3 <br>d(q3,1)= q2
 
 Ans. 
 
@@ -690,18 +675,18 @@ graph TD;
 ```
 <hr>
 
-Q3. c. **What is CFG context free grammer Given CFG and Generate the string aabbb of given grammer CFG=(V,T,P,S) CFG=({S,A,B}{a,b}, P,S) Production rule: **
+Q3. c. **What is CFG context free grammer Given CFG and Generate the string aabbb of given grammer CFG=(V,T,P,S) CFG=({S,A,B}{a,b}, P,S) Production rule:**
 1. S = ASB 
-2. S= epsilon 
+2. S= $\epsilon$
 3. A= a 
 4. B=bb 
 5. B=b 
 
 **Given CFG and generate the string 00001111 of given grammer CFG = (V,T,P,S) 
 CFG=({S}{0,1},P,S} 
-Production rule: **
+Production rule:**
 1. S = 0S1 
-2. S =e epsilon 
+2. S =$\epsilon$
 
 **Given CFG and generate the string abbcbba of given grammer CFG=(V,T,P,S) CFG=({S} {a,b}, P,S} 
 Production rule:**  
@@ -775,22 +760,22 @@ This generates the string "abbcbba".
 <hr>
 
 Q3. d. **What is derivation tree or parse tree ?<br>Generate the string p*q+r and draw the derivation tree. <br>Given production rule is**
-1. E=E+E 
-2.  E=p/q/r 
-3. E=E*E 2
+1. $E=E+E$ 
+2.  $E=p/q/r$ 
+3. $E=E*E 2$
 
 **Generate the string abbbb and draw the derivation tree <br>Given production rule is**
-1. S= aXY 
-2.  Y=X 
-3. . Y e-epsilon 2
-4.  X=bYb 
+1. $S= aXY$ 
+2.  $Y=X$ 
+3. $Y = \varepsilon$
+4.  $X=bYb$
 
 **Generate the string aabbaa and draw the derivation tree <br>Given production rule is**
-1. S=aAS
-2. S=a
-3. A=SbA
-4. A = SS
-5. A=ba
+1. $S=aAS$
+2. $S=a$
+3. $A=SbA$
+4. $A = SS$
+5. $A=ba$
 
 Ans.
 A derivation tree or parse tree is a graphical representation of the production rules used to derive a string in a formal grammar. Each node in the tree represents a symbol in the grammar, and the edges represent the application of production rules.
@@ -887,12 +872,7 @@ graph TD;
 
 <hr>
 
-Q4. a. **What is partial differentiation (derivative) of the following function w.r.t. x 
-i)d/dx (yx) 
-ii)d/dx (y-x) 
-iii)d/dx (yz) 
-iv)d/dx (5x) 
-v) d/dx(6x)**
+Q4. a. **What is partial differentiation (derivative) of the following function w.r.t. x <br> i) d/dx (yx) <br> ii)d/dx (y-x) <br> iii)d/dx (yz) <br> iv)d/dx (5x) <br> v) d/dx(6x)**
 
 Ans. 
 To find the partial derivative of each expression with respect to $x$, we treat $y$ and $z$ as constants because we are differentiating with respect to $x$. Here are the partial derivatives:
@@ -910,13 +890,10 @@ v) $\frac{d}{dx}(6x) = 6$
 <hr>
 
 Q4. b. 
-**i)What is backpropagation (draw the diagram) of given example $f(x,y,z) = (x+y)z$<br> ii) Write notation for higher order derivative and find the different higher order derivatives of the following function<br>
-F(x)= $-2 x^4 + 10 x^3 - 5x^2 + x - 11$ Find the**
- 
-i)$f'(x)$ 
-ii) $f''(x)$ 
-iii) $f'(1)$
-iv) $f"(2)-6$
+** i) What is backpropagation (draw the diagram) of given example $f(x,y,z) = (x+y)z$<br> ii) Write notation for higher order derivative and find the different higher order derivatives of the following function**<br>
+F(x)= $-2 x^4 + 10 x^3 - 5x^2 + x - 11$
+Calculate the following values :
+i)$f'(x)$ ( First Derivative )<br> ii) $f''(x)$  ( First Derivative ) <br> iii) $f'(1)$  ( First Derivative ) <br> iv) $f"(2)-6$  ( First Derivative ) <br> 
 
 Ans. 
 ### Backpropagation
@@ -1025,9 +1002,9 @@ In this diagram:
 
 <hr>
 
-Q4.d. i) **What is gradient descent GD (new = old-n*gradient) in optimization draw Draw the mountain hill digram and explain the process in detail.
-What are the types of gradient descent ?
-ii) What are challenges with gradient descent 
+Q4.d. i) **What is gradient descent (new = old-n*gradient) in optimization.<br>Draw the mountain hill digram and explain the process in detail.<br>
+What are the types of gradient descent ?<br>
+ii) What are challenges with gradient descent <br>
 Explain in detail what local minima saddlepoint and vanishing exploding gradient are.**
 
 Ans.
@@ -1138,9 +1115,7 @@ The slope $m$ is 2.
 
 <hr>
 
-Q5. c. **What is SVM support vector machine 
-What is hyperplane, support vector and margins 
-What are the types of SVM support , how does it work and what are it's applications ?**
+Q5. c. **What is SVM support vector machine<br> What is hyperplane, support vector and margins<br> What are the types of SVM support , how does it work and what are it's applications ?**
 
 Ans. 
 ### Support Vector Machine (SVM):
@@ -1250,7 +1225,7 @@ To see the prime numbers clearly, here is a list of them between 1 and 100:
 
 <hr>
 
-Q2. **What is a composite number ?Draw a table of the composite numbers between 1 - 100**
+Q2. **What is a composite number ?<br> Draw a table of the composite numbers between 1 - 100**
 
 Ans.
 A composite number is a natural number greater than 1 that can be divided evenly by at least one other number besides 1 and itself.
@@ -1735,5 +1710,220 @@ Thus, the solution to the system of congruences is $x \equiv 11 \mod 60$.
 <hr>
 
 ## Abstract Algebra
+Q20. **What is group in Abstract Algebra?**
+
+Ans.
+#### Group :
+
+A group is a set / collection of strings along with one operation
+
+-   Ex. ( G, . ) or ( G, + ) This also has the following properties
+
+1.  Closure : If & b ∈ S then ( a + b ) ∈ S
+2.  Associativity : a + ( b + c ) = ( a + b ) + c ( grouping under the sign )
+3.  Identity element : a + 0 = a
+4.  Inverse element : a + ( -a ) = 0
+
+<br>
+
+Q20. **What is Ring in Abstract Algebra?**
+
+Ans.
+#### Ring :
+
+Ring is a set or collection equipped with two binary operations
+
+-   Ex. ( G, +, x ) This also has the following properties
+
+1.  Closure ( +, x )
+2.  Associativity ( +, x )
+3.  Identity element
+4.  Inverse element
+5.  Commutativity : a + b = b + a ( switching under the sign )
+6.  Distributive law : a( b + c ) = ab + ac
+<br>
+
+Q20. **What is Field in Abstract Algebra?**
+
+Ans. 
+#### Field :
+It is a set / collection of objects equipped with two binary operations :
+
+> Main difference b/w field and ring is that that the nonzero elements form an abelian group under multiplication
+
+This also has the following properties
+
+1.  Closure ( +, x )
+2.  Associativity ( +, x )
+3.  Identity element ( +, x )
+4.  Inverse element ( +, x )
+5.  Commutativity ( +, x )
+6.  Distributive law
+7.  No zero divisors : If a, b ∈ S & ab = 0, then a = 0 or b = 0
+<hr>
+
+### Finite Automata and RE
+
+Q23. **Write Automata Tutorial**
+
+Ans.
+
+<hr>
+
+Q24. **What is the theory of automata.<br>Explain : symbol, alphabet, string, language**
+
+Ans.
+
+<hr>
+
+Q25. **What is what is a transition digram, and what are the symbol notations used ?**
+
+Ans. 
+
+<br>
+
+Q28 & 29. **Write the differences between DFA and NFA**
+
+Ans.
+**![](https://lh7-us.googleusercontent.com/mi7-8kxYYfNXRLYEjcyAbO44wkmSowxZ8s4ERCJ9qjtwnFVOVrBm0rr6nVG5bTxuBAo1IFtRFPQIIF2buLDRfaeeyY4GBIC5w3V11dDdDejERDIce4pqLJ9yKQ1QQ86IetQ8F5gdLxdHnWb1YuZXKYs)**
+<br>
+
+Q30. **What is Regular Expression ? Give an example**
+
+Ans.
+#### Regular Expression
+Regular Expression or RegEx represents a certain set ( collection ) of strings in some algebraic fashion, accepted by FA.
+
+It is the combination of strings and operations, 
+*String* : a, b, c, ...... x, y, z, etc 
+*Operations* : +, -, /, * 
+
+Types of reg ex are : 
+* *Kleene Closure* ( * ) : 
+	* a* = {ε, a, aa, aaa,...... }
+* *Positive Closure* ( + ) : 
+	* a<sup>+</sup> : { a, aa, aaa, ..... }
+* *Concatenation* ( . ) : 
+	* ab = {ab}
+* *Union* ( U ) : 
+	* ( a + b ) = { a, b }
+
+1. Φ (Phi ) 
+```mermaid
+graph LR
+	A((q0))
+```
+
+2. ε ( Epsilon ) 
+```mermaid
+graph LR
+	A((qn))
+```
+> Should be a double circled node to signify end of regular expression
+
+3. a 
+```mermaid
+graph LR
+	A((q0))--a--> B((q1))
+```
+
+<br>
+
+### Vector Calculus
+
+Q45. **What is a gradient in vector calculus?**
+
+Ans. 
+
+### Gradient in Vector Calculus
+
+The gradient is a fundamental concept in vector calculus that represents the rate and direction of change of a scalar field. It provides a way to generalize the notion of the derivative to functions of multiple variables.
+
+### Definition
+
+Given a scalar field $f(x_1, x_2, \ldots, x_n)$ defined in $n$-dimensional space, the gradient of $f$is a vector field, denoted as $\nabla f$ or $\text{grad} \, f$, whose components are the partial derivatives of $f$ with respect to each of the variables:
+
+$\nabla f = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right)$
+
+$\nabla f = (\frac{\partial f}{\partial x} i, \frac{\partial f}{\partial y}j, \frac{\partial f}{\partial z} k)$
+**![](https://lh7-us.googleusercontent.com/tceRcWwFH_JBTERgc8C9P1lEK_zYQ-TAVFJMCdNx4cY7B3agpj-VcgmLYYk822Uj_J6Uz49u46w7LyIXPplZ3Mp6vgTc-nAtsWdG-X3DvjIwZFfv9AjhzR6xCDOwDNgUKmP8dqTfuzSKcjUGYP6ULd8)**
+
+### Example
+
+Consider a scalar field $f(x, y) = x^2 + y^2$
+
+1. **Compute the Partial Derivatives**:
+$\frac{\partial f}{\partial x} = 2x$
+$\frac{\partial f}{\partial y} = 2y$
+
+
+<br>
+
+Q46. **What is partial differentiation?**
+
+Ans.
+
+<br>
+
+
+
+## Optimization and Gradient Descent
+
+Q53. **What is gradient descent in optimization?**
+
+Ans. 
+#### Gradient Descent
+It is an optimization algorithm that is used to minimize the cost function for many machine learning algorithms. It is of 3 main types : 
+1. Batch Gradient Descent
+2. Stochastic Gradient Descent
+3. Mini-Batch Gradient Descent
+
+$new = old - n\times gradient$
+
+#### Gradient
+The gradient of a line shows it's **slope**. In general the equation of a straight line is $y = mx + c$ where the gradient is denoted by $m$.
+
+$m = \frac {y_2 - y_1}{x_2 - x_1}$
+
+Gradient is also known as : 
+1. $m = slope$
+2.  $\text derivative = \frac{dy}{dx}$
+3. $slope = \Delta$
+4. $\text { Rate of Change}$
+5. $\frac{\Delta y}{\Delta x} = \frac { \text{delta y}}{\text{delta x}}$
+6. $tan\theta$
+
+Fig : Slope 
+**![](https://lh7-us.googleusercontent.com/uVD2I08eY72-5_h_DuL43zC4tYYW702x04JK4SQB1x0jnTVnJgxbEpJRtwtOFZYo1IeTBt8uGfmssw8rdeKzE-nC0g1b5ouVTjprIhoDuyTeewPMvE11KFbMP0_V7JPDrll4JYERz8tAIZYJz5m1kCk)**
+
+Fig : Deep Learning
+![What is deep learning? Everything you need to know | ZDNET](https://www.zdnet.com/a/img/resize/f663841cf65c63631d6695f9193f81cacc29dc53/2023/04/20/79062f5d-2c0f-40d8-be64-eca44e1f44cc/neural-network.jpg?auto=webp&width=1280)
+<br>
+
+Q57. **What is convex optimization ?**
+
+Ans.
+#### Convex Optimization
+Convex optimization is a subfield of mathematical optimization, that studies the **problem of minimizing convex functions over a convex set**
+
+- **Convex Set**
+	- It is the area inside the graph
+	- If every point on a line segment joining any two points, lies in a set, then it is called a convex set.
+**![](https://lh7-us.googleusercontent.com/eQH2rlog7W84xVK2eb-2L0w7oTHOFaA094q5SWd44tfAPbeRfOIMqkV4uFR8eOX-M0qH9X49DVkTx8zgDLgCBR76obrnXFo7fOJ8_9ya6WopDR3_uqng2xdUWb__O6cgIzU0i6pt-9Z7R0mfKASUH40)**
+**![](https://lh7-us.googleusercontent.com/9qQWV6CAH9x-7kotkjwlvdREYNpwSAlOy6mL4gpmoTtnv1O_YVdNRngfBPaA_PT74bfrqVjk_WoeDBBMA2ng2Yd6rHv4dE3ydW_kGwtnAQlEOG0wINrHaD_5cKhfG1IjOq3sbRyO_poBl4BiWQqWu-8)**
+
+<br>
+
+
+
+
+Q. Extra **Draw the diagram of Gradient Descent for**
+1. Local Minima & Global Minima
+2. Local Maxima & Global Maxima
+
+Ans. 
+![What are Local Minima and Global Minima in Gradient Descent? | i2tutorials](https://www.i2tutorials.com/wp-content/media/2019/09/Neural-network-32-i2tutorials.png)
+
+<br>
 
 
