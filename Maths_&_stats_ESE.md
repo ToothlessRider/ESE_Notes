@@ -13,6 +13,7 @@
 	- [Abstract Algebra](#abstract-algebra)
 3. [Finite Automata & Regular Expression](#finite-automata-and-re)
 4. [Vector Calculus & Gradient Vector](#vector-calculus)
+5. [Gaussian Mixture Model](#gmm)
 
 ## Previous Year Questions 
 Q1. a. **What is modular arithmetic and what are the properties of modular arithmetic and identify the valid or invalid congruence(≡)**<br>
@@ -1773,14 +1774,20 @@ Ans.
 Q24. **What is the theory of automata.<br>Explain : symbol, alphabet, string, language**
 
 Ans.
-
+>[Link to Answer](https://github.com/ToothlessRider/MST_Notes/blob/master/MSF_2_Notes.md#theory-of-automata-)
 <hr>
 
-Q25. **What is what is a transition digram, and what are the symbol notations used ?**
+Q25 & 26 **What is what is a transition digram, and what are the symbol notations used ?**
 
 Ans. 
+>[Link to Answer](https://github.com/ToothlessRider/MST_Notes/blob/master/MSF_2_Notes.md#q1-b-draw-the-transition-diagram-graph-and-write-a-transition-table-to-represent-the-dfa--m-q-e-d-q0-f-ie-m-q0-q1-q20-1-d-q0-q2--where-d-is-transition-function-given-by)
+<hr>
 
-<br>
+Q27 **What is finite automata and what are its types?**
+
+Ans.
+[Link to answer](https://github.com/ToothlessRider/MST_Notes/blob/master/MSF_2_Notes.md#q1-a-what-is-fa-finite-automata-write-formal-definition-of-finite-automata-draw-the-finite-automata-model-diagram-and-explain-input-tape-finite-control)
+<hr>
 
 Q28 & 29. **Write the differences between DFA and NFA**
 
@@ -1788,46 +1795,22 @@ Ans.
 **![](https://lh7-us.googleusercontent.com/mi7-8kxYYfNXRLYEjcyAbO44wkmSowxZ8s4ERCJ9qjtwnFVOVrBm0rr6nVG5bTxuBAo1IFtRFPQIIF2buLDRfaeeyY4GBIC5w3V11dDdDejERDIce4pqLJ9yKQ1QQ86IetQ8F5gdLxdHnWb1YuZXKYs)**
 <br>
 
-Q30. **What is Regular Expression ? Give an example**
+Q30 & Q32. **What is Regular Expression ? Give an example**
 
 Ans.
 #### Regular Expression
-Regular Expression or RegEx represents a certain set ( collection ) of strings in some algebraic fashion, accepted by FA.
-
-It is the combination of strings and operations, 
-*String* : a, b, c, ...... x, y, z, etc 
-*Operations* : +, -, /, * 
-
-Types of reg ex are : 
-* *Kleene Closure* ( * ) : 
-	* a* = {ε, a, aa, aaa,...... }
-* *Positive Closure* ( + ) : 
-	* a<sup>+</sup> : { a, aa, aaa, ..... }
-* *Concatenation* ( . ) : 
-	* ab = {ab}
-* *Union* ( U ) : 
-	* ( a + b ) = { a, b }
-
-1. Φ (Phi ) 
-```mermaid
-graph LR
-	A((q0))
-```
-
-2. ε ( Epsilon ) 
-```mermaid
-graph LR
-	A((qn))
-```
-> Should be a double circled node to signify end of regular expression
-
-3. a 
-```mermaid
-graph LR
-	A((q0))--a--> B((q1))
-```
-
+>[Link to answer](https://github.com/ToothlessRider/MST_Notes/blob/master/MSF_2_Notes.md#q4-what-is-regular-expression-write-the-4-rules-of-regular-expresston-kleene-closure-concatenation-unionu-draw-the-finite-automata-of-the-given-regular-expression-the-regular-expression-is-)
 <br>
+
+Q31. **What is Context Free Grammer ? give an example** 
+
+Ans. 
+> [Link to answer](https://github.com/ToothlessRider/MST_Notes/blob/master/MSF_2_Notes.md#q2-b-what-is-cfg-context-free-grammar)
+
+<hr> 
+
+
+<hr>
 
 ### Vector Calculus
 
@@ -1846,6 +1829,9 @@ Given a scalar field $f(x_1, x_2, \ldots, x_n)$ defined in $n$-dimensional space
 $\nabla f = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right)$
 
 $\nabla f = (\frac{\partial f}{\partial x} i, \frac{\partial f}{\partial y}j, \frac{\partial f}{\partial z} k)$
+
+**![](https://lh7-us.googleusercontent.com/8JUTr1MvYvmz1HA5wGz3ojO0xpER0HntMJ0zcjGZ0nS9chEVtsbQ8pwVqIg7nE5dI1xtQDdEPBUNy1dOOc_4NDEum7tiINSaMy2gXTBgLXbBDAvGd75l8IJZSZL7sJQ9ZD7lEtRJVdgLILYZra-w47Y)**
+
 **![](https://lh7-us.googleusercontent.com/tceRcWwFH_JBTERgc8C9P1lEK_zYQ-TAVFJMCdNx4cY7B3agpj-VcgmLYYk822Uj_J6Uz49u46w7LyIXPplZ3Mp6vgTc-nAtsWdG-X3DvjIwZFfv9AjhzR6xCDOwDNgUKmP8dqTfuzSKcjUGYP6ULd8)**
 
 ### Example
@@ -1865,7 +1851,93 @@ Ans.
 
 <br>
 
+Q47. **What is gradient of vector valued functions?**
 
+Ans.
+The gradient of a vector-valued function generalizes the concept of the gradient from scalar-valued functions to vector-valued functions. In vector calculus, the gradient of a vector-valued function is called the **Jacobian matrix**.
+
+### Jacobian Matrix
+
+Given a vector-valued function $\mathbf{F}: \mathbb{R}^n \to \mathbb{R}^m$, where <br> $\mathbf{F}(\mathbf{x}) = [f_1(\mathbf{x}), f_2(\mathbf{x}), \ldots, f_m(\mathbf{x})]^T$ and $\mathbf{x} = [x_1, x_2, \ldots, x_n]^T$, the Jacobian matrix $J$ of $\mathbf{F}$ is an $m \times n$ matrix defined by the partial derivatives of each component of $\mathbf{F}$ with respect to each variable $x_i$.
+
+### Definition
+
+The Jacobian matrix \(J\) is given by:
+$J(\mathbf{x}) = \begin{bmatrix}
+\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \cdots & \frac{\partial f_m}{\partial x_n}
+\end{bmatrix}$
+
+Each element \(J_{ij}\) of the Jacobian matrix is the partial derivative of the \(i\)-th component of the vector-valued function \(\mathbf{F}\) with respect to the \(j\)-th variable \(x_j\).
+
+### Example
+
+Consider a vector-valued function $\mathbf{F}(\mathbf{x}) = \begin{bmatrix} f_1(\mathbf{x}) \\ f_2(\mathbf{x}) \end{bmatrix}$, where:
+
+$f_1(\mathbf{x}) = x_1^2 + x_2^2$
+
+$f_2(\mathbf{x}) = x_1x_2$
+and $\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$
+
+The Jacobian matrix $J(\mathbf{x})$is:
+
+$J(\mathbf{x}) = \begin{bmatrix}
+\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} \\
+\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2}
+\end{bmatrix}
+= \begin{bmatrix}
+2x_1 & 2x_2 \\
+x_2 & x_1
+\end{bmatrix}$
+
+<hr>
+
+Q49. **What are the identities for computing gradients ?**
+Ans. 
+1. Gradient of transpose 
+$\frac{\partial}{\partial \mathbf{X}} f(\mathbf{X})^T = \left( \frac{\partial f(\mathbf{X})}{\partial \mathbf{X}} \right)^T$
+
+2. Gradient of Trace
+$\frac{\partial}{\partial \mathbf{X}} \mathrm{tr}(f(\mathbf{X})) = \mathrm{tr}\left( \frac{\partial f(\mathbf{X})}{\partial \mathbf{X}} \right)$
+
+3. Gradient of determinant : 
+$\frac{\partial}{\partial \mathbf{X}} \det(f(\mathbf{X})) = \det(f(\mathbf{X})) \mathrm{tr}\left( f(\mathbf{X})^{-1} \frac{\partial f(\mathbf{X})}{\partial \mathbf{X}} \right)$
+
+4. Gradient of inverse : 
+$\frac{\partial}{\partial \mathbf{X}} f(\mathbf{X})^{-1} = -f(\mathbf{X})^{-1} \frac{\partial f(\mathbf{X})}{\partial \mathbf{X}} f(\mathbf{X})^{-1}$
+
+5. Gradient of a Linear Form :
+$\frac{\partial \mathbf{a}^T \mathbf{x}}{\partial \mathbf{x}} = \mathbf{a}^T$
+
+6. Gradient of a Quadratic Form (Symmetric) :
+$\frac{\partial \mathbf{x}^T \mathbf{A} \mathbf{x}}{\partial \mathbf{x}} = \mathbf{x}^T (\mathbf{A} + \mathbf{A}^T)$
+
+7. Gradient of a Bilinear Form :
+$\frac{\partial \mathbf{a}^T \mathbf{X} \mathbf{b}}{\partial \mathbf{X}} = \mathbf{a} \mathbf{b}^T$
+
+8. Gradient of a Weighted Quadratic Form :
+$\frac{\partial}{\partial s} (\mathbf{x} - \mathbf{A} \mathbf{s})^T \mathbf{W} (\mathbf{x} - \mathbf{A} \mathbf{s}) = -2 (\mathbf{x} - \mathbf{A} \mathbf{s})^T \mathbf{W} \mathbf{A}$
+
+<hr>
+
+Q50. **What is back propagation and automatic differentiation?**
+
+Ans. 
+#### Backpropagation
+It's done to find the good model parameters by performing gradient descent
+
+#### Automatic Derivation : 
+It is a special case of a general technique in numerical analysis called **automatic differentiation**
+
+It is a set of techniques to numerically evaluate the exact gradient descent ofa  function ( by applying chain rule ) 
+
+This often computes highly compelx functions 
+
+<hr>
+
+Q. **Consider the function **
 
 ## Optimization and Gradient Descent
 
@@ -1926,4 +1998,17 @@ Ans.
 
 <br>
 
+### GMM
+
+Q58. **What is normal distribution explain with formula**
+
+Ans. 
+
+<hr>
+
+Q59, Q63, Q64, Q65, Q66, Q 67 
+
+Ans.
+
+>[Link to Answer](https://github.com/ToothlessRider/MST_Notes/blob/master/MSF_2_Notes.md#q4-b-what-is-svm-support-vector-machine-how-does-it-work--what-are-types-of-svm-draw-a-suitable-diagram-to-show-this-what-is-a-hyperlane-and-a-support-vector-what-is-margin-what-is-gmm-gaussian-mixture-model)
 
