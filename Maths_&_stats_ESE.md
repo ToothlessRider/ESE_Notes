@@ -1633,8 +1633,6 @@ The Chinese Remainder Theorem (CRT) is a fundamental result in number theory tha
 
 ### Statement of the Chinese Remainder Theorem
 
-  
-
 If $n_1, n_2, \ldots, n_k$ are pairwise coprime positive integers (i.e., $\text{GCD}(n_i, n_j) = 1$ for $i \neq j$ ), then for any given sequence of integers $a_1, a_2, \ldots, a_k$ , there exists an integer $x$ such that:
 
   
