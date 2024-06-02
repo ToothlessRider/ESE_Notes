@@ -201,6 +201,14 @@ Ans.
 
 Q1. c. **Differentiate between**
 1. **Intrinsic and extrinsic measures**
+
+Ans.
+| Intrinsic | Extrinsic |
+| -- | -- |
+| 
+
+<hr>
+
 2. **Cohesion and separation**
 3. **Symmetric and asymmetric attributes. Give an example**
 4. **Agglomerative and divisive clustering**
@@ -261,7 +269,7 @@ Ans.
 
 <hr>
 
-Q3. b. **Explain data minin as a ste in knowledge discovery process.**
+Q3. b. **Explain data mining as a ste in knowledge discovery process.**
 
 Ans. 
 
@@ -355,9 +363,61 @@ Ans.
 
 
 ## Dw OLAP
+Q1. **What is a Data Warehouse ? Give an example**
 
-Q1. **Differentiate between OLTP and OLAP**
+Ans. 
+A decision support database that is maintained separately from the organization’s operational database
 
+Support information processing by providing a solid platform of consolidated, historical data for analysis.
+
+> “A data warehouse is a subject-oriented, integrated, time-variant, and nonvolatile collection of data in support of management’s  decision-making process.”
+
+Data warehousing is an important preprocessing step for data mining, where we take heterogeneous databases ( i.e. different formats, id's, etc ) and do the following procedures on them : 
+- Data selection
+- Data cleaning
+- Data intergration
+- Data summarization 
+
+Which then allows it to become a *Data Warehouse*
+**![](https://lh7-us.googleusercontent.com/oGHuKKfioHFEjh60Pl1svCLXOF3MGCCkqIhNxNTcLg9sL8a9TsnVB_zhPipTurdEuHQr7dKpQgIqudW_TstuQgSgL0bgWqfJ0-gnD-1-PmiRCN0WdfmuX2XnCRNrKYZs1iQdcArePd6KtR4cyZIiVo0)**
+
+It also provides OLAP tools for **interactive multidimensional data analysis**
+
+Example : 
+- Here you have two different databases that were made in different countries, so the names of the column attributes might differ, along with the number of columns 
+
+**![](https://lh7-us.googleusercontent.com/IA4T_DLCLPZr6ejcDXEbkTGrfg2e_rTET6xg3c3hbH7fn8GD6N2aCG13peMFajxTSoVJ5-G8RLYLWH9GSqHS_0B73v1W-wR41wY47rCdmOHYoSFPdi3S59eRoOWintwKSfVTJQurYkmNFA8-pmeZLRY)**
+
+<hr>
+
+Q2. **What are the different steps in creating a data warehouse ?**
+
+Ans. 
+#### Data Selection
+- Only data which are important for analysis are selected. ( employee info, dept, etc ) 
+- *Subject Oriented*
+
+#### Data Cleaning
+- Tuples which are incomplete or logically inconsistent are cleaned
+
+#### Data Integration
+- Consistency of attribute names
+- Consistency of attribute types
+- Consistency of values
+- Integration of data
+
+#### Data Summarization
+- Values are summarized according to the desired level of analysis
+- For example, in the HK database, they give the time unit as well, but we are only interested in the day
+
+<hr>
+
+Q2. **Differentiate between OLTP and OLAP**
+Ans. 
+
+| Online Analytical Processing | Online Transaction Processing |
+| -- | -- | 
+| 
 
 
 
