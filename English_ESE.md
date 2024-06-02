@@ -9,7 +9,7 @@
 
 > Do not try to memorize these answers because it users a higher level vocabulary in general and it would be pointless.
 
-> [Chatgpt link](#)
+> [Chatgpt link](https://chatgpt.com/share/e8d967fb-1267-453e-bfad-1584879385fb)
 
 ## Previous Year's Questions
 
