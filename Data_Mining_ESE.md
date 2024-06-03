@@ -412,13 +412,108 @@ Ans.
 
 <hr>
 
-Q2. **Differentiate between OLTP and OLAP**
+Q3. **Differentiate between Data Warehouse and Heterogeneous DBMS**
+
+Ans.
+| Data Warehouse | Hetergeneous DBMS |
+| -- | -- | 
+| Update driven approach | Query driven approach | 
+| 
+<hr>
+
+Q4. **Differentiate between OLTP and OLAP**
 Ans. 
 
-| Online Analytical Processing | Online Transaction Processing |
-| -- | -- | 
-| 
+| | Online Transaction Processing  | Online Analytical Processing|
+| -- | -- | -- | 
+| *Users* | Clerk, IT professional | Manager | 
+| *Function* | Day to day operations | Decision Support | 
+| *DB Design* | Application Oriented | Subject - Oriented | 
+| *Data* | Current, up-to-date, detailed, flat, relational and isolated | historical, summarized, multidimensional, integrated and consolidated |
+| *Access* | Read/Write, Index/Hash on primary key | Lot's of scans | 
+| *Unit of work* | Short simple transaction | Complex Query |
+|*Records accessed count* | Tens | Millions | 
+| *User count* | Thousands | Hundreds | 
+| *DB Size* | 100MB-GB | 100GB-TB ( Even PB ) |
+| *Metric* | Transaction Throughput | Query Throughput |
+|*Examples* | DBMS | Data warehouse | 
 
+
+<hr> 
+
+Q5. **What is a data Cube ?**
+
+Ans.
+#### Data Cube 
+A data cube summarizes the measure with respect to a set of n dimensions and provides summarizations for all subsets of them
+
+**![](https://lh7-us.googleusercontent.com/V88L1ZCbjr3NI7veOGfcfsvmp70UNf2vhZrIMAvlrWrU8RP4oDzYAWznfX-z1hRsJb6riobOS1lqYAjb1tI5Mi3fu4fXSq9tzHhYcQzuzz_X61m6RAXM-4Nviwig6EKJx8arG09sP4uesUWl___f7as)**
+
+- In this the individual cells are known as *cuboids*
+- The bottom final cuboid, i.e., $a_{6,5}$ which contains the value 598, is called the **Apex Cuboid**
+- This contains the highest level of summarization
+- The row and column cuboids form a lattice of cuboids like so : 
+**![](https://lh7-us.googleusercontent.com/CBn78s7GlM9FcMgEd5R238gRmDE2RYkwS9UCjVY6qk3EX7fMlJrrFlpJvtqwXiQi5REP2hg5HeFccBsYCQRc3AdMHTCxvlRkvMDKo80Po-N4nvRjDtl-3R8oq8t9v-7o28j17qUh1zrTYdmuFwM5IMk)**
+
+
+
+<hr>
+
+Q6.**What are the various types of modeling techniques in Data warehouses ?**
+
+Ans.
+The ER model is used for relational database design. <br>For data warehouse design we need a concise, subject-oriented schema that facilitates data analysis.
+
+There are the following types of Data warehousing modelling techniques : 
+
+- **Star schema**:<br> A fact table in the middle connected to a set of dimension tables
+**![](https://lh7-us.googleusercontent.com/v_m6p9fqpf4Cye9eu4CNTlOK3WAthnScwTE_pmnsLFwDzOP9oaQsLpX7Y6u1oFugSQZtxFm1DKU8FPLPh_kx-V1J7gUj2YgPL6WLVD9rYe8n46Ft3F6I0z4PzXg1HuVPt_b6W8OZwITCIv3d387gVQ8)**
+
+- **Snowflake schema**:<br>  A refinement of star schema where some dimensional hierarchy is normalized into a set of smaller dimension tables, forming a shape similar to snowflake
+
+**![](https://lh7-us.googleusercontent.com/jqd_d6d5gipXz3IBD0NxyaFDsPzpNmgTKMw5_Uv0TDgGRJvrVFje9NbyQArd1LQXHD8NclJUb1f6Tc235l6PXg2YnyzGDa9zv8EiP1b59V4lJA-Ox14AOeCfotS1DgF-bsXBloeNPMoLmHMeDyG8T5s)**
+
+- **Fact constellations**:<br>  Multiple fact tables share dimension tables, viewed as a collection of stars, therefore called galaxy schema
+or fact constellation
+**![](https://lh7-us.googleusercontent.com/a7qO52woZU2jPMfqPCmHDH12FZ1T2gF1enVnZEiBIO2mtmfjdHXSq-9FpqiUjlUuszmMpWwnS8JI9ZF3YujH-RsU6-6uXoQ6V6UCKyli5Psn7CWPQe_D2sDoKqtJwBqmrE6uGw46pj6QNeUBABv0Bd4)**
+<hr>
+
+Q7. **What is DMQL ?**
+
+Ans.
+- *Cube Defintion* ( Fact Table ) :
+```
+define cube <cube_name> [<dimension_list>] :
+<measure_list>
+```
+- *Dimension Definition* ( Dimension Table ) : 
+```
+define dimension <dimension_name> as 
+(<attribute_or_subdimension_list>)
+```
+- *Special Case* ( Shared Dimension Tables ) 
+```
+define dimension <dimension_name> as
+<dimension_name_first_time> in cube 
+<cube_name_first_time>
+```
+
+<hr>
+
+> [Link to Schema Defintion in DMQL](https://classroom.google.com/c/NjU0MzUzOTIxNTA0/m/NjkzMDY0MDQ4MDAx/details)
+
+<hr>
+
+Q8. **What are the  3 categories of Aggregate Dunctions on measures? :**
+
+Ans.
+- *Distributive Function* : 
+If the result derived by applying the function to a subset of values is same as the value derived by applying the function on the whole dataset, then it is called **Distributive Function**
+
+- *Algebraic Function* : 
+If it can be computed by an algebraic function wit hM arguements ( where M is a bounded integer ) 
+
+<hr>
 
 
 
