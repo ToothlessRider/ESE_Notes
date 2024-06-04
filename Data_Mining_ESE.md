@@ -198,11 +198,39 @@ The initial seed selection is critical in k-means clustering because it affects 
 Q1. b. **Calculate the dissimilarity between jack and mary using jaccard's similarity. Also give the contingency table for the same.**
 | Name|Gender|Fever|Cough|Test-1|Test-1|Test-3|Test-4|
 |--|--|--|--|--|--|--|--|
-|Jack|M|Y|N|P|N|N|N|
-|Mary|F|Y|N|P|N|P|N|
-|Jim|M|Y|P|N|N|N|N|
+|Jack|M|P|N|P|N|N|N|
+|Mary|F|P|N|P|N|P|N|
+|Jim|M|P|P|N|N|N|N|
 
 Ans.
+
+**Contingency Table**
+$\text{Jack and Mary}$
+| - | Y | N | Sum|
+|--|--|--|--|
+|Y|2 |0|2|
+|N|1|3|4|
+|Sum|3|3|6|
+
+$\text{Jackards Coefficient similarity} = \frac{f_{yn} + f{ny}}{ f_{ny} + f_{yn} + f_{yy}}$ 
+
+$\text{Jackards Coefficient similarity} = \frac{0 + 1}{2 + 0 + 1 } = \frac{1}{3} = 0.33$ 
+
+> These are the additional contingency tables for the remaining possible combinations
+
+$\text{Mary and Jim}$
+| - | Y | N | Sum|
+|--|--|--|--|
+|Y|1|2|3|
+|N| 1|2|3|
+|Sum|2|4|6|
+
+$\text{Jack and Jim}$
+| - | Y | N | Sum|
+|--|--|--|--|
+|Y|1|1|2
+|N| 1|3|4|
+|Sum|2|4|6|
 
 
 <hr>
@@ -581,14 +609,21 @@ Q8. **What are the  3 categories of Aggregate Functions on measures? :**
 
 Ans.
 - *Distributive Function* : 
-If the result derived by applying the function to a subset of values is same as the value derived by applying the function on the whole dataset, then it is called **Distributive Function**
+If the result derived by applying the function to a subset of values is same as the value derived by applying the function on the whole dataset, then it is called **Distributive Function** 
+
+Examples : $sum(), count(), min(),  max()$
 
 - *Algebraic Function* : 
 If it can be computed by an algebraic function with M arguements ( where M is a bounded integer ) 
 
+Examples : $min_N()$ , $max_N()$ ,$\frac{sum()} {count()}$ ,  $avg()$
+
 - *Holistic Function* : 
-To compute
+An aggregate function is _holistic_ if there is no constant bound on the storage size needed to describe a subaggregate
+
+Examples : $median()$ , $mode()$ , and $rank()$
 <hr>
+
 
 ## Cluster 1
 
