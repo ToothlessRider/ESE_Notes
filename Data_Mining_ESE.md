@@ -99,8 +99,7 @@ A proximity matrix is a square matrix used in various fields such as statistics,
 $P = \begin{pmatrix}
    0 & 2 & 3 \\
    1 & 0 & 4 \\
-   5 & 3 & 0
-   \end{pmatrix}$
+   5 & 3 & 0  \end{pmatrix}$
    
    This matrix is asymmetric because $P_{12} \neq P_{21}$, $P_{13} \neq P_{31}$ , etc.
 
