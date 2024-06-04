@@ -8,6 +8,7 @@
 # Table of Contents 
 1. [Previous Year Questions](#previous-year-questions)
 2. [Data Warehouse, Online Analytical Processing](#dw-olap)
+3. [Hierarchial Aggolmerative Algorithm](#Cluster-2)
 
 
 
@@ -348,10 +349,78 @@ Q5. b. **Discuss different ways of measuring inter-cluster similarity?**
 | C | 25 | 21 | 0 | 1 | 16 | 18 | 
 | D | 24 | 20 | 1 | 0 | 15 | 17 |
 | E | 9 | 5 | 16 | 15 | 0 | 2 | 
-| F | 7 | 3 | 19 | 17 | 2 | 0 | 
+| F | 7 | 3 | 18 | 17 | 2 | 0 | 
 
 **For the above distance matrix, draw a dendogram using complete link inter- clustering.**
 Ans. 
+### Measuring Inter-Cluster Similarity
+
+When clustering data, it’s essential to determine how similar or different clusters are from one another. Several methods can measure inter-cluster similarity:
+
+1. **Single Linkage (Minimum Linkage)**:
+   - Measures the similarity between the closest points of two clusters.
+   - It is sensitive to noise and outliers
+
+**![](https://lh7-us.googleusercontent.com/l-4EWR8hewpIWs89vqTbFttJJ1ZL6F9XGNJyF5PPW-MMyrA9NT1HEWXTqrUOo15s7uwLaVU3QArbQG8V9rtWxxSuMfcKyWMk5gU-hjIPGd7GxRuKTxt9Svx_BG2jcXLKoGGnT4fs1MvEJ-fm5Bv950U)**
+
+2. **Complete Linkage (Maximum Linkage)**:
+   - Measures the similarity between the farthest points of two clusters.
+   -It is less susceptible to noise and outliers
+   It does have a tendency to break larger clusters
+
+**![](https://lh7-us.googleusercontent.com/Pn8lKXpItKCguA5KWWzOG321cEwtjc75RVmHrdfJG8wjaiBvhAWuvnSydx_yzUMrnbAwyUixaqu7XwFZJ20-ViHILorH5xcJU8msdl9Cc8dDA9R-VF7gCqaGk8jk6lVdlu6E32iGyu1zDPlTdH9cu_o)**
+
+3. **Average Linkage**:
+   - Measures the average distance between all pairs of points in two clusters.
+   - It balances the extremes of single and complete linkage.
+   - It is less susceptible to outliers, but is biased to globular clusters
+
+**![](https://lh7-us.googleusercontent.com/jIh3JGTEYw2E4Bpg5Ng0ebVwCJBTdVHQzNzpP-_AyveZH9pMhmP0v7ftH9okkrmP59kbPJA735jdDIavhzIlP4U7Xk2fOVLcxK1sk8nC49VIgwWMyXUWw9LfmLxsbl-EjVlAMY0ATHf1C_C4h2zs7C8)**
+
+4. **Ward's Method**:
+   - Measures the increase in *squared error* ( variance ) when clusters are merged.
+   - Tends to create clusters of roughly equal size
+   - It is less susceptible to noise and outliers and also biased toward globular clusters
+   - It requires a $O(n^2)$ time complexity using a proximity matrix
+   - It also requires $O(n^3)$ in many cases and can be reduced to $O(n^2logn)$ for some approaches
+
+In the first iteration after calculating the distances we will select the first cluster to be $C, D$
+
+| | A | B | C,D | E | F | 
+| -- | -- | -- | -- | -- | -- | -- |
+| A | 0 | 4 | 25 | 9 | 7 |
+| B | 4 | 0 | 21| 5 | 3 | 
+| C,D | 25 | 21 | 0 | 16 | 18 |
+| E | 9 | 5 | 16 | 0 | 2 | 
+| F | 7 | 3 | 18| 2 | 0 | 
+
+Then the next cluster to be chosen will be $E,F$
+
+| | A | B | C,D | E, F | 
+| -- | -- | -- | -- | -- | -- | 
+| A | 0 | 4 | 25 | 9 | 
+| B | 4 | 0 | 21| 5 | 
+| C,D | 25 | 21 | 0 | 18 | 
+| E,F | 9 | 5 | 18 | 0 |
+
+  Then the next cluster to be chosen will be ${E,F},B$
+
+| | A | B,E,F | C,D |  
+| -- | -- | -- | -- | -- | 
+| A | 0 | 9 | 25 | 
+| B,E,F | 9 | 0 | 21|  
+| C,D | 25 | 21 | 0 | 
+
+  Then the next cluster to be chosen will be ${B,E,F},A$
+  
+  | | A,B,E,F | C,D |  
+| -- | -- | -- |
+| A,B,E,F | 0  | 25 | 
+| C,D | 25 | 0 | 
+
+and then we will finally merge these two as well to give us the final cluster as : ${A, B, C, D, E, F }$
+
+> [Link to dendogram, steps and code](https://colab.research.google.com/drive/1W2GeFVv_PceUXejwlyuxMB5j2AlJzRvH?usp=sharing)
 
 <hr>
 
@@ -511,10 +580,32 @@ Ans.
 If the result derived by applying the function to a subset of values is same as the value derived by applying the function on the whole dataset, then it is called **Distributive Function**
 
 - *Algebraic Function* : 
-If it can be computed by an algebraic function wit hM arguements ( where M is a bounded integer ) 
+If it can be computed by an algebraic function with M arguements ( where M is a bounded integer ) 
 
 <hr>
 
 
 
+## Cluster 2
 
+Q.1 **What is Hierarchial Agglomerative Clustering and what are the ways to define inter cluster similarity ?**
+
+Ans.
+
+> [Link to answer](#measuring-inter-cluster-similarity)
+
+<hr>
+
+Q2. **What are the different Data Clustering algorithms ?**
+
+Ans.
+
+#### CURE [ Clustering Using REpresentative ]
+
+- **Algorithm**
+1. Draw a random sample s
+2. Partition sample to $p$ partitions with each being of the size $\frac{s}{p}$
+3. Partially cluster partitions into $\frac{s}{p}$ clusters
+4. Eliminate outliers ( if a cluster grows too slow, then eliminate it ) 
+
+#### ROCK
