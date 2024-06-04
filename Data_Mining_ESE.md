@@ -7,14 +7,15 @@
 
 # Table of Contents 
 1. [Previous Year Questions](#previous-year-questions)
-2. [Data Warehouse, Online Analytical Processing](#dw-olap)
-3. [Cluster Analysis](#cluster-1)
+2. [Silhouette Coefficient](#silhouette-coefficient)
+3. [Data Warehouse, Online Analytical Processing](#dw-olap)
+4. [Cluster Analysis](#cluster-1)
 	- [Good Clustering](#good-clustering)
 	- [Requirements of Clustering in DM](#requirements-of-clustering-in-dm)
-4. [Hierarchial Clustering](#cluster-2)
+5. [Hierarchial Clustering](#cluster-2)
 	- [Hierarchial Agglomerative Clustering](#hierarchial-agglomerative-clustering)
-5. [ Density Based Clustering Methods](#density-based-clustering-methods)
-6. [Numerical Practice](#numerical-practice)
+6. [ Density Based Clustering Methods](#density-based-clustering-methods)
+7. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
 
 
@@ -246,6 +247,17 @@ Ans.
 <hr>
 
 2. **Cohesion and separation**
+
+| Cluster Coehsion | Cluster Separation | 
+|--|--|
+| Measures how closely related the objects in a cluster are | Measures how distinct or well separated a cluster is from the other clusters | 
+| Sum of the weight of all links in the cluster | Sum of all the weights between the nodes of different clusters | 
+| Ex : SSE ( Sum of Squared Error ) | Ex : WSS ( Within cluster SSE ) and BSS ( Between cluster SSE )
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcxv192smHUMukIrllrYxUrAGhaUJfQpZnK65WU7gfNrkux4a09VDVhHUxdgABVyZfJPJrKiOLqprgGCdVdOu0txKk6xo8j49NqvhqK7Q73V4Tef-UAWw2F4Pobj-q6vB79mwe05vxVeWjLx1XhlmGv3WVm?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+<hr>
+
 3. **Symmetric and asymmetric attributes. Give an example**
 4. **Agglomerative and divisive clustering**
 
@@ -459,7 +471,40 @@ and then we will finally merge these two as well to give us the final cluster as
 Q5. c. **Consider the data set of 7 points of 2 dimension.<br> $Cluster_1$ = {(11, 14), (11, 13), (12, 13)} and <br>$Cluster_2$ = {(2,5), (3,4), (5, 4), (1, 3)} Calculate silhouette value for a point (12,13).**
 
 Ans. 
+#### Silhouette Coefficient
 
+Silhouette Coefficient combine ideas of both cohesion and separation, but for individual points, as well as clusters and clusterings
+
+For an individual point, i
+- Calculate a = average distance of i to the points in its cluster
+- Calculate b = min (average distance of i to points in another cluster)
+- The silhouette coefficient for a point is then given by $s = 1 – \frac{a}{b}$ if $a < b$ , ( or $s = \frac{b}{a} - 1$ if $a ≥ b$, not the usual case )
+
+**Average Distance within cluster ( a )**
+
+$d_1 = \sqrt{|12 - 11|^2 + |13 - 14|^2} = \sqrt{2} = 1.414$
+
+$d_2 = \sqrt{|12 - 11|^2 + |13 - 13|^2} = \sqrt{1} = 1$
+
+$d_3 = \sqrt{|12 - 12|^2 + |13 - 13|^2} = \sqrt{0} = 0$
+
+$Average = \frac{1.414 + 1 + 0 }{3} = 0.80466$
+
+**Average Distance to other cluster points ( b )**
+$d_1 = \sqrt{|12 - 2|^2 + |13 - 5|^2} = \sqrt{164} = 12.806$
+
+$d_2 = \sqrt{|12 - 3|^2 + |13 - 4|^2} = 9\sqrt{2} = 12.727$
+
+$d_3 = \sqrt{|12 - 5|^2 + |13 - 4|^2} = \sqrt{130} = 11.401$
+
+$d_4 = \sqrt{|12 - 1|^2 + |13 - 3|^2} = \sqrt{221} = 14.866$
+
+$Average = \frac{14.866 + 11.401 + 12.727 + 12.806}{4} =12.95$
+
+
+$\text{Silhouette Coefficient} = 1 - \frac{a}{b}$
+
+$\text{Silhouette Coefficient} = 1 - \frac{0.80466}{12.95} = 0.93786409266$ 
 <hr>
 
 
