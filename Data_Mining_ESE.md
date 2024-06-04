@@ -22,6 +22,7 @@
 	- [Density Based Clustering](#density-based-clustering)
 		- [Density Based Spatial Clustering of Applications with Noise (DBSCAN)](#dbscan)
 5. [High Dimensional Data Clustering](#cluster-3)
+	- [Cluster Validity](#cluster-validity)
 6. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
 	- [Association Rule Mining - Apriori Algorithm](#apriori-algorithm)
@@ -217,9 +218,9 @@ $\text{Jack and Mary}$
 |N|1|3|4|
 |Sum|3|3|6|
 
-$\text{Jackards Coefficient similarity} = \frac{f_{yn} + f{ny}}{ f_{ny} + f_{yn} + f_{yy}}$ 
+$\text{Jackards Coefficient similarity} = 1 - \frac{f_{yn} + f{ny}}{ f_{ny} + f_{yn} + f_{yy}}$ or $1 -d(i,j)$ 
 
-$\text{Jackards Coefficient similarity} = \frac{0 + 1}{2 + 0 + 1 } = \frac{1}{3} = 0.33$ 
+$\text{Jackards Coefficient similarity} =1 - \frac{0 + 1}{2 + 0 + 1 } = \frac{2}{3} = 0.67$ 
 
 > These are the additional contingency tables for the remaining possible combinations
 
@@ -263,6 +264,11 @@ Ans.
 <hr>
 
 3. **Symmetric and asymmetric attributes. Give an example**
+
+Ans.
+
+<hr>
+
 4. **Agglomerative and divisive clustering**
 
 Ans.
@@ -295,7 +301,7 @@ Ans.
 
 <hr>
 
-Q2. c. **Suppose we have data on few individuals randomly surveyed. The data gives the responses towards interests to promotional offers made in the areas of Finanace, Travel, Reading, and Health. Sex is the output attribute to be predicted. <br>Apply Naive Bayesian classification algorithm to classify the new instance. (Finance = No,Travel = Yes, Reading = Yes, Health = No).**
+Q2. c. **Suppose we have data on few individuals randomly surveyed. The data gives the responses towards interests to promotional offers made in the areas of Finance, Travel, Reading, and Health. Sex is the output attribute to be predicted. <br>Apply Naive Bayesian classification algorithm to classify the new instance. (Finance = No, Travel = Yes, Reading = Yes, Health = No).**
 
 | Finance | Travel | Reading | Health | Sex | 
 | -- | -- | -- | -- | -- |
@@ -318,12 +324,40 @@ Ans.
 Q3. a. **Define the terms support, confidence, and lift. Discuss the importance of Association Rule Mining.**
 
 Ans. 
+Certainly! Let's define each term and discuss the importance of Association Rule Mining:
 
+#### 1. Support:
+Support is a measure that indicates how frequently a particular itemset appears in a dataset. It is calculated as the proportion of transactions in the dataset that contain the itemset. 
+
+$\text{Support}(X) = \frac{\text{Number of transactions containing itemset X}}{\text{Total number of transactions}}$
+
+#### 2. Confidence:
+Confidence is a measure that indicates how often a rule is found to be true. Specifically, it measures the likelihood that the presence of one item (or itemset) implies the presence of another item (or itemset). 
+
+$\text{Confidence}(X \rightarrow Y) = \frac{\text{Support}(X \cup Y)}{\text{Support}(X)}$
+
+#### 3. Lift:
+Lift measures the ratio of the observed support to that expected if X and Y were independent. It indicates the strength of the association between the antecedent (X) and the consequent (Y) in a rule. A lift value greater than 1 suggests that the presence of the antecedent increases the likelihood of the consequent, while a value less than 1 indicates the opposite.
+
+$\text{Lift}(X \rightarrow Y) = \frac{\text{Support}(X \cup Y)}{\text{Support}(X) \times \text{Support}(Y)}$
+
+### Importance of Association Rule Mining:
+Association Rule Mining is crucial in various domains due to several reasons:
+
+1. **Market Basket Analysis**
+2. **Customer Behavior Analysis**
+3. **Recommendation Systems**
+4. **Healthcare**
+5. **Web Usage Mining**
+6. **Fraud Detection**
+7. **Inventory Management**
 <hr>
 
-Q3. b. **Explain data mining as a ste in knowledge discovery process.**
+Q3. b. **Explain data mining as a step in knowledge discovery process.**
 
 Ans. 
+
+> [Link to answer](https://github.com/ToothlessRider/MST_Notes/blob/master/DM_MST_notes.md#knowledge-discovery-of-databases)
 
 <hr>
 
@@ -344,21 +378,37 @@ Ans.
 
 <hr>
 
-Q3. d. **Discuss the various datamining tasks. What is the need for data mining? Briefly discuss the various roblems associated with data mining**
+Q3. d. **Discuss the various datamining tasks. What is the need for data mining? Briefly discuss the various problems associated with data mining**
 
 Ans. 
+
+> [Link to answer](https://github.com/ToothlessRider/MST_Notes/blob/master/DM_MST_notes.md#exam-questions)
 
 <hr>
 
 Q4. a. **Compare and contrast bagging, boosting and stacking ensemble techniques.**
 
 Ans. 
+~~Not in PPT's~~
 
 <hr>
 
 Q4. b. **Discuss the various approaches used to find optimal number of dusters**
 
 Ans. 
+Finding the optimal number of clusters in a dataset is a crucial step in cluster analysis. There are several approaches used to determine the optimal number of clusters, each with its advantages and limitations. Some common approaches include:
+
+#### Elbow Method:
+-   In the Elbow Method, the sum of squared distances (SSD) between data points and their assigned cluster centroids is plotted against the number of clusters.
+-   The point where the rate of decrease in SSD slows down and forms an "elbow" is considered as the optimal number of clusters.
+-   This method is simple and intuitive but may not always produce clear elbow points, especially in complex datasets.
+
+#### Silhouette Score:
+
+-   The Silhouette Score measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation).
+-   It ranges from -1 to 1, where a high value indicates that the object is well-matched to its own cluster and poorly-matched to neighboring clusters.
+-   The optimal number of clusters maximizes the average silhouette score across all data points.
+-   This method provides a quantitative measure of cluster quality but may not work well for non-convex clusters or varying densities.
 
 <hr>
 
@@ -1065,10 +1115,38 @@ Ans.
 Q4. **What is Model Based Clustering ?**
 
 Ans.
-
+- Assume data generated from K probability distributions
+- Typically Gaussian distribution Soft or probabilistic version of K-means clustering
+- Need to find distribution parameters.
+- EM Algorithm
 <hr>
 
 Q5. **What is cluster validity and what are it's measures ?**
+
+Ans.
+#### Cluster Validity
+For supervised classification we have a variety of measures to evaluate how good our model is
+- Accuracy, precision, recall
+
+For cluster analysis, the analogous question is how to evaluate the “goodness” of the resulting
+clusters? We can evaluate them for the following reasons : 
+- To avoid finding patterns in noise
+- To compare clustering algorithms
+- To compare two sets of clusters
+- To compare two clusters
+
+**Aspects of Cluster Validation**
+1. Determining the clustering tendency of a set of data
+2. Comparing the results of a cluster analysis to externally known results
+3. Comparing the results of two different sets of cluster analyses to determine which is better.
+
+**Measures of cluster validity** 
+Numerical measures that are applied to judge various aspects of cluster validity, are classified into the following three types.
+- **External Index** : <br> Used to compare the results of a cluster analysis to externally known results
+- **Internal Index** : <br> Used to measure the goodness of a clustering structure without respect to external information.
+- **Relative Index** : <br> Used to compare two different clusterings or clusters.
+
+<hr>
 
 
 
