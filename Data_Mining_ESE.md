@@ -8,7 +8,11 @@
 # Table of Contents 
 1. [Previous Year Questions](#previous-year-questions)
 2. [Data Warehouse, Online Analytical Processing](#dw-olap)
-3. [Hierarchial Aggolmerative Algorithm](#Cluster-2)
+3. [Cluster Analysis](#cluster-1)
+	- [Good Clustering](#good-clustering)
+	- [Requirements of Clustering in DM](#requirements-of-clustering-in-dm)
+4. [Hierarchial Clustering](#cluster-2)
+	- [Hierarchial Agglomerative Clustering](#hierarchial-agglomerative-clustering)
 
 
 
@@ -331,10 +335,7 @@ Ans.
 
 <hr>
 
-Q5. a. **Give an algorithm for K-means clustering. Consider the following 5
-points { $x_1, x_2, x_3, x_4, x_5$ } with the following as a two dimensional sample: 
-$x_1= (0,2), x_2 = (1,0), x_3 = (2,1), x_4 = (4,1), x_5 = (5,3)$  for clustering.<br> Illustrate K-means algorithm on the above dataset. The required number of
-cluster is 2. Initially the cluster are formed from random distribution of samples <br> $C_1 = \{x_1, x_2, x_4\} \text { and } C_2 = \{ x_3, x_5\}$**
+Q5. a. **Give an algorithm for K-means clustering. Consider the following 5 points { $x_1, x_2, x_3, x_4, x_5$ } with the following as a two dimensional sample: <br> $x_1= (0,2), x_2 = (1,0), x_3 = (2,1), x_4 = (4,1), x_5 = (5,3)$  for clustering.<br> Illustrate K-means algorithm on the above dataset. The required number of cluster is 2. Initially the cluster are formed from random distribution of samples <br> $C_1 = \{x_1, x_2, x_4\} \text { and } C_2 = \{ x_3, x_5\}$**
 
 Ans. 
 
@@ -584,19 +585,82 @@ If it can be computed by an algebraic function with M arguements ( where M is a 
 
 <hr>
 
+## Cluster 1
 
+Q1. **What is cluster analysis ?**
+
+Ans. 
+#### Cluster Analysis 
+It is the process of finding *groups of objects* such that the objects in
+a group will be similar (or related) to one another and different from (or unrelated to) the objects in other groups
+
+**![](https://lh7-us.googleusercontent.com/ePAiyReLSnClLAmblrKnJ9KDg59B3ltPHc8RawvBaLkTjXXNgGfMxM-vKpd4KmWF2lishnYzpFSFuimuG-P0f5Rar4sFISRVMeAc_qP3_isP_qvHm6c8vFDsbkkaYqqRyyS-7bAdIDDz_eyCF8brPQc)**
+- Clustering is an **Unsupervised classification** method, i.e., there are no predefined classes
+- Clustering is used : 
+	- As a stand - alone tool, to get insight into Data distribution
+	- As a preprocessing step for other algorithms
+
+It's applications are : 
+1. Pattern Recognition
+2. Image Processing
+3. Bio-informatics
+4. WWW and IR
+
+<hr>
+
+Q2. **What is good clustering and what are the requirements of clustering in DM?**
+
+Ans.
+#### Good Clustering
+- A good clustering method is one that produces high quality clusters that should have : 
+	- High **intra-class** similarity
+	- Low **inter-class** similarity
+- The quality of the clustering depends on the similarity measure as well as the implementation
+- The quality of a clustering method is also measured by its ability to discover some or all of the hidden patterns.
+
+#### Requirements of Clustering in DM 
+**[SADMAIHII]**
+1. Scalability
+2. Ability to deal with different types of attributes
+3. Discovery of Clusters with arbitrary shape
+4. Minimal requirements for domain knowledge, to determine the input parameters
+5. Able to deal with noise and outliers
+6. Insensitive to order of input records
+7. High dimensionality
+8. Incorporation of user specified constraints
+9. Interpretability and usability
+ 
+<hr>
+
+Q3. **What are the different types of data in cluster anayliss ?**
+
+
+
+<hr>
 
 ## Cluster 2
 
-Q.1 **What is Hierarchial Agglomerative Clustering and what are the ways to define inter cluster similarity ?**
+Q1. **What is hierarchial clustering and what are its types ?**
 
 Ans.
+#### Hierarchial Clustering
+- Produces a set of nested clusters organized as a hierarchial tree
+> This means that certain clusters are nested within others, as shown by the dendograms which eventually form a sort of hierarchial tree
+- Can be visualized as a dendogram ( A tree diagram that records the sequences of merges or splits )
 
+**![](https://lh7-us.googleusercontent.com/Em6L1f1FEHdeerfLppk6qDE9Ryr1NKPpnhjB6vH1vxoB53GkpOBxogiKZIOSwvG3QwD91juJirNt7H9r6Gn-d4PoeAv1f7Yw0IgLcmqnjcViXymmY7sTyt09IKgt-YutIFgtrv5vwWR7jsTfVxx9pK8)**
+
+<hr>
+
+Q.2 **What is Hierarchial Agglomerative Clustering and what are the ways to define inter cluster similarity ?**
+
+Ans.
+#### Hierarchial Agglomerative Clustering
 > [Link to answer](#measuring-inter-cluster-similarity)
 
 <hr>
 
-Q2. **What are the different Data Clustering algorithms ?**
+Q3. **What are the different Data Clustering algorithms ?**
 
 Ans.
 
