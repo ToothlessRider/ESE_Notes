@@ -19,10 +19,13 @@
 	- [K Means Clustering](#k-means-clustering)
 5. [Hierarchial Clustering](#cluster-2)
 	- [Hierarchial Agglomerative Clustering](#hierarchial-agglomerative-clustering)
-6. [ Density Based Clustering Methods](#density-based-clustering-methods)
+	- [Density Based Clustering](#density-based-clustering)
+		- [Density Based Spatial Clustering of Applications with Noise (DBSCAN)](#dbscan)
 7. [High Dimensional Data Clustering](#cluster-3)
 8. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
+	- [Association Rule Mining - Apriori Algorithm](#apriori-algorithm)
+	- [K Means Clustering](#k-means-clustering-q)
 
 
 
@@ -379,6 +382,83 @@ Ans.
 Q5. a. **Give an algorithm for K-means clustering. Consider the following 5 points { $x_1, x_2, x_3, x_4, x_5$ } with the following as a two dimensional sample: <br> $x_1= (0,2), x_2 = (1,0), x_3 = (2,1), x_4 = (4,1), x_5 = (5,3)$  for clustering.<br> Illustrate K-means algorithm on the above dataset. The required number of cluster is 2. Initially the cluster are formed from random distribution of samples <br> $C_1 = \{x_1, x_2, x_4\} \text { and } C_2 = \{ x_3, x_5\}$**
 
 Ans. 
+
+**Given Dataset**:
+$x_1 = (0,2), x_2 = (1,0), x_3 = (2,1), x_4 = (4,1), x_5 = (5,3)$
+
+
+### Initial Clusters
+
+- Cluster 1: $C_1 = \{ x_1, x_2, x_4 \}$
+
+- Cluster 2: $C_2 = \{ x_3, x_5 \}$
+
+  
+
+### Initial Centroids:
+
+- $\mu_1 = (1.67, 1)$ for Cluster 1
+
+- $\mu_2 = (3.5, 2)$ for Cluster 2
+
+  
+
+### Iteration 1:
+
+**Assignment:**
+Calculate distances between each point and each centroid.<br>Reassign each point to the nearest centroid.
+  
+- Distance to $\mu_1$:
+- $d(x_1, \mu_1) = 1.944$
+- $d(x_2, \mu_1) = 1.203$
+- $d(x_3, \mu_1) = 0.33$
+- $d(x_4, \mu_1) = 2.33$
+- $d(x_5, \mu_1) = 3.88$
+- Distance to $\mu_2$:
+- $d(x_1, \mu_2) = 3.5$
+- $d(x_2, \mu_2) = 3.20$
+- $d(x_3, \mu_2) = 1.80$
+- $d(x_4, \mu_2) = 1.118$
+- $d(x_5, \mu_2) = 1.80$
+
+**New Assignments:**
+- $x_1, x_2, x_3$ are closer to $\mu_1$, so they are assigned to Cluster 1.
+- $x_4, x_5$ are closer to $\mu_2$, so they are assigned to Cluster 2
+
+**Update:**
+Recalculate the centroids by taking the mean of all points in each cluster.
+
+#### New Clusters:
+- Cluster 1: $C_1 = \{ x_1, x_2, x_3 \}$
+- Cluster 2: $C_2 = \{ x_4, x_5 \}$
+
+#### New Centroids:
+- $\mu_1 = (\frac{0+1+2}{3}, \frac{2+0+1}{3}) = (\frac{3}{3}, \frac{3}{3}) = (1, 1)$
+- $\mu_2 = (\frac{4+5}{2}, \frac{1+3}{2}) = (\frac{9}{2}, \frac{4}{2}) = (\frac{9}{2}, 2) = (4.5, 2)$
+
+### Iteration 3 : 
+**Assignment:**
+Calculate distances between each point and each centroid.<br> Reassign each point to the nearest centroid.
+
+- Distance to $\mu_1$:
+- $d(x_1, \mu_1) = 1.414$
+- $d(x_2, \mu_1) = 1$
+- $d(x_3, \mu_1) = 1$
+- $d(x_4, \mu_1) = 3$
+- $d(x_5, \mu_1) = 4.47$
+- Distance to $\mu_2$:
+- $d(x_1, \mu_2) = 4.5$
+- $d(x_2, \mu_2) = 4.03$
+- $d(x_3, \mu_2) = 2.69$
+- $d(x_4, \mu_2) = 1.118$
+- $d(x_5, \mu_2) = 1.118$
+
+**Update:**
+All the points remain in the same clusters as before and hence it ends
+
+### Final Clusters:
+- Cluster 1: $C_1 = \{ x_1, x_2, x_3 \}$
+- Cluster 2: $C_2 = \{ x_4, x_5 \}$
 
 <hr>
 
@@ -798,6 +878,23 @@ K-means has problems when clusters are of differing
 - Contains outliers
 
 
+<hr>
+
+Q6. **Define the various K-Medoids Clustering method Approaches [ PAM, CLARA, CLARAN]**
+
+Ans.
+
+#### PAM [ Partitioning around Medoids ]
+- Starts from an initial set of medoids and iteratively replaces one of the medoids by one of the non-medoids if it improves the total distance of the resulting clustering
+- PAM works effectively for small data sets, but does not scale well for large data sets
+
+#### CLARA [Clustering Large Applications]
+- It draws multiple samples of the data set, applies PAM on each sample, and gives the best clustering as the output
+
+#### CLARANS (“Randomized” CLARA)
+- CLARANS draws sample of neighbors dynamically
+- The clustering process can be presented as searching a graph where every node is a potential solution, that is, a set of k medoids
+- It is more efficient and scalable than both PAM and CLARA
 
 <hr>
 
@@ -818,10 +915,14 @@ There are two main types of hierarchial clustering :
 	- At each step you merge the closest cluster, till a single cluster is left
 	- It is a bottom up approach
 
+Example : AGNES [ Agglomerative Nesting ]
+
 2. **Divisive**
 	- You start with a single all inclusive cluster.
 	- At each step, you split it till each cluster has 1 single points
 	- It is a top down approach
+
+Example : DIANA [ Divisive Analysis ]
 
 > These two approaches are the exact opposite of each other
 
@@ -860,11 +961,12 @@ Uses multiple representative points to evaluate the distance between clusters, a
 3. Partially cluster partitions into $\frac{s}{p}$ clusters
 4. Eliminate outliers ( if a cluster grows too slow, then eliminate it ) 
 
-#### Advantages
+**Advantages**
 Shrinking representative points toward the center helps avoid problems with noise and outliers <br> **CURE** is better able to handle clusters of arbitrary shapes and sizes
 
 **![](https://lh7-us.googleusercontent.com/mo-LWKtZUvoJZC1q_AQVE1pNjgyX5KCRqEXiT6L-t0A-ai-bRgROMbKIuW6NsZu6B0ig4ltF32_-Z2jy4K8aNSVGKWJ-hK7Ikxd1YTba1cnkKqkHNyYTZI5jbA1jbgTI4LqrlipHQGrG-bu5kQmjyKE)**
-#### Disadvantages
+
+**Disadvantages**
 It cannot handle differing densities
 
 #### ROCK [ *RO*bust *C*lustering using lin*K*s]
@@ -882,13 +984,36 @@ Clustering algorithm for data with *categorical and boolean* attributes
 
 <hr>
 
-## Density Based Clustering Methods
+Q2. **What are the various Density Based Clustering Methods ?**
+Ans. 
 
+#### Density Based Clustering
 Clustering based on density ( local cluster criterion ), since as density connected points, has the following major features : 
 - It can discover clusters of arbitrary shape
 - One Scan
 - Handle Noise
 - Needs Density Parameters and termination condition
+
+Several Interesting Studies include : 
+1. DBSCAN
+2. OPTICS
+3. DENCLUE
+4. CLIQUE
+
+
+ #### DBSCAN 
+  **[ Density Based Spatial Clustering of Applications with Noise ]**
+- A cluster is defined as a maximal set of density connected points based on the value of $\varepsilon$ and **MinPts**
+- Discovers Clusters of Arbitrary shape in spatial databases with *noise*
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXe2QWRChMnTm_iB1XnLji-i-2o6qJGoVNQVRPFvhKxvk0YPks76twdfMigSIxwMfSKZfxwvSFTuyUekoB4zXeKHd_RieGjXMXzD98Pcup28jyRiOejhD7yRRt3j0lHPRhts7bJZG878_EQGsNj6Bo98hqs?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+**Algorithm** : 
+1. Randomly select a point $p$
+2. Select all points which are density-reachable from $p$  w.r.t.  $\varepsilon$ and MinPts
+3. If $p$ is a border point, no points are density-reachable, we move on to the next point.
+4. Continue this process, till all points have been processed.
+
 
 
 ## Cluster 3
@@ -1080,7 +1205,7 @@ Since $P(No \mid \text{Features}) > P(Yes \mid \text{Features})$, the classifier
 
 <hr>
 
-## Association Rule Mining - Apriori Algorithm
+## Apriori Algorithm
 
 **![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcJmWdkI5spMwoQ1iN7pyqbA5hAfu2r44hK4-j_FpGeikkmqO_bI8ORNXd0udgWtsoWSJgNX5LUHVhI0DAyaEMDw8onCHLlX_zXeRawdh5fZq0idN4YvlNURakt2LGgDuK6zVuQMAyFWiMnqeR-Yo4a9jT-?key=ZHy1vNG2cH9g5PquhAKV5g)**
 |S.no|Item1|Item2|Item3|Item4|
@@ -1100,13 +1225,129 @@ Since $P(No \mid \text{Features}) > P(Yes \mid \text{Features})$, the classifier
 
 
 Here are a dozen sales transactions.<br>
-The objective is to use this transaction data to find affinities
-between products, that is, which products sell together often.<br>
-The support level will be set at 33 percent; the confidence level
-will be set at 50 percent.
+The objective is to use this transaction data to find affinities between products, that is, which products sell together often.<br>
+The support level will be set at 33 percent; the confidence level will be set at 50 percent.
 
 $Support = \frac{frq(X,Y)}{n}$
 
 $Confidence = \frac{frq(X,Y)}{frq(X)}$
 
+
+Certainly! Here are the frequent itemsets presented in markdown-recognizable tables:
+
+### Step 1: Identify the Candidate Itemsets (C1)
+
+| Item     | Support Count |
+|----------|---------------|
+| Milk     | 9             |
+| Egg      | 3             |
+| Bread    | 10            |
+| Butter   | 10            |
+| Ketchup  | 3             |
+| Cookies  | 4             |
+
+### Step 2: Prune Itemsets to Identify Frequent Itemsets (L1)
+
+| Item     | Support Count |
+|----------|---------------|
+| Milk     | 9             |
+| Bread    | 10            |
+| Butter   | 10            |
+| Cookies  | 4             |
+
+### Step 3: Generate Candidate Itemsets of Higher Order (C2)
+
+| Itemset           | Support Count |
+|-------------------|---------------|
+| {Milk, Bread}     | 7             |
+| {Milk, Butter}    | 7             |
+| {Milk, Cookies}   | 3             |
+| {Bread, Butter}   | 9             |
+| {Bread, Cookies}  | 3             |
+| {Butter, Cookies} | 3             |
+
+### Step 4: Prune to Identify Frequent Itemsets of Higher Order (L2)
+
+| Itemset          | Support Count |
+|------------------|---------------|
+| {Milk, Bread}    | 7             |
+| {Milk, Butter}   | 7             |
+| {Bread, Butter}  | 9             |
+
+### Step 5: Generate Candidate Itemsets of Higher Order (C3)
+
+| Itemset                  | Support Count |
+|--------------------------|---------------|
+| {Milk, Bread, Butter}    | 6             |
+
+### Final Frequent Itemsets
+
+| Itemset                  | Support Count |
+|--------------------------|---------------|
+| {Milk, Bread, Butter}    | 6             |
+
+These tables reflect the correct support counts and the frequent itemsets found using the Apriori algorithm with the given transactions and the specified support level.
+
+To generate association rules, we need to consider all possible combinations of antecedents and consequents from the frequent itemsets and calculate their support and confidence. Then, we filter out rules based on the specified minimum confidence threshold. Let's proceed with that:
+
+### Frequent Itemsets:
+
+- {Milk, Bread, Butter} (Support: 6)
+
+
+To generate all possible association rules from the frequent itemset {Milk, Bread, Butter}, we consider all non-empty subsets of this itemset. Each subset will serve as the antecedent, and the remaining items will form the consequent. Here are the association rules for all non-empty subsets of {Milk, Bread, Butter}:
+
+### Association Rules:
+
+
+#### 1. $\{ \text{Milk} \} \rightarrow \{ \text{Bread, Butter} \}$
+
+- Support: 6
+
+- Confidence: $\frac{{\text{Support}(\text{Milk, Bread, Butter})}}{{\text{Support}(\text{Milk})}} = \frac{6}{9} \approx 0.667$
+
+  
+
+#### 2. $\{ \text{Bread} \} \rightarrow \{ \text{Milk, Butter} \}$
+
+- Support: 6
+
+- Confidence: $\frac{{\text{Support}(\text{Milk, Bread, Butter})}}{{\text{Support}(\text{Bread})}} = \frac{6}{10} = 0.6$
+
+  
+
+#### 3. $\{ \text{Butter} \} \rightarrow \{ \text{Milk, Bread} \}$
+
+- Support: 6
+
+- Confidence: $\frac{{\text{Support}(\text{Milk, Bread, Butter})}}{{\text{Support}(\text{Butter})}} = \frac{6}{10} = 0.6$
+
+  
+
+#### 4. $\{ \text{Milk, Bread} \} \rightarrow \{ \text{Butter} \}$
+
+- Support: 6
+
+- Confidence: $\frac{{\text{Support}(\text{Milk, Bread, Butter})}}{{\text{Support}(\text{Milk, Bread})}} = \frac{6}{7} \approx 0.857$
+
+  
+
+#### 5. $\{ \text{Milk, Butter} \} \rightarrow \{ \text{Bread} \}$
+
+- Support: 6
+
+- Confidence: $\frac{{\text{Support}(\text{Milk, Bread, Butter})}}{{\text{Support}(\text{Milk, Butter})}} = \frac{6}{7} \approx 0.857$
+
+  
+
+#### 6. $\{ \text{Bread, Butter} \} \rightarrow \{ \text{Milk} \}$
+
+- Support: 6
+
+- Confidence: $\frac{{\text{Support}(\text{Milk, Bread, Butter})}}{{\text{Support}(\text{Bread, Butter})}} = \frac{6}{9} \approx 0.667$
+
+<hr>
+
+## K Means Clustering Q
+> [Link to Question](#initial-clusters)
 
