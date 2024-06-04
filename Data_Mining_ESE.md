@@ -9,13 +9,19 @@
 1. [Previous Year Questions](#previous-year-questions)
 2. [Silhouette Coefficient](#silhouette-coefficient)
 3. [Data Warehouse, Online Analytical Processing](#dw-olap)
+	- [Data Cube](#data-cube)	
+	- [Modelling Techniques](#modelling-techniques)
+	- [Aggregate Functions](#aggregate-functions)
 4. [Cluster Analysis](#cluster-1)
 	- [Good Clustering](#good-clustering)
 	- [Requirements of Clustering in DM](#requirements-of-clustering-in-dm)
+	- [Clustering Approaches](#clustering-approaches)
+	- [K Means Clustering](#k-means-clustering)
 5. [Hierarchial Clustering](#cluster-2)
 	- [Hierarchial Agglomerative Clustering](#hierarchial-agglomerative-clustering)
 6. [ Density Based Clustering Methods](#density-based-clustering-methods)
-7. [Numerical Practice](#numerical-practice)
+7. [High Dimensional Data Clustering](#cluster-3)
+8. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
 
 
@@ -587,7 +593,7 @@ Ans.
 
 <hr> 
 
-Q5. **What is a data Cube ?**
+Q5. **What is a Data Cube ?**
 
 Ans.
 #### Data Cube 
@@ -608,6 +614,7 @@ A data cube summarizes the measure with respect to a set of n dimensions and pro
 Q6.**What are the various types of modeling techniques in Data warehouses ?**
 
 Ans.
+#### Modelling Techniques
 The ER model is used for relational database design. <br>For data warehouse design we need a concise, subject-oriented schema that facilitates data analysis.
 
 There are the following types of Data warehousing modelling techniques : 
@@ -653,6 +660,7 @@ define dimension <dimension_name> as
 Q8. **What are the  3 categories of Aggregate Functions on measures? :**
 
 Ans.
+#### Aggregate Functions
 - *Distributive Function* : 
 If the result derived by applying the function to a subset of values is same as the value derived by applying the function on the whole dataset, then it is called **Distributive Function** 
 
@@ -731,13 +739,14 @@ Ans.
 Q4. **What are the major types of clustering approaches ?**
 
 Ans. 
+#### Clustering Approaches
 *Partitioning algorithms*:<br> Construct random partitions and then iteratively refine them by some criterion
 
 *Hierarchical algorithms*: <br>Create a hierarchical decomposition of the set of data (or objects) using some criterion
 
-*Density-based*: <br> based on connectivity and density functions
+*Density-based*: <br> Based on connectivity and density functions
 
-*Grid-based*:<br>based on a multiple-level granularity structure
+*Grid-based*:<br>Based on a multiple-level granularity structure
 
 *Model-based*: <br>A model is hypothesized for each of the clusters and the idea is to find the best fit of that model to each other
 
@@ -762,6 +771,43 @@ $d(i, j)= \sqrt{|x_{i_1} - x_{j_1}|^2 + |x_{i_2} - x_{j_2}|^2 + ...... + |x_{i_n
 
 $d(i, j)= \sqrt{w_1|x_{i_1} - x_{j_1}|^2 +w_2|x_{i_2} - x_{j_2}|^2 + ...... + w_n|x_{i_n} - x_{j_n}|^2}$
 
+<hr>
+
+Q5. **What is the partitioning method of clustering ? Define K-means clustering.**
+
+Ans.
+### Partitioning Method
+- Construct a partition of a database $D$ , containing $n$ objects, into $k$ clusters.
+	- K-means : Each cluster is represented by the centroid
+	- K-medoids : Each cluster is represented by an object in the cluster
+
+#### K means Clustering
+- It is a partition clustering approach
+- Each cluster has an associated centroid
+- Each point is assigned to the cluster with the closest centroid
+- Number of clusters $k$ must be specified
+
+**Algorithm** : 
+1. Select K points as initial centroids
+2. *Repeat*
+3. Form K clusters by assigning all points to the closest centroid
+4. Recompute the centroid of each cluster 
+5. Do until the centroid doesn't change
+
+Complexity : $O(n\times K\times I\times d)$
+
+n=  number of points<br> k = number of clusters <br> i = number of iterations <br> d = number of attributes
+
+**Limitations of K-means**
+K-means has problems when clusters are of differing
+- Sizes
+- Densities
+- Non-spherical shapes
+- Contains outliers
+
+
+
+<hr>
 
 ## Cluster 2
 
@@ -853,7 +899,49 @@ Clustering based on density ( local cluster criterion ), since as density connec
 - Needs Density Parameters and termination condition
 
 
+## Cluster 3
 
+Q1. **How do you cluster high dimensional data and what methods do you use ?**
+
+Ans.
+#### Clustering High Dimensional Data
+- It has various applications : Text Doucuments, or DNA micro array data
+- The major challenges you would face are : 
+	- Distance becomes irrelevant since a lot of equi distant points exist
+	- Many irrelevant dimensions can mask clusters
+	- Clusters may exist only in certain subspaces
+
+**Methods to cluster high dimensional data**
+1. Feature transformation [ **PCA & SVD**]
+	- It is only effective if most dimensions are relevant ( i.e. highly correlated )
+
+2. Feature Selection 
+	- Wrapper or filter approaches, help find a subspace which has nice clusters
+
+3. Subspace Clustering [ **CLIQUE, ProClus, etc**]
+	- Find clusters in all possible subspaces
+
+<hr>
+
+Q2 **What is the curse of high dimensionality ?**
+
+Ans. 
+#### High dimensionality 
+1. Data in only one dimension stays relatively packed
+2. Adding another dimensions, stretches it accross the two
+3. Adding further dimensions only makes the data more sparse
+4. Distance tends to become meaningless since a lot of equi-distance points come into play.
+
+<hr>
+
+Q3. **What is CLIQUE ? What are it's steps, strengths and weaknesses?**
+
+Ans.
+### CLIQUE ( CLustering In QUEst )
+- It is a form of subspace clustering where it *automatically identifies subspaces of high dimensional data, which better allow clustering*
+- It can be considered both *Density Based and Grid Based*
+
+<hr>
 
 
 ## Numerical Pracitce
