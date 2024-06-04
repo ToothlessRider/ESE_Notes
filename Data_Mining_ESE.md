@@ -649,6 +649,18 @@ Ans.
 - Can be visualized as a dendogram ( A tree diagram that records the sequences of merges or splits )
 
 **![](https://lh7-us.googleusercontent.com/Em6L1f1FEHdeerfLppk6qDE9Ryr1NKPpnhjB6vH1vxoB53GkpOBxogiKZIOSwvG3QwD91juJirNt7H9r6Gn-d4PoeAv1f7Yw0IgLcmqnjcViXymmY7sTyt09IKgt-YutIFgtrv5vwWR7jsTfVxx9pK8)**
+There are two main types of hierarchial clustering : 
+1. **Agglomerative**
+	- Start with the points as individual clusters
+	- At each step you merge the closest cluster, till a single cluster is left
+	- It is a bottom up approach
+
+2. **Divisive**
+	- You start with a single all inclusive cluster.
+	- At each step, you split it till each cluster has 1 single points
+	- It is a top down approach
+
+> These two approaches are the exact opposite of each other
 
 <hr>
 
@@ -656,6 +668,16 @@ Q.2 **What is Hierarchial Agglomerative Clustering and what are the ways to defi
 
 Ans.
 #### Hierarchial Agglomerative Clustering
+**Algorithm** : 
+Basic algorithm is straightforward
+1. Compute the proximity matrix
+2. Let each data point be a cluster
+3. Repeat
+	- Merge the two closest clusters
+	- Update the proximity matrix
+4. Until only a single cluster remains
+
+
 > [Link to answer](#measuring-inter-cluster-similarity)
 
 <hr>
