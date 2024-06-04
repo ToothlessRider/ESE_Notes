@@ -577,7 +577,7 @@ define dimension <dimension_name> as
 
 <hr>
 
-Q8. **What are the  3 categories of Aggregate Dunctions on measures? :**
+Q8. **What are the  3 categories of Aggregate Functions on measures? :**
 
 Ans.
 - *Distributive Function* : 
@@ -586,6 +586,8 @@ If the result derived by applying the function to a subset of values is same as 
 - *Algebraic Function* : 
 If it can be computed by an algebraic function with M arguements ( where M is a bounded integer ) 
 
+- *Holistic Function* : 
+To compute
 <hr>
 
 ## Cluster 1
@@ -636,10 +638,50 @@ Ans.
 <hr>
 
 Q3. **What are the different types of data in cluster anayliss ?**
-
-
+Ans.
+1. **Interval-scaled variables** <br>e.g., salary, height
+2. **Binary variables** <br> e.g., gender (M/F), has_cancer(T/F)
+3. **Nominal (categorical) variables** <br>  e.g., religion (Christian, Muslim, Buddhist, Hindu, etc.)
+4. **Ordinal variables** <br> e.g., Military rank ( Lieutenant, Captain, Major, Lieutenant Colonel, Colonel, Brigadier, Maj General, Lieutenant General, General, COAS etc.)
+5. **Ratio-scaled variables** <br>  population growth (1,10,100,1000,...)
+6. **Variables of mixed types** <br>  multiple attributes with various types
 
 <hr>
+
+Q4. **What are the major types of clustering approaches ?**
+
+Ans. 
+*Partitioning algorithms*:<br> Construct random partitions and then iteratively refine them by some criterion
+
+*Hierarchical algorithms*: <br>Create a hierarchical decomposition of the set of data (or objects) using some criterion
+
+*Density-based*: <br> based on connectivity and density functions
+
+*Grid-based*:<br>based on a multiple-level granularity structure
+
+*Model-based*: <br>A model is hypothesized for each of the clusters and the idea is to find the best fit of that model to each other
+
+<hr>
+
+#### Minkowski Distance : 
+
+$L_p(i, j)= ( |x_{i_1} - x_{j_1}|^p + |x_{i_2} - x_{j_2}|^p + ...... + |x_{i_n} - x_{j_n}|^p)^{\frac{1}{p}}$
+
+#### Manhattan Distance 
+> For when the value of p =1 
+
+$L_1(i, j)= |x_{i_1} - x_{j_1}| + |x_{i_2} - x_{j_2}| + ...... + |x_{i_n} - x_{j_n}|$
+
+
+#### Euclidean Distance 
+> For when the value of p =1 
+
+$d(i, j)= \sqrt{|x_{i_1} - x_{j_1}|^2 + |x_{i_2} - x_{j_2}|^2 + ...... + |x_{i_n} - x_{j_n}|^2}$
+
+>Weighted Distance : 
+
+$d(i, j)= \sqrt{w_1|x_{i_1} - x_{j_1}|^2 +w_2|x_{i_2} - x_{j_2}|^2 + ...... + w_n|x_{i_n} - x_{j_n}|^2}$
+
 
 ## Cluster 2
 
@@ -823,28 +865,21 @@ $P(PlayTennis = No) = \frac{\text{Number of 'No'}}{\text{Total number of days}} 
 
 For **PlayTennis = Yes**:
 
-$P(Outlook = Sunny \mid PlayTennis = Yes) = \frac{2}{9}$
-
-$P(Temperature = Cool \mid PlayTennis = Yes) = \frac{3}{9}$
-
-$P(Humidity = High \mid PlayTennis = Yes) = \frac{3}{9}$
-
-$P(Wind = Strong \mid PlayTennis = Yes) = \frac{3}{9}$
+- Outlook = $P(Sunny \mid  Yes) = \frac{2}{9}$
+- Temperature = $P( Cool \mid  Yes) = \frac{3}{9}$
+- Humidity = $P(High \mid Yes) = \frac{3}{9}$
+- Wind = $P(Strong \mid  Yes) = \frac{3}{9}$
 
   
 
 For **PlayTennis = No**:
 
-$P(Outlook = Sunny \mid PlayTennis = No) = \frac{3}{5}$
+- Outlook = $P( Sunny \mid  No) = \frac{3}{5}$
+- Temperature = $P( Cool \mid  No) = \frac{1}{5}$
+- Humidity = $P(High \mid No) = \frac{4}{5}$
+- Wind = $P(Strong \mid No) = \frac{3}{5}$
 
-$P(Temperature = Cool \mid PlayTennis = No) = \frac{1}{5}$
-
-$P(Humidity = High \mid PlayTennis = No) = \frac{4}{5}$
-
-$P(Wind = Strong \mid PlayTennis = No) = \frac{3}{5}$
-
-  
-
+ 
 ### Calculate Posterior Probabilities
 
 $P(PlayTennis = Yes \mid \text{Features}) \propto P(PlayTennis = Yes) \times P(Sunny \mid Yes) \times P(Cool \mid Yes) \times P(High \mid Yes) \times P( Strong \mid  Yes)$
@@ -882,3 +917,36 @@ $P(No \mid \text{Features}) = \frac{0.0206}{0.00529 + 0.0206} \approx 0.795$
   
 
 Since $P(No \mid \text{Features}) > P(Yes \mid \text{Features})$, the classifier predicts **PlayTennis = No** for the new instance (Outlook = Sunny, Temperature = Cool, Humidity = High, Wind = Strong).
+
+<hr>
+
+## Association Rule Mining - Apriori Algorithm
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcJmWdkI5spMwoQ1iN7pyqbA5hAfu2r44hK4-j_FpGeikkmqO_bI8ORNXd0udgWtsoWSJgNX5LUHVhI0DAyaEMDw8onCHLlX_zXeRawdh5fZq0idN4YvlNURakt2LGgDuK6zVuQMAyFWiMnqeR-Yo4a9jT-?key=ZHy1vNG2cH9g5PquhAKV5g)**
+|S.no|Item1|Item2|Item3|Item4|
+|--|--|--|--|--|
+|1| Milk| Egg| Bread| Butter|
+|2| Milk| Butter |Egg| Ketchup|
+|3 |Bread |Butter |Ketchup| 
+|4 |Milk| Bread |Butter| 
+|5 |Bread| Butter| Cookies| 
+|6| Milk| Bread| Butter| Cookies |
+|7| Milk| Cookies| 
+|8 |Milk |Bread| Butter| 
+|9| Bread |Butter| Egg |Cookies| 
+|10| Milk |Butter| Bread| 
+|11| Milk |Bread| Butter| 
+|12 |Milk| Bread|Cookies| Ketchup|
+
+
+Here are a dozen sales transactions.<br>
+The objective is to use this transaction data to find affinities
+between products, that is, which products sell together often.<br>
+The support level will be set at 33 percent; the confidence level
+will be set at 50 percent.
+
+$Support = \frac{frq(X,Y)}{n}$
+
+$Confidence = \frac{frq(X,Y)}{frq(X)}$
+
+
