@@ -13,6 +13,9 @@
 	- [Requirements of Clustering in DM](#requirements-of-clustering-in-dm)
 4. [Hierarchial Clustering](#cluster-2)
 	- [Hierarchial Agglomerative Clustering](#hierarchial-agglomerative-clustering)
+5. [ Density Based Clustering Methods](#density-based-clustering-methods)
+6. [Numerical Practice](#numerical-practice)
+	- [Naive Bayes Classifier](#naive-bayes-classifier)
 
 
 
@@ -687,11 +690,195 @@ Q3. **What are the different Data Clustering algorithms ?**
 Ans.
 
 #### CURE [ Clustering Using REpresentative ]
+Stops the creation of a cluster hierarchy if a level consists of k clusters
 
-- **Algorithm**
+Uses multiple representative points to evaluate the distance between clusters, adjusts well to arbitrary shaped clusters and avoids single-link effect
+
+**Algorithm**
 1. Draw a random sample s
 2. Partition sample to $p$ partitions with each being of the size $\frac{s}{p}$
 3. Partially cluster partitions into $\frac{s}{p}$ clusters
 4. Eliminate outliers ( if a cluster grows too slow, then eliminate it ) 
 
-#### ROCK
+#### Advantages
+Shrinking representative points toward the center helps avoid problems with noise and outliers <br> **CURE** is better able to handle clusters of arbitrary shapes and sizes
+
+**![](https://lh7-us.googleusercontent.com/mo-LWKtZUvoJZC1q_AQVE1pNjgyX5KCRqEXiT6L-t0A-ai-bRgROMbKIuW6NsZu6B0ig4ltF32_-Z2jy4K8aNSVGKWJ-hK7Ikxd1YTba1cnkKqkHNyYTZI5jbA1jbgTI4LqrlipHQGrG-bu5kQmjyKE)**
+#### Disadvantages
+It cannot handle differing densities
+
+#### ROCK [ *RO*bust *C*lustering using lin*K*s]
+Clustering algorithm for data with *categorical and boolean* attributes
+
+- Use links to measure proximity
+- Not distance based
+- Computational Complexity : 
+	- $O(n^2 + nm_mm_a + n^2logn)$
+
+
+#### CHAMELEON [ ] 
+
+
+
+<hr>
+
+## Density Based Clustering Methods
+
+Clustering based on density ( local cluster criterion ), since as density connected points, has the following major features : 
+- It can discover clusters of arbitrary shape
+- One Scan
+- Handle Noise
+- Needs Density Parameters and termination condition
+
+
+
+
+
+## Numerical Pracitce
+
+### Naive Bayes Classifier
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdmzw_Ye44KZ6sW9yz2unhl8WJ0bsh6hfwvH8PzS9aihtP87GRbLWhpv9C5GiN_HDYgNoHtw1q6X0MyNgx7FPWpyfgKsOmqMhWyLSyoEQEXYVMLkNbGQZOt8-hVb2vVtC_X6BcLngnZD6JUOEotlKttUNs?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+|Day | Outlook | Temperature | Humidity |Wind| PlayTennis |
+|-- |--|--|--|--|--|
+|DI |Sunny |Hot| High| Weak| No|
+| D2| Sunny| Hot| High |Strong |No|
+| D3 |Overcast |Hot |High| Weak| Yes|
+| D4| Rain |Mild| High| Weak |Yes|
+| D5 |Rain |Cool| Normal |Weak |Yes|
+| D6 |Rain |Cool |Normal| Strong| No|
+| D7| Overcast| Cool| Normal |Strong| Yes| 
+|D8 |Sunny| Mild| High |Weak| No |
+|D9| Sunny |Cool |Normal |Weak| Yes| 
+| D10 |Rain |Mild| Normal| Weak| Yes| 
+| D11 |Sunny |Mild| Normal |Strong| Yes| 
+|D12| Overcast |Mild| High |Strong| Yes| D13 |Overcast| Hot |Normal| Weak |Yes| 
+| D14| Rain| Mild| High |Strong| No|
+( Outlook = Sunny, Temperature = cool, Humidity = high, Wind = strong )
+
+Classify the following example using Naive Bayes Classifier : 
+
+### Naive Bayes Classification Example
+
+  
+
+To classify the new instance (Outlook = Sunny, Temperature = Cool, Humidity = High, Wind = Strong) using the Naive Bayes classifier, we need to calculate the posterior probabilities for each class (PlayTennis = Yes and PlayTennis = No) and choose the class with the highest probability.
+
+  
+
+### Steps for Naive Bayes Classification
+
+  
+
+1. **Calculate Prior Probabilities**:
+
+- $P(PlayTennis = Yes)$
+
+- $P(PlayTennis = No)$
+
+  
+
+2. **Calculate Likelihoods**:
+
+- $P(Outlook = Sunny \mid PlayTennis = Yes)$
+
+- $P(Temperature = Cool \mid PlayTennis = Yes)$
+
+- $P(Humidity = High \mid PlayTennis = Yes)$
+
+- $P(Wind = Strong \mid PlayTennis = Yes)$
+
+- $P(Outlook = Sunny \mid PlayTennis = No)$
+
+- $P(Temperature = Cool \mid PlayTennis = No)$
+
+- $P(Humidity = High \mid PlayTennis = No)$
+
+- $P(Wind = Strong \mid PlayTennis = No)$
+
+  
+
+3. **Calculate Posterior Probabilities** using Bayes' Theorem:
+
+- $P(PlayTennis = Yes \mid \text{Features}) \propto P(PlayTennis = Yes) \times P(Outlook = Sunny \mid PlayTennis = Yes) \times P(Temperature = Cool \mid PlayTennis = Yes) \times P(Humidity = High \mid PlayTennis = Yes) \times P(Wind = Strong \mid PlayTennis = Yes)$
+
+- $P(PlayTennis = No \mid \text{Features}) \propto P(PlayTennis = No) \times P(Outlook = Sunny \mid PlayTennis = No) \times P(Temperature = Cool \mid PlayTennis = No) \times P(Humidity = High \mid PlayTennis = No) \times P(Wind = Strong \mid PlayTennis = No)$
+
+  
+
+### Calculate Prior Probabilities
+
+  
+
+$P(PlayTennis = Yes) = \frac{\text{Number of 'Yes'}}{\text{Total number of days}} = \frac{9}{14}$
+
+$P(PlayTennis = No) = \frac{\text{Number of 'No'}}{\text{Total number of days}} = \frac{5}{14}$
+
+  
+
+### Calculate Likelihoods
+
+  
+
+For **PlayTennis = Yes**:
+
+$P(Outlook = Sunny \mid PlayTennis = Yes) = \frac{2}{9}$
+
+$P(Temperature = Cool \mid PlayTennis = Yes) = \frac{3}{9}$
+
+$P(Humidity = High \mid PlayTennis = Yes) = \frac{3}{9}$
+
+$P(Wind = Strong \mid PlayTennis = Yes) = \frac{3}{9}$
+
+  
+
+For **PlayTennis = No**:
+
+$P(Outlook = Sunny \mid PlayTennis = No) = \frac{3}{5}$
+
+$P(Temperature = Cool \mid PlayTennis = No) = \frac{1}{5}$
+
+$P(Humidity = High \mid PlayTennis = No) = \frac{4}{5}$
+
+$P(Wind = Strong \mid PlayTennis = No) = \frac{3}{5}$
+
+  
+
+### Calculate Posterior Probabilities
+
+$P(PlayTennis = Yes \mid \text{Features}) \propto P(PlayTennis = Yes) \times P(Sunny \mid Yes) \times P(Cool \mid Yes) \times P(High \mid Yes) \times P( Strong \mid  Yes)$
+
+$P(PlayTennis = Yes \mid \text{Features}) \propto \frac{9}{14} \times \frac{2}{9} \times \frac{3}{9} \times \frac{3}{9} \times \frac{3}{9}$
+
+  
+
+$P(PlayTennis = No \mid \text{Features}) \propto P(PlayTennis = No) \times P(Sunny \midNo) \times P( Cool \mid  No) \times P(High \mid No) \times P(Strong \mid No)$
+
+$P(PlayTennis = No \mid \text{Features}) \propto \frac{5}{14} \times \frac{3}{5} \times \frac{1}{5} \times \frac{4}{5} \times \frac{3}{5}$
+
+  
+
+### Normalize the Probabilities
+
+  
+
+First, calculate the numerators:
+
+$P(PlayTennis = Yes \mid \text{Features}) = \frac{9}{14} \times \frac{2}{9} \times \frac{3}{9} \times \frac{3}{9} \times \frac{3}{9} = \frac{9 \times 2 \times 3 \times 3 \times 3}{14 \times 9^4} = \frac{486}{91854} \approx 0.00529$
+
+  
+
+$P(PlayTennis = No \mid \text{Features}) = \frac{5}{14} \times \frac{3}{5} \times \frac{1}{5} \times \frac{4}{5} \times \frac{3}{5} = \frac{5 \times 3 \times 1 \times 4 \times 3}{14 \times 5^4} = \frac{180}{8750} \approx 0.0206$
+
+  
+
+Now, normalize the probabilities:
+
+$P(Yes \mid \text{Features}) = \frac{0.00529}{0.00529 + 0.0206} \approx 0.2046$
+
+$P(No \mid \text{Features}) = \frac{0.0206}{0.00529 + 0.0206} \approx 0.795$
+
+  
+
+Since $P(No \mid \text{Features}) > P(Yes \mid \text{Features})$, the classifier predicts **PlayTennis = No** for the new instance (Outlook = Sunny, Temperature = Cool, Humidity = High, Wind = Strong).
