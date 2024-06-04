@@ -853,7 +853,7 @@ $P(PlayTennis = Yes \mid \text{Features}) \propto \frac{9}{14} \times \frac{2}{9
 
   
 
-$P(PlayTennis = No \mid \text{Features}) \propto P(PlayTennis = No) \times P(Sunny \midNo) \times P( Cool \mid  No) \times P(High \mid No) \times P(Strong \mid No)$
+$P(PlayTennis = No \mid \text{Features}) \propto P(PlayTennis = No) \times P(Sunny \mid No) \times P( Cool \mid  No) \times P(High \mid No) \times P(Strong \mid No)$
 
 $P(PlayTennis = No \mid \text{Features}) \propto \frac{5}{14} \times \frac{3}{5} \times \frac{1}{5} \times \frac{4}{5} \times \frac{3}{5}$
 
