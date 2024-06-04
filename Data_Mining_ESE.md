@@ -82,11 +82,7 @@ A proximity matrix is a square matrix used in various fields such as statistics,
    - Common examples of symmetric proximity matrices include those based on Euclidean distance, cosine similarity, or Pearson correlation coefficient.
 
    **Example**:
- $P = \begin{pmatrix}
-   0 & 2 & 3 \\
-   2 & 0 & 4 \\
-   3 & 4 & 0
-   \end{pmatrix}$
+ $P = \begin{pmatrix}0 & 2 & 3 \\2 & 0 & 4 \\3 & 4 & 0\end{pmatrix}$
   
    This matrix is symmetric because $P_{ij} = P_{ji}$ for all $i$ and $j$.
 
@@ -96,10 +92,7 @@ A proximity matrix is a square matrix used in various fields such as statistics,
    - Asymmetric proximity matrices are less common but can arise in specific contexts, such as when measuring directed relationships or asymmetric similarity measures.
 
    **Example**:
-$P = \begin{pmatrix}
-   0 & 2 & 3 \\
-   1 & 0 & 4 \\
-   5 & 3 & 0  \end{pmatrix}$
+$P = \begin{pmatrix}0 & 2 & 3 \\1 & 0 & 4 \\5 & 3 & 0  \end{pmatrix}$
    
    This matrix is asymmetric because $P_{12} \neq P_{21}$, $P_{13} \neq P_{31}$ , etc.
 
