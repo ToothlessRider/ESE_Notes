@@ -1038,6 +1038,7 @@ Clustering algorithm for data with *categorical and boolean* attributes
 <hr>
 
 Q2. **What are the various Density Based Clustering Methods ?**
+
 Ans. 
 
 #### Density Based Clustering
