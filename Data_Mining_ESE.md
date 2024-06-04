@@ -24,7 +24,8 @@
 5. [High Dimensional Data Clustering](#cluster-3)
 	- [Cluster Validity](#cluster-validity)
 	- [Cohesion and Separation](#cohesion-and-separation)
-6. [Numerical Practice](#numerical-practice)
+6. [Data Preprocessing](#data-preprocessing)
+7. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
 	- [Association Rule Mining - Apriori Algorithm](#apriori-algorithm)
 	- [K Means Clustering](#k-means-clustering-q)
@@ -1149,6 +1150,102 @@ Numerical measures that are applied to judge various aspects of cluster validity
 
 <hr>
 
+## Data Preprocessing
+Q1. **What is the need for data preprocessing ? **
+
+Ans. 
+Data in the real world is dirty
+- **Incomplete:** lacking attribute values, lacking certain attributes of interest, or containing only aggregate data
+- **Noisy**: containing errors or outliers
+- **Inconsistent**: containing discrepancies in codes or names
+
+Without quality data, you won't get results from data mining
+- Quality decisions must be based on quality data
+- Data warehouse needs consistent integration of quality data
+- Required for both OLAP and Data Mining!
+
+
+
+
+<hr>
+
+Q2. **Why is data incomplete sometimes or noisy/inconsistent sometimes ?**
+
+Ans.
+#### Incomplete Data
+Data sometimes can be incomplete for the following reasons : 
+- Attributes of interest are not available (e.g., customer information for sales transaction data)
+- Data was not considered important at the time of transactions, so they were not recorded!
+- Data wasn't recorded because of misunderstandings or malfunctions
+- Data may have been recorded and later deleted
+- Missing/unknown values for some data
+
+#### Noisy Data
+Data can be noisy due to the following reasons 
+- Faulty instruments for data collection
+- Human or computer errors
+- Errors in data transmission
+- Technology limitations (e.g., sensor data come a a faster rate than they can be processed)
+- Inconsistencies in naming conventions or data codes (e.g., 2/5/2002 could be 2 May 2002 or 5 Feb 2002)
+- Duplicate tuples, which were received twice should also be removed
+
+<hr>
+
+Q3. **What are the Multi-Dimensional measures of Data Quality?**
+
+Ans.
+A well-accepted multidimensional view:
+- Accuracy
+- Completeness
+- Consistency
+- Timeliness
+- Believability
+- Value added
+- Interpretability
+- Accessibility
+
+Broad categories:
+- intrinsic, contextual, representational, and accessibility.
+
+<hr>
+
+Q4. **What are the major steps in data preprocessing ?**
+
+Ans.
+Major Tasks in Data Preprocessing
+- Data cleaning
+	- Fill in missing values, smooth noisy data, identify or remove outliers and resolve inconsistencies
+- Data integration
+	- Integration of multiple databases, data cubes, or files
+- Data transformation
+	- Normalization and aggregation
+- Data reduction
+	- Obtains reduced representation in volume but produces the same or similar analytical results
+- Data discretization
+	- Part of data reduction but with particular importance, especially for numerical data
+
+<hr>
+
+Q5. **What are the various smoothing techniques to handle noisy data?**
+
+Ans.
+**Binning method**:
+- first sort data and partition into (equi-depth) bins 
+- Yhen one can smooth by bin means, smooth by bin median, smooth by bin boundaries, etc.
+
+**Clustering**
+- Detect and remove outliers
+
+**Combined computer and human inspection**
+- Computer detects suspicious values, which are then checked by humans
+
+**Regression**
+- Smooth by fitting the data into regression functions
+
+**Use Concept hierarchies**
+- Use concept hierarchies, e.g., price value -> "expensive"
+
+<hr>
 
 
 ## Numerical Pracitce
