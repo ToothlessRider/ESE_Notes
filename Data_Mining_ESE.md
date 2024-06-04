@@ -23,6 +23,7 @@
 		- [Density Based Spatial Clustering of Applications with Noise (DBSCAN)](#dbscan)
 5. [High Dimensional Data Clustering](#cluster-3)
 	- [Cluster Validity](#cluster-validity)
+	- [Cohesion and Separation](#cohesion-and-separation)
 6. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
 	- [Association Rule Mining - Apriori Algorithm](#apriori-algorithm)
@@ -251,7 +252,7 @@ Ans.
 
 <hr>
 
-2. **Cohesion and separation**
+2. #### Cohesion and Separation
 
 | Cluster Coehsion | Cluster Separation | 
 |--|--|
