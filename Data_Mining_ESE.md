@@ -7,25 +7,26 @@
 
 # Table of Contents 
 1. [Previous Year Questions](#previous-year-questions)
-2. [Silhouette Coefficient](#silhouette-coefficient)
-3. [Data Warehouse, Online Analytical Processing](#dw-olap)
+2. [Data Warehouse, Online Analytical Processing](#dw-olap)
 	- [Data Cube](#data-cube)	
 	- [Modelling Techniques](#modelling-techniques)
 	- [Aggregate Functions](#aggregate-functions)
-4. [Cluster Analysis](#cluster-1)
+3. [Cluster Analysis](#cluster-1)
 	- [Good Clustering](#good-clustering)
 	- [Requirements of Clustering in DM](#requirements-of-clustering-in-dm)
 	- [Clustering Approaches](#clustering-approaches)
 	- [K Means Clustering](#k-means-clustering)
-5. [Hierarchial Clustering](#cluster-2)
+	- [Measuring Inter-Cluster Similarity](#measuring-inter-cluster-similarity)
+4. [Hierarchial Clustering](#cluster-2)
 	- [Hierarchial Agglomerative Clustering](#hierarchial-agglomerative-clustering)
 	- [Density Based Clustering](#density-based-clustering)
 		- [Density Based Spatial Clustering of Applications with Noise (DBSCAN)](#dbscan)
-7. [High Dimensional Data Clustering](#cluster-3)
-8. [Numerical Practice](#numerical-practice)
+5. [High Dimensional Data Clustering](#cluster-3)
+6. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
 	- [Association Rule Mining - Apriori Algorithm](#apriori-algorithm)
 	- [K Means Clustering](#k-means-clustering-q)
+	- [Silhouette Coefficient](#silhouette-coefficient)
 
 
 
@@ -549,7 +550,7 @@ and then we will finally merge these two as well to give us the final cluster as
 Q5. c. **Consider the data set of 7 points of 2 dimension.<br> $Cluster_1$ = {(11, 14), (11, 13), (12, 13)} and <br>$Cluster_2$ = {(2,5), (3,4), (5, 4), (1, 3)} Calculate silhouette value for a point (12,13).**
 
 Ans. 
-#### Silhouette Coefficient
+#### Silhouette Coefficient Question
 
 Silhouette Coefficient combine ideas of both cohesion and separation, but for individual points, as well as clusters and clusterings
 
@@ -564,9 +565,8 @@ $d_1 = \sqrt{|12 - 11|^2 + |13 - 14|^2} = \sqrt{2} = 1.414$
 
 $d_2 = \sqrt{|12 - 11|^2 + |13 - 13|^2} = \sqrt{1} = 1$
 
-$d_3 = \sqrt{|12 - 12|^2 + |13 - 13|^2} = \sqrt{0} = 0$
 
-$Average = \frac{1.414 + 1 + 0 }{3} = 0.80466$
+$Average = \frac{1.414 + 1 }{2} =1.207$
 
 **Average Distance to other cluster points ( b )**
 $d_1 = \sqrt{|12 - 2|^2 + |13 - 5|^2} = \sqrt{164} = 12.806$
@@ -582,7 +582,7 @@ $Average = \frac{14.866 + 11.401 + 12.727 + 12.806}{4} =12.95$
 
 $\text{Silhouette Coefficient} = 1 - \frac{a}{b}$
 
-$\text{Silhouette Coefficient} = 1 - \frac{0.80466}{12.95} = 0.93786409266$ 
+$\text{Silhouette Coefficient} = 1 - \frac{1.207}{12.95} = 0.9067$ 
 <hr>
 
 
@@ -1060,6 +1060,15 @@ Ans.
 
 <hr>
 
+Q4. **What is Model Based Clustering ?**
+
+Ans.
+
+<hr>
+
+Q5. **What is cluster validity and what are it's measures ?**
+
+
 
 ## Numerical Pracitce
 
@@ -1350,4 +1359,10 @@ To generate all possible association rules from the frequent itemset {Milk, Brea
 
 ## K Means Clustering Q
 > [Link to Question](#initial-clusters)
+
+<hr>
+
+## Silhouette Coefficient 
+> [Link to Question](#silhouette-coefficient-question)
+
 
