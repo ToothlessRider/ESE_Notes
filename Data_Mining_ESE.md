@@ -86,6 +86,7 @@ A proximity matrix is a square matrix used in various fields such as statistics,
    - Common examples of symmetric proximity matrices include those based on Euclidean distance, cosine similarity, or Pearson correlation coefficient.
 
    **Example**:
+
 **![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeMlF21Oo1_m7IAlmuf7jjl1lHgHTVLSedGWj70RgSBibdDGRgHXHu27pnasI-pyiHVPxGR4s0MVmX5mcNdstuVAmMOQQl4uj_7bXu88_4cJBtab3XcIXqXWFkS_vNOaW_-7QSB_olx_vH0JwB7GJRxED_W?key=ZHy1vNG2cH9g5PquhAKV5g)**
   
    This matrix is symmetric because $P_{ij} = P_{ji}$ for all $i$ and $j$.
@@ -96,6 +97,7 @@ A proximity matrix is a square matrix used in various fields such as statistics,
    - Asymmetric proximity matrices are less common but can arise in specific contexts, such as when measuring directed relationships or asymmetric similarity measures.
 
    **Example**:
+
 **![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeZrmOApIPdsFfMrswkoJgwwlnogNLOFbNESyb2hfLOH87HY70m6ZT0J74NThS0o8rfSGPz5M9FpuAHj8Ixqgg3ffFnL1IIZkTtN2pax_ehefdnEKkYCaUkrjzOBm8R9QYxp_kI2HCWjeEbq1xxDuDr3YDB?key=ZHy1vNG2cH9g5PquhAKV5g)**
    
    This matrix is asymmetric because $P_{12} \neq P_{21}$, $P_{13} \neq P_{31}$ , etc.
