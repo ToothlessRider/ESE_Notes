@@ -1006,7 +1006,6 @@ Ans.
 
 #### CURE [ Clustering Using REpresentative ]
 Stops the creation of a cluster hierarchy if a level consists of k clusters
-
 Uses multiple representative points to evaluate the distance between clusters, adjusts well to arbitrary shaped clusters and avoids single-link effect
 
 **Algorithm**
@@ -1151,7 +1150,7 @@ Numerical measures that are applied to judge various aspects of cluster validity
 <hr>
 
 ## Data Preprocessing
-Q1. **What is the need for data preprocessing ? **
+Q1. **What is the need for data preprocessing ?**
 
 Ans. 
 Data in the real world is dirty
@@ -1163,9 +1162,6 @@ Without quality data, you won't get results from data mining
 - Quality decisions must be based on quality data
 - Data warehouse needs consistent integration of quality data
 - Required for both OLAP and Data Mining!
-
-
-
 
 <hr>
 
@@ -1269,23 +1265,19 @@ Ans.
 | D11 |Sunny |Mild| Normal |Strong| Yes| 
 |D12| Overcast |Mild| High |Strong| Yes| D13 |Overcast| Hot |Normal| Weak |Yes| 
 | D14| Rain| Mild| High |Strong| No|
+
 ( Outlook = Sunny, Temperature = cool, Humidity = high, Wind = strong )
 
 Classify the following example using Naive Bayes Classifier : 
 
 ### Naive Bayes Classification Example
 
-  
-
 To classify the new instance (Outlook = Sunny, Temperature = Cool, Humidity = High, Wind = Strong) using the Naive Bayes classifier, we need to calculate the posterior probabilities for each class (PlayTennis = Yes and PlayTennis = No) and choose the class with the highest probability.
 
-  
 
 ### Steps for Naive Bayes Classification
 
-  
-
-1. **Calculate Prior Probabilities**:
+**Calculate Prior Probabilities**:
 
 - $P(PlayTennis = Yes)$
 
@@ -1293,7 +1285,7 @@ To classify the new instance (Outlook = Sunny, Temperature = Cool, Humidity = Hi
 
   
 
-2. **Calculate Likelihoods**:
+**Calculate Likelihoods**:
 
 - $P(Outlook = Sunny \mid PlayTennis = Yes)$
 
@@ -1313,27 +1305,20 @@ To classify the new instance (Outlook = Sunny, Temperature = Cool, Humidity = Hi
 
   
 
-3. **Calculate Posterior Probabilities** using Bayes' Theorem:
+**Calculate Posterior Probabilities** using Bayes' Theorem:
 
-- $P(PlayTennis = Yes \mid \text{Features}) \propto P(PlayTennis = Yes) \times P(Outlook = Sunny \mid PlayTennis = Yes) \times P(Temperature = Cool \mid PlayTennis = Yes) \times P(Humidity = High \mid PlayTennis = Yes) \times P(Wind = Strong \mid PlayTennis = Yes)$
+- $P(PlayTennis = Yes \mid \text{Features}) \propto P(PlayTennis = Yes) \times P( Sunny \mid Yes) \times P(Cool \mid Yes) \times P(High \mid Yes) \times P(Strong \mid Yes)$
 
-- $P(PlayTennis = No \mid \text{Features}) \propto P(PlayTennis = No) \times P(Outlook = Sunny \mid PlayTennis = No) \times P(Temperature = Cool \mid PlayTennis = No) \times P(Humidity = High \mid PlayTennis = No) \times P(Wind = Strong \mid PlayTennis = No)$
+- $P(PlayTennis = No \mid \text{Features}) \propto P(PlayTennis = No) \times P(Sunny \mid  No) \times P(Cool \mid No) \times P(High \mid No) \times P(Strong \mid  No)$
 
-  
 
 ### Calculate Prior Probabilities
-
-  
 
 $P(PlayTennis = Yes) = \frac{\text{Number of 'Yes'}}{\text{Total number of days}} = \frac{9}{14}$
 
 $P(PlayTennis = No) = \frac{\text{Number of 'No'}}{\text{Total number of days}} = \frac{5}{14}$
 
-  
-
 ### Calculate Likelihoods
-
-  
 
 For **PlayTennis = Yes**:
 
@@ -1342,8 +1327,6 @@ For **PlayTennis = Yes**:
 - Humidity = $P(High \mid Yes) = \frac{3}{9}$
 - Wind = $P(Strong \mid  Yes) = \frac{3}{9}$
 
-  
-
 For **PlayTennis = No**:
 
 - Outlook = $P( Sunny \mid  No) = \frac{3}{5}$
@@ -1351,7 +1334,6 @@ For **PlayTennis = No**:
 - Humidity = $P(High \mid No) = \frac{4}{5}$
 - Wind = $P(Strong \mid No) = \frac{3}{5}$
 
- 
 ### Calculate Posterior Probabilities
 
 $P(PlayTennis = Yes \mid \text{Features}) \propto P(PlayTennis = Yes) \times P(Sunny \mid Yes) \times P(Cool \mid Yes) \times P(High \mid Yes) \times P( Strong \mid  Yes)$
