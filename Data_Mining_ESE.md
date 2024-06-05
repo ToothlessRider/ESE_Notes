@@ -934,6 +934,7 @@ Q5. b. **Discuss different ways of measuring inter-cluster similarity?**
 | F | 7 | 3 | 18 | 17 | 2 | 0 | 
 
 **For the above distance matrix, draw a dendogram using complete link inter- clustering.**
+
 Ans. 
 ### Measuring Inter-Cluster Similarity
 
@@ -966,6 +967,7 @@ When clustering data, it’s essential to determine how similar or different clu
    - It requires a $O(n^2)$ time complexity using a proximity matrix
    - It also requires $O(n^3)$ in many cases and can be reduced to $O(n^2logn)$ for some approaches
 
+**Solving using Complete Linkage**
 In the first iteration after calculating the distances we will select the first cluster to be $C, D$
 
 | | A | B | C,D | E | F | 
@@ -977,6 +979,8 @@ In the first iteration after calculating the distances we will select the first 
 | F | 7 | 3 | 18| 2 | 0 | 
 
 Then the next cluster to be chosen will be $E,F$
+
+> Should've chosen A and B and not E,F} and B
 
 | | A | B | C,D | E, F | 
 | -- | -- | -- | -- | -- |  
