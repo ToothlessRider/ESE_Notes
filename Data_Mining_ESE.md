@@ -1164,6 +1164,24 @@ Without quality data, you won't get results from data mining
 - Data warehouse needs consistent integration of quality data
 - Required for both OLAP and Data Mining!
 
+The steps in data preprocessing are : 
+1. Data Cleaning
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXc2dHvLltw0ozJcafEWoAYUkihcREPsZFLiceWGCBoC9_ZBFqSnCmOQBwahJF9cowN8TJyfmtIZJ1Lg_kAjZydy9pSHy2YwJPS56zxQ1IXLK54Mz0czk0UUqkI30xsnDmbEKfsZ4otRScuz90Ofy0tckp00?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+2. Data integration and transformation
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfEpZJQqxcJa_eHNGvJWdFcEbnNwTJ6wIUub9hSFG1a9EIfb2qltQ26vJJUtcQTXk1Mdg1EdHlB7mK_r9CgUrEtRDmKRVo4lKOrgtJN5APj2Q7JVQ2I7kIoiQpFyR4S41LThS55KoKISRryYxbvOQsapuAJ?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcZxL-ROI50ZD_tdkbTPQp9IuFmHgeNk0i6VOTIBU5Q6-NYo60AzKDmXmhWJeCsw37_RIzPjxfFMAyGiGmwTWS2DCCzMaH96k24DfnP7edPJUOOkEOb9XOiSWqiU7RvDJ_DkyBhXjzECrn_AoksGh_UvE2B?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+3. Data reduction
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdqMqxE9PFKOznYlqqrlKFX5YiPk5hwc7mYpsvMRP44nNV8jHSnW9rPdOI3eTCNKpOHbZx5H7v8SQ6XsDqzQTP9WDOYNOcy54l7yYV-_tA5kGD0FJjA0EJAiFwWikbe5WO7f7fvU5M4NzomZJLhA6NbhF8?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+4. Data Discretization
+
+
 <hr>
 
 Q2. **Why is data incomplete sometimes or noisy/inconsistent sometimes ?**
@@ -1191,7 +1209,7 @@ Data can be noisy due to the following reasons
 Q3. **What are the Multi-Dimensional measures of Data Quality?**
 
 Ans.
-A well-accepted multidimensional view:
+A well-accepted multidimensional view: **[ACCTBVIA]**
 - Accuracy
 - Completeness
 - Consistency
@@ -1223,27 +1241,172 @@ Major Tasks in Data Preprocessing
 
 <hr>
 
-Q5. **What are the various smoothing techniques to handle noisy data?**
+Q5. **What all does data cleaning entail?**
+
+Ans.
+Data cleaning involves : 
+1. Filling in missing values
+2. Identifying outliers and smoothing out noisy data
+3. Correcting inconsistent data
+
+The ways to handle missing values are : 
+- Ignoring the tuple entirely
+-  Fill in the missing value manually preferrably with a global constant or average / mean 
+- Use the most probably value to fill in the missing value ( Naive Bayesian formula )
+- 
+
+
+<hr>
+
+Q6. **What are the various smoothing techniques to handle noisy data?[BURCC]**
 
 Ans.
 **Binning method**:
 - first sort data and partition into (equi-depth) bins 
 - Yhen one can smooth by bin means, smooth by bin median, smooth by bin boundaries, etc.
 
+**Use Concept hierarchies**
+- Use concept hierarchies, e.g., price value -> "expensive"
+- Concept hierarchy organizes information or concepts in a hierarchical structure
+
+**Regression**
+- Smoothing by fitting the data into regression functions
+- 
 **Clustering**
 - Detect and remove outliers
 
 **Combined computer and human inspection**
 - Computer detects suspicious values, which are then checked by humans
 
-**Regression**
-- Smooth by fitting the data into regression functions
+<hr>
 
-**Use Concept hierarchies**
-- Use concept hierarchies, e.g., price value -> "expensive"
+Q7.**Exaplin the two smoothing methods used in Binning**
+
+Ans.
+**Equal-width (distance) partitioning**:
+It divides the range into N intervals of equal size: uniform grid
+- If A and B are the lowest and highest values of the attribute, the width of intervals will be: $W = (B-A)/N$
+- The most straightforward but outliers may dominate presentation
+- Skewed data is not handled well.
+
+**Equal-depth (frequency) partitioning**:
+- It divides the range into N intervals, each containing approximately same number of samples
+- Good data scaling - good handing of skewed data
+
+Example : Sorted data for price (in dollars): 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34
+
+Partition into (equi-depth) bins:
+- Bin 1: 4, 8, 9, 15
+- Bin 2: 21, 21, 24, 25
+- Bin 3: 26, 28, 29, 34
+
+Smoothing by bin means:
+- Bin 1: 9, 9, 9, 9
+- Bin 2: 23, 23, 23, 23
+- Bin 3: 29, 29, 29, 29
+
+Smoothing by bin boundaries: [4,15],[21,25],[26,34]
+The values closest to either boundary are rounded off
+- Bin 1: 4, 4, 4, 15
+- Bin 2: 21, 21, 25, 25
+- Bin 3: 26, 26, 26, 34
+
 
 <hr>
 
+Q8. **What are the various methods used in Data Transformation?**
+
+Ans.
+#### Data Transformation [ NAGAS]
+**Smoothing**:
+- remove noise from data
+
+**Aggregation** :
+- summarization, data cube, construction
+
+**Generalization**:
+- concept hierarchy climbing
+
+**Normalization**: <br> Scaled to fall within a small, specified range
+- min-max normalization
+- z-score normalization
+- normalization by decimal scaling
+
+**Attribute/feature construction**:
+- New attributes constructed from the given ones
+
+<hr>
+
+Q8. **What is Data Reduction and what are some data reduction, strategies ? **
+
+Ans.
+#### Data reduction
+Obtains a reduced representation of the data set that is much smaller in volume but yet produces the same (or almost the same) analytical results
+
+**Data reduction strategies**
+- Data cube aggregation
+- Dimensionality reduction
+- Data compression
+
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXemKeGw1CMMcKnZvZfUdFpMX_QKfHIs5J24e_ez8bv07Lvxl-74c0OuHWxBsgiqU1tHicVZCCO1QNklDCJgJ2KX4a3Jr-Z-pIEya3f9dLj0HH-VZr2gOSrK8HT9bSpXPsEakO_A99ijFT1yj99B-1ZCMvQ?key=ZHy1vNG2cH9g5PquhAKV5g)**
+
+- Numerosity reduction
+- Discretization and concept hierarchy generation
+
+<hr>
+
+Q9. **Define the PCA Approach to Data Reduction**
+
+Ans.
+#### Principal Component Analysis or Karhuren-Loeve  method
+Given N data vectors from k-dimensions, find $c <= k$ orthogonal vectors that can be best used
+to represent data
+- The original data set is reduced to one consisting of N data vectors on c principal components (reduced
+dimensions)
+
+Each data vector is a linear combination of the $c$ principal component vectors
+- Works for numeric data only
+- Used when the number of dimensions is large
+
+<hr>
+
+Q10. **What are the different types of Histograms ?**
+
+Ans. 
+#### Histogram types
+1. **Equal-width histograms:**
+- It divides the range into N intervals of equal size
+
+2. **Equal-depth (frequency) partitioning**:
+- It divides the range into N intervals, each containing approximately same number of samples
+
+3. **V-optimal**:
+- It considers all histogram types for a given number of buckets and chooses the one with the least variance.
+
+4. **MaxDiff**:
+- After sorting the data to be approximated, it defines the borders of the buckets at points where the adjacent values have the maximum difference
+Example: split $[1,1,4,5,5,7,9],[14,16,18],[27,30,30,32]$ to three
+buckets
+
+<hr>
+
+Q11. **What is Data Discretization?**
+
+Ans. 
+#### Discretization
+Reducing  the number of values for a given continuous attribute by dividing the range of the attribute into intervals. Interval labels can then be used to replace actual data values.
+The reasons why we do this are : 
+- Some classification algorithms only accept categorical attributes.
+- Reduce data size by discretization
+- Prepare for further analysis
+
+
+There are 3 types of attributes:
+1. **Nominal** — values from an unordered set
+2. **Ordinal** — values from an ordered set
+3. **Continuous** — real numbers
+
+<hr>
 
 ## Numerical Pracitce
 
