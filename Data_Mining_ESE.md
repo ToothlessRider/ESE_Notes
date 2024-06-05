@@ -251,9 +251,18 @@ Q1. c. **Differentiate between**
 1. **Intrinsic and extrinsic measures**
 
 Ans.
-| Intrinsic | Extrinsic |
-| -- | -- |
-| 
+Sure, here's a summary of the differentiation between intrinsic and extrinsic measures in a tabular format:
+
+| Aspect            | Intrinsic Measures                             | Extrinsic Measures                                     |
+|-------------------|-----------------------------------------------|-------------------------------------------------------|
+| Definition        | Properties inherent to the object itself.   | Influenced by external factors or context.           |
+| Focus             | Internal qualities or characteristics.      | Relationship between the object and its environment. |
+| Dependency        | Independent of external influences.         | Influenced by external factors or conditions.        |
+| Examples          | Physical properties, qualities, features.   | Market value, social status, environmental factors.  |
+
+**Example:**
+- **Intrinsic**: Hardness, clarity, and color of a diamond.
+- **Extrinsic**: Market value of a diamond influenced by demand, supply, and economic conditions.
 
 <hr>
 
@@ -274,25 +283,17 @@ Ans.
 Ans.
 ~~Not in PPTs~~
 
-Certainly! Here are the points, shortened:
+#### Symmetric vs. Asymmetric Attributes
 
-### Symmetric vs. Asymmetric Attributes
+Here's the information presented in a table format:
 
-#### Symmetric Attributes:
-- **Definition**: Outcomes or values are equally important.
-- **Examples**:
-  - **Age**: 30 to 40 is the same as 40 to 30.
-  - **Height**: 5 feet to 6 feet is the same as 6 feet to 5 feet.
-- **Usage**: Suitable for Euclidean distance.
+| Aspect            | Symmetric Attributes                                      | Asymmetric Attributes                                   |
+|-------------------|----------------------------------------------------------|---------------------------------------------------------|
+| Definition        | Outcomes or values are equally important.               | Certain values are more significant than others.        |
+| Examples          | Age: 30 to 40 is the same as 40 to 30.<br> Height: 5 feet to 6 feet is the same as 6 feet to 5 feet. | Market Basket: Presence of an item (1) is more important than absence (0).<br> Medical Tests: Presence of a symptom (positive) is more significant than absence (negative). |
+| Usage             | Suitable for Euclidean distance.                        | Suitable for Jaccard similarity.                        |
 
-#### Asymmetric Attributes:
-- **Definition**: Certain values are more significant than others.
-- **Examples**:
-  - **Market Basket**: Presence of an item (1) is more important than absence (0).
-  - **Medical Tests**: Presence of a symptom (positive) is more significant than absence (negative).
-- **Usage**: Suitable for Jaccard similarity.
-
-### Example in a Dataset:
+**Example in a Dataset:**
 - **Symmetric Attributes**: Age, height, weight.
 - **Asymmetric Attributes**: Purchase of items (Milk, Bread, Butter).
 
@@ -305,62 +306,34 @@ Certainly! Here are the points, shortened:
 - **Symmetric Analysis**: Use Euclidean distance for age, height, weight.
 - **Asymmetric Analysis**: Use Jaccard similarity for Milk, Bread, Butter.
 
-### Summary:
-- **Symmetric**: Equal importance, e.g., numerical attributes.
-- **Asymmetric**: Unequal importance, e.g., binary attributes in transactions.
-
 <hr>
 
 4. **Agglomerative and divisive clustering**
 
 Ans.
-Certainly! Here is a concise differentiation between Agglomerative and Divisive Clustering:
 
 ### Agglomerative vs. Divisive Clustering
 
-#### Agglomerative Clustering:
-- **Definition**: A bottom-up approach where each data point starts as its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
-- **Process**:
-  - Start with each point as a separate cluster.
-  - Merge the closest pair of clusters.
-  - Repeat until all points are in a single cluster.
-- **Advantages**: 
-  - Simple and easy to implement.
-  - No need to specify the number of clusters in advance.
-- **Disadvantages**: 
-  - Computationally expensive for large datasets.
-  - Merging decisions are final and cannot be undone.
-- **Example**: Hierarchical clustering with dendrograms showing how clusters are merged step-by-step.
-
-#### Divisive Clustering:
-- **Definition**: A top-down approach where all data points start in one cluster, and splits are performed recursively as one moves down the hierarchy.
-- **Process**:
-  - Start with all points in a single cluster.
-  - Split the cluster into two least similar clusters.
-  - Repeat until each point is its own cluster.
-- **Advantages**: 
-  - Can be more accurate as it considers global structure.
-  - Suitable for certain types of data where a clear top-down structure is present.
-- **Disadvantages**: 
-  - More computationally intensive than agglomerative.
-  - Requires criteria to decide how to split clusters.
-- **Example**: Recursive splitting in hierarchical clustering with a top-down approach.
+| Aspect           | Agglomerative Clustering                                  | Divisive Clustering                            |
+|------------------|----------------------------------------------------------|-----------------------------------------------|
+| **Definition**   | Bottom-up approach, merging pairs of clusters.         | Top-down approach, recursively splitting clusters. |
+| **Process**      | Start with each point as a cluster, merge closest pairs until all points are in one cluster. | Start with all points in one cluster, recursively split until each point is a cluster. |
+| **Advantages**   | Simple, no need to specify clusters in advance.          | Considers global structure, suitable for certain data types. |
+| **Disadvantages**| Computationally expensive, merging decisions are irreversible. | Computationally intensive, requires splitting criteria. |
+| **Example**      | Hierarchical clustering with dendrograms.                | Recursive splitting in hierarchical clustering. |
 
 ### Summary:
 - **Agglomerative**:
   - **Approach**: Bottom-up.
-  - **Process**: Merge clusters.
   - **Advantages**: Simple, no need to specify clusters.
   - **Disadvantages**: Computationally expensive, irreversible merges.
 - **Divisive**:
   - **Approach**: Top-down.
-  - **Process**: Split clusters.
   - **Advantages**: Considers global structure, suitable for certain data types.
   - **Disadvantages**: Computationally intensive, requires splitting criteria.
-
 <hr>
 
-Q2. a. **Consider the following data, where the return tells us if it's a up or down the characteristics required for the same. Using the following table, create a decision tree and predict whether return is up or down for the following tupl (Use Gini index as criterion). Find the class of (positive, Iow, low)**
+Q2. a. **Consider the following data, where the return tells us if it's a up or down the characteristics required for the same. Using the following table, create a decision tree and predict whether return is up or down for the following tuple (Use Gini index as criterion). Find the class of (positive, Iow, low)**
 
 | Past Trend | Open Interest | Trading Volume |Return | 
 | -- | -- | -- | -- |
@@ -439,18 +412,18 @@ $\text{Gini}_{\text{split}} = \frac{6}{10} \times 0.4444 + \frac{4}{10} \times 0
 
 
 #### Split on "Trading Volume":
-- **High**: 6 instances (3 Up, 3 Down)
-- **Low**: 4 instances (1 Up, 3 Down)
+- **High**: 7 instances (4 Up, 3 Down)
+- **Low**: 3 instances (0 Up, 3 Down)
 
 
-$\text{Gini}_{\text{High}} = 1 - \left(\left(\frac{3}{6}\right)^2 + \left(\frac{3}{6}\right)^2\right) = 1 - \left(\frac{9}{36} + \frac{9}{36}\right) = 1 - \frac{18}{36} = 1 - 0.5 = 0.5$
+$\text{Gini}_{\text{High}} = 1 - \left(\left(\frac{4}{7}\right)^2 + \left(\frac{3}{7}\right)^2\right) = 1 - \left(\frac{16}{49} + \frac{9}{49}\right) = 1 - \frac{24}{49} = 1 - 0.4897 = 0.5103$
 
 
-$\text{Gini}_{\text{Low}} = 1 - \left(\left(\frac{1}{4}\right)^2 + \left(\frac{3}{4}\right)^2\right) = 1 - \left(\frac{1}{16} + \frac{9}{16}\right) = 1 - \frac{10}{16} = 1 - 0.625 = 0.375$
+$\text{Gini}_{\text{Low}} = 1 - \left(\left(\frac{0}{3}\right)^2 + \left(\frac{3}{3}\right)^2\right) = 1 - 1 =	 0$
 
 Weighted Gini for "Trading Volume":
 
-$\text{Gini}_{\text{split}} = \frac{6}{10} \times 0.5 + \frac{4}{10} \times 0.375 = 0.3 + 0.15 = 0.45$
+$\text{Gini}_{\text{split}} = \frac{7}{10} \times 0.5103 + \frac{3}{10} \times 0 = 0.3571 + 0 = 0.3571$
 
 ### Step 3: Choose the Best Split
 
@@ -458,7 +431,7 @@ The attribute with the lowest weighted Gini index is chosen for the split.
 
 - **Past Trend**: 0.2666
 - **Open Interest**: 0.4666
-- **Trading Volume**: 0.45
+- **Trading Volume**: 0.3571
 
 
 The best split is on "Past Trend".
@@ -472,41 +445,7 @@ The best split is on "Past Trend".
 - **Negative**: 4 instances (0 Up, 4 Down) 
 
 **Negative** node is pure (all Down).
-
- 
-#### Positive Node Split (Next Best Split)
-
-
 For "Positive":
-- Subset:
-
-| Open Interest | Trading Volume | Return |
-|---------------|----------------|--------|
-| Low | High | Up |
-| Low | High | Up |
-| High | High | Up |
-| Low | Low | Down |
-| Low | Low | Down |
-| High | High | Up |
-
- 
-
-**Split on "Open Interest"**:
-
-- **Low**: 4 instances (2 Up, 2 Down)
-
-- **High**: 2 instances (2 Up, 0 Down)
-
-  
-
-Gini for "Open Interest":
-
-- Low: $\text{Gini}_{\text{Low}} = 1 - \left(\left(\frac{2}{4}\right)^2 + \left(\frac{2}{4}\right)^2\right) = 0.5$
-
-- High: $\text{Gini}_{\text{High}} = 0$
-
-- Weighted Gini: $\frac{4}{6} \times 0.5 + \frac{2}{6} \times 0 = 0.3333$
-
 
 **Split on "Trading Volume"**:
 
@@ -514,17 +453,6 @@ Gini for "Open Interest":
 
 - **Low**: 2 instances (0 Up, 2 Down)
 
-  
-
-Gini for "Trading Volume":
-
-- High: $\text{Gini}_{\text{High}} = 1 - \left(\left(\frac{3}{4}\right)^2 + \left(\frac{1}{4}\right)^2\right) = 0.375$
-
-- Low: $\text{Gini}_{\text{Low}} = 0$
-
-- Weighted Gini: $\frac{4}{6} \times 0.375 + \frac{2}{6} \times 0 = 0.25$
-
-  
 
 The next best split for the "Positive" node is "Trading Volume".
 
