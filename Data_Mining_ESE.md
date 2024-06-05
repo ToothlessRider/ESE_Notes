@@ -969,7 +969,7 @@ When clustering data, it’s essential to determine how similar or different clu
 In the first iteration after calculating the distances we will select the first cluster to be $C, D$
 
 | | A | B | C,D | E | F | 
-| -- | -- | -- | -- | -- | -- | -- |
+| -- | -- | -- | -- | -- | -- |
 | A | 0 | 4 | 25 | 9 | 7 |
 | B | 4 | 0 | 21| 5 | 3 | 
 | C,D | 25 | 21 | 0 | 16 | 18 |
@@ -979,7 +979,7 @@ In the first iteration after calculating the distances we will select the first 
 Then the next cluster to be chosen will be $E,F$
 
 | | A | B | C,D | E, F | 
-| -- | -- | -- | -- | -- | -- | 
+| -- | -- | -- | -- | -- |  
 | A | 0 | 4 | 25 | 9 | 
 | B | 4 | 0 | 21| 5 | 
 | C,D | 25 | 21 | 0 | 18 | 
@@ -988,7 +988,7 @@ Then the next cluster to be chosen will be $E,F$
   Then the next cluster to be chosen will be ${E,F},B$
 
 | | A | B,E,F | C,D |  
-| -- | -- | -- | -- | -- | 
+| -- | -- | -- | -- | 
 | A | 0 | 9 | 25 | 
 | B,E,F | 9 | 0 | 21|  
 | C,D | 25 | 21 | 0 | 
