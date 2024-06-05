@@ -1136,9 +1136,8 @@ A data cube summarizes the measure with respect to a set of n dimensions and pro
 - The bottom final cuboid, i.e., $a_{6,5}$ which contains the value 598, is called the **Apex Cuboid**
 - This contains the highest level of summarization
 - The row and column cuboids form a lattice of cuboids like so : 
-**![](https://lh7-us.googleusercontent.com/CBn78s7GlM9FcMgEd5R238gRmDE2RYkwS9UCjVY6qk3EX7fMlJrrFlpJvtqwXiQi5REP2hg5HeFccBsYCQRc3AdMHTCxvlRkvMDKo80Po-N4nvRjDtl-3R8oq8t9v-7o28j17qUh1zrTYdmuFwM5IMk)**
 
-
+**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdV0oB0ZLudItUlhEFYpEWdebsm1G91BERmcK1l__gQVu8TV9kiRyIk-hG2cb3G2iX1nhJrbIa0GY58jB-56uv-xwL66W73OW20exKxiMDzLndNmYcY9OTEIfAFnCSUpddclO-EpFt1zh0rQX__uztQL5Qm?key=ZHy1vNG2cH9g5PquhAKV5g)**
 
 <hr>
 
