@@ -25,6 +25,10 @@
 	- [Cluster Validity](#cluster-validity)
 	- [Cohesion and Separation](#cohesion-and-separation)
 6. [Data Preprocessing](#data-preprocessing)
+	- [Data Cleaning](#data-cleaning)
+	- [Data Transformation](#data-transformation-nagas)
+	- [Data Reduction](#data-reduction)
+	- [Data Discretization](#discretization)
 7. [Numerical Practice](#numerical-practice)
 	- [Naive Bayes Classifier](#naive-bayes-classifier)
 	- [Association Rule Mining - Apriori Algorithm](#apriori-algorithm)
@@ -268,13 +272,91 @@ Ans.
 3. **Symmetric and asymmetric attributes. Give an example**
 
 Ans.
+~~Not in PPTs~~
+
+Certainly! Here are the points, shortened:
+
+### Symmetric vs. Asymmetric Attributes
+
+#### Symmetric Attributes:
+- **Definition**: Outcomes or values are equally important.
+- **Examples**:
+  - **Age**: 30 to 40 is the same as 40 to 30.
+  - **Height**: 5 feet to 6 feet is the same as 6 feet to 5 feet.
+- **Usage**: Suitable for Euclidean distance.
+
+#### Asymmetric Attributes:
+- **Definition**: Certain values are more significant than others.
+- **Examples**:
+  - **Market Basket**: Presence of an item (1) is more important than absence (0).
+  - **Medical Tests**: Presence of a symptom (positive) is more significant than absence (negative).
+- **Usage**: Suitable for Jaccard similarity.
+
+### Example in a Dataset:
+- **Symmetric Attributes**: Age, height, weight.
+- **Asymmetric Attributes**: Purchase of items (Milk, Bread, Butter).
+
+#### Dataset Example:
+| Customer | Age | Height | Weight | Milk | Bread | Butter |
+|----------|-----|--------|--------|------|-------|--------|
+| 1        | 25  | 5.7    | 160    | 1    | 1     | 0      |
+| 2        | 30  | 5.9    | 170    | 0    | 1     | 1      |
+
+- **Symmetric Analysis**: Use Euclidean distance for age, height, weight.
+- **Asymmetric Analysis**: Use Jaccard similarity for Milk, Bread, Butter.
+
+### Summary:
+- **Symmetric**: Equal importance, e.g., numerical attributes.
+- **Asymmetric**: Unequal importance, e.g., binary attributes in transactions.
 
 <hr>
 
 4. **Agglomerative and divisive clustering**
 
 Ans.
+Certainly! Here is a concise differentiation between Agglomerative and Divisive Clustering:
 
+### Agglomerative vs. Divisive Clustering
+
+#### Agglomerative Clustering:
+- **Definition**: A bottom-up approach where each data point starts as its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
+- **Process**:
+  - Start with each point as a separate cluster.
+  - Merge the closest pair of clusters.
+  - Repeat until all points are in a single cluster.
+- **Advantages**: 
+  - Simple and easy to implement.
+  - No need to specify the number of clusters in advance.
+- **Disadvantages**: 
+  - Computationally expensive for large datasets.
+  - Merging decisions are final and cannot be undone.
+- **Example**: Hierarchical clustering with dendrograms showing how clusters are merged step-by-step.
+
+#### Divisive Clustering:
+- **Definition**: A top-down approach where all data points start in one cluster, and splits are performed recursively as one moves down the hierarchy.
+- **Process**:
+  - Start with all points in a single cluster.
+  - Split the cluster into two least similar clusters.
+  - Repeat until each point is its own cluster.
+- **Advantages**: 
+  - Can be more accurate as it considers global structure.
+  - Suitable for certain types of data where a clear top-down structure is present.
+- **Disadvantages**: 
+  - More computationally intensive than agglomerative.
+  - Requires criteria to decide how to split clusters.
+- **Example**: Recursive splitting in hierarchical clustering with a top-down approach.
+
+### Summary:
+- **Agglomerative**:
+  - **Approach**: Bottom-up.
+  - **Process**: Merge clusters.
+  - **Advantages**: Simple, no need to specify clusters.
+  - **Disadvantages**: Computationally expensive, irreversible merges.
+- **Divisive**:
+  - **Approach**: Top-down.
+  - **Process**: Split clusters.
+  - **Advantages**: Considers global structure, suitable for certain data types.
+  - **Disadvantages**: Computationally intensive, requires splitting criteria.
 
 <hr>
 
@@ -294,12 +376,217 @@ Q2. a. **Consider the following data, where the return tells us if it's a up or 
 |Positive| High| High | Up |
 
 Ans.
+To create a decision tree using the Gini index as the criterion and predict whether the return is up or down for the tuple (Positive, Low, Low), follow these steps:
+
+### Step 1: Calculate Gini Index for the Entire Dataset
+The Gini index for a dataset is calculated as follows:
+
+$\text{Gini} = 1 - \sum_{i=1}^{n} (p_i^2)$
+
+where $p_i$ is the probability of class $i$ .
+
+#### Dataset:
+| Past Trend | Open Interest | Trading Volume | Return |
+|------------|---------------|----------------|--------|
+| Positive   | Low           | High           | Up     |
+| Negative   | High          | Low            | Down   |
+| Positive   | Low           | High           | Up     |
+| Positive   | High          | High           | Up     |
+| Negative   | Low           | High           | Down   |
+| Positive   | Low           | Low            | Down   |
+| Negative   | High          | High           | Down   |
+| Negative   | Low           | High           | Down   |
+| Positive   | Low           | Low            | Down   |
+| Positive   | High          | High           | Up     |
+
+- **Up**: 4 instances
+- **Down**: 6 instances
+
+$p(\text{Up}) = \frac{4}{10} = 0.4$
+
+$p(\text{Down}) = \frac{6}{10} = 0.6$
+
+$\text{Gini} = 1 - (0.4^2 + 0.6^2) = 1 - (0.16 + 0.36) = 1 - 0.52 = 0.48$
+
+### Step 2: Calculate Gini Index for Splits
+We need to calculate the Gini index for potential splits on each attribute.
+
+#### Split on "Past Trend":
+- **Positive**: 6 instances (4 Up, 2 Down)
+- **Negative**: 4 instances (0 Up, 4 Down)
+
+
+$\text{Gini}_{\text{Positive}} = 1 - \left(\left(\frac{4}{6}\right)^2 + \left(\frac{2}{6}\right)^2\right) = 1 - \left(\frac{16}{36} + \frac{4}{36}\right) = 1 - \frac{20}{36} = 1 - 0.5556 = 0.4444$
+
+$\text{Gini}_{\text{Negative}} = 1 - \left(\left(\frac{0}{4}\right)^2 + \left(\frac{4}{4}\right)^2\right) = 1 - (0 + 1) = 0$
+
+Weighted Gini for "Past Trend":
+
+$\text{Gini}_{\text{split}} = \frac{6}{10} \times 0.4444 + \frac{4}{10} \times 0 = 0.2666 + 0 = 0.2666$
+
+#### Split on "Open Interest":
+- **Low**: 6 instances (2 Up, 4 Down)
+- **High**: 4 instances (2 Up, 2 Down)
+
+$\text{Gini}_{\text{Low}} = 1 - \left(\left(\frac{2}{6}\right)^2 + \left(\frac{4}{6}\right)^2\right) = 1 - \left(\frac{4}{36} + \frac{16}{36}\right) = 1 - \frac{20}{36} = 1 - 0.5556 = 0.4444$
+
+$\text{Gini}_{\text{High}} = 1 - \left(\left(\frac{2}{4}\right)^2 + \left(\frac{2}{4}\right)^2\right) = 1 - \left(\frac{4}{16} + \frac{4}{16}\right) = 1 - \frac{8}{16} = 1 - 0.5 = 0.5$
+
+
+Weighted Gini for "Open Interest":
+
+$\text{Gini}_{\text{split}} = \frac{6}{10} \times 0.4444 + \frac{4}{10} \times 0.5 = 0.2666 + 0.2 = 0.4666$
+
+
+#### Split on "Trading Volume":
+- **High**: 6 instances (3 Up, 3 Down)
+- **Low**: 4 instances (1 Up, 3 Down)
+
+
+$\text{Gini}_{\text{High}} = 1 - \left(\left(\frac{3}{6}\right)^2 + \left(\frac{3}{6}\right)^2\right) = 1 - \left(\frac{9}{36} + \frac{9}{36}\right) = 1 - \frac{18}{36} = 1 - 0.5 = 0.5$
+
+
+$\text{Gini}_{\text{Low}} = 1 - \left(\left(\frac{1}{4}\right)^2 + \left(\frac{3}{4}\right)^2\right) = 1 - \left(\frac{1}{16} + \frac{9}{16}\right) = 1 - \frac{10}{16} = 1 - 0.625 = 0.375$
+
+Weighted Gini for "Trading Volume":
+
+$\text{Gini}_{\text{split}} = \frac{6}{10} \times 0.5 + \frac{4}{10} \times 0.375 = 0.3 + 0.15 = 0.45$
+
+### Step 3: Choose the Best Split
+
+The attribute with the lowest weighted Gini index is chosen for the split.  
+
+- **Past Trend**: 0.2666
+- **Open Interest**: 0.4666
+- **Trading Volume**: 0.45
+
+
+The best split is on "Past Trend".
+
+### Step 4: Build the Decision Tree
+
+#### Root Node: "Past Trend"
+
+- **Positive**: 6 instances (4 Up, 2 Down)
+
+- **Negative**: 4 instances (0 Up, 4 Down) 
+
+**Negative** node is pure (all Down).
+
+ 
+#### Positive Node Split (Next Best Split)
+
+
+For "Positive":
+- Subset:
+
+| Open Interest | Trading Volume | Return |
+|---------------|----------------|--------|
+| Low | High | Up |
+| Low | High | Up |
+| High | High | Up |
+| Low | Low | Down |
+| Low | Low | Down |
+| High | High | Up |
+
+ 
+
+**Split on "Open Interest"**:
+
+- **Low**: 4 instances (2 Up, 2 Down)
+
+- **High**: 2 instances (2 Up, 0 Down)
+
+  
+
+Gini for "Open Interest":
+
+- Low: $\text{Gini}_{\text{Low}} = 1 - \left(\left(\frac{2}{4}\right)^2 + \left(\frac{2}{4}\right)^2\right) = 0.5$
+
+- High: $\text{Gini}_{\text{High}} = 0$
+
+- Weighted Gini: $\frac{4}{6} \times 0.5 + \frac{2}{6} \times 0 = 0.3333$
+
+
+**Split on "Trading Volume"**:
+
+- **High**: 4 instances (3 Up, 1 Down)
+
+- **Low**: 2 instances (0 Up, 2 Down)
+
+  
+
+Gini for "Trading Volume":
+
+- High: $\text{Gini}_{\text{High}} = 1 - \left(\left(\frac{3}{4}\right)^2 + \left(\frac{1}{4}\right)^2\right) = 0.375$
+
+- Low: $\text{Gini}_{\text{Low}} = 0$
+
+- Weighted Gini: $\frac{4}{6} \times 0.375 + \frac{2}{6} \times 0 = 0.25$
+
+  
+
+The next best split for the "Positive" node is "Trading Volume".
+
+### Final Decision Tree:
+```mermaid
+graph TD
+    A[Past Trend]
+    A -- Negative --> B[Down]
+    A -- Positive --> C[Trading Volume]
+    C -- High --> D[Up]
+    C -- Low --> E[Down]
+
+```
+
+### Prediction for (Positive, Low, Low):
+Following the decision tree:
+- Past Trend = Positive
+- Trading Volume = Low
+
+The predicted return is **Down**.
 
 <hr>
 
 Q2. b. **Explain briefly various measures associated with attribute selection?**
 
 Ans. 
+Certainly! Here are the shortened points for the specified attribute selection measures:
+
+### 1. Information Gain
+- **Definition**: Measures reduction in entropy after splitting on an attribute.
+- **Formula**:
+  $\text{Information Gain}(A) = \text{Entropy}(D) - \sum_{v} \frac{|D_v|}{|D|} \times \text{Entropy}(D_v)$
+- **Usage**: Decision trees (ID3).
+- **Pros**: Simple, effective.
+- **Cons**: Biased towards attributes with more values.
+
+### 2. Gini Index
+- **Definition**: Measures impurity of a dataset.
+- **Formula**:
+ $\text{Gini Index}(A) = 1 - \sum_{i} p_i^2$
+- **Usage**: Decision trees (CART).
+- **Pros**: Simple, efficient.
+- **Cons**: Less informative than entropy-based measures.
+
+### 3. Gain Ratio
+- **Definition**: Adjusts information gain by intrinsic information.
+- **Formula**:
+  $\text{Gain Ratio}(A) = \frac{\text{Information Gain}(A)}{\text{Intrinsic Value}(A)}$ <br>
+ $\text{Intrinsic Value}(A) = -\sum_{v} \frac{|D_v|}{|D|} \log_2 \left(\frac{|D_v|}{|D|}\right)$
+- **Usage**: Decision trees (C4.5).
+- **Pros**: Reduces bias towards many-valued attributes.
+- **Cons**: More complex to compute.
+
+### 4. Correlation Coefficient
+- **Definition**: Measures linear relationship between attribute and class label.
+- **Formula**:
+$\text{Correlation Coefficient}(A, Y) = \frac{\text{Cov}(A, Y)}{\sigma_A \sigma_Y}$
+- **Usage**: Regression tasks.
+- **Pros**: Easy to interpret.
+- **Cons**: Only captures linear relationships.
+
+These measures help in selecting the most relevant attributes for model construction based on different criteria and are chosen based on the nature of the data and the specific task at hand.
 
 <hr>
 
@@ -319,7 +606,143 @@ Q2. c. **Suppose we have data on few individuals randomly surveyed. The data giv
 | Yes | No | No | no | Male |
 
 Ans. 
+### Applying Naive Bayesian Classification
 
+  
+
+To classify the new instance $(\text{Finance} = \text{No}, \text{Travel} = \text{Yes}, \text{Reading} = \text{Yes}, \text{Health} = \text{No})$, we'll use the Naive Bayes algorithm. We'll calculate the probability of the instance being Male and Female given the attributes.
+
+  
+
+### Step 1: Calculate Prior Probabilities
+
+  
+
+First, we need to determine the prior probabilities for each class (Sex).
+
+  
+
+- **Number of Males (Male)**: 6
+
+- **Number of Females (Female)**: 4
+
+- **Total Instances**: 10
+
+  
+
+$P(\text{Male}) = \frac{6}{10} = 0.6$
+
+$P(\text{Female}) = \frac{4}{10} = 0.4$
+
+  
+
+### Step 2: Calculate Likelihoods
+
+  
+
+Next, we calculate the likelihood of the attributes given each class.
+
+  
+
+#### Likelihoods for Male
+
+- **P(Finance = No | Male)**: 1 out of 6 Males have Finance = No
+
+$P(\text{Finance} = \text{No} | \text{Male}) = \frac{1}{6} \approx 0.1667$
+
+- **P(Travel = Yes | Male)**: 3 out of 6 Males have Travel = Yes
+
+$P(\text{Travel} = \text{Yes} | \text{Male}) = \frac{3}{6} = 0.5$
+
+  
+
+- **P(Reading = Yes | Male)**: 1 out of 6 Males have Reading = Yes
+
+$P(\text{Reading} = \text{Yes} | \text{Male}) = \frac{1}{6} \approx 0.1667$
+
+  
+
+- **P(Health = No | Male)**: 4 out of 6 Males have Health = No
+
+$P(\text{Health} = \text{No} | \text{Male}) = \frac{4}{6} = 0.6667$
+
+  
+
+#### Likelihoods for Female
+
+- **P(Finance = No | Female)**: 2 out of 4 Females have Finance = No
+
+$P(\text{Finance} = \text{No} | \text{Female}) = \frac{2}{4} = 0.5$
+
+  
+
+- **P(Travel = Yes | Female)**: 2 out of 4 Females have Travel = Yes
+
+$P(\text{Travel} = \text{Yes} | \text{Female}) = \frac{2}{4} = 0.5$
+
+  
+
+- **P(Reading = Yes | Female)**: 2 out of 4 Females have Reading = Yes
+
+$P(\text{Reading} = \text{Yes} | \text{Female}) = \frac{2}{4} = 0.5$
+
+  
+
+- **P(Health = No | Female)**: 1 out of 4 Females have Health = No
+
+$P(\text{Health} = \text{No} | \text{Female}) = \frac{1}{4} = 0.25$
+
+  
+
+### Step 3: Calculate Posterior Probabilities
+
+  
+
+We use Bayes' Theorem to calculate the posterior probabilities for each class given the attributes.
+
+  
+
+$P(\text{Male} | \text{Attributes}) = P(\text{Male}) \times P(\text{Finance} = \text{No} | \text{Male}) \times P(\text{Travel} = \text{Yes} | \text{Male}) \times P(\text{Reading} = \text{Yes} | \text{Male}) \times P(\text{Health} = \text{No} | \text{Male})$
+
+  
+
+$P(\text{Male} | \text{Attributes}) = 0.6 \times 0.1667 \times 0.5 \times 0.1667 \times 0.6667$
+
+  
+
+$P(\text{Male} | \text{Attributes}) \approx 0.6 \times 0.1667 \times 0.5 \times 0.1667 \times 0.6667 \approx 0.00334$
+
+  
+
+$P(\text{Female} | \text{Attributes}) = P(\text{Female}) \times P(\text{Finance} = \text{No} | \text{Female}) \times P(\text{Travel} = \text{Yes} | \text{Female}) \times P(\text{Reading} = \text{Yes} | \text{Female}) \times P(\text{Health} = \text{No} | \text{Female})$
+
+  
+
+$P(\text{Female} | \text{Attributes}) = 0.4 \times 0.5 \times 0.5 \times 0.5 \times 0.25$
+
+  
+
+$P(\text{Female} | \text{Attributes}) = 0.4 \times 0.5 \times 0.5 \times 0.5 \times 0.25 \approx 0.025$
+
+  
+
+### Step 4: Normalize the Probabilities
+
+  
+
+To determine the final classification, we compare the posterior probabilities.
+
+  
+
+$P(\text{Male} | \text{Attributes}) \approx 0.00334$
+
+$P(\text{Female} | \text{Attributes}) \approx 0.025$
+
+  
+
+### Conclusion
+
+Since $ P(\text{Female} | \text{Attributes}) > P(\text{Male} | \text{Attributes}) $, the new instance $(\text{Finance} = \text{No}, \text{Travel} = \text{Yes}, \text{Reading} = \text{Yes}, \text{Health} = \text{No})$ is classified as **Female**.
 
 <hr>
 
@@ -425,13 +848,13 @@ Q4. c. **Calculate kappa coefficient for the following confusion matrix. Refrenc
 | Water Building | 3 | 2 | 0 | 2 | 10 | 
 
 Ans. 
-
+~~Not in PPTS~~
 <hr>
 
 Q4. d. **Discuss the various ways in which spatial data can be represented. Use appropriate figures to explain.**
 
 Ans. 
-
+~~Not in PPTS~~
 <hr>
 
 Q5. a. **Give an algorithm for K-means clustering. Consider the following 5 points { $x_1, x_2, x_3, x_4, x_5$ } with the following as a two dimensional sample: <br> $x_1= (0,2), x_2 = (1,0), x_3 = (2,1), x_4 = (4,1), x_5 = (5,3)$  for clustering.<br> Illustrate K-means algorithm on the above dataset. The required number of cluster is 2. Initially the cluster are formed from random distribution of samples <br> $C_1 = \{x_1, x_2, x_4\} \text { and } C_2 = \{ x_3, x_5\}$**
@@ -671,20 +1094,20 @@ Example :
 Q2. **What are the different steps in creating a data warehouse ?**
 
 Ans. 
-#### Data Selection
+**Data Selection**
 - Only data which are important for analysis are selected. ( employee info, dept, etc ) 
 - *Subject Oriented*
 
-#### Data Cleaning
+**Data Cleaning**
 - Tuples which are incomplete or logically inconsistent are cleaned
 
-#### Data Integration
+**Data Integration**
 - Consistency of attribute names
 - Consistency of attribute types
 - Consistency of values
 - Integration of data
 
-#### Data Summarization
+**Data Summarization**
 - Values are summarized according to the desired level of analysis
 - For example, in the HK database, they give the time unit as well, but we are only interested in the day
 
@@ -1244,6 +1667,7 @@ Major Tasks in Data Preprocessing
 Q5. **What all does data cleaning entail?**
 
 Ans.
+#### Data Cleaning
 Data cleaning involves : 
 1. Filling in missing values
 2. Identifying outliers and smoothing out noisy data
@@ -1253,7 +1677,6 @@ The ways to handle missing values are :
 - Ignoring the tuple entirely
 -  Fill in the missing value manually preferrably with a global constant or average / mean 
 - Use the most probably value to fill in the missing value ( Naive Bayesian formula )
-- 
 
 
 <hr>
@@ -1317,7 +1740,7 @@ The values closest to either boundary are rounded off
 Q8. **What are the various methods used in Data Transformation?**
 
 Ans.
-#### Data Transformation [ NAGAS]
+#### Data Transformation NAGAS
 **Smoothing**:
 - remove noise from data
 
