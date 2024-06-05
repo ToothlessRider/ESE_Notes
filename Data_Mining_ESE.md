@@ -787,8 +787,8 @@ Ans.
 <hr>
 
 Q3. c. **Find all the faults in the following datasets.**
-| # | id } Name | Birthday | Gender | is Teacher? | #stud | country | city | 
-| -- | -- | -- | -- | -- | -- | -- | -- | 
+| # | id | Name | Birthday | Gender | is Teacher? | #stud | country | city | 
+| -- | -- | -- | -- | -- | -- | -- | -- | --|
 1 | 111 | John | 21/10/90 | M | 0 | 0 | Ireland | Dublin | 
 | 2 | 222 | Mary | 12/10/78 | F | 1 | 15 | Iceland | | 
 | 3 | 333 | Alice | 19/04/00 | F | 0 | 0 | Spain | Madrid | 
@@ -800,6 +800,60 @@ Q3. c. **Find all the faults in the following datasets.**
 | 9 | 999 | Anne | 5/9/42 | M | 0 | 5 | Switzerland | Geneva |
 
 Ans. 
+To identify the faults in the dataset, we'll examine each column for inconsistencies or errors:
+
+### Dataset with Faults Highlighted:
+
+| #  | id  | Name    | Birthday | Gender | is Teacher? | #stud | country     | city    |
+|----|-----|---------|----------|--------|-------------|-------|-------------|---------|
+| 1  | 111 | John    | 21/10/90 | M      | 0           | 0     | Ireland     | Dublin  |
+| 2  | 222 | Mary    | 12/10/78 | F      | 1           | 15    | Iceland     | (empty) |
+| 3  | 333 | Alice   | 19/04/00 | F      | 0           | 0     | Spain       | Madrid  |
+| 4  | 444 | Mark    | 1/11/97  | A      | 0           | 0     | France      | Paris   |
+| 5  | 555 | Alex    | 15/03/00 | M      | 1           | 23    | Germany     | Berlin  |
+| 6  | 666 | Peter   | 21/31/83 | M      | 1           | 10    | Italy       | Rome    |
+| 7  | 777 | Calvin  | 5/5/48   | F      | 0           | 0     | Italy       | Italy   |
+| 8  | 888 | Rihanna | 3/8/48   | F      | 0           | 0     | Portugal    | Libson  |
+| 9  | 999 | Anne    | 5/9/42   | M      | 0           | 5     | Switzerland | Geneva  |
+
+### Faults Identified:
+
+1. **Row 2**: 
+   - **City**: The city is missing.
+
+2. **Row 4**:
+   - **Gender**: Gender is listed as "A", which is not a valid gender identifier (should be M or F).
+
+3. **Row 6**:
+   - **Birthday**: The date "21/31/83" is invalid as there is no 31st day in any month.
+
+4. **Row 7**:
+   - **Gender**: Gender is listed as "F" for a typically male name (Calvin). This might be a gender misclassification.
+   - **City**: The city and country are both listed as "Italy", which is a repetition error.
+
+5. **Row 8**:
+   - **City**: The city name "Libson" is misspelled. The correct spelling is "Lisbon".
+
+6. **Row 9**:
+   - **Gender**: Gender is listed as "M" for a typically female name (Anne). This might be a gender misclassification.
+
+> Additional values have been highlighted in bold
+
+### Corrected Dataset:
+
+| #  | id  | Name    | Birthday | Gender | is Teacher? | *studied* | country     | city    |
+|----|-----|---------|----------|--------|-------------|-------|-------------|---------|
+| 1  | 111 | John    | **21/10/90** | M      | 0           | 0     | Ireland     | Dublin  |
+| 2  | 222 | **Mary**    | 12/10/78 | F      | 1           | 15    | Iceland     | **Reykjavik** |  <!-- Adding a possible city name -->
+| 3  | 333 | Alice   | 19/04/00 | F      | 0           | 0     | Spain       | **Madrid**  |
+| 4  | 444 | Mark    | 1/11/97  | **M**      | 0           | 0     | France      | Paris   |  <!-- Correcting gender to M -->
+| 5  | 555 | Alex    | 15/03/00 | M      | 1           | 23    | Germany     | Berlin  |
+| 6  | **666** | **Peter**   | **31/12/83** | M      | 1           | 10    | Italy       | Rome    |  <!-- Correcting the date to a valid format -->
+| 7  | 777 | **Calvin**  | 5/5/48   | M      | 0           | 0     | Italy       |**Rome**   |  <!-- Correcting gender to M and assigning a possible city -->
+| 8  | 888 | **Rihanna** | 3/8/48   | F      | 0           | 0     | Portugal    | Lisbon  |  <!-- Correcting city spelling -->
+| 9  | 999 | Anne    | 5/9/42   | **F**      | 0           | 5     | Switzerland | Geneva  |  <!-- Correcting gender to F -->
+
+This corrected dataset addresses the identified faults, ensuring that all fields are valid and logically consistent.
 
 <hr>
 
