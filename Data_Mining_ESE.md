@@ -664,7 +664,7 @@ $P(\text{Reading} = \text{Yes} | \text{Male}) = \frac{1}{6} \approx 0.1667$
 
 - **P(Health = No | Male)**: 4 out of 6 Males have Health = No
 
-$P(\text{Health} = \text{No} | \text{Male}) = \frac{4}{6} = 0.6667$
+$P(\text{Health} = \text{No} | \text{Male}) = \frac{5}{6} = 0.8333$
 
   
 
@@ -706,11 +706,11 @@ $P(\text{Male} | \text{Attributes}) = P(\text{Male}) \times P(\text{Finance} = \
 
   
 
-$P(\text{Male} | \text{Attributes}) = 0.6 \times 0.1667 \times 0.5 \times 0.1667 \times 0.6667$
+$P(\text{Male} | \text{Attributes}) = 0.6 \times 0.1667 \times 0.5 \times 0.1667 \times 0.833$
 
   
 
-$P(\text{Male} | \text{Attributes}) \approx 0.6 \times 0.1667 \times 0.5 \times 0.1667 \times 0.6667 \approx 0.00334$
+$P(\text{Male} | \text{Attributes}) \approx 0.6 \times 0.1667 \times 0.5 \times 0.1667 \times 0.833 \approx 0.0069$
 
   
 
@@ -734,15 +734,15 @@ To determine the final classification, we compare the posterior probabilities.
 
   
 
-$P(\text{Male} | \text{Attributes}) \approx 0.00334$
+$P(\text{Male} | \text{Attributes}) \approx 0.0069$
 
-$P(\text{Female} | \text{Attributes}) \approx 0.025$
+$P(\text{Female} | \text{Attributes}) \approx 0.0125$
 
   
 
 ### Conclusion
 
-Since $ P(\text{Female} | \text{Attributes}) > P(\text{Male} | \text{Attributes}) $, the new instance $(\text{Finance} = \text{No}, \text{Travel} = \text{Yes}, \text{Reading} = \text{Yes}, \text{Health} = \text{No})$ is classified as **Female**.
+Since $P(\text{Female} | \text{Attributes}) > P(\text{Male} | \text{Attributes})$, the new instance $(\text{Finance} = \text{No}, \text{Travel} = \text{Yes}, \text{Reading} = \text{Yes}, \text{Health} = \text{No})$ is classified as **Female**.
 
 <hr>
 
