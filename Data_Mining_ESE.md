@@ -1199,7 +1199,7 @@ Examples : $sum(), count(), min(),  max()$
 - *Algebraic Function* : 
 If it can be computed by an algebraic function with M arguements ( where M is a bounded integer ) 
 
-Examples : $min_N()$ , $max_N()$ ,$\frac{sum()} {count()}$ ,  $avg()$
+Examples : $min_N()$ , $max_N()$ , $\frac{sum()} {count()}$ ,  $avg()$
 
 - *Holistic Function* : 
 An aggregate function is _holistic_ if there is no constant bound on the storage size needed to describe a subaggregate
